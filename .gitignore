@@ -1,0 +1,6 @@
+/target
+/.settings
+/.classpath
+/.project
+/.idea
+direct-sdk-java.iml
