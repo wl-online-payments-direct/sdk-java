@@ -15,7 +15,7 @@ public class PaymentProduct {
 
 	private PaymentProductDisplayHints displayHints = null;
 
-	private String id = null;
+	private Integer id = null;
 
 	private Long maxAmount = null;
 
@@ -80,14 +80,14 @@ public class PaymentProduct {
 	/**
 	 * The ID of the payment product in our system
 	 */
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
 	/**
 	 * The ID of the payment product in our system
 	 */
-	public void setId(String value) {
+	public void setId(Integer value) {
 		this.id = value;
 	}
 

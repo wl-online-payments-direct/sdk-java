@@ -18,14 +18,6 @@
 				<include>LICENSE.txt</include>
 			</includes>
 		</fileSet>
-		<fileSet>
-			<directory>src/examples/java</directory>
-			<outputDirectory>examples</outputDirectory>
-		</fileSet>
-		<fileSet>
-			<directory>src/examples/resources</directory>
-			<outputDirectory>examples</outputDirectory>
-		</fileSet>
 	</fileSets>
 
 	<dependencySets>

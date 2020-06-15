@@ -54,14 +54,14 @@ public class CommunicatorConfiguration {
 		if (properties != null) {
 			apiEndpoint			= getApiEndpoint(properties);
 			authorizationType	= AuthorizationType.valueOf(properties.getProperty("direct.api.authorizationType"));
-			connectTimeout		= Integer.parseInt(properties.getProperty("direct.api.connectTimeout"));
-			socketTimeout		= Integer.parseInt(properties.getProperty("direct.api.socketTimeout"));
+			connectTimeout		= getProperty(properties, "direct.api.connectTimeout", 10000);
+			socketTimeout		= getProperty(properties, "direct.api.socketTimeout", 10000);
 			maxConnections		= getProperty(properties, "direct.api.maxConnections", DEFAULT_MAX_CONNECTIONS);
 
 			String proxyURI		= properties.getProperty("direct.api.proxy.uri");
-			String proxyUser	= properties.getProperty("direct.api.proxy.username");
-			String proxyPass	= properties.getProperty("direct.api.proxy.password");
 			if (proxyURI != null) {
+				String proxyUser	= properties.getProperty("direct.api.proxy.username");
+				String proxyPass	= properties.getProperty("direct.api.proxy.password");
 				proxyConfiguration = new ProxyConfiguration(URI.create(proxyURI), proxyUser, proxyPass);
 			}
 
@@ -74,11 +74,6 @@ public class CommunicatorConfiguration {
 			integrator				= properties.getProperty("direct.api.integrator");
 			shoppingCartExtension	= getShoppingCartExtension(properties);
 		}
-	}
-
-	private int getProperty(Properties properties, String key, int defaultValue) {
-		String propertyValue = properties.getProperty(key, null);
-		return propertyValue != null ? Integer.parseInt(propertyValue) : defaultValue;
 	}
 
 	private URI getApiEndpoint(Properties properties) {
@@ -95,6 +90,11 @@ public class CommunicatorConfiguration {
 		} catch (URISyntaxException e) {
 			throw new IllegalArgumentException("Unable to construct API endpoint URI", e);
 		}
+	}
+
+	private int getProperty(Properties properties, String key, int defaultValue) {
+		String propertyValue = properties.getProperty(key);
+		return propertyValue != null ? Integer.parseInt(propertyValue) : defaultValue;
 	}
 
 	private ShoppingCartExtension getShoppingCartExtension(Properties properties) {

@@ -13,6 +13,8 @@ public class CardPaymentMethodSpecificInputBase {
 
 	private String initialSchemeTransactionId = null;
 
+	private PaymentProduct5100SpecificInput paymentProduct5100SpecificInput = null;
+
 	private Integer paymentProductId = null;
 
 	private CardRecurrenceDetails recurring = null;
@@ -65,6 +67,20 @@ public class CardPaymentMethodSpecificInputBase {
 	 */
 	public void setInitialSchemeTransactionId(String value) {
 		this.initialSchemeTransactionId = value;
+	}
+
+	/**
+	 * Object containing specific input required for Cpay payments.
+	 */
+	public PaymentProduct5100SpecificInput getPaymentProduct5100SpecificInput() {
+		return paymentProduct5100SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for Cpay payments.
+	 */
+	public void setPaymentProduct5100SpecificInput(PaymentProduct5100SpecificInput value) {
+		this.paymentProduct5100SpecificInput = value;
 	}
 
 	/**

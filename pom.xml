@@ -5,7 +5,7 @@
 
 	<groupId>com.ingenico.direct</groupId>
 	<artifactId>direct-sdk-java</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>direct-sdk-java</name>
@@ -265,7 +265,6 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>${basedir}/src/examples/java</source>
 								<source>${basedir}/src/it/java</source>
 							</sources>
 						</configuration>
@@ -278,9 +277,6 @@
 						</goals>
 						<configuration>
 							<resources>
-								<resource>
-									<directory>src/examples/resources</directory>
-								</resource>
 								<resource>
 									<directory>src/it/resources</directory>
 								</resource>
@@ -400,6 +396,25 @@
 							<serverId>ossrh</serverId>
 							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
 							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>integration</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<excludes>
+								<exclude>none</exclude>
+							</excludes>
+							<includes>
+								<include>/com/ingenico/direct/it/**/*</include>
+							</includes>
 						</configuration>
 					</plugin>
 				</plugins>
