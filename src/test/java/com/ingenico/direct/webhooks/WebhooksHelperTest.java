@@ -33,7 +33,7 @@ public class WebhooksHelperTest {
 	private static final Charset CHARSET = Charset.forName("UTF-8");
 
 	private static final String SIGNATURE_HEADER = "X-GCS-Signature";
-	private static final String SIGNATURE = "wAm5UOSu1YQQsPnQoJ1j+oxly0sckGHorb09nuTza6Y=";
+	private static final String SIGNATURE = "FOfAoY4QQJUE6NQ5dV/IxHNZaAf4gPujVDlgraEpMzo=";
 
 	private static final String KEY_ID_HEADER = "X-GCS-KeyId";
 	private static final String KEY_ID = "dummy-key-id";
@@ -128,7 +128,7 @@ public class WebhooksHelperTest {
 
 		WebhooksEvent event = helper.unmarshal(bodyStream, requestHeaders);
 
-		Assert.assertEquals("v2", event.getApiVersion());
+		Assert.assertEquals("v1", event.getApiVersion());
 		Assert.assertEquals("8ee793f6-4553-4749-85dc-f2ef095c5ab0", event.getId());
 		Assert.assertEquals("2020-01-01T12:30:30.000+0100", event.getCreated());
 		Assert.assertEquals("1", event.getMerchantId());
@@ -219,7 +219,7 @@ public class WebhooksHelperTest {
 
 		WebhooksEvent event = helper.unmarshal(body, requestHeaders);
 
-		Assert.assertEquals("v2", event.getApiVersion());
+		Assert.assertEquals("v1", event.getApiVersion());
 		Assert.assertEquals("8ee793f6-4553-4749-85dc-f2ef095c5ab0", event.getId());
 		Assert.assertEquals("2020-01-01T12:30:30.000+0100", event.getCreated());
 		Assert.assertEquals("1", event.getMerchantId());
