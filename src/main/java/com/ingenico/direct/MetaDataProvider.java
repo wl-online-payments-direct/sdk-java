@@ -19,7 +19,7 @@ import com.ingenico.direct.domain.ShoppingCartExtension;
  */
 public class MetaDataProvider {
 
-	private static final String SDK_VERSION = "1.2.0";
+	private static final String SDK_VERSION = "1.2.1";
 	protected static final String SDK_IDENTIFIER = "DirectJavaServerSDK/v" + SDK_VERSION;
 	protected static final String PLATFORM_IDENTIFIER;
 	static {
