@@ -170,8 +170,8 @@ public class WebhooksHelper {
 	// general utility methods
 
 	private void validateApiVersion(WebhooksEvent event) {
-		if (!Client.API_VERSION.equals(event.getApiVersion())) {
-			throw new ApiVersionMismatchException(event.getApiVersion(), Client.API_VERSION);
+		if (!"v1".equals(event.getApiVersion())) {
+			throw new ApiVersionMismatchException(event.getApiVersion(), "v1");
 		}
 	}
 
