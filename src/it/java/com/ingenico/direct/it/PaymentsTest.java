@@ -22,7 +22,7 @@ import com.ingenico.direct.domain.ThreeDSecure;
 public class PaymentsTest extends ItTest {
 
 	/**
-	 * Smoke test for products service.
+	 * Smoke test for payments service.
 	 */
 	@Test
 	public void test() throws URISyntaxException, IOException {

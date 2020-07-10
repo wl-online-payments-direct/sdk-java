@@ -25,14 +25,6 @@ public interface MerchantClientInterface {
 	ProductsClientInterface products();
 
 	/**
-	 * Resource /v2/{merchantId}/tokens/{tokenId}
-	 *
-	 * @param tokenId String
-	 * @return TokensClient
-	 */
-	TokensClientInterface tokens(String tokenId);
-
-	/**
 	 * Resource /v2/{merchantId}/sessions
 	 *
 	 * @return SessionsClient
@@ -59,6 +51,13 @@ public interface MerchantClientInterface {
 	 * @return ProductGroupsClient
 	 */
 	ProductGroupsClientInterface productGroups();
+
+	/**
+	 * Resource /v2/{merchantId}/tokens
+	 *
+	 * @return TokensClient
+	 */
+	TokensClientInterface tokens();
 
 	/**
 	 * Resource /v2/{merchantId}/hostedcheckouts

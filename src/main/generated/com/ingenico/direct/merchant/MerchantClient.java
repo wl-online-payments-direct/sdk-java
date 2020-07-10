@@ -5,7 +5,6 @@
 package com.ingenico.direct.merchant;
 
 import java.util.Map;
-import java.util.TreeMap;
 
 import com.ingenico.direct.ApiResource;
 import com.ingenico.direct.merchant.hostedcheckout.HostedCheckoutClient;
@@ -26,66 +25,49 @@ public class MerchantClient extends ApiResource implements MerchantClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/products
-	 *
-	 * @return ProductsClient
+	 * {@inheritDoc}
 	 */
 	public ProductsClient products() {
 		return new ProductsClient(this, null);
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/tokens/{tokenId}
-	 *
-	 * @param tokenId String
-	 * @return TokensClient
-	 */
-	public TokensClient tokens(String tokenId) {
-		Map<String, String> subContext = new TreeMap<String, String>();
-		subContext.put("tokenId", tokenId);
-		return new TokensClient(this, subContext);
-	}
-
-	/**
-	 * Resource /v2/{merchantId}/sessions
-	 *
-	 * @return SessionsClient
+	 * {@inheritDoc}
 	 */
 	public SessionsClient sessions() {
 		return new SessionsClient(this, null);
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments
-	 *
-	 * @return PaymentsClient
+	 * {@inheritDoc}
 	 */
 	public PaymentsClient payments() {
 		return new PaymentsClient(this, null);
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/services/testconnection
-	 *
-	 * @return ServicesClient
+	 * {@inheritDoc}
 	 */
 	public ServicesClient services() {
 		return new ServicesClient(this, null);
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/productgroups
-	 *
-	 * @return ProductGroupsClient
+	 * {@inheritDoc}
 	 */
 	public ProductGroupsClient productGroups() {
 		return new ProductGroupsClient(this, null);
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/hostedcheckouts
-	 *
-	 * @return HostedCheckoutClient
+	 * {@inheritDoc}
+	 */
+	public TokensClient tokens() {
+		return new TokensClient(this, null);
+	}
+
+	/**
+	 * {@inheritDoc}
 	 */
 	public HostedCheckoutClient hostedCheckout() {
 		return new HostedCheckoutClient(this, null);

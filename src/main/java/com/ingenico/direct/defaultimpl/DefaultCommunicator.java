@@ -18,18 +18,13 @@ import java.util.concurrent.TimeUnit;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.utils.URIBuilder;
 
-import com.ingenico.direct.ApiException;
 import com.ingenico.direct.Authenticator;
-import com.ingenico.direct.BodyHandler;
-import com.ingenico.direct.BodyHandlerException;
 import com.ingenico.direct.CallContext;
 import com.ingenico.direct.CommunicationException;
 import com.ingenico.direct.Communicator;
 import com.ingenico.direct.Connection;
 import com.ingenico.direct.Marshaller;
 import com.ingenico.direct.MetaDataProvider;
-import com.ingenico.direct.MultipartFormDataObject;
-import com.ingenico.direct.MultipartFormDataRequest;
 import com.ingenico.direct.NotFoundException;
 import com.ingenico.direct.ParamRequest;
 import com.ingenico.direct.PooledConnection;
@@ -99,23 +94,11 @@ public class DefaultCommunicator implements Communicator {
 		connection.close();
 	}
 
-	/**
-	 * Corresponds to the HTTP GET method.
-	 *
-	 * @param relativePath The path to call, relative to the base URI.
-	 * @param requestHeaders An optional list of request headers.
-	 * @param requestParameters An optional set of request parameters.
-	 * @param responseType The type of response to return.
-	 * @param context The optional call context to use.
-	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
-	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
-	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
-	 */
+	/** {@inheritDoc} */
 	@Override
 	@SuppressWarnings("resource")
 	public <O> O get(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters,
 			final Class<O> responseType, final CallContext context) {
-
 		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
 		URI uri = toAbsoluteURI(relativePath, requestParameterList);
 
@@ -124,69 +107,14 @@ public class DefaultCommunicator implements Communicator {
 		}
 
 		addGenericHeaders("GET", uri, requestHeaders, context);
-
-		return connection.get(uri, requestHeaders, new ResponseHandler<O>() {
-
-			@Override
-			public O handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
-				return processResponse(statusCode, bodyStream, headers, responseType, relativePath, context);
-			}
-		});
+		return connection.get(uri, requestHeaders, getDefaultResponseHandler(relativePath, responseType, context));
 	}
 
-	/**
-	 * Corresponds to the HTTP GET method.
-	 *
-	 * @param relativePath The path to call, relative to the base URI.
-	 * @param requestHeaders An optional list of request headers.
-	 * @param requestParameters An optional set of request parameters.
-	 * @param bodyHandler The handler for the response body.
-	 * @param context The optional call context to use.
-	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
-	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
-	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
-	 */
+	/** {@inheritDoc} */
 	@Override
 	@SuppressWarnings("resource")
-	public void get(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters,
-			final BodyHandler bodyHandler, final CallContext context) {
-
-		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
-		URI uri = toAbsoluteURI(relativePath, requestParameterList);
-
-		if (requestHeaders == null) {
-			requestHeaders = new ArrayList<RequestHeader>();
-		}
-
-		addGenericHeaders("GET", uri, requestHeaders, context);
-
-		connection.get(uri, requestHeaders, new ResponseHandler<Void>() {
-
-			@Override
-			public Void handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
-				processResponse(statusCode, bodyStream, headers, bodyHandler, relativePath, context);
-				return null;
-			}
-		});
-	}
-
-	/**
-	 * Corresponds to the HTTP DELETE method.
-	 *
-	 * @param relativePath The path to call, relative to the base URI.
-	 * @param requestHeaders An optional list of request headers.
-	 * @param requestParameters An optional set of request parameters.
-	 * @param responseType The type of response to return.
-	 * @param context The optional call context to use.
-	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
-	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
-	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
-	 */
-	@Override
-	@SuppressWarnings("resource")
-	public <O> O delete(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters,
+	public <O> O delete(String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters,
 			final Class<O> responseType, final CallContext context) {
-
 		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
 		URI uri = toAbsoluteURI(relativePath, requestParameterList);
 
@@ -195,78 +123,14 @@ public class DefaultCommunicator implements Communicator {
 		}
 
 		addGenericHeaders("DELETE", uri, requestHeaders, context);
-
-		return connection.delete(uri, requestHeaders, new ResponseHandler<O>() {
-
-			@Override
-			public O handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
-				return processResponse(statusCode, bodyStream, headers, responseType, relativePath, context);
-			}
-		});
+		return connection.delete(uri, requestHeaders, getDefaultResponseHandler(relativePath, responseType, context));
 	}
 
-	/**
-	 * Corresponds to the HTTP DELETE method.
-	 *
-	 * @param relativePath The path to call, relative to the base URI.
-	 * @param requestHeaders An optional list of request headers.
-	 * @param requestParameters An optional set of request parameters.
-	 * @param bodyHandler The handler for the response body.
-	 * @param context The optional call context to use.
-	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
-	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
-	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
-	 */
-	@Override
-	@SuppressWarnings("resource")
-	public void delete(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters,
-			final BodyHandler bodyHandler, final CallContext context) {
-
-		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
-		URI uri = toAbsoluteURI(relativePath, requestParameterList);
-
-		if (requestHeaders == null) {
-			requestHeaders = new ArrayList<RequestHeader>();
-		}
-
-		addGenericHeaders("DELETE", uri, requestHeaders, context);
-
-		connection.delete(uri, requestHeaders, new ResponseHandler<Void>() {
-
-			@Override
-			public Void handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
-				processResponse(statusCode, bodyStream, headers, bodyHandler, relativePath, context);
-				return null;
-			}
-		});
-	}
-
-	/**
-	 * Corresponds to the HTTP POST method.
-	 *
-	 * @param relativePath The path to call, relative to the base URI.
-	 * @param requestHeaders An optional list of request headers.
-	 * @param requestParameters An optional set of request parameters.
-	 * @param requestBody The optional request body to send.
-	 * @param responseType The type of response to return.
-	 * @param context The optional call context to use.
-	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
-	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
-	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
-	 */
+	/** {@inheritDoc} */
 	@Override
 	@SuppressWarnings("resource")
 	public <O> O post(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, Object requestBody,
 			final Class<O> responseType, final CallContext context) {
-
-		if (requestBody instanceof MultipartFormDataObject) {
-			return post(relativePath, requestHeaders, requestParameters, (MultipartFormDataObject) requestBody, responseType, context);
-		}
-		if (requestBody instanceof MultipartFormDataRequest) {
-			MultipartFormDataObject multipart = ((MultipartFormDataRequest) requestBody).toMultipartFormDataObject();
-			return post(relativePath, requestHeaders, requestParameters, multipart, responseType, context);
-		}
-
 		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
 		URI uri = toAbsoluteURI(relativePath, requestParameterList);
 
@@ -274,151 +138,17 @@ public class DefaultCommunicator implements Communicator {
 			requestHeaders = new ArrayList<RequestHeader>();
 		}
 
-		String requestJson = null;
-		if (requestBody != null) {
-			requestHeaders.add(new RequestHeader("Content-Type", "application/json"));
-			requestJson = marshaller.marshal(requestBody);
-		}
+		String requestJson = prepareBody(requestHeaders, requestBody);
 
 		addGenericHeaders("POST", uri, requestHeaders, context);
-
-		return connection.post(uri, requestHeaders, requestJson, new ResponseHandler<O>() {
-
-			@Override
-			public O handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
-				return processResponse(statusCode, bodyStream, headers, responseType, relativePath, context);
-			}
-		});
+		return connection.post(uri, requestHeaders, requestJson, getDefaultResponseHandler(relativePath, responseType, context));
 	}
 
-	@SuppressWarnings("resource")
-	private <O> O post(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, MultipartFormDataObject multipart,
-			final Class<O> responseType, final CallContext context) {
-
-		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
-		URI uri = toAbsoluteURI(relativePath, requestParameterList);
-
-		if (requestHeaders == null) {
-			requestHeaders = new ArrayList<RequestHeader>();
-		}
-
-		requestHeaders.add(new RequestHeader("Content-Type", multipart.getContentType()));
-
-		addGenericHeaders("POST", uri, requestHeaders, context);
-
-		return connection.post(uri, requestHeaders, multipart, new ResponseHandler<O>() {
-
-			@Override
-			public O handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
-				return processResponse(statusCode, bodyStream, headers, responseType, relativePath, context);
-			}
-		});
-	}
-
-	/**
-	 * Corresponds to the HTTP POST method.
-	 *
-	 * @param relativePath The path to call, relative to the base URI.
-	 * @param requestHeaders An optional list of request headers.
-	 * @param requestParameters An optional set of request parameters.
-	 * @param requestBody The optional request body to send.
-	 * @param bodyHandler The handler for the response body.
-	 * @param context The optional call context to use.
-	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
-	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
-	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
-	 */
-	@Override
-	@SuppressWarnings("resource")
-	public void post(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, Object requestBody,
-			final BodyHandler bodyHandler, final CallContext context) {
-
-		if (requestBody instanceof MultipartFormDataObject) {
-			post(relativePath, requestHeaders, requestParameters, (MultipartFormDataObject) requestBody, bodyHandler, context);
-			return;
-		}
-		if (requestBody instanceof MultipartFormDataRequest) {
-			MultipartFormDataObject multipart = ((MultipartFormDataRequest) requestBody).toMultipartFormDataObject();
-			post(relativePath, requestHeaders, requestParameters, multipart, bodyHandler, context);
-			return;
-		}
-
-		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
-		URI uri = toAbsoluteURI(relativePath, requestParameterList);
-
-		if (requestHeaders == null) {
-			requestHeaders = new ArrayList<RequestHeader>();
-		}
-
-		String requestJson = null;
-		if (requestBody != null) {
-			requestHeaders.add(new RequestHeader("Content-Type", "application/json"));
-			requestJson = marshaller.marshal(requestBody);
-		}
-
-		addGenericHeaders("POST", uri, requestHeaders, context);
-
-		connection.post(uri, requestHeaders, requestJson, new ResponseHandler<Void>() {
-
-			@Override
-			public Void handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
-				processResponse(statusCode, bodyStream, headers, bodyHandler, relativePath, context);
-				return null;
-			}
-		});
-	}
-
-	@SuppressWarnings("resource")
-	private void post(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, MultipartFormDataObject multipart,
-			final BodyHandler bodyHandler, final CallContext context) {
-
-		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
-		URI uri = toAbsoluteURI(relativePath, requestParameterList);
-
-		if (requestHeaders == null) {
-			requestHeaders = new ArrayList<RequestHeader>();
-		}
-
-		requestHeaders.add(new RequestHeader("Content-Type", multipart.getContentType()));
-
-		addGenericHeaders("POST", uri, requestHeaders, context);
-
-		connection.post(uri, requestHeaders, multipart, new ResponseHandler<Void>() {
-
-			@Override
-			public Void handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
-				processResponse(statusCode, bodyStream, headers, bodyHandler, relativePath, context);
-				return null;
-			}
-		});
-	}
-
-	/**
-	 * Corresponds to the HTTP PUT method.
-	 *
-	 * @param relativePath The path to call, relative to the base URI.
-	 * @param requestHeaders An optional list of request headers.
-	 * @param requestParameters An optional set of request parameters.
-	 * @param requestBody The optional request body to send.
-	 * @param responseType The type of response to return.
-	 * @param context The optional call context to use.
-	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
-	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
-	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
-	 */
+	/** {@inheritDoc} */
 	@Override
 	@SuppressWarnings("resource")
 	public <O> O put(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, Object requestBody,
 			final Class<O> responseType, final CallContext context) {
-
-		if (requestBody instanceof MultipartFormDataObject) {
-			return put(relativePath, requestHeaders, requestParameters, (MultipartFormDataObject) requestBody, responseType, context);
-		}
-		if (requestBody instanceof MultipartFormDataRequest) {
-			MultipartFormDataObject multipart = ((MultipartFormDataRequest) requestBody).toMultipartFormDataObject();
-			return put(relativePath, requestHeaders, requestParameters, multipart, responseType, context);
-		}
-
 		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
 		URI uri = toAbsoluteURI(relativePath, requestParameterList);
 
@@ -426,123 +156,10 @@ public class DefaultCommunicator implements Communicator {
 			requestHeaders = new ArrayList<RequestHeader>();
 		}
 
-		String requestJson = null;
-		if (requestBody != null) {
-			requestHeaders.add(new RequestHeader("Content-Type", "application/json"));
-			requestJson = marshaller.marshal(requestBody);
-		}
+		String requestJson = prepareBody(requestHeaders, requestBody);
 
 		addGenericHeaders("PUT", uri, requestHeaders, context);
-
-		return connection.put(uri, requestHeaders, requestJson, new ResponseHandler<O>() {
-
-			@Override
-			public O handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
-				return processResponse(statusCode, bodyStream, headers, responseType, relativePath, context);
-			}
-		});
-	}
-
-	@SuppressWarnings("resource")
-	private <O> O put(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, MultipartFormDataObject multipart,
-			final Class<O> responseType, final CallContext context) {
-
-		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
-		URI uri = toAbsoluteURI(relativePath, requestParameterList);
-
-		if (requestHeaders == null) {
-			requestHeaders = new ArrayList<RequestHeader>();
-		}
-
-		requestHeaders.add(new RequestHeader("Content-Type", multipart.getContentType()));
-
-		addGenericHeaders("PUT", uri, requestHeaders, context);
-
-		return connection.put(uri, requestHeaders, multipart, new ResponseHandler<O>() {
-
-			@Override
-			public O handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
-				return processResponse(statusCode, bodyStream, headers, responseType, relativePath, context);
-			}
-		});
-	}
-
-	/**
-	 * Corresponds to the HTTP PUT method.
-	 *
-	 * @param relativePath The path to call, relative to the base URI.
-	 * @param requestHeaders An optional list of request headers.
-	 * @param requestParameters An optional set of request parameters.
-	 * @param requestBody The optional request body to send.
-	 * @param bodyHandler The handler for the response body.
-	 * @param context The optional call context to use.
-	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
-	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
-	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
-	 */
-	@Override
-	@SuppressWarnings("resource")
-	public void put(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, Object requestBody,
-			final BodyHandler bodyHandler, final CallContext context) {
-
-		if (requestBody instanceof MultipartFormDataObject) {
-			put(relativePath, requestHeaders, requestParameters, (MultipartFormDataObject) requestBody, bodyHandler, context);
-			return;
-		}
-		if (requestBody instanceof MultipartFormDataRequest) {
-			MultipartFormDataObject multipart = ((MultipartFormDataRequest) requestBody).toMultipartFormDataObject();
-			put(relativePath, requestHeaders, requestParameters, multipart, bodyHandler, context);
-			return;
-		}
-
-		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
-		URI uri = toAbsoluteURI(relativePath, requestParameterList);
-
-		if (requestHeaders == null) {
-			requestHeaders = new ArrayList<RequestHeader>();
-		}
-
-		String requestJson = null;
-		if (requestBody != null) {
-			requestHeaders.add(new RequestHeader("Content-Type", "application/json"));
-			requestJson = marshaller.marshal(requestBody);
-		}
-
-		addGenericHeaders("PUT", uri, requestHeaders, context);
-
-		connection.put(uri, requestHeaders, requestJson, new ResponseHandler<Void>() {
-
-			@Override
-			public Void handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
-				processResponse(statusCode, bodyStream, headers, bodyHandler, relativePath, context);
-				return null;
-			}
-		});
-	}
-
-	@SuppressWarnings("resource")
-	private void put(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, MultipartFormDataObject multipart,
-			final BodyHandler bodyHandler, final CallContext context) {
-
-		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
-		URI uri = toAbsoluteURI(relativePath, requestParameterList);
-
-		if (requestHeaders == null) {
-			requestHeaders = new ArrayList<RequestHeader>();
-		}
-
-		requestHeaders.add(new RequestHeader("Content-Type", multipart.getContentType()));
-
-		addGenericHeaders("PUT", uri, requestHeaders, context);
-
-		connection.put(uri, requestHeaders, multipart, new ResponseHandler<Void>() {
-
-			@Override
-			public Void handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
-				processResponse(statusCode, bodyStream, headers, bodyHandler, relativePath, context);
-				return null;
-			}
-		});
+		return connection.put(uri, requestHeaders, requestJson, getDefaultResponseHandler(relativePath, responseType, context));
 	}
 
 	public URI getApiEndpoint() {
@@ -607,6 +224,15 @@ public class DefaultCommunicator implements Communicator {
 		}
 	}
 
+	private String prepareBody(List<RequestHeader> requestHeaders, Object requestBody) {
+		String requestJson = null;
+		if (requestBody != null) {
+			requestHeaders.add(new RequestHeader("Content-Type", "application/json"));
+			requestJson = marshaller.marshal(requestBody);
+		}
+		return requestJson;
+	}
+
 	/**
 	 * Adds the necessary headers to the given list of headers. This includes the authorization header, which uses
 	 * other headers, so when you need to override this method, make sure to call {@code super.addGenericHeaders}
@@ -640,6 +266,15 @@ public class DefaultCommunicator implements Communicator {
 		return dateFormat.format(calendar.getTime());
 	}
 
+	private <O> ResponseHandler<O> getDefaultResponseHandler(final String relativePath, final Class<O> responseType, final CallContext context) {
+		return new ResponseHandler<O>() {
+			@Override
+			public O handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
+				return processResponse(statusCode, bodyStream, headers, responseType, relativePath, context);
+			}
+		};
+	}
+
 	protected <O> O processResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers, Class<O> responseType,
 			String requestPath, CallContext context) {
 
@@ -649,21 +284,6 @@ public class DefaultCommunicator implements Communicator {
 		throwExceptionIfNecessary(statusCode, bodyStream, headers, requestPath);
 
 		return marshaller.unmarshal(bodyStream, responseType);
-	}
-
-	protected void processResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers, BodyHandler bodyHandler,
-			String requestPath, CallContext context) {
-
-		if (context != null) {
-			updateContext(headers, context);
-		}
-		throwExceptionIfNecessary(statusCode, bodyStream, headers, requestPath);
-
-		try {
-			bodyHandler.handleBody(bodyStream, headers);
-		} catch (IOException e) {
-			throw new BodyHandlerException(e);
-		}
 	}
 
 	/**
@@ -689,7 +309,7 @@ public class DefaultCommunicator implements Communicator {
 		if (statusCode < 200 || statusCode >= 300) {
 			String body = toString(bodyStream);
 
-			if (body != null && !body.isEmpty() && !isJson(headers)) {
+			if (!body.isEmpty() && !isJson(headers)) {
 				ResponseException cause = new ResponseException(statusCode, body, headers);
 				if (statusCode == HttpStatus.SC_NOT_FOUND) {
 					throw new NotFoundException("The requested resource was not found; invalid path: " + requestPath, cause);

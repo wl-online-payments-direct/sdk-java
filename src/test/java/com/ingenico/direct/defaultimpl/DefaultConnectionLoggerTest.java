@@ -1,9 +1,6 @@
 package com.ingenico.direct.defaultimpl;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.SocketTimeoutException;
@@ -13,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,8 +17,6 @@ import org.apache.http.HttpException;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
-import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.entity.ContentType;
 import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.localserver.LocalServerTestBase;
 import org.apache.http.protocol.HttpContext;
@@ -38,7 +32,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.mockito.stubbing.Answer;
 
 import com.ingenico.direct.Authenticator;
-import com.ingenico.direct.BodyHandler;
 import com.ingenico.direct.ClientInterface;
 import com.ingenico.direct.CommunicationException;
 import com.ingenico.direct.Communicator;
@@ -47,12 +40,7 @@ import com.ingenico.direct.DeclinedPaymentException;
 import com.ingenico.direct.DirectException;
 import com.ingenico.direct.Factory;
 import com.ingenico.direct.MetaDataProvider;
-import com.ingenico.direct.MultipartFormDataObject;
 import com.ingenico.direct.NotFoundException;
-import com.ingenico.direct.RequestHeader;
-import com.ingenico.direct.ResponseHandler;
-import com.ingenico.direct.ResponseHeader;
-import com.ingenico.direct.UploadableFile;
 import com.ingenico.direct.ValidationException;
 import com.ingenico.direct.domain.Address;
 import com.ingenico.direct.domain.AmountOfMoney;
@@ -64,7 +52,6 @@ import com.ingenico.direct.domain.Customer;
 import com.ingenico.direct.domain.Order;
 import com.ingenico.direct.domain.TestConnection;
 import com.ingenico.direct.logging.CommunicatorLogger;
-import com.ingenico.direct.util.ResponseHeaderMatcher;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultConnectionLoggerTest extends LocalServerTestBase {
@@ -123,7 +110,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 		setupRequestHandler(setVoidResponse());
 
 		try {
-			client.merchant("1").tokens("2").deleteToken();
+			client.merchant("1").tokens().deleteToken("2");
 
 		} finally {
 			client.close();
@@ -349,203 +336,6 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 		Assert.assertNull(responseEntry.thrown);
 
 		assertRequestAndResponse(requestEntry.message, responseEntry.message, "createPayment.failure.rejected");
-	}
-
-	@Test
-	public void testBinaryRequestWithKnownLength() throws Exception {
-
-		serverBootstrap.registerHandler("/binaryRequest", requestHandler);
-		HttpHost host = start();
-
-		Communicator communicator = createCommunicator(host);
-		TestLogger logger = new TestLogger();
-		communicator.enableLogging(logger);
-
-		final byte[] data = new byte[1024];
-		new Random().nextBytes(data);
-
-		UploadableFile file = new UploadableFile("dummyFile", new ByteArrayInputStream(data), "application/octetstream", data.length);
-
-		MultipartFormDataObject multipart = new MultipartFormDataObject();
-		multipart.addFile("file", file);
-
-		setupRequestHandler(setVoidResponse());
-
-		try {
-			communicator.post("/binaryRequest", new ArrayList<RequestHeader>(), null, multipart, Void.class, null);
-		} finally {
-			communicator.close();
-		}
-
-		Assert.assertEquals(2, logger.entries.size());
-
-		TestLoggerEntry requestEntry = logger.entries.get(0);
-
-		Assert.assertNotNull(requestEntry.message);
-		Assert.assertNull(requestEntry.thrown);
-
-		TestLoggerEntry responseEntry = logger.entries.get(1);
-
-		Assert.assertNotNull(responseEntry.message);
-		Assert.assertNull(responseEntry.thrown);
-
-		assertRequestAndResponse(requestEntry.message, responseEntry.message, "binaryRequest");
-
-		Assert.assertThat(requestEntry.message, org.hamcrest.Matchers.containsString("Content-Length="));
-		Assert.assertThat(requestEntry.message, org.hamcrest.Matchers.not(org.hamcrest.Matchers.containsString("Transfer-Encoding=\"chunked\"")));
-	}
-
-	@Test
-	public void testBinaryRequestWithUnknownLength() throws Exception {
-
-		serverBootstrap.registerHandler("/binaryRequest", requestHandler);
-		HttpHost host = start();
-
-		Communicator communicator = createCommunicator(host);
-		TestLogger logger = new TestLogger();
-		communicator.enableLogging(logger);
-
-		final byte[] data = new byte[1024];
-		new Random().nextBytes(data);
-
-		UploadableFile file = new UploadableFile("dummyFile", new ByteArrayInputStream(data), "application/octetstream");
-
-		MultipartFormDataObject multipart = new MultipartFormDataObject();
-		multipart.addFile("file", file);
-
-		setupRequestHandler(setVoidResponse());
-
-		try {
-			communicator.post("/binaryRequest", new ArrayList<RequestHeader>(), null, multipart, Void.class, null);
-		} finally {
-			communicator.close();
-		}
-
-		Assert.assertEquals(2, logger.entries.size());
-
-		TestLoggerEntry requestEntry = logger.entries.get(0);
-
-		Assert.assertNotNull(requestEntry.message);
-		Assert.assertNull(requestEntry.thrown);
-
-		TestLoggerEntry responseEntry = logger.entries.get(1);
-
-		Assert.assertNotNull(responseEntry.message);
-		Assert.assertNull(responseEntry.thrown);
-
-		assertRequestAndResponse(requestEntry.message, responseEntry.message, "binaryRequest");
-
-		Assert.assertThat(requestEntry.message, org.hamcrest.Matchers.not(org.hamcrest.Matchers.containsString("Content-Length=")));
-		Assert.assertThat(requestEntry.message, org.hamcrest.Matchers.containsString("Transfer-Encoding=\"chunked\""));
-	}
-
-	@Test
-	public void testBinaryResponse() throws Exception {
-
-		serverBootstrap.registerHandler("/binaryContent", requestHandler);
-		HttpHost host = start();
-
-		URI uri = toURI(host, "/binaryContent");
-
-		Connection connection = createConnection();
-		TestLogger logger = new TestLogger();
-		connection.enableLogging(logger);
-
-		final byte[] data = new byte[1024];
-		new Random().nextBytes(data);
-
-		setupRequestHandler(setBinaryResponse(data, 200));
-
-		// also test that the response handler is called correctly
-		ResponseHandler<?> responseHandler = new ResponseHandler<Void>() {
-
-			@Override
-			public Void handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
-				ByteArrayOutputStream output = new ByteArrayOutputStream(data.length);
-				try {
-					byte[] buffer = new byte[data.length];
-					int len;
-					while ((len = bodyStream.read(buffer)) != -1) {
-						output.write(buffer, 0, len);
-					}
-				} catch (IOException e) {
-					throw new IllegalStateException(e);
-				}
-
-				Assert.assertEquals(200, statusCode);
-				Assert.assertArrayEquals(data, output.toByteArray());
-				Assert.assertThat(headers, org.hamcrest.Matchers.hasItems(
-						new ResponseHeaderMatcher("Dummy", ""),
-						new ResponseHeaderMatcher("Content-Type", "application/octet-stream"),
-						new ResponseHeaderMatcher("Content-Length", "1024")
-				));
-
-				return null;
-			}
-		};
-
-		try {
-			connection.get(uri, new ArrayList<RequestHeader>(), responseHandler);
-		} finally {
-			connection.close();
-		}
-
-		Assert.assertEquals(2, logger.entries.size());
-
-		TestLoggerEntry requestEntry = logger.entries.get(0);
-
-		Assert.assertNotNull(requestEntry.message);
-		Assert.assertNull(requestEntry.thrown);
-
-		TestLoggerEntry responseEntry = logger.entries.get(1);
-
-		Assert.assertNotNull(responseEntry.message);
-		Assert.assertNull(responseEntry.thrown);
-
-		assertRequestAndResponse(requestEntry.message, responseEntry.message, "binaryResponse");
-	}
-
-	@Test
-	public void testVoidContent() throws Exception {
-
-		// reuse delete token
-		serverBootstrap.registerHandler("/v2/1/tokens/2", requestHandler);
-		HttpHost host = start();
-
-		Communicator communicator = createCommunicator(host);
-		TestLogger logger = new TestLogger();
-		communicator.enableLogging(logger);
-
-		setupRequestHandler(setVoidResponse());
-
-		// also test that the body handler is called correctly
-		BodyHandler bodyHandler = new BodyHandler() {
-
-			@Override
-			public void handleBody(InputStream bodyStream, List<ResponseHeader> headers) throws IOException {
-				Assert.assertEquals(-1, bodyStream.read());
-			}
-		};
-
-		try {
-			communicator.delete("/v2/1/tokens/2", null, null, bodyHandler, null);
-		} finally {
-			communicator.close();
-		}
-
-		Assert.assertEquals(2, logger.entries.size());
-
-		TestLoggerEntry requestEntry = logger.entries.get(0);
-
-		Assert.assertNotNull(requestEntry.message);
-		Assert.assertNull(requestEntry.thrown);
-
-		TestLoggerEntry responseEntry = logger.entries.get(1);
-
-		Assert.assertNotNull(responseEntry.message);
-		Assert.assertNull(responseEntry.thrown);
-
-		assertRequestAndResponse(requestEntry.message, responseEntry.message, "deleteToken");
 	}
 
 	@Test
@@ -935,32 +725,6 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 		};
 	}
 
-	private Answer<Void> setBinaryResponse(final byte[] data, final int statusCode) {
-		return setBinaryResponse(data, statusCode, Collections.<String, String>emptyMap());
-	}
-
-	private Answer<Void> setBinaryResponse(final byte[] data, final int statusCode, final Map<String, String> additionalHeaders) {
-		return new Answer<Void>() {
-			@Override
-			public Void answer(InvocationOnMock invocation) throws Throwable {
-				HttpResponse response = invocation.getArgumentAt(1, HttpResponse.class);
-
-				response.setStatusCode(statusCode);
-				response.setHeader("Content-Type", "application/octet-stream");
-
-				response.setHeader("Dummy", null);
-
-				for (Map.Entry<String, String> entry : additionalHeaders.entrySet()) {
-					response.setHeader(entry.getKey(), entry.getValue());
-				}
-
-				response.setEntity(new ByteArrayEntity(data, ContentType.APPLICATION_OCTET_STREAM));
-
-				return null;
-			}
-		};
-	}
-
 	private <T> Answer<T> delayedAnswer(final Answer<? extends T> answer, final int delay) {
 		return new Answer<T>() {
 			@Override
@@ -996,16 +760,8 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 	private static final int DEFAULT_CONNECT_TIMEOUT = 1000;
 	private static final int DEFAULT_SOCKET_TIMEOUT = 1000;
 
-	private URI toURI(HttpHost host, String path) throws URISyntaxException {
-		return new URI(host.getSchemeName(), null, host.getHostName(), host.getPort(), path, null, null);
-	}
-
-	private Connection createConnection() {
-		return createConnection(DEFAULT_CONNECT_TIMEOUT, DEFAULT_SOCKET_TIMEOUT);
-	}
-
-	private Connection createConnection(int connectTimeout, int socketTimeout) {
-		return new DefaultConnection(connectTimeout, socketTimeout);
+	private URI toURI(HttpHost host) throws URISyntaxException {
+		return new URI(host.getSchemeName(), null, host.getHostName(), host.getPort(), null, null, null);
 	}
 
 	private Communicator createCommunicator(HttpHost host) throws URISyntaxException {
@@ -1015,7 +771,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 	@SuppressWarnings("resource")
 	private Communicator createCommunicator(HttpHost host, int connectTimeout, int socketTimeout) throws URISyntaxException {
 
-		URI uri = toURI(host, null);
+		URI uri = toURI(host);
 		Connection connection = new DefaultConnection(connectTimeout, socketTimeout);
 		Authenticator authenticator = new DefaultAuthenticator(AuthorizationType.V1HMAC, "apiKey", "secret");
 		MetaDataProvider metaDataProvider = new MetaDataProvider("Ingenico");

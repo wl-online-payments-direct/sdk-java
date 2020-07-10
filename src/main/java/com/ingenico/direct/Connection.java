@@ -51,21 +51,6 @@ public interface Connection extends Closeable, LoggingCapable {
 	<R> R post(URI uri, List<RequestHeader> requestHeaders, String body, ResponseHandler<R> responseHandler);
 
 	/**
-	 * Send a multipart/form-data POST request to the Ingenico ePayments platform.
-	 * <p>
-	 * The content type of the request will be be part of the given request header list.
-	 * If the connection creates its own content type, it should be {@link MultipartFormDataObject#getContentType() multipart.getContentType()}.
-	 * Otherwise, authentication failures will occur.
-	 *
-	 * @param uri The URI to call, including any necessary query parameters.
-	 * @param requestHeaders An optional list of request headers.
-	 * @param multipart The multipart/form-data request to send.
-	 * @param responseHandler A handler for the response.
-	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
-	 */
-	<R> R post(URI uri, List<RequestHeader> requestHeaders, MultipartFormDataObject multipart, ResponseHandler<R> responseHandler);
-
-	/**
 	 * Send a PUT request to the Ingenico ePayments platform.
 	 *
 	 * @param uri The URI to call, including any necessary query parameters.
@@ -75,19 +60,4 @@ public interface Connection extends Closeable, LoggingCapable {
 	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
 	 */
 	<R> R put(URI uri, List<RequestHeader> requestHeaders, String body, ResponseHandler<R> responseHandler);
-
-	/**
-	 * Send a multipart/form-data PUT request to the Ingenico ePayments platform.
-	 * <p>
-	 * The content type of the request will be be part of the given request header list.
-	 * If the connection creates its own content type, it should be {@link MultipartFormDataObject#getContentType() multipart.getContentType()}.
-	 * Otherwise, authentication failures will occur.
-	 *
-	 * @param uri The URI to call, including any necessary query parameters.
-	 * @param requestHeaders An optional list of request headers.
-	 * @param multipart The multipart/form-data request to send.
-	 * @param responseHandler A handler for the response.
-	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
-	 */
-	<R> R put(URI uri, List<RequestHeader> requestHeaders, MultipartFormDataObject multipart, ResponseHandler<R> responseHandler);
 }

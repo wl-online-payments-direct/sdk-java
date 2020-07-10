@@ -44,18 +44,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreatePaymentApi">Create payment</a>
-	 *
-	 * @throws DeclinedPaymentException if the Ingenico ePayments platform declined / rejected the payment. The payment result will be available from the exception.
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public CreatePaymentResponse createPayment(CreatePaymentRequest body) {
@@ -63,19 +52,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreatePaymentApi">Create payment</a>
-	 *
-	 * @throws DeclinedPaymentException if the Ingenico ePayments platform declined / rejected the payment. The payment result will be available from the exception.
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public CreatePaymentResponse createPayment(CreatePaymentRequest body, CallContext context) {
@@ -96,17 +73,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentApi">Get payment</a>
-	 *
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public PaymentResponse getPayment(String paymentId) {
@@ -114,18 +81,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentApi">Get payment</a>
-	 *
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public PaymentResponse getPayment(String paymentId, CallContext context) {
@@ -147,18 +103,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}/complete
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CompletePaymentApi">Complete payment</a>
-	 *
-	 * @throws DeclinedPaymentException if the Ingenico ePayments platform declined / rejected the payment. The payment result will be available from the exception.
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public CompletePaymentResponse completePayment(String paymentId, CompletePaymentRequest body) {
@@ -166,19 +111,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}/complete
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CompletePaymentApi">Complete payment</a>
-	 *
-	 * @throws DeclinedPaymentException if the Ingenico ePayments platform declined / rejected the payment. The payment result will be available from the exception.
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public CompletePaymentResponse completePayment(String paymentId, CompletePaymentRequest body, CallContext context) {
@@ -201,17 +134,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}/cancel
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CancelPaymentApi">Cancel payment</a>
-	 *
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public CancelPaymentResponse cancelPayment(String paymentId) {
@@ -219,18 +142,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}/cancel
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CancelPaymentApi">Cancel payment</a>
-	 *
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public CancelPaymentResponse cancelPayment(String paymentId, CallContext context) {
@@ -253,18 +165,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}/refund
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/RefundPaymentApi">Refund payment</a>
-	 *
-	 * @throws DeclinedRefundException if the Ingenico ePayments platform declined / rejected the refund. The refund result will be available from the exception.
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public RefundResponse refundPayment(String paymentId, RefundRequest body) {
@@ -272,19 +173,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}/refund
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/RefundPaymentApi">Refund payment</a>
-	 *
-	 * @throws DeclinedRefundException if the Ingenico ePayments platform declined / rejected the refund. The refund result will be available from the exception.
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public RefundResponse refundPayment(String paymentId, RefundRequest body, CallContext context) {
@@ -307,17 +196,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}/capture
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CapturePaymentApi">Capture payment</a>
-	 *
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public CaptureResponse capturePayment(String paymentId, CapturePaymentRequest body) {
@@ -325,18 +204,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}/capture
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CapturePaymentApi">Capture payment</a>
-	 *
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public CaptureResponse capturePayment(String paymentId, CapturePaymentRequest body, CallContext context) {
@@ -359,17 +227,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}/captures
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetCapturesApi">Get Captures Api</a>
-	 *
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public CapturesResponse getCaptures(String paymentId) {
@@ -377,18 +235,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}/captures
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetCapturesApi">Get Captures Api</a>
-	 *
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public CapturesResponse getCaptures(String paymentId, CallContext context) {
@@ -410,17 +257,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}/refunds
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetRefundsApi">Get Refunds Api</a>
-	 *
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public RefundsResponse getRefunds(String paymentId) {
@@ -428,18 +265,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	}
 
 	/**
-	 * Resource /v2/{merchantId}/payments/{paymentId}/refunds
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetRefundsApi">Get Refunds Api</a>
-	 *
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 * {@inheritDoc}
 	 */
 	@Override
 	public RefundsResponse getRefunds(String paymentId, CallContext context) {

@@ -12,20 +12,14 @@ public class PaymentProduct5100SpecificInput {
 	private String brand = null;
 
 	/**
-	 * Indicate whether to use a specific Cpay brand. Brands are configurable at the payment method level. Allowed values:
-	 * * "Cpay"
-	 * * "CpayGold"
-	 * * Other specific Carte Enseigne (see Cpay documentation)
+	 * Indicate whether to use a specific Cpay brand. Brands are configurable at the payment method level. See BackOffice Cpay configuration for allowed values.
 	 */
 	public String getBrand() {
 		return brand;
 	}
 
 	/**
-	 * Indicate whether to use a specific Cpay brand. Brands are configurable at the payment method level. Allowed values:
-	 * * "Cpay"
-	 * * "CpayGold"
-	 * * Other specific Carte Enseigne (see Cpay documentation)
+	 * Indicate whether to use a specific Cpay brand. Brands are configurable at the payment method level. See BackOffice Cpay configuration for allowed values.
 	 */
 	public void setBrand(String value) {
 		this.brand = value;

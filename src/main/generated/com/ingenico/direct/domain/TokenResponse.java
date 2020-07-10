@@ -10,6 +10,8 @@ public class TokenResponse {
 
 	private TokenEWallet eWallet = null;
 
+	private ExternalTokenLinked externalTokenLinked = null;
+
 	private String id = null;
 
 	private Integer paymentProductId = null;
@@ -40,6 +42,14 @@ public class TokenResponse {
 	 */
 	public void setEWallet(TokenEWallet value) {
 		this.eWallet = value;
+	}
+
+	public ExternalTokenLinked getExternalTokenLinked() {
+		return externalTokenLinked;
+	}
+
+	public void setExternalTokenLinked(ExternalTokenLinked value) {
+		this.externalTokenLinked = value;
 	}
 
 	/**

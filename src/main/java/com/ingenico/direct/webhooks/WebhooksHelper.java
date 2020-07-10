@@ -12,7 +12,6 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
 
-import com.ingenico.direct.Client;
 import com.ingenico.direct.Marshaller;
 import com.ingenico.direct.RequestHeader;
 import com.ingenico.direct.domain.WebhooksEvent;

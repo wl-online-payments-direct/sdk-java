@@ -2,13 +2,11 @@ package com.ingenico.direct.defaultimpl;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.ProxySelector;
 import java.net.URI;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -50,10 +48,6 @@ import org.apache.http.conn.socket.ConnectionSocketFactory;
 import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.BufferedHttpEntity;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.ContentBody;
-import org.apache.http.entity.mime.content.InputStreamBody;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -73,13 +67,11 @@ import org.apache.http.ssl.SSLContexts;
 import com.ingenico.direct.CommunicationException;
 import com.ingenico.direct.CommunicatorConfiguration;
 import com.ingenico.direct.Connection;
-import com.ingenico.direct.MultipartFormDataObject;
 import com.ingenico.direct.PooledConnection;
 import com.ingenico.direct.ProxyConfiguration;
 import com.ingenico.direct.RequestHeader;
 import com.ingenico.direct.ResponseHandler;
 import com.ingenico.direct.ResponseHeader;
-import com.ingenico.direct.UploadableFile;
 import com.ingenico.direct.logging.CommunicatorLogger;
 import com.ingenico.direct.logging.LogMessageBuilder;
 import com.ingenico.direct.logging.RequestLogMessageBuilder;
@@ -214,7 +206,7 @@ public class DefaultConnection implements PooledConnection {
 				HttpRequestInterceptor proxyAuthenticationInterceptor = new HttpRequestInterceptor() {
 
 					@Override
-					public void process(HttpRequest request, HttpContext context) throws HttpException, IOException {
+					public void process(HttpRequest request, HttpContext context) throws HttpException {
 						Header header = request.getFirstHeader(AUTH.PROXY_AUTH_RESP);
 						if (header == null) {
 							header = new BasicScheme((Charset) null).authenticate(credentials, request, context);
@@ -225,7 +217,7 @@ public class DefaultConnection implements PooledConnection {
 						}
 					}
 				};
-				builder = builder.addInterceptorLast(proxyAuthenticationInterceptor);
+				builder.addInterceptorLast(proxyAuthenticationInterceptor);
 			}
 
 		} else {
@@ -236,10 +228,9 @@ public class DefaultConnection implements PooledConnection {
 
 		// add logging - last for requests, first for responses
 		LoggingInterceptor loggingInterceptor = new LoggingInterceptor();
-		builder = builder.addInterceptorLast((HttpRequestInterceptor) loggingInterceptor);
-		builder = builder.addInterceptorFirst((HttpResponseInterceptor) loggingInterceptor);
-
 		return builder
+				.addInterceptorLast((HttpRequestInterceptor) loggingInterceptor)
+				.addInterceptorFirst((HttpResponseInterceptor) loggingInterceptor)
 				.setRoutePlanner(routePlanner)
 				.setDefaultCredentialsProvider(credentialsProvider)
 				.build();
@@ -272,17 +263,6 @@ public class DefaultConnection implements PooledConnection {
 	public <R> R post(URI uri, List<RequestHeader> requestHeaders, String body, ResponseHandler<R> responseHandler) {
 
 		HttpEntity requestEntity = createRequestEntity(body);
-		return post(uri, requestHeaders, requestEntity, responseHandler);
-	}
-
-	@Override
-	public <R> R post(URI uri, List<RequestHeader> requestHeaders, MultipartFormDataObject multipart, ResponseHandler<R> responseHandler) {
-
-		HttpEntity requestEntity = createRequestEntity(multipart);
-		return post(uri, requestHeaders, requestEntity, responseHandler);
-	}
-
-	private <R> R post(URI uri, List<RequestHeader> requestHeaders, HttpEntity requestEntity, ResponseHandler<R> responseHandler) {
 
 		HttpPost httpPost = new HttpPost(uri);
 		httpPost.setConfig(requestConfig);
@@ -297,17 +277,6 @@ public class DefaultConnection implements PooledConnection {
 	public <R> R put(URI uri, List<RequestHeader> requestHeaders, String body, ResponseHandler<R> responseHandler) {
 
 		HttpEntity requestEntity = createRequestEntity(body);
-		return put(uri, requestHeaders, requestEntity, responseHandler);
-	}
-
-	@Override
-	public <R> R put(URI uri, List<RequestHeader> requestHeaders, MultipartFormDataObject multipart, ResponseHandler<R> responseHandler) {
-
-		HttpEntity requestEntity = createRequestEntity(multipart);
-		return put(uri, requestHeaders, requestEntity, responseHandler);
-	}
-
-	private <R> R put(URI uri, List<RequestHeader> requestHeaders, HttpEntity requestEntity, ResponseHandler<R> responseHandler) {
 
 		HttpPut httpPut = new HttpPut(uri);
 		httpPut.setConfig(requestConfig);
@@ -320,10 +289,6 @@ public class DefaultConnection implements PooledConnection {
 
 	private HttpEntity createRequestEntity(String body) {
 		return body != null ? new JsonEntity(body, CHARSET) : null;
-	}
-
-	private HttpEntity createRequestEntity(MultipartFormDataObject multipart) {
-		return new MultipartFormDataEntity(multipart);
 	}
 
 	@SuppressWarnings("resource")
@@ -440,14 +405,13 @@ public class DefaultConnection implements PooledConnection {
 				HttpEntity entity = entityEnclosingRequest.getEntity();
 
 				String contentType = getContentType(entity, request.getFirstHeader(HttpHeaders.CONTENT_TYPE));
-				boolean isBinaryContent = isBinaryContent(contentType);
 
-				if (entity != null && !entity.isRepeatable() && !isBinaryContent) {
+				if (entity != null && !entity.isRepeatable()) {
 					entity = new BufferedHttpEntity(entity);
 					entityEnclosingRequest.setEntity(entity);
 				}
 
-				setBody(logMessageBuilder, entity, contentType, isBinaryContent);
+				setBody(logMessageBuilder, entity, contentType);
 			}
 
 			logger.log(logMessageBuilder.getMessage());
@@ -455,7 +419,6 @@ public class DefaultConnection implements PooledConnection {
 		} catch (Exception e) {
 
 			logger.log(String.format("An error occurred trying to log request '%s'", requestId), e);
-			return;
 		}
 	}
 
@@ -473,21 +436,19 @@ public class DefaultConnection implements PooledConnection {
 			HttpEntity entity = response.getEntity();
 
 			String contentType = getContentType(entity, response.getFirstHeader(HttpHeaders.CONTENT_TYPE));
-			boolean isBinaryContent = isBinaryContent(contentType);
 
-			if (entity != null && !entity.isRepeatable() && !isBinaryContent) {
+			if (entity != null && !entity.isRepeatable()) {
 				entity = new BufferedHttpEntity(entity);
 				response.setEntity(entity);
 			}
 
-			setBody(logMessageBuilder, entity, contentType, isBinaryContent);
+			setBody(logMessageBuilder, entity, contentType);
 
 			logger.log(logMessageBuilder.getMessage());
 
 		} catch (Exception e) {
 
 			logger.log(String.format("An error occurred trying to log response '%s'", requestId), e);
-			return;
 		}
 	}
 
@@ -510,7 +471,7 @@ public class DefaultConnection implements PooledConnection {
 		return contentTypeHeader != null ? contentTypeHeader.getValue() : null;
 	}
 
-	private void setBody(LogMessageBuilder logMessageBuilder, HttpEntity entity, String contentType, boolean isBinaryContent) throws IOException {
+	private void setBody(LogMessageBuilder logMessageBuilder, HttpEntity entity, String contentType) throws IOException {
 
 		if (entity == null) {
 			logMessageBuilder.setBody("", contentType);
@@ -520,21 +481,10 @@ public class DefaultConnection implements PooledConnection {
 			String body = ((JsonEntity) entity).getString();
 			logMessageBuilder.setBody(body, contentType);
 
-		} else if (isBinaryContent) {
-
-			logMessageBuilder.setBinaryContentBody(contentType);
-
 		} else {
 
 			logMessageBuilder.setBody(entity.getContent(), CHARSET, contentType);
 		}
-	}
-
-	private boolean isBinaryContent(String contentType) {
-		return contentType != null
-				&& !contentType.startsWith("text/")
-				&& !contentType.contains("json")
-				&& !contentType.contains("xml");
 	}
 
 	private void logError(final String requestId, final Exception error, final long startTime, final CommunicatorLogger logger) {
@@ -555,7 +505,7 @@ public class DefaultConnection implements PooledConnection {
 	private class LoggingInterceptor implements HttpRequestInterceptor, HttpResponseInterceptor {
 
 		@Override
-		public void process(HttpRequest request, HttpContext context) throws HttpException, IOException {
+		public void process(HttpRequest request, HttpContext context) {
 
 			final CommunicatorLogger logger = communicatorLogger;
 			if (logger != null) {
@@ -569,7 +519,7 @@ public class DefaultConnection implements PooledConnection {
 		}
 
 		@Override
-		public void process(HttpResponse response, HttpContext context) throws HttpException, IOException {
+		public void process(HttpResponse response, HttpContext context) {
 
 			final CommunicatorLogger logger = communicatorLogger;
 			if (logger != null) {
@@ -581,132 +531,6 @@ public class DefaultConnection implements PooledConnection {
 				}
 				// else the context was not sent through executeRequest
 			}
-		}
-	}
-
-	private static final class MultipartFormDataEntity implements HttpEntity {
-
-		private static final ContentType TEXT_PLAIN_UTF8 = ContentType.create("text/plain", CHARSET);
-
-		private final HttpEntity delegate;
-		private final boolean isChunked;
-
-		private MultipartFormDataEntity(MultipartFormDataObject multipart) {
-
-			boolean hasNegativeContentLength = false;
-			MultipartEntityBuilder builder = MultipartEntityBuilder.create()
-					.setBoundary(multipart.getBoundary());
-			for (Map.Entry<String, String> entry : multipart.getValues().entrySet()) {
-				builder = builder.addTextBody(entry.getKey(), entry.getValue(), TEXT_PLAIN_UTF8);
-			}
-			for (Map.Entry<String, UploadableFile> entry : multipart.getFiles().entrySet()) {
-				builder = builder.addPart(entry.getKey(), new UploadableFileBody(entry.getValue()));
-				hasNegativeContentLength |= entry.getValue().getContentLength() < 0;
-			}
-			delegate = builder.build();
-			isChunked = hasNegativeContentLength;
-
-			Header contentType = delegate.getContentType();
-			if (contentType == null || !(multipart.getContentType()).equals(contentType.getValue())) {
-				throw new IllegalStateException("MultipartEntityBuilder did not create the expected content type");
-			}
-		}
-
-		@Override
-		public boolean isRepeatable() {
-			return false;
-		}
-
-		@Override
-		public boolean isChunked() {
-			return isChunked;
-		}
-
-		@Override
-		public long getContentLength() {
-			return delegate.getContentLength();
-		}
-
-		@Override
-		public Header getContentType() {
-			return delegate.getContentType();
-		}
-
-		@Override
-		public Header getContentEncoding() {
-			return delegate.getContentEncoding();
-		}
-
-		@Override
-		public InputStream getContent() throws IOException {
-			return delegate.getContent();
-		}
-
-		@Override
-		public void writeTo(OutputStream outstream) throws IOException {
-			delegate.writeTo(outstream);
-		}
-
-		@Override
-		public boolean isStreaming() {
-			return true;
-		}
-
-		@Override
-		@Deprecated
-		public void consumeContent() throws IOException {
-			delegate.consumeContent();
-		}
-	}
-
-	private static final class UploadableFileBody implements ContentBody {
-
-		private final ContentBody delegate;
-		private final long contentLength;
-
-		private UploadableFileBody(UploadableFile file) {
-			delegate = new InputStreamBody(file.getContent(), ContentType.create(file.getContentType()), file.getFileName());
-			contentLength = Math.max(file.getContentLength(), -1);
-		}
-
-		@Override
-		public String getMimeType() {
-			return delegate.getMimeType();
-		}
-
-		@Override
-		public String getMediaType() {
-			return delegate.getMediaType();
-		}
-
-		@Override
-		public String getSubType() {
-			return delegate.getSubType();
-		}
-
-		@Override
-		public String getCharset() {
-			return delegate.getCharset();
-		}
-
-		@Override
-		public String getTransferEncoding() {
-			return delegate.getTransferEncoding();
-		}
-
-		@Override
-		public long getContentLength() {
-			return contentLength;
-		}
-
-		@Override
-		public String getFilename() {
-			return delegate.getFilename();
-		}
-
-		@Override
-		public void writeTo(OutputStream out) throws IOException {
-			delegate.writeTo(out);
 		}
 	}
 }

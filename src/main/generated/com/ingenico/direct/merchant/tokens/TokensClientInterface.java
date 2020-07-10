@@ -11,6 +11,8 @@ import com.ingenico.direct.DirectException;
 import com.ingenico.direct.IdempotenceException;
 import com.ingenico.direct.ReferenceException;
 import com.ingenico.direct.ValidationException;
+import com.ingenico.direct.domain.CreateTokenRequest;
+import com.ingenico.direct.domain.CreatedTokenResponse;
 import com.ingenico.direct.domain.TokenResponse;
 
 /**
@@ -19,6 +21,37 @@ import com.ingenico.direct.domain.TokenResponse;
 public interface TokensClientInterface {
 
 	/**
+	 * Resource /v2/{merchantId}/tokens
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateTokenApi">Create token</a>
+	 *
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 */
+	CreatedTokenResponse createToken(CreateTokenRequest body);
+
+	/**
+	 * Resource /v2/{merchantId}/tokens
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateTokenApi">Create token</a>
+	 *
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 */
+	CreatedTokenResponse createToken(CreateTokenRequest body, CallContext context);
+
+	/**
 	 * Resource /v2/{merchantId}/tokens/{tokenId}
 	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetTokenApi">Get token</a>
 	 *
@@ -31,7 +64,7 @@ public interface TokensClientInterface {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	TokenResponse getToken();
+	TokenResponse getToken(String tokenId);
 
 	/**
 	 * Resource /v2/{merchantId}/tokens/{tokenId}
@@ -47,7 +80,7 @@ public interface TokensClientInterface {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	TokenResponse getToken(CallContext context);
+	TokenResponse getToken(String tokenId, CallContext context);
 
 	/**
 	 * Resource /v2/{merchantId}/tokens/{tokenId}
@@ -62,7 +95,7 @@ public interface TokensClientInterface {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	TokenResponse deleteToken();
+	TokenResponse deleteToken(String tokenId);
 
 	/**
 	 * Resource /v2/{merchantId}/tokens/{tokenId}
@@ -78,5 +111,5 @@ public interface TokensClientInterface {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	TokenResponse deleteToken(CallContext context);
+	TokenResponse deleteToken(String tokenId, CallContext context);
 }

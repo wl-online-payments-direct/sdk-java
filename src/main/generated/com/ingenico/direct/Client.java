@@ -15,14 +15,7 @@ import org.apache.commons.codec.binary.Base64;
 import com.ingenico.direct.logging.CommunicatorLogger;
 import com.ingenico.direct.merchant.MerchantClient;
 
-/**
- * Ingenico ePayments platform client.
- * <p>
- * This client and all its child clients are bound to one specific value for the <i>X-GCS-ClientMetaInfo</i> header.
- * To get a new client with a different header value, use {@link #withClientMetaInfo(String)}.
- * <p>
- * Thread-safe.
- */
+/** {@inheritDoc} */
 public class Client extends ApiResource implements ClientInterface {
 
 	public static final String API_VERSION = "v2";
@@ -37,15 +30,8 @@ public class Client extends ApiResource implements ClientInterface {
 		super(communicator, clientMetaInfo, null);
 	}
 
-	/**
-	 * Returns a new {@link Client} which uses the passed meta data for the
-	 * <i>X-GCS-ClientMetaInfo</i> header.
-	 *
-	 * @param clientMetaInfo
-	 *            JSON string containing the meta data for the client
-	 * @throws MarshallerSyntaxException
-	 *            if the given clientMetaInfo is not a valid JSON string
-	 */
+	/** {@inheritDoc} */
+	@Override
 	public Client withClientMetaInfo(String clientMetaInfo) {
 
 		if (this.clientMetaInfo == null && clientMetaInfo == null) {
@@ -66,20 +52,14 @@ public class Client extends ApiResource implements ClientInterface {
 		}
 	}
 
-	/**
-	 * Utility method that delegates the call to this client's communicator.
-	 * @see Communicator#closeIdleConnections(long, TimeUnit)
-	 * @see PooledConnection#closeIdleConnections(long, TimeUnit)
-	 */
+	/** {@inheritDoc} */
+	@Override
 	public void closeIdleConnections(long idleTime, TimeUnit timeUnit) {
 		communicator.closeIdleConnections(idleTime, timeUnit);
 	}
 
-	/**
-	 * Utility method that delegates the call to this client's communicator.
-	 * @see Communicator#closeExpiredConnections()
-	 * @see PooledConnection#closeExpiredConnections()
-	 */
+	/** {@inheritDoc} */
+	@Override
 	public void closeExpiredConnections() {
 		communicator.closeExpiredConnections();
 	}
@@ -104,10 +84,7 @@ public class Client extends ApiResource implements ClientInterface {
 		communicator.close();
 	}
 
-	/**
-	 * Resource /v2/{merchantId}
-	 *
-	 */
+	/** {@inheritDoc} */
 	@Override
 	public MerchantClient merchant(String merchantId) {
 		Map<String, String> subContext = new TreeMap<String, String>();
