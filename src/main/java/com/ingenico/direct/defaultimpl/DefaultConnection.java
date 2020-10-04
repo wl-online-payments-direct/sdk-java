@@ -65,6 +65,7 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.ssl.SSLContexts;
 
 import com.ingenico.direct.CommunicationException;
+import com.ingenico.direct.Communicator;
 import com.ingenico.direct.CommunicatorConfiguration;
 import com.ingenico.direct.Connection;
 import com.ingenico.direct.PooledConnection;
@@ -97,6 +98,10 @@ public class DefaultConnection implements PooledConnection {
 	protected final RequestConfig requestConfig;
 
 	private volatile CommunicatorLogger communicatorLogger;
+
+	public DefaultConnection() {
+		this(CommunicatorConfiguration.DEFAULT_CONNECT_TIMEOUT, CommunicatorConfiguration.DEFAULT_SOCKET_TIMEOUT);
+	}
 
 	/**
 	 * Creates a new connection with the given timeouts, the default number of maximum connections, no proxy and the default HTTPS protocols.

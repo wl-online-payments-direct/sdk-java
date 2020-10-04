@@ -321,7 +321,7 @@ public class DefaultConnectionIdempotenceTest extends LocalServerTestBase {
 	private ClientInterface createClient(HttpHost host) {
 
 		Connection connection = new DefaultConnection(500, 500);
-		Authenticator authenticator = new DefaultAuthenticator(AuthorizationType.V1HMAC, "apiKey", "secret");
+		Authenticator authenticator = new DefaultAuthenticator("apiKey", "secret");
 		MetaDataProvider metaDataProvider = new MetaDataProvider("Ingenico");
 		Communicator communicator = Factory.createCommunicator(URI.create(host.toURI()), connection, authenticator, metaDataProvider);
 		return Factory.createClient(communicator);
@@ -352,7 +352,7 @@ public class DefaultConnectionIdempotenceTest extends LocalServerTestBase {
 		Card card = new Card();
 		card.setCvv("123");
 		card.setCardNumber("4567350000427977");
-		card.setExpiryDate("1220");
+		card.setExpiryDate("1230");
 		cardPaymentMethodSpecificInput.setCard(card);
 
 		body.setCardPaymentMethodSpecificInput(cardPaymentMethodSpecificInput);

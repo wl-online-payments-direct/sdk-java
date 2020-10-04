@@ -5,7 +5,9 @@
 package com.ingenico.direct.merchant;
 
 import com.ingenico.direct.merchant.hostedcheckout.HostedCheckoutClientInterface;
+import com.ingenico.direct.merchant.hostedtokenization.HostedTokenizationClientInterface;
 import com.ingenico.direct.merchant.payments.PaymentsClientInterface;
+import com.ingenico.direct.merchant.payouts.PayoutsClientInterface;
 import com.ingenico.direct.merchant.productgroups.ProductGroupsClientInterface;
 import com.ingenico.direct.merchant.products.ProductsClientInterface;
 import com.ingenico.direct.merchant.services.ServicesClientInterface;
@@ -32,6 +34,13 @@ public interface MerchantClientInterface {
 	SessionsClientInterface sessions();
 
 	/**
+	 * Resource /v2/{merchantId}/payouts
+	 *
+	 * @return PayoutsClient
+	 */
+	PayoutsClientInterface payouts();
+
+	/**
 	 * Resource /v2/{merchantId}/payments
 	 *
 	 * @return PaymentsClient
@@ -51,6 +60,13 @@ public interface MerchantClientInterface {
 	 * @return ProductGroupsClient
 	 */
 	ProductGroupsClientInterface productGroups();
+
+	/**
+	 * Resource /v2/{merchantId}/hostedtokenizations
+	 *
+	 * @return HostedTokenizationClient
+	 */
+	HostedTokenizationClientInterface hostedTokenization();
 
 	/**
 	 * Resource /v2/{merchantId}/tokens

@@ -93,24 +93,24 @@ public class TokensClient extends ApiResource implements TokensClientInterface {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public TokenResponse deleteToken(String tokenId) {
-		return deleteToken(tokenId, null);
+	public void deleteToken(String tokenId) {
+		deleteToken(tokenId, null);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public TokenResponse deleteToken(String tokenId, CallContext context) {
+	public void deleteToken(String tokenId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("tokenId", tokenId);
 		String uri = instantiateUri("/v2/{merchantId}/tokens/{tokenId}", pathContext);
 		try {
-			return communicator.delete(
+			communicator.delete(
 					uri,
 					getClientHeaders(),
 					null,
-					TokenResponse.class,
+					void.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;

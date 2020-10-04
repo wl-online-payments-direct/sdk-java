@@ -41,29 +41,25 @@ public abstract class ApiResource {
 	}
 
 	protected List<RequestHeader> getClientHeaders() {
-		if (clientMetaInfo != null) {
-
-			List<RequestHeader> clientHeaders = new ArrayList<RequestHeader>();
-			clientHeaders.add(new RequestHeader("X-GCS-ClientMetaInfo", clientMetaInfo));
-			return clientHeaders;
-
-		} else {
+		if (clientMetaInfo == null) {
 			return null;
 		}
+
+		List<RequestHeader> clientHeaders = new ArrayList<RequestHeader>();
+		clientHeaders.add(new RequestHeader("X-GCS-ClientMetaInfo", clientMetaInfo));
+		return clientHeaders;
 	}
 
 	protected String instantiateUri(String uri, Map<String, String> pathContext) {
 		uri = replaceAll(uri, pathContext);
-		uri = instantiateUri(uri);
-		return uri;
+		return instantiateUri(uri);
 	}
 
 	private String instantiateUri(String uri) {
 		uri = replaceAll(uri, pathContext);
-		if (parent != null) {
-			uri = parent.instantiateUri(uri);
-		}
-		return uri;
+		return parent == null
+				? uri
+				: parent.instantiateUri(uri);
 	}
 
 	private String replaceAll(String uri, Map<String, String> pathContext) {

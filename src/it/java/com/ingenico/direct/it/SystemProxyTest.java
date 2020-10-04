@@ -8,6 +8,7 @@ import java.net.URISyntaxException;
 
 import org.junit.After;
 import org.junit.Assert;
+import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,23 +19,16 @@ import com.ingenico.direct.domain.TestConnection;
 
 public class SystemProxyTest extends ItTest {
 
-	private boolean setHttpProxyHost;
-	private boolean setHttpProxyPort;
-	private boolean setHttpsProxyHost;
+	private boolean setHttpProxy;
+	private boolean setHttpsProxy;
 	private boolean setHttpsProxyPort;
 	private boolean setHttpProxyUser;
 	private boolean setHttpProxyPass;
 
 	@Before
 	public void setup() throws URISyntaxException {
-		if (setupProxyHost("http")) {
-			setHttpProxyHost = true;
-			setHttpProxyPort = true;
-		}
-		if (setupProxyHost("https")) {
-			setHttpsProxyHost = true;
-			setHttpsProxyPort = true;
-		}
+		setHttpProxy = setupProxyHost("http");
+		setHttpsProxy = setupProxyHost("https");
 
 		if (getProperty("http.proxyUser") == null) {
 			String proxyUsername = getProperty("direct.api.proxy.username");
@@ -56,42 +50,32 @@ public class SystemProxyTest extends ItTest {
 		String proxyHostProperty = prefix + ".proxyHost";
 		String proxyPortProperty = prefix + ".proxyPort";
 
-		String proxyHost = getProperty(proxyPortProperty);
+		String proxyHost = getProperty(proxyHostProperty);
 		String proxyPort = getProperty(proxyPortProperty);
 
-		if (proxyHost == null && proxyPort == null) {
-			String proxyURIString = getProperty("direct.api.proxy.uri");
-			if (proxyURIString == null) {
-				throw new IllegalStateException("Either system properties '" + proxyHostProperty + "' and '" + proxyPortProperty + "' must be set,"
-						+ " or system property direct.api.proxy.uri must be set");
-			}
-			URI proxyURI = new URI(proxyURIString);
-			System.setProperty(proxyHostProperty, proxyURI.getHost());
-			System.setProperty(proxyPortProperty, Integer.toString(proxyURI.getPort()));
-
-			return true;
+		if (proxyHost != null && proxyPort != null) {
+			// did not setup the proxy host
+			return false;
 		}
-		if (proxyHost == null || proxyPort == null) {
-			throw new IllegalStateException("Either system properties '" + proxyHostProperty + "' and '" + proxyPortProperty + "' must both be set,"
-					+ " or neither must be set");
-		}
+		String proxyUriProperty = "direct.api.proxy.uri";
+		String proxyURIString = getProperty(proxyUriProperty);
+		Assume.assumeTrue("System properties '" + proxyHostProperty + "' and '" + proxyPortProperty + "' or system property '" + proxyUriProperty + "' must be set for this test to run.",
+				proxyURIString != null);
+		URI proxyURI = new URI(proxyURIString);
+		System.setProperty(proxyHostProperty, proxyURI.getHost());
+		System.setProperty(proxyPortProperty, Integer.toString(proxyURI.getPort()));
 
-		// did not setup the proxy host
-		return false;
+		return true;
 	}
 
 	@After
 	public void cleanup() {
-		if (setHttpProxyHost) {
+		if (setHttpProxy) {
 			System.clearProperty("http.proxyHost");
-		}
-		if (setHttpProxyPort) {
 			System.clearProperty("http.proxyPort");
 		}
-		if (setHttpsProxyHost) {
+		if (setHttpsProxy) {
 			System.clearProperty("https.proxyHost");
-		}
-		if (setHttpsProxyPort) {
 			System.clearProperty("https.proxyPort");
 		}
 		if (setHttpProxyUser) {

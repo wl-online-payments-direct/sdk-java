@@ -69,9 +69,9 @@ public final class Factory {
 				))
 				.withMetaDataProvider(metaDataProvider)
 				.withAuthenticator(new DefaultAuthenticator(
-						configuration.getAuthorizationType(),
 						configuration.getApiKeyId(),
-						configuration.getSecretApiKey()
+						configuration.getSecretApiKey(),
+						configuration.getAuthorizationType()
 				))
 				.withMarshaller(DefaultMarshaller.INSTANCE);
 	}
@@ -113,7 +113,6 @@ public final class Factory {
 	public static ClientInterface createClient(CommunicatorConfiguration configuration) {
 		return createClient(createCommunicator(configuration));
 	}
-
 
 	/**
 	 * Creates a {@link Client} based on the passed parameters.

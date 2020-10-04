@@ -2,7 +2,7 @@
  * This class was auto-generated from the API references found at
  * https://support.direct.ingenico.com/documentation/api/reference/index.html
  */
-package com.ingenico.direct.merchant.tokens;
+package com.ingenico.direct.merchant.hostedtokenization;
 
 import com.ingenico.direct.ApiException;
 import com.ingenico.direct.AuthorizationException;
@@ -11,18 +11,18 @@ import com.ingenico.direct.DirectException;
 import com.ingenico.direct.IdempotenceException;
 import com.ingenico.direct.ReferenceException;
 import com.ingenico.direct.ValidationException;
-import com.ingenico.direct.domain.CreateTokenRequest;
-import com.ingenico.direct.domain.CreatedTokenResponse;
-import com.ingenico.direct.domain.TokenResponse;
+import com.ingenico.direct.domain.CreateHostedTokenizationRequest;
+import com.ingenico.direct.domain.CreateHostedTokenizationResponse;
+import com.ingenico.direct.domain.GetHostedTokenizationResponse;
 
 /**
- * Tokens client. Thread-safe.
+ * HostedTokenization client. Thread-safe.
  */
-public interface TokensClientInterface {
+public interface HostedTokenizationClientInterface {
 
 	/**
-	 * Resource /v2/{merchantId}/tokens
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateTokenApi">Create token</a>
+	 * Resource /v2/{merchantId}/hostedtokenizations
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateHostedTokenizationApi">Create hosted tokenization session</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -33,42 +33,11 @@ public interface TokensClientInterface {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	CreatedTokenResponse createToken(CreateTokenRequest body);
+	CreateHostedTokenizationResponse createHostedTokenization(CreateHostedTokenizationRequest body);
 
 	/**
-	 * Resource /v2/{merchantId}/tokens
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateTokenApi">Create token</a>
-	 *
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
-	 */
-	CreatedTokenResponse createToken(CreateTokenRequest body, CallContext context);
-
-	/**
-	 * Resource /v2/{merchantId}/tokens/{tokenId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetTokenApi">Get token</a>
-	 *
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws DirectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
-	 */
-	TokenResponse getToken(String tokenId);
-
-	/**
-	 * Resource /v2/{merchantId}/tokens/{tokenId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetTokenApi">Get token</a>
+	 * Resource /v2/{merchantId}/hostedtokenizations
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateHostedTokenizationApi">Create hosted tokenization session</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -80,11 +49,11 @@ public interface TokensClientInterface {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	TokenResponse getToken(String tokenId, CallContext context);
+	CreateHostedTokenizationResponse createHostedTokenization(CreateHostedTokenizationRequest body, CallContext context);
 
 	/**
-	 * Resource /v2/{merchantId}/tokens/{tokenId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/DeleteTokenApi">Delete token</a>
+	 * Resource /v2/{merchantId}/hostedtokenizations/{hostedTokenizationId}
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetHostedTokenizationApi">Get hosted tokenization session</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -95,11 +64,11 @@ public interface TokensClientInterface {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	void deleteToken(String tokenId);
+	GetHostedTokenizationResponse getHostedTokenization(String hostedTokenizationId);
 
 	/**
-	 * Resource /v2/{merchantId}/tokens/{tokenId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/DeleteTokenApi">Delete token</a>
+	 * Resource /v2/{merchantId}/hostedtokenizations/{hostedTokenizationId}
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetHostedTokenizationApi">Get hosted tokenization session</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -111,5 +80,5 @@ public interface TokensClientInterface {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	void deleteToken(String tokenId, CallContext context);
+	GetHostedTokenizationResponse getHostedTokenization(String hostedTokenizationId, CallContext context);
 }

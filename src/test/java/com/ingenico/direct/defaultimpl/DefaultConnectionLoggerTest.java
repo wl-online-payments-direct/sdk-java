@@ -162,7 +162,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 			Card card = new Card();
 			card.setCvv("123");
 			card.setCardNumber("1234567890123456");
-			card.setExpiryDate("1220");
+			card.setExpiryDate("1230");
 
 			CardPaymentMethodSpecificInput paymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
 			paymentMethodSpecificInput.setPaymentProductId(1);
@@ -228,7 +228,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 			Card card = new Card();
 			card.setCvv("123");
 			card.setCardNumber("1234567890123456");
-			card.setExpiryDate("1220");
+			card.setExpiryDate("1230");
 
 			CardPaymentMethodSpecificInput paymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
 			paymentMethodSpecificInput.setPaymentProductId(1);
@@ -295,7 +295,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 		Card card = new Card();
 		card.setCvv("123");
 		card.setCardNumber("1234567890123452");
-		card.setExpiryDate("1220");
+		card.setExpiryDate("1230");
 
 		CardPaymentMethodSpecificInput paymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
 		paymentMethodSpecificInput.setPaymentProductId(1);
@@ -773,7 +773,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 		URI uri = toURI(host);
 		Connection connection = new DefaultConnection(connectTimeout, socketTimeout);
-		Authenticator authenticator = new DefaultAuthenticator(AuthorizationType.V1HMAC, "apiKey", "secret");
+		Authenticator authenticator = new DefaultAuthenticator("apiKey", "secret");
 		MetaDataProvider metaDataProvider = new MetaDataProvider("Ingenico");
 		return Factory.createCommunicator(uri, connection, authenticator, metaDataProvider);
 	}

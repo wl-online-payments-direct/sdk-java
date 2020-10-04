@@ -4,6 +4,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import org.junit.Assume;
+
 import com.ingenico.direct.Client;
 import com.ingenico.direct.CommunicatorConfiguration;
 import com.ingenico.direct.Factory;
@@ -56,9 +58,8 @@ abstract class ItTest {
 		String proxyURI = getProperty("direct.api.proxy.uri");
 		String proxyUsername = getProperty("direct.api.proxy.username");
 		String proxyPassword = getProperty("direct.api.proxy.password");
-		if (proxyURI == null) {
-			throw new IllegalStateException("System property 'direct.api.proxy.uri' must be set");
-		}
+		Assume.assumeTrue("System property 'direct.api.proxy.uri' must be set for this test to run.",
+				proxyURI != null);
 
 		return getCommunicatorConfiguration()
 				.withProxyConfiguration(new ProxyConfiguration(new URI(proxyURI), proxyUsername, proxyPassword));

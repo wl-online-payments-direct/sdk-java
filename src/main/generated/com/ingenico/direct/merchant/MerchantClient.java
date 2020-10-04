@@ -8,7 +8,9 @@ import java.util.Map;
 
 import com.ingenico.direct.ApiResource;
 import com.ingenico.direct.merchant.hostedcheckout.HostedCheckoutClient;
+import com.ingenico.direct.merchant.hostedtokenization.HostedTokenizationClient;
 import com.ingenico.direct.merchant.payments.PaymentsClient;
+import com.ingenico.direct.merchant.payouts.PayoutsClient;
 import com.ingenico.direct.merchant.productgroups.ProductGroupsClient;
 import com.ingenico.direct.merchant.products.ProductsClient;
 import com.ingenico.direct.merchant.services.ServicesClient;
@@ -41,6 +43,13 @@ public class MerchantClient extends ApiResource implements MerchantClientInterfa
 	/**
 	 * {@inheritDoc}
 	 */
+	public PayoutsClient payouts() {
+		return new PayoutsClient(this, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	public PaymentsClient payments() {
 		return new PaymentsClient(this, null);
 	}
@@ -57,6 +66,13 @@ public class MerchantClient extends ApiResource implements MerchantClientInterfa
 	 */
 	public ProductGroupsClient productGroups() {
 		return new ProductGroupsClient(this, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public HostedTokenizationClient hostedTokenization() {
+		return new HostedTokenizationClient(this, null);
 	}
 
 	/**

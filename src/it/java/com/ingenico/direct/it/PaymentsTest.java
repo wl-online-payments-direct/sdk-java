@@ -31,7 +31,7 @@ public class PaymentsTest extends ItTest {
 		card.setCardNumber("4567350000427977");
 		card.setCardholderName("Wile E. Coyote");
 		card.setCvv("123");
-		card.setExpiryDate("1220");
+		card.setExpiryDate("1230");
 
 		RedirectionData redirectionData = new RedirectionData();
 		redirectionData.setReturnUrl("https://hostname.myownwebsite.url");

@@ -44,6 +44,23 @@ public class DefaultAuthenticator implements Authenticator {
 	private final String secretApiKey;
 
 	/**
+	 * @param apiKeyId
+	 *            An identifier for the secret API key. The {@code apiKeyId} can
+	 *            be retrieved from the Configuration Center. This identifier is
+	 *            visible in the HTTP request and is also used to identify the
+	 *            correct account.
+	 * @param secretApiKey
+	 *            A shared secret. The shared secret can be retrieved from the
+	 *            Configuration Center. An {@code apiKeyId} and
+	 *            {@code secretApiKey} always go hand-in-hand, the difference is
+	 *            that {@code secretApiKey} is never visible in the HTTP
+	 *            request. This secret is used as input for the HMAC algorithm.
+	 */
+	public DefaultAuthenticator(String apiKeyId, String secretApiKey) {
+		this(apiKeyId, secretApiKey, AuthorizationType.V1HMAC);
+	}
+
+	/**
 	 * @param authorizationType
 	 *            Based on this value both the Ingenico ePayments platform and the merchant know
 	 *            which security implementation is used. A version number is
@@ -60,7 +77,7 @@ public class DefaultAuthenticator implements Authenticator {
 	 *            that {@code secretApiKey} is never visible in the HTTP
 	 *            request. This secret is used as input for the HMAC algorithm.
 	 */
-	public DefaultAuthenticator(AuthorizationType authorizationType, String apiKeyId, String secretApiKey) {
+	public DefaultAuthenticator(String apiKeyId, String secretApiKey, AuthorizationType authorizationType) {
 		if (authorizationType == null) {
 			throw new IllegalArgumentException("authorizationType is required");
 		}

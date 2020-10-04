@@ -13,11 +13,25 @@ public class ThreeDSecureBase {
 
 	private String challengeIndicator = null;
 
+	private Boolean decoupledIndicator = null;
+
+	private String decoupledMaxTime = null;
+
 	private String exemptionRequest = null;
+
+	private Integer merchantFraudRate = null;
+
+	private String paymentTokenSource = null;
 
 	private ThreeDSecureData priorThreeDSecureData = null;
 
+	private Boolean secureCorporatePayment = null;
+
 	private Boolean skipAuthentication = null;
+
+	private String threeRIIndicator = null;
+
+	private ThreeDSWhitelist whitelist = null;
 
 	/**
 	 * Dimensions of the challenge window that potentially will be displayed to the customer. The challenge content is formatted to appropriately render in this window to provide the best possible user experience. Preconfigured sizes are width x height in pixels of the window displayed in the customer browser window. Possible values are
@@ -78,6 +92,40 @@ public class ThreeDSecureBase {
 	}
 
 	/**
+	 * 3DS Requestor Decoupled Request Indicator. Indicates whether the 3DS Requestor requests the ACS to utilise Decoupled Authentication and agrees to utilise Decoupled Authentication if the ACS confirms its use.
+	 * Possible values:
+	 * * true
+	 * * false
+	 */
+	public Boolean getDecoupledIndicator() {
+		return decoupledIndicator;
+	}
+
+	/**
+	 * 3DS Requestor Decoupled Request Indicator. Indicates whether the 3DS Requestor requests the ACS to utilise Decoupled Authentication and agrees to utilise Decoupled Authentication if the ACS confirms its use.
+	 * Possible values:
+	 * * true
+	 * * false
+	 */
+	public void setDecoupledIndicator(Boolean value) {
+		this.decoupledIndicator = value;
+	}
+
+	/**
+	 * 3DS Requestor Decoupled Max Time. Indicates the maximum amount of time that the 3DS Requestor will wait for an ACS to provide the results of a Decoupled Authentication transaction (in minutes).
+	 */
+	public String getDecoupledMaxTime() {
+		return decoupledMaxTime;
+	}
+
+	/**
+	 * 3DS Requestor Decoupled Max Time. Indicates the maximum amount of time that the 3DS Requestor will wait for an ACS to provide the results of a Decoupled Authentication transaction (in minutes).
+	 */
+	public void setDecoupledMaxTime(String value) {
+		this.decoupledMaxTime = value;
+	}
+
+	/**
 	 * In PSD2, the ExemptionRequest field is used by merchants requesting an exemption when not using authentication on a transaction, in order to keep the conversion up.
 	 * * none = No exemption requested
 	 * * transaction-risk-analysis = Fraud analysis has been done already by your own fraud module and transaction scored as low risk
@@ -100,6 +148,34 @@ public class ThreeDSecureBase {
 	}
 
 	/**
+	 * Merchant fraud rate in the EEA (all EEA card fraud divided by all EEA card volumes) calculated as per PSD2 RTS Mastercard will not calculate or validate the merchant fraud score
+	 */
+	public Integer getMerchantFraudRate() {
+		return merchantFraudRate;
+	}
+
+	/**
+	 * Merchant fraud rate in the EEA (all EEA card fraud divided by all EEA card volumes) calculated as per PSD2 RTS Mastercard will not calculate or validate the merchant fraud score
+	 */
+	public void setMerchantFraudRate(Integer value) {
+		this.merchantFraudRate = value;
+	}
+
+	/**
+	 * EMV Payment Token Source. This data element will be populated by the system residing in the 3-D Secure domain where the tokenisation occurs.
+	 */
+	public String getPaymentTokenSource() {
+		return paymentTokenSource;
+	}
+
+	/**
+	 * EMV Payment Token Source. This data element will be populated by the system residing in the 3-D Secure domain where the tokenisation occurs.
+	 */
+	public void setPaymentTokenSource(String value) {
+		this.paymentTokenSource = value;
+	}
+
+	/**
 	 * Object containing data regarding the customer authentication that occurred prior to the current transaction
 	 */
 	public ThreeDSecureData getPriorThreeDSecureData() {
@@ -111,6 +187,24 @@ public class ThreeDSecureBase {
 	 */
 	public void setPriorThreeDSecureData(ThreeDSecureData value) {
 		this.priorThreeDSecureData = value;
+	}
+
+	/**
+	 * Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies Logically this field should only be set to yes if the 
+	 * acquirer exemption field is blank. A merchant cannot claim both acquirer exemption and  secure payment. However, the DS will not validate 
+	 * the conditions in the extension. DS will pass data as presented.
+	 */
+	public Boolean getSecureCorporatePayment() {
+		return secureCorporatePayment;
+	}
+
+	/**
+	 * Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies Logically this field should only be set to yes if the 
+	 * acquirer exemption field is blank. A merchant cannot claim both acquirer exemption and  secure payment. However, the DS will not validate 
+	 * the conditions in the extension. DS will pass data as presented.
+	 */
+	public void setSecureCorporatePayment(Boolean value) {
+		this.secureCorporatePayment = value;
 	}
 
 	/**
@@ -129,5 +223,27 @@ public class ThreeDSecureBase {
 	 */
 	public void setSkipAuthentication(Boolean value) {
 		this.skipAuthentication = value;
+	}
+
+	/**
+	 * Indicates the type of 3RI request. This data element provides additional information to the ACS to determine the best approach for handing a 3RI request.
+	 */
+	public String getThreeRIIndicator() {
+		return threeRIIndicator;
+	}
+
+	/**
+	 * Indicates the type of 3RI request. This data element provides additional information to the ACS to determine the best approach for handing a 3RI request.
+	 */
+	public void setThreeRIIndicator(String value) {
+		this.threeRIIndicator = value;
+	}
+
+	public ThreeDSWhitelist getWhitelist() {
+		return whitelist;
+	}
+
+	public void setWhitelist(ThreeDSWhitelist value) {
+		this.whitelist = value;
 	}
 }

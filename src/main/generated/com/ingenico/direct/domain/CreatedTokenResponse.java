@@ -8,9 +8,13 @@ public class CreatedTokenResponse {
 
 	private CardWithoutCvv card = null;
 
+	private ExternalTokenLinked externalTokenLinked = null;
+
 	private Boolean isNewToken = null;
 
 	private String token = null;
+
+	private String tokenStatus = null;
 
 	public CardWithoutCvv getCard() {
 		return card;
@@ -18,6 +22,14 @@ public class CreatedTokenResponse {
 
 	public void setCard(CardWithoutCvv value) {
 		this.card = value;
+	}
+
+	public ExternalTokenLinked getExternalTokenLinked() {
+		return externalTokenLinked;
+	}
+
+	public void setExternalTokenLinked(ExternalTokenLinked value) {
+		this.externalTokenLinked = value;
 	}
 
 	/**
@@ -50,5 +62,25 @@ public class CreatedTokenResponse {
 	 */
 	public void setToken(String value) {
 		this.token = value;
+	}
+
+	/**
+	 * This is the status of the token in the hosted tokenization session. Possible values are:
+	 * * UNCHANGED - The token has not changed
+	 * * CREATED - The token has been created
+	 * * UPDATED - The token has been updated
+	 */
+	public String getTokenStatus() {
+		return tokenStatus;
+	}
+
+	/**
+	 * This is the status of the token in the hosted tokenization session. Possible values are:
+	 * * UNCHANGED - The token has not changed
+	 * * CREATED - The token has been created
+	 * * UPDATED - The token has been updated
+	 */
+	public void setTokenStatus(String value) {
+		this.tokenStatus = value;
 	}
 }

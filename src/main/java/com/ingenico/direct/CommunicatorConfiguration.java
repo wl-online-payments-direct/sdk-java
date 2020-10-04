@@ -20,9 +20,11 @@ public class CommunicatorConfiguration {
 
 	/** The default number of maximum connections. */
 	public static final int DEFAULT_MAX_CONNECTIONS = 10;
+	public static final int DEFAULT_CONNECT_TIMEOUT = 10000;
+	public static final int DEFAULT_SOCKET_TIMEOUT = 10000;
 
 	/** The default HTTPS protocols. */
-	public static final Set<String> DEFAULT_HTTPS_PROTOCOLS = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList("TLSv1.1", "TLSv1.2")));
+	public static final Set<String> DEFAULT_HTTPS_PROTOCOLS = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList("TLSv1.2")));
 
 	private static final Pattern COMMA_SEPARATOR_PATTERN = Pattern.compile("\\s*,\\s*");
 
@@ -52,16 +54,16 @@ public class CommunicatorConfiguration {
 
 	public CommunicatorConfiguration(Properties properties) {
 		if (properties != null) {
-			apiEndpoint			= getApiEndpoint(properties);
-			authorizationType	= AuthorizationType.valueOf(properties.getProperty("direct.api.authorizationType"));
-			connectTimeout		= getProperty(properties, "direct.api.connectTimeout", 10000);
-			socketTimeout		= getProperty(properties, "direct.api.socketTimeout", 10000);
-			maxConnections		= getProperty(properties, "direct.api.maxConnections", DEFAULT_MAX_CONNECTIONS);
+			apiEndpoint       = getApiEndpoint(properties);
+			authorizationType = AuthorizationType.valueOf(properties.getProperty("direct.api.authorizationType", AuthorizationType.V1HMAC.name()));
+			connectTimeout    = getProperty(properties, "direct.api.connectTimeout", DEFAULT_CONNECT_TIMEOUT);
+			socketTimeout     = getProperty(properties, "direct.api.socketTimeout", DEFAULT_SOCKET_TIMEOUT);
+			maxConnections    = getProperty(properties, "direct.api.maxConnections", DEFAULT_MAX_CONNECTIONS);
 
-			String proxyURI		= properties.getProperty("direct.api.proxy.uri");
+			String proxyURI	  = properties.getProperty("direct.api.proxy.uri");
 			if (proxyURI != null) {
-				String proxyUser	= properties.getProperty("direct.api.proxy.username");
-				String proxyPass	= properties.getProperty("direct.api.proxy.password");
+				String proxyUser   = properties.getProperty("direct.api.proxy.username");
+				String proxyPass   = properties.getProperty("direct.api.proxy.password");
 				proxyConfiguration = new ProxyConfiguration(URI.create(proxyURI), proxyUser, proxyPass);
 			}
 
@@ -71,15 +73,15 @@ public class CommunicatorConfiguration {
 				httpsProtocols.addAll(Arrays.asList(COMMA_SEPARATOR_PATTERN.split(httpsProtocolString.trim())));
 			}
 
-			integrator				= properties.getProperty("direct.api.integrator");
-			shoppingCartExtension	= getShoppingCartExtension(properties);
+			integrator            = properties.getProperty("direct.api.integrator");
+			shoppingCartExtension = getShoppingCartExtension(properties);
 		}
 	}
 
 	private URI getApiEndpoint(Properties properties) {
-		String host		= properties.getProperty("direct.api.endpoint.host");
-		String scheme	= properties.getProperty("direct.api.endpoint.scheme");
-		String port		= properties.getProperty("direct.api.endpoint.port");
+		String host   = properties.getProperty("direct.api.endpoint.host");
+		String scheme = properties.getProperty("direct.api.endpoint.scheme");
+		String port   = properties.getProperty("direct.api.endpoint.port");
 
 		return createURI(scheme != null ? scheme : "https", host, port != null ? Integer.parseInt(port) : -1);
 	}
@@ -98,10 +100,10 @@ public class CommunicatorConfiguration {
 	}
 
 	private ShoppingCartExtension getShoppingCartExtension(Properties properties) {
-		String creator		= properties.getProperty("direct.api.shoppingCartExtension.creator");
-		String name			= properties.getProperty("direct.api.shoppingCartExtension.name");
-		String version		= properties.getProperty("direct.api.shoppingCartExtension.version");
-		String extensionId	= properties.getProperty("direct.api.shoppingCartExtension.extensionId");
+		String creator     = properties.getProperty("direct.api.shoppingCartExtension.creator");
+		String name        = properties.getProperty("direct.api.shoppingCartExtension.name");
+		String version     = properties.getProperty("direct.api.shoppingCartExtension.version");
+		String extensionId = properties.getProperty("direct.api.shoppingCartExtension.extensionId");
 
 		if (creator == null && name == null && version == null && extensionId == null) {
 			return null;

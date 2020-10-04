@@ -19,7 +19,7 @@
                 "authorisationCode": "OK1131",
                 "card": {
                     "cardNumber": "************9176",
-                    "expiryDate": "1220"
+                    "expiryDate": "1230"
                 },
                 "fraudResults": {
                     "fraudServiceResult": "error",

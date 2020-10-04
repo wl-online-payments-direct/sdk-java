@@ -43,7 +43,6 @@ import com.ingenico.direct.ResponseException;
 import com.ingenico.direct.ResponseHandler;
 import com.ingenico.direct.ResponseHeader;
 import com.ingenico.direct.ValidationException;
-import com.ingenico.direct.defaultimpl.AuthorizationType;
 import com.ingenico.direct.defaultimpl.DefaultAuthenticator;
 import com.ingenico.direct.domain.Address;
 import com.ingenico.direct.domain.AmountOfMoney;
@@ -58,7 +57,7 @@ import com.ingenico.direct.domain.Order;
 public class PaymentsClientTest {
 
 	public static final URI API_ENDPOINT = URI.create("http://localhost");
-	public static final DefaultAuthenticator AUTHENTICATOR = new DefaultAuthenticator(AuthorizationType.V1HMAC, "test" , "test");
+	public static final DefaultAuthenticator AUTHENTICATOR = new DefaultAuthenticator("test" , "test");
 	public static final MetaDataProvider META_DATA_PROVIDER = new MetaDataProvider("Ingenico");
 	@Mock private Connection connection;
 
@@ -340,7 +339,7 @@ public class PaymentsClientTest {
 		Card card = new Card();
 		card.setCvv("123");
 		card.setCardNumber("4567350000427977");
-		card.setExpiryDate("1220");
+		card.setExpiryDate("1230");
 		cardPaymentMethodSpecificInput.setCard(card);
 
 		body.setCardPaymentMethodSpecificInput(cardPaymentMethodSpecificInput);
