@@ -34,23 +34,13 @@ abstract class Obfuscator {
 
 		Builder() {}
 
-		Builder withAll(String key) {
-			obfuscators.put(key, ValueObfuscator.ALL);
+		Builder withField(String key) {
+			obfuscators.put(key, ValueObfuscator.INSTANCE);
 			return this;
 		}
 
-		Builder withFixedLength(String key, int fixedLength) {
-			obfuscators.put(key, ValueObfuscator.fixedLength(fixedLength));
-			return this;
-		}
-
-		Builder withKeepStartCount(String key, int count) {
-			obfuscators.put(key, ValueObfuscator.keepStartCount(count));
-			return this;
-		}
-
-		Builder withKeepEndCount(String key, int count) {
-			obfuscators.put(key, ValueObfuscator.keepEndCount(count));
+		Builder withSensitiveField(String key) {
+			obfuscators.put(key, SensitiveValueObfuscator.INSTANCE);
 			return this;
 		}
 

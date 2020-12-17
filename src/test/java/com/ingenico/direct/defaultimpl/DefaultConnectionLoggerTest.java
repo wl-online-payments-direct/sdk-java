@@ -146,11 +146,11 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 		try {
 			AmountOfMoney amountOfMoney = new AmountOfMoney();
-			amountOfMoney.setCurrencyCode("CAD");
+			amountOfMoney.setCurrencyCode("EUR");
 			amountOfMoney.setAmount(2345L);
 
 			Address billingAddress = new Address();
-			billingAddress.setCountryCode("CA");
+			billingAddress.setCountryCode("BE");
 
 			Customer customer = new Customer();
 			customer.setBillingAddress(billingAddress);
@@ -212,11 +212,11 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 		try {
 			AmountOfMoney amountOfMoney = new AmountOfMoney();
-			amountOfMoney.setCurrencyCode("CAD");
+			amountOfMoney.setCurrencyCode("EUR");
 			amountOfMoney.setAmount(2345L);
 
 			Address billingAddress = new Address();
-			billingAddress.setCountryCode("CA");
+			billingAddress.setCountryCode("BE");
 
 			Customer customer = new Customer();
 			customer.setBillingAddress(billingAddress);
@@ -279,11 +279,11 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 		setupRequestHandler(setJsonResponse("createPayment.failure.rejected.json", 402));
 
 		AmountOfMoney amountOfMoney = new AmountOfMoney();
-		amountOfMoney.setCurrencyCode("CAD");
+		amountOfMoney.setCurrencyCode("EUR");
 		amountOfMoney.setAmount(2345L);
 
 		Address billingAddress = new Address();
-		billingAddress.setCountryCode("CA");
+		billingAddress.setCountryCode("BE");
 
 		Customer customer = new Customer();
 		customer.setBillingAddress(billingAddress);

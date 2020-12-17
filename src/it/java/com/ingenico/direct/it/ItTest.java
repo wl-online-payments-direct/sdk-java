@@ -16,7 +16,7 @@ abstract class ItTest {
 	private static final String PROPERTIES_URL = "/itconfiguration.properties";
 	private static final String API_KEY_ID;
 	private static final String SECRET_API_KEY;
-	public final static String MERCHANT_ID;
+	protected static final String MERCHANT_ID;
 
 	static {
 		API_KEY_ID = getProperty("direct.api.apiKeyId");

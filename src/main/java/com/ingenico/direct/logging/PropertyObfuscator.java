@@ -89,26 +89,14 @@ final class PropertyObfuscator extends Obfuscator {
 	static class Builder extends Obfuscator.Builder {
 
 		@Override
-		Builder withAll(String property) {
-			super.withAll(property);
+		Builder withField(String property) {
+			super.withField(property);
 			return this;
 		}
 
 		@Override
-		Builder withFixedLength(String property, int fixedLength) {
-			super.withFixedLength(property, fixedLength);
-			return this;
-		}
-
-		@Override
-		Builder withKeepStartCount(String key, int count) {
-			super.withKeepStartCount(key, count);
-			return this;
-		}
-
-		@Override
-		Builder withKeepEndCount(String property, int count) {
-			super.withKeepEndCount(property, count);
+		Builder withSensitiveField(String property) {
+			super.withSensitiveField(property);
 			return this;
 		}
 

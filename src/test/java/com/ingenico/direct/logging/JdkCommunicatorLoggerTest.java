@@ -43,13 +43,13 @@ public class JdkCommunicatorLoggerTest {
 
 		JdkCommunicatorLogger communicatorLogger = new JdkCommunicatorLogger(logger, Level.INFO, Level.WARNING);
 		Exception exception = new Exception();
-		communicatorLogger.log("Hello world", exception);
+		communicatorLogger.log("Goodbye world", exception);
 
 		Assert.assertEquals(1, handler.records.size());
 
 		LogRecord record = handler.records.get(0);
 
-		Assert.assertEquals("Hello world", record.getMessage());
+		Assert.assertEquals("Goodbye world", record.getMessage());
 		Assert.assertEquals(Level.WARNING, record.getLevel());
 		Assert.assertEquals(getClass().getName(), record.getLoggerName());
 		Assert.assertEquals(communicatorLogger.getClass().getName(), record.getSourceClassName());

@@ -2,16 +2,16 @@
 	"sepaDirectDebit": {
 		"mandate": {
 			"bankAccountIban": {
-				"iban": "**************4567"
+				"iban": "*18"
 			},
 			"debtor": {
-				"surname": "Jones"
+				"surname": "*5"
 			},
 			"isRecurring": false
 		},
 		"customer": {
 			"billingAddress": {
-				"countryCode": "NL"
+				"countryCode": "BE"
 			}
 		}
 	},

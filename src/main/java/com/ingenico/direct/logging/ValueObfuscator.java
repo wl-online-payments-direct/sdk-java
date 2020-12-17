@@ -1,56 +1,17 @@
 package com.ingenico.direct.logging;
 
-import java.util.Arrays;
+public class ValueObfuscator {
 
-final class ValueObfuscator {
+    public static final ValueObfuscator INSTANCE = new ValueObfuscator();
 
-	static final ValueObfuscator ALL = new ValueObfuscator(0, 0, 0);
+    protected ValueObfuscator() { }
 
-	private final char maskCharacter;
-	private final int fixedLength;
-	private final int keepStartCount;
-	private final int keepEndCount;
-
-	private ValueObfuscator(int fixedLength, int keepStartCount, int keepEndCount) {
-		this.maskCharacter = '*';
-		this.fixedLength = fixedLength;
-		this.keepStartCount = keepStartCount;
-		this.keepEndCount = keepEndCount;
-	}
-
-	static ValueObfuscator fixedLength(int fixedLength) {
-		return new ValueObfuscator(fixedLength, 0, 0);
-	}
-
-	static ValueObfuscator keepStartCount(int count) {
-		return new ValueObfuscator(0, count, 0);
-	}
-
-	static ValueObfuscator keepEndCount(int count) {
-		return new ValueObfuscator(0, 0, count);
-	}
-
-	String obfuscateValue(String value) {
-		if (value == null || value.isEmpty()) {
-			return value;
-		}
-		if (fixedLength > 0) {
-			return repeatMask(fixedLength);
-		}
-		if (keepStartCount == 0 && keepEndCount == 0) {
-			return repeatMask(value.length());
-		}
-		if (value.length() < keepStartCount + keepEndCount) {
-			return value;
-		}
-		char[] chars = value.toCharArray();
-		Arrays.fill(chars, keepStartCount, value.length() - keepEndCount, maskCharacter);
-		return new String(chars);
-	}
-
-	private String repeatMask(int count) {
-		char[] chars = new char[count];
-		Arrays.fill(chars, maskCharacter);
-		return new String(chars);
-	}
+    /**
+     * @return "*" followed by the length of the given value, or null/empty if the value is null/empty, eg. "abc" returns "*3".
+     */
+    String obfuscateValue(String value) {
+        return value == null || value.isEmpty()
+                ? value
+                : "*" + value.length();
+    }
 }

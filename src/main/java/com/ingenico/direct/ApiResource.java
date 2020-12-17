@@ -117,9 +117,7 @@ public abstract class ApiResource {
 			case 410:
 				return new ReferenceException(statusCode, responseBody, errorId, errors);
 			case 500:
-				return new DirectException(statusCode, responseBody, errorId, errors);
 			case 502:
-				return new DirectException(statusCode, responseBody, errorId, errors);
 			case 503:
 				return new DirectException(statusCode, responseBody, errorId, errors);
 			default:

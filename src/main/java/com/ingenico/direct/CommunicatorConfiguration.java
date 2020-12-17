@@ -55,7 +55,7 @@ public class CommunicatorConfiguration {
 	public CommunicatorConfiguration(Properties properties) {
 		if (properties != null) {
 			apiEndpoint       = getApiEndpoint(properties);
-			authorizationType = AuthorizationType.valueOf(properties.getProperty("direct.api.authorizationType", AuthorizationType.V1HMAC.name()));
+			authorizationType = AuthorizationType.fromString(properties.getProperty("direct.api.authorizationType", AuthorizationType.V1HMAC.name()));
 			connectTimeout    = getProperty(properties, "direct.api.connectTimeout", DEFAULT_CONNECT_TIMEOUT);
 			socketTimeout     = getProperty(properties, "direct.api.socketTimeout", DEFAULT_SOCKET_TIMEOUT);
 			maxConnections    = getProperty(properties, "direct.api.maxConnections", DEFAULT_MAX_CONNECTIONS);

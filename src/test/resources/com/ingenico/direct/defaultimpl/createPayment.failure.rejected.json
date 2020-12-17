@@ -2,22 +2,23 @@
     "errorId": "833dfd83-52ae-419c-b871-9df1278da93e",
     "errors": [
         {
-            "code": "430330",
-            "message": "Not authorised",
+            "code": "9002",
+            "id": "MISSING_OR_INVALID_AUTHORIZATION",
+            "message": "MISSING_OR_INVALID_AUTHORIZATION",
             "httpStatusCode": 402
         }
     ],
     "paymentResult": {
         "creationOutput": {
-            "additionalReference": "00000000010000000001",
-            "externalReference": "000000000100000000010000100001"
+            "additionalReference": "1",
+            "externalReference": "1"
         },
         "payment": {
-            "id": "000000000100000000010000100001",
+            "id": "1_0",
             "paymentOutput": {
                 "amountOfMoney": {
                     "amount": 2345,
-                    "currencyCode": "CAD"
+                    "currencyCode": "EUR"
                 },
                 "references": {
                     "paymentReference": "0"
@@ -31,15 +32,16 @@
             "statusOutput": {
                 "errors": [
                     {
-                        "code": "430330",
+                        "code": "9002",
+                        "id": "MISSING_OR_INVALID_AUTHORIZATION",
                         "requestId": "24162",
-                        "message": "Not authorised",
+                        "message": "MISSING_OR_INVALID_AUTHORIZATION",
                         "httpStatusCode": 402
                     }
                 ],
                 "isCancellable": false,
                 "statusCategory": "UNSUCCESSFUL",
-                "statusCode": 100,
+                "statusCode": 2,
                 "statusCodeChangeDateTime": "20200101123030",
                 "isAuthorized": false
             }

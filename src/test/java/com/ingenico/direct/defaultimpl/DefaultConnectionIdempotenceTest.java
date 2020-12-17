@@ -335,13 +335,13 @@ public class DefaultConnectionIdempotenceTest extends LocalServerTestBase {
 
 		AmountOfMoney amountOfMoney = new AmountOfMoney();
 		amountOfMoney.setAmount(2345L);
-		amountOfMoney.setCurrencyCode("CAD");
+		amountOfMoney.setCurrencyCode("EUR");
 		order.setAmountOfMoney(amountOfMoney);
 
 		Customer customer = new Customer();
 
 		Address billingAddress = new Address();
-		billingAddress.setCountryCode("CA");
+		billingAddress.setCountryCode("BE");
 		customer.setBillingAddress(billingAddress);
 
 		order.setCustomer(customer);

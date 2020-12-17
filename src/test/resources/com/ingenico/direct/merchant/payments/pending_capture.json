@@ -1,14 +1,14 @@
 {
     "creationOutput": {
-        "additionalReference": "00000000010000000001",
-        "externalReference": "000000000100000000010000100001"
+        "additionalReference": "1",
+        "externalReference": "1"
     },
     "payment": {
-        "id": "000000000100000000010000100001",
+        "id": "1_0",
         "paymentOutput": {
             "amountOfMoney": {
                 "amount": 2345,
-                "currencyCode": "CAD"
+                "currencyCode": "EUR"
             },
             "references": {
                 "paymentReference": "0"
@@ -28,10 +28,10 @@
                 }
             }
         },
-        "status": "PENDING_APPROVAL",
+        "status": "PENDING_CAPTURE",
         "statusOutput": {
             "isCancellable": true,
-            "statusCode": 600,
+            "statusCode": 5,
             "statusCodeChangeDateTime": "20200101123030",
             "isAuthorized": true
         }

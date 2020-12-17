@@ -10,11 +10,11 @@ import com.ingenico.direct.domain.PaymentResponse;
 @SuppressWarnings("serial")
 public class DeclinedPaymentException extends DeclinedTransactionException {
 
-	private final PaymentErrorResponse errors;
+	private final PaymentErrorResponse errorResponse;
 
-	public DeclinedPaymentException(int statusCode, String responseBody, PaymentErrorResponse errors) {
-		super(buildMessage(errors), statusCode, responseBody, errors != null ? errors.getErrorId() : null, errors != null ? errors.getErrors() : null);
-		this.errors = errors;
+	public DeclinedPaymentException(int statusCode, String responseBody, PaymentErrorResponse errorResponse) {
+		super(buildMessage(errorResponse), statusCode, responseBody, errorResponse != null ? errorResponse.getErrorId() : null, errorResponse != null ? errorResponse.getErrors() : null);
+		this.errorResponse = errorResponse;
 	}
 
 	private static String buildMessage(PaymentErrorResponse errors) {
@@ -30,6 +30,6 @@ public class DeclinedPaymentException extends DeclinedTransactionException {
 	 * @return The result of creating a payment if available, otherwise returns {@code null}.
 	 */
 	public CreatePaymentResponse getCreatePaymentResult() {
-		return errors == null ? null : errors.getPaymentResult();
+		return errorResponse == null ? null : errorResponse.getPaymentResult();
 	}
 }

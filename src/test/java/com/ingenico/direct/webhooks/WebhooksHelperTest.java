@@ -33,7 +33,7 @@ public class WebhooksHelperTest {
 	private static final Charset CHARSET = Charset.forName("UTF-8");
 
 	private static final String SIGNATURE_HEADER = "X-GCS-Signature";
-	private static final String SIGNATURE = "FOfAoY4QQJUE6NQ5dV/IxHNZaAf4gPujVDlgraEpMzo=";
+	private static final String SIGNATURE = "n0tLj/UViNRa8Eq9NVVgKkaGiav2Njnl9QJyMUKpBsU=";
 
 	private static final String KEY_ID_HEADER = "X-GCS-KeyId";
 	private static final String KEY_ID = "dummy-key-id";
@@ -132,26 +132,28 @@ public class WebhooksHelperTest {
 		Assert.assertEquals("8ee793f6-4553-4749-85dc-f2ef095c5ab0", event.getId());
 		Assert.assertEquals("2020-01-01T12:30:30.000+0100", event.getCreated());
 		Assert.assertEquals("1", event.getMerchantId());
-		Assert.assertEquals("payment.paid", event.getType());
+		Assert.assertEquals("payment.captured", event.getType());
 
 		Assert.assertNull(event.getRefund());
+		Assert.assertNull(event.getPayout());
 		Assert.assertNull(event.getToken());
 
 		Assert.assertNotNull(event.getPayment());
-		Assert.assertEquals("00000000010000000001", event.getPayment().getId());
+		Assert.assertEquals("1_0", event.getPayment().getId());
 		Assert.assertNotNull(event.getPayment().getPaymentOutput());
 		Assert.assertNotNull(event.getPayment().getPaymentOutput().getAmountOfMoney());
 		Assert.assertEquals((Long) 1000L, event.getPayment().getPaymentOutput().getAmountOfMoney().getAmount());
 		Assert.assertEquals("EUR", event.getPayment().getPaymentOutput().getAmountOfMoney().getCurrencyCode());
 		Assert.assertNotNull(event.getPayment().getPaymentOutput().getReferences());
 		Assert.assertEquals("200001681810", event.getPayment().getPaymentOutput().getReferences().getMerchantReference());
-		Assert.assertEquals("bankTransfer", event.getPayment().getPaymentOutput().getPaymentMethod());
+		Assert.assertEquals("card", event.getPayment().getPaymentOutput().getPaymentMethod());
 
-		Assert.assertNull(event.getPayment().getPaymentOutput().getCardPaymentMethodSpecificOutput());
+		Assert.assertNotNull(event.getPayment().getPaymentOutput().getCardPaymentMethodSpecificOutput());
+		Assert.assertEquals((Integer) 1, event.getPayment().getPaymentOutput().getCardPaymentMethodSpecificOutput().getPaymentProductId());
 		Assert.assertNull(event.getPayment().getPaymentOutput().getRedirectPaymentMethodSpecificOutput());
 		Assert.assertNull(event.getPayment().getPaymentOutput().getSepaDirectDebitPaymentMethodSpecificOutput());
 
-		Assert.assertEquals("PAID", event.getPayment().getStatus());
+		Assert.assertEquals("CAPTURED", event.getPayment().getStatus());
 		Assert.assertNotNull(event.getPayment().getStatusOutput());
 		Assert.assertEquals(false, event.getPayment().getStatusOutput().getIsCancellable());
 		Assert.assertEquals("COMPLETED", event.getPayment().getStatusOutput().getStatusCategory());
@@ -165,7 +167,7 @@ public class WebhooksHelperTest {
 
 		InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
 
-		ByteArrayInputStream bodyStream = new ByteArrayInputStream(readResource("invalid-body.json"));
+		ByteArrayInputStream bodyStream = new ByteArrayInputStream(readResource("mismatched-body.json"));
 		List<RequestHeader> requestHeaders = Arrays.asList(
 				new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
 				new RequestHeader(KEY_ID_HEADER, KEY_ID)
@@ -223,40 +225,43 @@ public class WebhooksHelperTest {
 		Assert.assertEquals("8ee793f6-4553-4749-85dc-f2ef095c5ab0", event.getId());
 		Assert.assertEquals("2020-01-01T12:30:30.000+0100", event.getCreated());
 		Assert.assertEquals("1", event.getMerchantId());
-		Assert.assertEquals("payment.paid", event.getType());
+		Assert.assertEquals("payment.captured", event.getType());
 
 		Assert.assertNull(event.getRefund());
+		Assert.assertNull(event.getPayout());
 		Assert.assertNull(event.getToken());
 
 		Assert.assertNotNull(event.getPayment());
-		Assert.assertEquals("00000000010000000001", event.getPayment().getId());
+		Assert.assertEquals("1_0", event.getPayment().getId());
 		Assert.assertNotNull(event.getPayment().getPaymentOutput());
 		Assert.assertNotNull(event.getPayment().getPaymentOutput().getAmountOfMoney());
 		Assert.assertEquals((Long) 1000L, event.getPayment().getPaymentOutput().getAmountOfMoney().getAmount());
 		Assert.assertEquals("EUR", event.getPayment().getPaymentOutput().getAmountOfMoney().getCurrencyCode());
 		Assert.assertNotNull(event.getPayment().getPaymentOutput().getReferences());
 		Assert.assertEquals("200001681810", event.getPayment().getPaymentOutput().getReferences().getMerchantReference());
-		Assert.assertEquals("bankTransfer", event.getPayment().getPaymentOutput().getPaymentMethod());
+		Assert.assertEquals("card", event.getPayment().getPaymentOutput().getPaymentMethod());
 
-		Assert.assertNull(event.getPayment().getPaymentOutput().getCardPaymentMethodSpecificOutput());
+		Assert.assertNotNull(event.getPayment().getPaymentOutput().getCardPaymentMethodSpecificOutput());
+		Assert.assertEquals((Integer) 1, event.getPayment().getPaymentOutput().getCardPaymentMethodSpecificOutput().getPaymentProductId());
 		Assert.assertNull(event.getPayment().getPaymentOutput().getRedirectPaymentMethodSpecificOutput());
 		Assert.assertNull(event.getPayment().getPaymentOutput().getSepaDirectDebitPaymentMethodSpecificOutput());
 
-		Assert.assertEquals("PAID", event.getPayment().getStatus());
+		Assert.assertEquals("CAPTURED", event.getPayment().getStatus());
 		Assert.assertNotNull(event.getPayment().getStatusOutput());
 		Assert.assertEquals(false, event.getPayment().getStatusOutput().getIsCancellable());
 		Assert.assertEquals("COMPLETED", event.getPayment().getStatusOutput().getStatusCategory());
+		Assert.assertEquals((Integer) 9, event.getPayment().getStatusOutput().getStatusCode());
 		Assert.assertEquals("20200101123030", event.getPayment().getStatusOutput().getStatusCodeChangeDateTime());
 		Assert.assertEquals(true, event.getPayment().getStatusOutput().getIsAuthorized());
 	}
 
 	@Test(expected = SignatureValidationException.class)
-	public void testUnmarshalStringInvalidBody() throws IOException {
+	public void testUnmarshalStringMismatchedBody() throws IOException {
 		WebhooksHelper helper = createHelper();
 
 		InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
 
-		String body = new String(readResource("invalid-body.json"), CHARSET);
+		String body = new String(readResource("mismatched-body.json"), CHARSET);
 		List<RequestHeader> requestHeaders = Arrays.asList(
 				new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
 				new RequestHeader(KEY_ID_HEADER, KEY_ID)

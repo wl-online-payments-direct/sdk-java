@@ -9,11 +9,11 @@ import com.ingenico.direct.domain.RefundResponse;
 @SuppressWarnings("serial")
 public class DeclinedRefundException extends DeclinedTransactionException {
 
-	private final RefundErrorResponse errors;
+	private final RefundErrorResponse errorResponse;
 
-	public DeclinedRefundException(int statusCode, String responseBody, RefundErrorResponse errors) {
-		super(buildMessage(errors), statusCode, responseBody, errors != null ? errors.getErrorId() : null, errors != null ? errors.getErrors() : null);
-		this.errors = errors;
+	public DeclinedRefundException(int statusCode, String responseBody, RefundErrorResponse errorResponse) {
+		super(buildMessage(errorResponse), statusCode, responseBody, errorResponse != null ? errorResponse.getErrorId() : null, errorResponse != null ? errorResponse.getErrors() : null);
+		this.errorResponse = errorResponse;
 	}
 
 	private static String buildMessage(RefundErrorResponse errors) {
@@ -29,6 +29,6 @@ public class DeclinedRefundException extends DeclinedTransactionException {
 	 * @return The result of creating a refund if available, otherwise returns {@code null}.
 	 */
 	public RefundResponse getRefundResult() {
-		return errors == null ? null : errors.getRefundResult();
+		return errorResponse == null ? null : errorResponse.getRefundResult();
 	}
 }

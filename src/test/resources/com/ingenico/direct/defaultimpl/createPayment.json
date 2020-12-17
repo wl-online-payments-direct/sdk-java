@@ -1,14 +1,14 @@
 {
     "creationOutput": {
-        "additionalReference": "00000000010000000001",
-        "externalReference": "000000000100000000010000100001"
+        "additionalReference": "1",
+        "externalReference": "1"
     },
     "payment": {
-        "id": "000000000100000000010000100001",
+        "id": "1_0",
         "paymentOutput": {
             "amountOfMoney": {
                 "amount": 2345,
-                "currencyCode": "CAD"
+                "currencyCode": "EUR"
             },
             "references": {
                 "paymentReference": "0"
@@ -18,7 +18,7 @@
                 "paymentProductId": 1,
                 "authorisationCode": "OK1131",
                 "card": {
-                    "cardNumber": "************3456",
+                    "cardNumber": "1234567890123456",
                     "expiryDate": "1230"
                 },
                 "fraudResults": {
@@ -28,11 +28,11 @@
                 }
             }
         },
-        "status": "PENDING_APPROVAL",
+        "status": "PENDING_CAPTURE",
         "statusOutput": {
             "isCancellable": true,
             "statusCategory": "PENDING_MERCHANT",
-            "statusCode": 600,
+            "statusCode": 5,
             "statusCodeChangeDateTime": "20200101123030",
             "isAuthorized": true
         }

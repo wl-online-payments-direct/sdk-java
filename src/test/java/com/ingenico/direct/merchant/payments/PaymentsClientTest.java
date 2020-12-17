@@ -69,14 +69,14 @@ public class PaymentsClientTest {
 	public void testCreateSuccess() {
 
 		ClientInterface client = getClient();
-		String responseBody = getResource("pending_approval.json");
+		String responseBody = getResource("pending_capture.json");
 		mockPost(201, responseBody);
 
 		CreatePaymentRequest body = createRequest();
 
 		CreatePaymentResponse response = client.merchant("merchantId").payments().createPayment(body);
-		Assert.assertEquals("000000000100000000010000100001", response.getPayment().getId());
-		Assert.assertEquals("PENDING_APPROVAL", response.getPayment().getStatus());
+		Assert.assertEquals("1_0", response.getPayment().getId());
+		Assert.assertEquals("PENDING_CAPTURE", response.getPayment().getStatus());
 	}
 
 	/**
@@ -96,11 +96,11 @@ public class PaymentsClientTest {
 			client.merchant("merchantId").payments().createPayment(body);
 			Assert.fail("Expected DeclinedPaymentException");
 		} catch (DeclinedPaymentException e) {
-			Assert.assertTrue(e.toString().contains("payment '000000000100000000010000100001'"));
+			Assert.assertTrue(e.toString().contains("payment '1_0'"));
 			Assert.assertTrue(e.toString().contains("status 'REJECTED'"));
 			Assert.assertTrue(e.toString().contains(responseBody));
 			Assert.assertNotNull(e.getCreatePaymentResult());
-			Assert.assertEquals("000000000100000000010000100001", e.getCreatePaymentResult().getPayment().getId());
+			Assert.assertEquals("1_0", e.getCreatePaymentResult().getPayment().getId());
 			Assert.assertEquals("REJECTED", e.getCreatePaymentResult().getPayment().getStatus());
 		}
 	}
@@ -322,13 +322,13 @@ public class PaymentsClientTest {
 
 		AmountOfMoney amountOfMoney = new AmountOfMoney();
 		amountOfMoney.setAmount(2345L);
-		amountOfMoney.setCurrencyCode("CAD");
+		amountOfMoney.setCurrencyCode("EUR");
 		order.setAmountOfMoney(amountOfMoney);
 
 		Customer customer = new Customer();
 
 		Address billingAddress = new Address();
-		billingAddress.setCountryCode("CA");
+		billingAddress.setCountryCode("BE");
 		customer.setBillingAddress(billingAddress);
 
 		order.setCustomer(customer);

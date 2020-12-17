@@ -1,0 +1,31 @@
+{
+	"order": {
+		"amountOfMoney": {
+			"currencyCode": "EUR",
+			"amount": 2345
+		},
+		"customer": {
+			"billingAddress": {
+				"countryCode": "BE",
+				"city": "Zaventem",
+				"zip": "*4",
+				"street": "*12",
+				"houseNumber": "*1"
+			},
+			"personalInformation": {
+				"dateOfBirth": "*8",
+				"name": {
+					"firstName": "*4",
+					"surname": "*6"
+				}
+			},
+			"contactDetails": {
+				"emailAddress": "*17",
+				"faxNumber": "*18",
+				"mobilePhoneNumber": "*11",
+				"phoneNumber": "*12",
+				"workPhoneNumber": "*12"
+			}
+		}
+	}
+}

@@ -28,7 +28,6 @@ public class DefaultAuthenticator implements Authenticator {
 
 	private static final String HMAC_ALGORITHM = "HmacSHA256";
 	private static final Pattern CANONICALIZE_HEADER_REGEXP = Pattern.compile("\r?\n[\\s&&[^\r\n]]*");
-	private static final Pattern CANONICALIZE_HEADER_REGEXP2 = Pattern.compile("\r?\n[\\s-[\r\n]]*");
 
 	private static final Comparator<RequestHeader> REQUEST_HEADER_COMPARATOR = new Comparator<RequestHeader>() {
 		@Override
@@ -173,7 +172,6 @@ public class DefaultAuthenticator implements Authenticator {
 			return "";
 		}
 
-		CANONICALIZE_HEADER_REGEXP2.matcher(originalValue).replaceAll(" ").trim();
 		return CANONICALIZE_HEADER_REGEXP.matcher(originalValue).replaceAll(" ").trim();
 	}
 

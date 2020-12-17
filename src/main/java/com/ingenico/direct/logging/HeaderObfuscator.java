@@ -16,26 +16,14 @@ final class HeaderObfuscator extends Obfuscator {
 	static class Builder extends Obfuscator.Builder {
 
 		@Override
-		Builder withAll(String name) {
-			super.withAll(name);
+		Builder withField(String name) {
+			super.withField(name);
 			return this;
 		}
 
 		@Override
-		Builder withFixedLength(String name, int fixedLength) {
-			super.withFixedLength(name, fixedLength);
-			return this;
-		}
-
-		@Override
-		Builder withKeepStartCount(String key, int count) {
-			super.withKeepStartCount(key, count);
-			return this;
-		}
-
-		@Override
-		Builder withKeepEndCount(String name, int count) {
-			super.withKeepEndCount(name, count);
+		Builder withSensitiveField(String name) {
+			super.withSensitiveField(name);
 			return this;
 		}
 

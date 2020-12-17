@@ -36,6 +36,11 @@ public class LoggingUtilTest {
 	}
 
 	@Test
+	public void testObfuscateBodyWithGDPRData() throws IOException {
+		testObfuscateBodyWithMatches("bodyWithGDPRDataOriginal.json", "bodyWithGDPRDataObfuscated.json");
+	}
+
+	@Test
 	public void testObfuscateBodyWithIban() throws IOException {
 		testObfuscateBodyWithMatches("bodyWithIbanOriginal.json", "bodyWithIbanObfuscated.json");
 	}
@@ -91,17 +96,17 @@ public class LoggingUtilTest {
 
 	@Test
 	public void testObfuscateHeader() {
-		testObfuscateHeaderWithMatch("Authorization", "Basic QWxhZGRpbjpPcGVuU2VzYW1l", "********");
-		testObfuscateHeaderWithMatch("authorization", "Basic QWxhZGRpbjpPcGVuU2VzYW1l", "********");
-		testObfuscateHeaderWithMatch("AUTHORIZATION", "Basic QWxhZGRpbjpPcGVuU2VzYW1l", "********");
+		testObfuscateHeaderWithMatch("Authorization", "Basic QWxhZGRpbjpPcGVuU2VzYW1l", "***");
+		testObfuscateHeaderWithMatch("authorization", "Basic QWxhZGRpbjpPcGVuU2VzYW1l", "***");
+		testObfuscateHeaderWithMatch("AUTHORIZATION", "Basic QWxhZGRpbjpPcGVuU2VzYW1l", "***");
 
-		testObfuscateHeaderWithMatch("X-GCS-Authentication-Token", "foobar", "********");
-		testObfuscateHeaderWithMatch("x-gcs-authentication-token", "foobar", "********");
-		testObfuscateHeaderWithMatch("X-GCS-AUTHENTICATION-TOKEN", "foobar", "********");
+		testObfuscateHeaderWithMatch("X-GCS-Authentication-Token", "foobar", "***");
+		testObfuscateHeaderWithMatch("x-gcs-authentication-token", "foobar", "***");
+		testObfuscateHeaderWithMatch("X-GCS-AUTHENTICATION-TOKEN", "foobar", "***");
 
-		testObfuscateHeaderWithMatch("X-GCS-CallerPassword", "foobar", "********");
-		testObfuscateHeaderWithMatch("x-gcs-callerpassword", "foobar", "********");
-		testObfuscateHeaderWithMatch("X-GCS-CALLERPASSWORD", "foobar", "********");
+		testObfuscateHeaderWithMatch("X-GCS-CallerPassword", "foobar", "***");
+		testObfuscateHeaderWithMatch("x-gcs-callerpassword", "foobar", "***");
+		testObfuscateHeaderWithMatch("X-GCS-CALLERPASSWORD", "foobar", "***");
 
 		testObfuscateHeaderWithNoMatch("Content-Type", "application/json");
 		testObfuscateHeaderWithNoMatch("content-type", "application/json");

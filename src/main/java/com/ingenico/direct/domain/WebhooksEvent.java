@@ -16,6 +16,8 @@ public class WebhooksEvent {
 
 	private RefundResponse refund;
 
+	private PayoutResponse payout;
+
 	private TokenResponse token;
 
 	public String getApiVersion() {
@@ -72,6 +74,14 @@ public class WebhooksEvent {
 
 	public void setRefund(RefundResponse refund) {
 		this.refund = refund;
+	}
+
+	public PayoutResponse getPayout() {
+		return payout;
+	}
+
+	public void setPayout(PayoutResponse payout) {
+		this.payout = payout;
 	}
 
 	public TokenResponse getToken() {

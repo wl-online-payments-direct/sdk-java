@@ -12,34 +12,50 @@ import java.nio.charset.Charset;
 public final class LoggingUtil {
 
 	private static final PropertyObfuscator PROPERTY_OBFUSCATOR = PropertyObfuscator.builder()
-			.withKeepEndCount("cardNumber", 4)
-			.withKeepEndCount("expiryDate", 2)
-			.withAll("cvv")
-			.withKeepEndCount("iban", 4)
-			.withKeepEndCount("accountNumber", 4)
-			.withKeepEndCount("reformattedAccountNumber", 4)
-			.withKeepStartCount("bin", 6)
+            // PCI-related fields
+			.withField("accountNumber")
+			.withField("bin")
+			.withField("cardNumber")
+			.withField("cvv")
+			.withField("expiryDate")
+			.withField("iban")
+			.withField("reformattedAccountNumber")
+	        // GDPR-related fields
+	        .withField("additionalInfo")
+	        .withField("cardholderName")
+	        .withField("dateOfBirth")
+	        .withField("emailAddress")
+	        .withField("faxNumber")
+	        .withField("firstName")
+	        .withField("houseNumber")
+	        .withField("mobilePhoneNumber")
+	        .withField("passengerName")
+	        .withField("phoneNumber")
+	        .withField("street")
+	        .withField("surname")
+	        .withField("workPhoneNumber")
+	        .withField("zip")
 			// key-value pairs can contain any value, like credit card numbers or other private data; mask all values
-			.withAll("value")
-			.withFixedLength("keyId", 8)
-			.withFixedLength("secretKey", 8)
-			.withFixedLength("publicKey", 8)
-			.withFixedLength("userAuthenticationToken", 8)
+			.withField("value")
+			.withSensitiveField("keyId")
+			.withSensitiveField("publicKey")
+			.withSensitiveField("secretKey")
+			.withSensitiveField("userAuthenticationToken")
+            // encrypted customer input is similar to encrypted payload
+            .withSensitiveField("encryptedCustomerInput")
 			// encrypted payload is a base64 string that contains an encrypted value; to make decrypting even harder, just mask the entire thing
-			.withFixedLength("encryptedPayload", 8)
+			.withSensitiveField("encryptedPayload")
 			// decrypted payload is a simple base64 string that may contain credit card numbers or other private data; just mask the entire thing
-			.withFixedLength("decryptedPayload", 8)
-			// encrypted customer input is similar to encrypted payload
-			.withFixedLength("encryptedCustomerInput", 8)
+			.withSensitiveField("decryptedPayload")
 			.build();
 
 	private static final HeaderObfuscator HEADER_OBFUSCATOR = HeaderObfuscator.builder()
-			.withFixedLength("Authorization", 8)
-			.withFixedLength("WWW-Authenticate", 8)
-			.withFixedLength("Proxy-Authenticate", 8)
-			.withFixedLength("Proxy-Authorization", 8)
-			.withFixedLength("X-GCS-Authentication-Token", 8)
-			.withFixedLength("X-GCS-CallerPassword", 8)
+			.withSensitiveField("Authorization")
+			.withSensitiveField("Proxy-Authenticate")
+			.withSensitiveField("Proxy-Authorization")
+			.withSensitiveField("WWW-Authenticate")
+			.withSensitiveField("X-GCS-Authentication-Token")
+			.withSensitiveField("X-GCS-CallerPassword")
 			.build();
 
 	private LoggingUtil() {}
