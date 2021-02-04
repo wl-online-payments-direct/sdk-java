@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.domain;
 
@@ -16,6 +16,8 @@ public class MobilePaymentMethodSpecificInput {
 	private String encryptedPaymentData = null;
 
 	private String ephemeralKey = null;
+
+	private MobilePaymentProduct320SpecificInput paymentProduct320SpecificInput = null;
 
 	private Integer paymentProductId = null;
 
@@ -91,6 +93,20 @@ public class MobilePaymentMethodSpecificInput {
 	 */
 	public void setEphemeralKey(String value) {
 		this.ephemeralKey = value;
+	}
+
+	/**
+	 * Object containing information specific to Google Pay. Required for payments with product 320.
+	 */
+	public MobilePaymentProduct320SpecificInput getPaymentProduct320SpecificInput() {
+		return paymentProduct320SpecificInput;
+	}
+
+	/**
+	 * Object containing information specific to Google Pay. Required for payments with product 320.
+	 */
+	public void setPaymentProduct320SpecificInput(MobilePaymentProduct320SpecificInput value) {
+		this.paymentProduct320SpecificInput = value;
 	}
 
 	/**

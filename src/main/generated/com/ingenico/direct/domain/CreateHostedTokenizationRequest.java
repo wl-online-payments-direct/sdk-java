@@ -1,16 +1,34 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.domain;
 
 public class CreateHostedTokenizationRequest {
+
+	private Boolean askConsumerConsent = null;
 
 	private String locale = null;
 
 	private String tokens = null;
 
 	private String variant = null;
+
+	/**
+	 * Indicate if the tokenization form should contain a prompt asking the user to give consent for storing their information for future payments.
+	 * If this parameter is false, you should ask the user yourself and provide the answer when submitting the Tokenizer in your javascript code.
+	 */
+	public Boolean getAskConsumerConsent() {
+		return askConsumerConsent;
+	}
+
+	/**
+	 * Indicate if the tokenization form should contain a prompt asking the user to give consent for storing their information for future payments.
+	 * If this parameter is false, you should ask the user yourself and provide the answer when submitting the Tokenizer in your javascript code.
+	 */
+	public void setAskConsumerConsent(Boolean value) {
+		this.askConsumerConsent = value;
+	}
 
 	/**
 	 * Locale used in the GUI towards the consumer. 

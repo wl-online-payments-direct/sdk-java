@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.merchant.productgroups;
 
@@ -21,7 +21,7 @@ public interface ProductGroupsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/productgroups
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetProductGroups">Get product groups</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetProductGroups">Get product groups</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -36,7 +36,7 @@ public interface ProductGroupsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/productgroups
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetProductGroups">Get product groups</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetProductGroups">Get product groups</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -52,7 +52,7 @@ public interface ProductGroupsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/productgroups/{paymentProductGroupId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetProductGroup">Get product group</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetProductGroup">Get product group</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -67,7 +67,7 @@ public interface ProductGroupsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/productgroups/{paymentProductGroupId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetProductGroup">Get product group</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetProductGroup">Get product group</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)

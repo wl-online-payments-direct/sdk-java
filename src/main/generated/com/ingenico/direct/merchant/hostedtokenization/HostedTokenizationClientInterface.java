@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.merchant.hostedtokenization;
 
@@ -22,7 +22,7 @@ public interface HostedTokenizationClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/hostedtokenizations
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateHostedTokenizationApi">Create hosted tokenization session</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CreateHostedTokenizationApi">Create hosted tokenization session</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -37,7 +37,7 @@ public interface HostedTokenizationClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/hostedtokenizations
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateHostedTokenizationApi">Create hosted tokenization session</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CreateHostedTokenizationApi">Create hosted tokenization session</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -53,7 +53,7 @@ public interface HostedTokenizationClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/hostedtokenizations/{hostedTokenizationId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetHostedTokenizationApi">Get hosted tokenization session</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetHostedTokenizationApi">Get hosted tokenization session</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -68,7 +68,7 @@ public interface HostedTokenizationClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/hostedtokenizations/{hostedTokenizationId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetHostedTokenizationApi">Get hosted tokenization session</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetHostedTokenizationApi">Get hosted tokenization session</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)

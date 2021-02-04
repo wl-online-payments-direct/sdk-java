@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.domain;
 
@@ -126,14 +126,14 @@ public class CardPaymentMethodSpecificInputBase {
 	}
 
 	/**
-	 * ID of the token. This property is populated when the payment was done with a token or when the payment was tokenized.
+	 * ID of the token to use to create the payment.
 	 */
 	public String getToken() {
 		return token;
 	}
 
 	/**
-	 * ID of the token. This property is populated when the payment was done with a token or when the payment was tokenized.
+	 * ID of the token to use to create the payment.
 	 */
 	public void setToken(String value) {
 		this.token = value;

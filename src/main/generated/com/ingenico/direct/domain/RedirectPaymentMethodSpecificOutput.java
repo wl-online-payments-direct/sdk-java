@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.domain;
 
@@ -10,6 +10,12 @@ package com.ingenico.direct.domain;
 public class RedirectPaymentMethodSpecificOutput {
 
 	private FraudResults fraudResults = null;
+
+	private String paymentOption = null;
+
+	private PaymentProduct5402SpecificOutput paymentProduct5402SpecificOutput = null;
+
+	private PaymentProduct5500SpecificOutput paymentProduct5500SpecificOutput = null;
 
 	private PaymentProduct840SpecificOutput paymentProduct840SpecificOutput = null;
 
@@ -29,6 +35,48 @@ public class RedirectPaymentMethodSpecificOutput {
 	 */
 	public void setFraudResults(FraudResults value) {
 		this.fraudResults = value;
+	}
+
+	/**
+	 * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
+	 */
+	public String getPaymentOption() {
+		return paymentOption;
+	}
+
+	/**
+	 * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
+	 */
+	public void setPaymentOption(String value) {
+		this.paymentOption = value;
+	}
+
+	/**
+	 * Meal vouchers (payment product 5402) specific details
+	 */
+	public PaymentProduct5402SpecificOutput getPaymentProduct5402SpecificOutput() {
+		return paymentProduct5402SpecificOutput;
+	}
+
+	/**
+	 * Meal vouchers (payment product 5402) specific details
+	 */
+	public void setPaymentProduct5402SpecificOutput(PaymentProduct5402SpecificOutput value) {
+		this.paymentProduct5402SpecificOutput = value;
+	}
+
+	/**
+	 * Multibanco (payment product 5500) specific details
+	 */
+	public PaymentProduct5500SpecificOutput getPaymentProduct5500SpecificOutput() {
+		return paymentProduct5500SpecificOutput;
+	}
+
+	/**
+	 * Multibanco (payment product 5500) specific details
+	 */
+	public void setPaymentProduct5500SpecificOutput(PaymentProduct5500SpecificOutput value) {
+		this.paymentProduct5500SpecificOutput = value;
 	}
 
 	/**

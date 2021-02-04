@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.merchant.products;
 
@@ -12,7 +12,7 @@ import com.ingenico.direct.RequestParam;
 
 /**
  * Query parameters for
- * <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentProduct">Get payment product</a>
+ * <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentProduct">Get payment product</a>
  */
 public class GetPaymentProductParams implements ParamRequest {
 

@@ -1,13 +1,17 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.domain;
+
+import java.util.List;
 
 /**
  * Payment product
  */
 public class PaymentProduct {
+
+	private List<AccountOnFile> accountsOnFile = null;
 
 	private Boolean allowsRecurring = null;
 
@@ -15,17 +19,29 @@ public class PaymentProduct {
 
 	private PaymentProductDisplayHints displayHints = null;
 
+	private List<PaymentProductField> fields = null;
+
 	private Integer id = null;
-
-	private Long maxAmount = null;
-
-	private Long minAmount = null;
 
 	private String paymentMethod = null;
 
 	private String paymentProductGroup = null;
 
 	private Boolean usesRedirectionTo3rdParty = null;
+
+	/**
+	 * List of tokens for that payment product
+	 */
+	public List<AccountOnFile> getAccountsOnFile() {
+		return accountsOnFile;
+	}
+
+	/**
+	 * List of tokens for that payment product
+	 */
+	public void setAccountsOnFile(List<AccountOnFile> value) {
+		this.accountsOnFile = value;
+	}
 
 	/**
 	 * Indicates if the product supports recurring payments
@@ -78,6 +94,20 @@ public class PaymentProduct {
 	}
 
 	/**
+	 * Object containing all the fields and their details that are associated with this payment product. If you are not interested in the data on the fields you should have us filter them our (using filter=fields in the query-string)
+	 */
+	public List<PaymentProductField> getFields() {
+		return fields;
+	}
+
+	/**
+	 * Object containing all the fields and their details that are associated with this payment product. If you are not interested in the data on the fields you should have us filter them our (using filter=fields in the query-string)
+	 */
+	public void setFields(List<PaymentProductField> value) {
+		this.fields = value;
+	}
+
+	/**
 	 * The ID of the payment product in our system
 	 */
 	public Integer getId() {
@@ -89,34 +119,6 @@ public class PaymentProduct {
 	 */
 	public void setId(Integer value) {
 		this.id = value;
-	}
-
-	/**
-	 * Maximum amount in EUR cents (using 2 decimals, so 1 EUR becomes 100 cents) for transactions done with this payment product
-	 */
-	public Long getMaxAmount() {
-		return maxAmount;
-	}
-
-	/**
-	 * Maximum amount in EUR cents (using 2 decimals, so 1 EUR becomes 100 cents) for transactions done with this payment product
-	 */
-	public void setMaxAmount(Long value) {
-		this.maxAmount = value;
-	}
-
-	/**
-	 * Minimum amount in EUR cents (using 2 decimals, so 1 EUR becomes 100 cents) for transactions done with this payment product
-	 */
-	public Long getMinAmount() {
-		return minAmount;
-	}
-
-	/**
-	 * Minimum amount in EUR cents (using 2 decimals, so 1 EUR becomes 100 cents) for transactions done with this payment product
-	 */
-	public void setMinAmount(Long value) {
-		this.minAmount = value;
 	}
 
 	/**

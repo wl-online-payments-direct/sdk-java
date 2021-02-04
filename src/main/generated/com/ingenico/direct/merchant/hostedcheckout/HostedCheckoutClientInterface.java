@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.merchant.hostedcheckout;
 
@@ -22,7 +22,7 @@ public interface HostedCheckoutClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/hostedcheckouts
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateHostedCheckoutApi">Create hosted checkout</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CreateHostedCheckoutApi">Create hosted checkout</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -37,7 +37,7 @@ public interface HostedCheckoutClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/hostedcheckouts
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateHostedCheckoutApi">Create hosted checkout</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CreateHostedCheckoutApi">Create hosted checkout</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -53,7 +53,7 @@ public interface HostedCheckoutClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/hostedcheckouts/{hostedCheckoutId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetHostedCheckoutApi">Get hosted checkout status</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetHostedCheckoutApi">Get hosted checkout status</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -68,7 +68,7 @@ public interface HostedCheckoutClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/hostedcheckouts/{hostedCheckoutId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetHostedCheckoutApi">Get hosted checkout status</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetHostedCheckoutApi">Get hosted checkout status</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)

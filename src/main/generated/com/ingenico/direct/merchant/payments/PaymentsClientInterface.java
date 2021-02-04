@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.merchant.payments;
 
@@ -33,7 +33,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreatePaymentApi">Create payment</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CreatePaymentApi">Create payment</a>
 	 *
 	 * @throws DeclinedPaymentException if the Ingenico ePayments platform declined / rejected the payment. The payment result will be available from the exception.
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
@@ -49,7 +49,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreatePaymentApi">Create payment</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CreatePaymentApi">Create payment</a>
 	 *
 	 * @throws DeclinedPaymentException if the Ingenico ePayments platform declined / rejected the payment. The payment result will be available from the exception.
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
@@ -66,7 +66,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentApi">Get payment</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentApi">Get payment</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -81,7 +81,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentApi">Get payment</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentApi">Get payment</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -97,7 +97,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}/complete
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CompletePaymentApi">Complete payment</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CompletePaymentApi">Complete payment</a>
 	 *
 	 * @throws DeclinedPaymentException if the Ingenico ePayments platform declined / rejected the payment. The payment result will be available from the exception.
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
@@ -113,7 +113,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}/complete
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CompletePaymentApi">Complete payment</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CompletePaymentApi">Complete payment</a>
 	 *
 	 * @throws DeclinedPaymentException if the Ingenico ePayments platform declined / rejected the payment. The payment result will be available from the exception.
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
@@ -130,7 +130,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}/cancel
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CancelPaymentApi">Cancel payment</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CancelPaymentApi">Cancel payment</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -145,7 +145,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}/cancel
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CancelPaymentApi">Cancel payment</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CancelPaymentApi">Cancel payment</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -161,7 +161,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}/refund
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/RefundPaymentApi">Refund payment</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/RefundPaymentApi">Refund payment</a>
 	 *
 	 * @throws DeclinedRefundException if the Ingenico ePayments platform declined / rejected the refund. The refund result will be available from the exception.
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
@@ -177,7 +177,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}/refund
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/RefundPaymentApi">Refund payment</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/RefundPaymentApi">Refund payment</a>
 	 *
 	 * @throws DeclinedRefundException if the Ingenico ePayments platform declined / rejected the refund. The refund result will be available from the exception.
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
@@ -194,7 +194,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}/capture
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CapturePaymentApi">Capture payment</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CapturePaymentApi">Capture payment</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -209,7 +209,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}/capture
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CapturePaymentApi">Capture payment</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CapturePaymentApi">Capture payment</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -225,7 +225,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}/captures
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetCapturesApi">Get Captures Api</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetCapturesApi">Get Captures Api</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -240,7 +240,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}/captures
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetCapturesApi">Get Captures Api</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetCapturesApi">Get Captures Api</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -256,7 +256,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}/refunds
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetRefundsApi">Get Refunds Api</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetRefundsApi">Get Refunds Api</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -271,7 +271,7 @@ public interface PaymentsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}/refunds
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetRefundsApi">Get Refunds Api</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetRefundsApi">Get Refunds Api</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)

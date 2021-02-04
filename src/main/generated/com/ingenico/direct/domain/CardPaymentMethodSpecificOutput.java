@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.domain;
 
@@ -16,6 +16,8 @@ public class CardPaymentMethodSpecificOutput {
 	private CardFraudResults fraudResults = null;
 
 	private String initialSchemeTransactionId = null;
+
+	private String paymentOption = null;
 
 	private Integer paymentProductId = null;
 
@@ -77,6 +79,20 @@ public class CardPaymentMethodSpecificOutput {
 	 */
 	public void setInitialSchemeTransactionId(String value) {
 		this.initialSchemeTransactionId = value;
+	}
+
+	/**
+	 * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
+	 */
+	public String getPaymentOption() {
+		return paymentOption;
+	}
+
+	/**
+	 * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
+	 */
+	public void setPaymentOption(String value) {
+		this.paymentOption = value;
 	}
 
 	/**

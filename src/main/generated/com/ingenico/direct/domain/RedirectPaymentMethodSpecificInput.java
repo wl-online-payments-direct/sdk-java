@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.domain;
 
@@ -8,6 +8,8 @@ package com.ingenico.direct.domain;
  * Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
  */
 public class RedirectPaymentMethodSpecificInput {
+
+	private String paymentOption = null;
 
 	private RedirectPaymentProduct809SpecificInput paymentProduct809SpecificInput = null;
 
@@ -22,6 +24,20 @@ public class RedirectPaymentMethodSpecificInput {
 	private String token = null;
 
 	private Boolean tokenize = null;
+
+	/**
+	 * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
+	 */
+	public String getPaymentOption() {
+		return paymentOption;
+	}
+
+	/**
+	 * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
+	 */
+	public void setPaymentOption(String value) {
+		this.paymentOption = value;
+	}
 
 	/**
 	 * Object containing specific input required for iDeal payments (Payment product ID 809)
@@ -96,14 +112,14 @@ public class RedirectPaymentMethodSpecificInput {
 	}
 
 	/**
-	 * ID of the token. This property is populated when the payment was done with a token or when the payment was tokenized.
+	 * ID of the token to use to create the payment.
 	 */
 	public String getToken() {
 		return token;
 	}
 
 	/**
-	 * ID of the token. This property is populated when the payment was done with a token or when the payment was tokenized.
+	 * ID of the token to use to create the payment.
 	 */
 	public void setToken(String value) {
 		this.token = value;

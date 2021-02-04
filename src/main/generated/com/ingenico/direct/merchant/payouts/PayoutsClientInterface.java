@@ -1,12 +1,13 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.merchant.payouts;
 
 import com.ingenico.direct.ApiException;
 import com.ingenico.direct.AuthorizationException;
 import com.ingenico.direct.CallContext;
+import com.ingenico.direct.DeclinedPayoutException;
 import com.ingenico.direct.DirectException;
 import com.ingenico.direct.IdempotenceException;
 import com.ingenico.direct.ReferenceException;
@@ -21,8 +22,9 @@ public interface PayoutsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payouts
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreatePayoutApi">Create payout</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CreatePayoutApi">Create payout</a>
 	 *
+	 * @throws DeclinedPayoutException if the Ingenico ePayments platform declined / rejected the payout. The payout result will be available from the exception.
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
@@ -36,8 +38,9 @@ public interface PayoutsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payouts
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreatePayoutApi">Create payout</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CreatePayoutApi">Create payout</a>
 	 *
+	 * @throws DeclinedPayoutException if the Ingenico ePayments platform declined / rejected the payout. The payout result will be available from the exception.
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -52,7 +55,7 @@ public interface PayoutsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payouts/{payoutId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPayoutApi">Get payout</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetPayoutApi">Get payout</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -67,7 +70,7 @@ public interface PayoutsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/payouts/{payoutId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPayoutApi">Get payout</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetPayoutApi">Get payout</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)

@@ -1,8 +1,10 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.domain;
+
+import java.util.List;
 
 public class SessionResponse {
 
@@ -13,6 +15,8 @@ public class SessionResponse {
 	private String clientSessionId = null;
 
 	private String customerId = null;
+
+	private List<String> invalidTokens = null;
 
 	/**
 	 * The datacenter-specific base url for assets. This value needs to be passed to the Client SDK to make sure that the client software connects to the right datacenter.
@@ -68,5 +72,19 @@ public class SessionResponse {
 	 */
 	public void setCustomerId(String value) {
 		this.customerId = value;
+	}
+
+	/**
+	 * Tokens that are submitted in the request are validated. In case any of the tokens can't be used anymore they are returned in this array. You should most likely remove those tokens from your system.
+	 */
+	public List<String> getInvalidTokens() {
+		return invalidTokens;
+	}
+
+	/**
+	 * Tokens that are submitted in the request are validated. In case any of the tokens can't be used anymore they are returned in this array. You should most likely remove those tokens from your system.
+	 */
+	public void setInvalidTokens(List<String> value) {
+		this.invalidTokens = value;
 	}
 }

@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.domain;
 
@@ -24,6 +24,8 @@ public class CardPaymentMethodSpecificInput {
 	private String returnUrl = null;
 
 	private Boolean skipAuthentication = null;
+
+	private Boolean skipSoftDecline = null;
 
 	private ThreeDSecure threeDSecure = null;
 
@@ -135,10 +137,20 @@ public class CardPaymentMethodSpecificInput {
 		this.recurring = value;
 	}
 
+	/**
+	 * The URL that the customer is redirect to after the payment flow has finished. You can add any number of key value pairs in the query string that, for instance help you to identify the customer when they return to your site. Please note that we will also append some additional key value pairs that will also help you with this identification process.
+	 * Note: The provided URL should be absolute and contain the protocol to use, e.g. http:// or https://. For use on mobile devices a custom protocol can be used in the form of protocol://. This protocol must be registered on the device first.
+	 * URLs without a protocol will be rejected.
+	 */
 	public String getReturnUrl() {
 		return returnUrl;
 	}
 
+	/**
+	 * The URL that the customer is redirect to after the payment flow has finished. You can add any number of key value pairs in the query string that, for instance help you to identify the customer when they return to your site. Please note that we will also append some additional key value pairs that will also help you with this identification process.
+	 * Note: The provided URL should be absolute and contain the protocol to use, e.g. http:// or https://. For use on mobile devices a custom protocol can be used in the form of protocol://. This protocol must be registered on the device first.
+	 * URLs without a protocol will be rejected.
+	 */
 	public void setReturnUrl(String value) {
 		this.returnUrl = value;
 	}
@@ -164,6 +176,26 @@ public class CardPaymentMethodSpecificInput {
 	}
 
 	/**
+	 * * true = Soft Decline retry mechanism will be skipped for this transaction. The transaction will result in "Authorization Declined" status. This setting should be used when skipAuthentication is set to true and the merchant does not want to use Soft Decline retry mechanism.
+	 * * false = Soft Decline retry mechanism will not be skipped for this transaction.
+	 * 
+	 *  Note: skipSoftDecline defaults to false if empty. This is only possible if your account in our system is setup for 3D Secure authentication and if your configuration in our system allows you to override it per transaction.
+	 */
+	public Boolean getSkipSoftDecline() {
+		return skipSoftDecline;
+	}
+
+	/**
+	 * * true = Soft Decline retry mechanism will be skipped for this transaction. The transaction will result in "Authorization Declined" status. This setting should be used when skipAuthentication is set to true and the merchant does not want to use Soft Decline retry mechanism.
+	 * * false = Soft Decline retry mechanism will not be skipped for this transaction.
+	 * 
+	 *  Note: skipSoftDecline defaults to false if empty. This is only possible if your account in our system is setup for 3D Secure authentication and if your configuration in our system allows you to override it per transaction.
+	 */
+	public void setSkipSoftDecline(Boolean value) {
+		this.skipSoftDecline = value;
+	}
+
+	/**
 	 * Object containing specific data regarding 3-D Secure
 	 */
 	public ThreeDSecure getThreeDSecure() {
@@ -178,14 +210,14 @@ public class CardPaymentMethodSpecificInput {
 	}
 
 	/**
-	 * ID of the token. This property is populated when the payment was done with a token or when the payment was tokenized.
+	 * ID of the token to use to create the payment.
 	 */
 	public String getToken() {
 		return token;
 	}
 
 	/**
-	 * ID of the token. This property is populated when the payment was done with a token or when the payment was tokenized.
+	 * ID of the token to use to create the payment.
 	 */
 	public void setToken(String value) {
 		this.token = value;

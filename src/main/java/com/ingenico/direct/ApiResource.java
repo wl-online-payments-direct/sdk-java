@@ -8,6 +8,7 @@ import java.util.Map;
 import com.ingenico.direct.domain.APIError;
 import com.ingenico.direct.domain.ErrorResponse;
 import com.ingenico.direct.domain.PaymentErrorResponse;
+import com.ingenico.direct.domain.PayoutErrorResponse;
 import com.ingenico.direct.domain.RefundErrorResponse;
 
 /**
@@ -74,16 +75,25 @@ public abstract class ApiResource {
 	protected RuntimeException createException(int statusCode, String responseBody, Object errorObject, CallContext context) {
 		if (errorObject instanceof PaymentErrorResponse && ((PaymentErrorResponse) errorObject).getPaymentResult() != null) {
 			return new DeclinedPaymentException(statusCode, responseBody, (PaymentErrorResponse) errorObject);
+		} else if (errorObject instanceof PayoutErrorResponse && ((PayoutErrorResponse) errorObject).getPayoutResult() != null) {
+			return new DeclinedPayoutException(statusCode, responseBody, (PayoutErrorResponse) errorObject);
 		} else if (errorObject instanceof RefundErrorResponse && ((RefundErrorResponse) errorObject).getRefundResult() != null) {
 			return new DeclinedRefundException(statusCode, responseBody, (RefundErrorResponse) errorObject);
 		}
 
 		String errorId;
 		List<APIError> errors;
-		if (errorObject instanceof PaymentErrorResponse) {
+		if (errorObject == null) {
+			errorId = null;
+			errors = Collections.emptyList();
+		} else if (errorObject instanceof PaymentErrorResponse) {
 			PaymentErrorResponse paymentErrorResponse = (PaymentErrorResponse) errorObject;
 			errorId = paymentErrorResponse.getErrorId();
 			errors = paymentErrorResponse.getErrors();
+		} else if (errorObject instanceof PayoutErrorResponse) {
+			PayoutErrorResponse payoutErrorResponse = (PayoutErrorResponse) errorObject;
+			errorId = payoutErrorResponse.getErrorId();
+			errors = payoutErrorResponse.getErrors();
 		} else if (errorObject instanceof RefundErrorResponse) {
 			RefundErrorResponse refundErrorResponse = (RefundErrorResponse) errorObject;
 			errorId = refundErrorResponse.getErrorId();
@@ -92,9 +102,6 @@ public abstract class ApiResource {
 			ErrorResponse errorResponse = (ErrorResponse) errorObject;
 			errorId = errorResponse.getErrorId();
 			errors = errorResponse.getErrors();
-		} else if (errorObject == null) {
-			errorId = null;
-			errors = Collections.emptyList();
 		} else {
 			throw new IllegalArgumentException("unsupported error object type: " + errorObject.getClass().getName());
 		}

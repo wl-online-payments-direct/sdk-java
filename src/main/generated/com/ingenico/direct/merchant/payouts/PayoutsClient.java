@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.merchant.payouts;
 
@@ -11,6 +11,7 @@ import com.ingenico.direct.ApiException;
 import com.ingenico.direct.ApiResource;
 import com.ingenico.direct.AuthorizationException;
 import com.ingenico.direct.CallContext;
+import com.ingenico.direct.DeclinedPayoutException;
 import com.ingenico.direct.DirectException;
 import com.ingenico.direct.IdempotenceException;
 import com.ingenico.direct.ReferenceException;
@@ -18,6 +19,7 @@ import com.ingenico.direct.ResponseException;
 import com.ingenico.direct.ValidationException;
 import com.ingenico.direct.domain.CreatePayoutRequest;
 import com.ingenico.direct.domain.ErrorResponse;
+import com.ingenico.direct.domain.PayoutErrorResponse;
 import com.ingenico.direct.domain.PayoutResponse;
 
 /**
@@ -52,7 +54,7 @@ public class PayoutsClient extends ApiResource implements PayoutsClientInterface
 					PayoutResponse.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType = ErrorResponse.class;
+			final Class<?> errorType = PayoutErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}

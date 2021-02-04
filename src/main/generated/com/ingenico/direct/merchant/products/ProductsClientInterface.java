@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.merchant.products;
 
@@ -23,7 +23,7 @@ public interface ProductsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/products
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentProducts">Get payment products</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentProducts">Get payment products</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -38,7 +38,7 @@ public interface ProductsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/products
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentProducts">Get payment products</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentProducts">Get payment products</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -54,7 +54,7 @@ public interface ProductsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/products/{paymentProductId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentProduct">Get payment product</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentProduct">Get payment product</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -69,7 +69,7 @@ public interface ProductsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/products/{paymentProductId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentProduct">Get payment product</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentProduct">Get payment product</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -85,7 +85,7 @@ public interface ProductsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/products/{paymentProductId}/directory
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetProductDirectoryApi">Get payment product directory</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetProductDirectoryApi">Get payment product directory</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -100,7 +100,7 @@ public interface ProductsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/products/{paymentProductId}/directory
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetProductDirectoryApi">Get payment product directory</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetProductDirectoryApi">Get payment product directory</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -116,7 +116,7 @@ public interface ProductsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/products/{paymentProductId}/networks
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentProductNetworks">Get payment product networks</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentProductNetworks">Get payment product networks</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -131,7 +131,7 @@ public interface ProductsClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/products/{paymentProductId}/networks
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetPaymentProductNetworks">Get payment product networks</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetPaymentProductNetworks">Get payment product networks</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)

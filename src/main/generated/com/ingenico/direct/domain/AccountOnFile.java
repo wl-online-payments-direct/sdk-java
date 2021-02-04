@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.domain;
 
@@ -24,10 +24,16 @@ public class AccountOnFile {
 		this.attributes = value;
 	}
 
+	/**
+	 * Object containing information for the client on how best to display this field
+	 */
 	public AccountOnFileDisplayHints getDisplayHints() {
 		return displayHints;
 	}
 
+	/**
+	 * Object containing information for the client on how best to display this field
+	 */
 	public void setDisplayHints(AccountOnFileDisplayHints value) {
 		this.displayHints = value;
 	}

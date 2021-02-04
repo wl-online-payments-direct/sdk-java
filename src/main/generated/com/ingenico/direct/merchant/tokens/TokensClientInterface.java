@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://support.direct.ingenico.com/documentation/api/reference/index.html
+ * https://support.direct.ingenico.com/documentation/api/reference
  */
 package com.ingenico.direct.merchant.tokens;
 
@@ -22,7 +22,7 @@ public interface TokensClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/tokens
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateTokenApi">Create token</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CreateTokenApi">Create token</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -37,7 +37,7 @@ public interface TokensClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/tokens
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/CreateTokenApi">Create token</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/CreateTokenApi">Create token</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -53,7 +53,7 @@ public interface TokensClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/tokens/{tokenId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetTokenApi">Get token</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetTokenApi">Get token</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -68,7 +68,7 @@ public interface TokensClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/tokens/{tokenId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/GetTokenApi">Get token</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/GetTokenApi">Get token</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -84,7 +84,7 @@ public interface TokensClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/tokens/{tokenId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/DeleteTokenApi">Delete token</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/DeleteTokenApi">Delete token</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -99,7 +99,7 @@ public interface TokensClientInterface {
 
 	/**
 	 * Resource /v2/{merchantId}/tokens/{tokenId}
-	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference/index.html#operation/DeleteTokenApi">Delete token</a>
+	 * - <a href="https://support.direct.ingenico.com/documentation/api/reference#operation/DeleteTokenApi">Delete token</a>
 	 *
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
