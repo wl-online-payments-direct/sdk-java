@@ -39,10 +39,16 @@ public class PaymentProductFieldFormElement {
 		this.type = value;
 	}
 
+	/**
+	 * Deprecated: This field is not used by any payment product
+	 */
 	public List<ValueMappingElement> getValueMapping() {
 		return valueMapping;
 	}
 
+	/**
+	 * Deprecated: This field is not used by any payment product
+	 */
 	public void setValueMapping(List<ValueMappingElement> value) {
 		this.valueMapping = value;
 	}

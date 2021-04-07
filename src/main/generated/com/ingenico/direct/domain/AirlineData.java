@@ -59,6 +59,7 @@ public class AirlineData {
 
 	/**
 	 * Numeric code identifying the agent
+	 * This field is used by the following payment products: 840
 	 */
 	public String getAgentNumericCode() {
 		return agentNumericCode;
@@ -66,6 +67,7 @@ public class AirlineData {
 
 	/**
 	 * Numeric code identifying the agent
+	 * This field is used by the following payment products: 840
 	 */
 	public void setAgentNumericCode(String value) {
 		this.agentNumericCode = value;
@@ -73,6 +75,7 @@ public class AirlineData {
 
 	/**
 	 * Airline numeric code
+	 * This field is used by the following payment products: 840
 	 */
 	public String getCode() {
 		return code;
@@ -80,12 +83,14 @@ public class AirlineData {
 
 	/**
 	 * Airline numeric code
+	 * This field is used by the following payment products: 840
 	 */
 	public void setCode(String value) {
 		this.code = value;
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Date of the Flight
 	 * Format: YYYYMMDD
 	 */
@@ -94,6 +99,7 @@ public class AirlineData {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Date of the Flight
 	 * Format: YYYYMMDD
 	 */
@@ -117,6 +123,7 @@ public class AirlineData {
 
 	/**
 	 * Airline tracing number
+	 * This field is used by the following payment products: cards
 	 */
 	public String getInvoiceNumber() {
 		return invoiceNumber;
@@ -124,54 +131,63 @@ public class AirlineData {
 
 	/**
 	 * Airline tracing number
+	 * This field is used by the following payment products: cards
 	 */
 	public void setInvoiceNumber(String value) {
 		this.invoiceNumber = value;
 	}
 
 	/**
-	 * * true = The ticket is an E-Ticket
-	 * * false = the ticket is not an E-Ticket'
+	 * Deprecated: This field is not used by any payment product
+	 *  * true = The ticket is an E-Ticket
+	 *  * false = the ticket is not an E-Ticket'
 	 */
 	public Boolean getIsETicket() {
 		return isETicket;
 	}
 
 	/**
-	 * * true = The ticket is an E-Ticket
-	 * * false = the ticket is not an E-Ticket'
+	 * Deprecated: This field is not used by any payment product
+	 *  * true = The ticket is an E-Ticket
+	 *  * false = the ticket is not an E-Ticket'
 	 */
 	public void setIsETicket(Boolean value) {
 		this.isETicket = value;
 	}
 
 	/**
-	 * * true - Restricted, the ticket is non-refundable
-	 * * false - No restrictions, the ticket is (partially) refundable
+	 * Indicates if the ticket is refundable or not.
+	 *  * true - Restricted, the ticket is non-refundable
+	 *  * false - No restrictions, the ticket is (partially) refundable
+	 * This field is used by the following payment products: 840
 	 */
 	public Boolean getIsRestrictedTicket() {
 		return isRestrictedTicket;
 	}
 
 	/**
-	 * * true - Restricted, the ticket is non-refundable
-	 * * false - No restrictions, the ticket is (partially) refundable
+	 * Indicates if the ticket is refundable or not.
+	 *  * true - Restricted, the ticket is non-refundable
+	 *  * false - No restrictions, the ticket is (partially) refundable
+	 * This field is used by the following payment products: 840
 	 */
 	public void setIsRestrictedTicket(Boolean value) {
 		this.isRestrictedTicket = value;
 	}
 
 	/**
-	 * * true - The payer is the ticket holder
-	 * * false - The payer is not the ticket holder
+	 * Deprecated: This field is not used by any payment product
+	 *  * true - The payer is the ticket holder
+	 *  * false - The payer is not the ticket holder
 	 */
 	public Boolean getIsThirdParty() {
 		return isThirdParty;
 	}
 
 	/**
-	 * * true - The payer is the ticket holder
-	 * * false - The payer is not the ticket holder
+	 * Deprecated: This field is not used by any payment product
+	 *  * true - The payer is the ticket holder
+	 *  * false - The payer is not the ticket holder
 	 */
 	public void setIsThirdParty(Boolean value) {
 		this.isThirdParty = value;
@@ -180,6 +196,7 @@ public class AirlineData {
 	/**
 	 * This is the date of issue recorded in the airline system In a case of multiple issuances of the same ticket to a cardholder, you should use the last ticket date.
 	 * Format: YYYYMMDD
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public String getIssueDate() {
 		return issueDate;
@@ -188,6 +205,7 @@ public class AirlineData {
 	/**
 	 * This is the date of issue recorded in the airline system In a case of multiple issuances of the same ticket to a cardholder, you should use the last ticket date.
 	 * Format: YYYYMMDD
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public void setIssueDate(String value) {
 		this.issueDate = value;
@@ -195,6 +213,7 @@ public class AirlineData {
 
 	/**
 	 * Your ID of the customer in the context of the airline data
+	 * This field is used by the following payment products: 840
 	 */
 	public String getMerchantCustomerId() {
 		return merchantCustomerId;
@@ -202,12 +221,14 @@ public class AirlineData {
 
 	/**
 	 * Your ID of the customer in the context of the airline data
+	 * This field is used by the following payment products: 840
 	 */
 	public void setMerchantCustomerId(String value) {
 		this.merchantCustomerId = value;
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Name of the airline
 	 */
 	public String getName() {
@@ -215,6 +236,7 @@ public class AirlineData {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Name of the airline
 	 */
 	public void setName(String value) {
@@ -222,6 +244,7 @@ public class AirlineData {
 	}
 
 	/**
+	 * Deprecated: Use passengers instead
 	 * Name of passenger
 	 */
 	public String getPassengerName() {
@@ -229,6 +252,7 @@ public class AirlineData {
 	}
 
 	/**
+	 * Deprecated: Use passengers instead
 	 * Name of passenger
 	 */
 	public void setPassengerName(String value) {
@@ -236,20 +260,23 @@ public class AirlineData {
 	}
 
 	/**
-	 * Object that holds the data on the individual passengers (this object is used for fraud screening on the Ogone Payment Platform)
+	 * Object that holds the data on the individual passengers
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public List<AirlinePassenger> getPassengers() {
 		return passengers;
 	}
 
 	/**
-	 * Object that holds the data on the individual passengers (this object is used for fraud screening on the Ogone Payment Platform)
+	 * Object that holds the data on the individual passengers
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public void setPassengers(List<AirlinePassenger> value) {
 		this.passengers = value;
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Place of issue
 	 * For sales in the US the last two characters (pos 14-15) must be the US state code.
 	 */
@@ -258,6 +285,7 @@ public class AirlineData {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Place of issue
 	 * For sales in the US the last two characters (pos 14-15) must be the US state code.
 	 */
@@ -266,6 +294,7 @@ public class AirlineData {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Passenger name record
 	 */
 	public String getPnr() {
@@ -273,6 +302,7 @@ public class AirlineData {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Passenger name record
 	 */
 	public void setPnr(String value) {
@@ -281,6 +311,7 @@ public class AirlineData {
 
 	/**
 	 * IATA point of sale name
+	 * This field is used by the following payment products: 840
 	 */
 	public String getPointOfSale() {
 		return pointOfSale;
@@ -288,29 +319,40 @@ public class AirlineData {
 
 	/**
 	 * IATA point of sale name
+	 * This field is used by the following payment products: 840
 	 */
 	public void setPointOfSale(String value) {
 		this.pointOfSale = value;
 	}
 
 	/**
-	 * city code of the point of sale
+	 * Deprecated: This field is not used by any payment product
+	 * City code of the point of sale
 	 */
 	public String getPosCityCode() {
 		return posCityCode;
 	}
 
 	/**
-	 * city code of the point of sale
+	 * Deprecated: This field is not used by any payment product
+	 * City code of the point of sale
 	 */
 	public void setPosCityCode(String value) {
 		this.posCityCode = value;
 	}
 
+	/**
+	 * Deprecated: This field is not used by any payment product
+	 * Delivery method of the ticket
+	 */
 	public String getTicketDeliveryMethod() {
 		return ticketDeliveryMethod;
 	}
 
+	/**
+	 * Deprecated: This field is not used by any payment product
+	 * Delivery method of the ticket
+	 */
 	public void setTicketDeliveryMethod(String value) {
 		this.ticketDeliveryMethod = value;
 	}
@@ -321,6 +363,7 @@ public class AirlineData {
 	 *  * Form code: A maximum of 3 digits indicating the type of document, the source of issue and the number of coupons it contains
 	 *  * Serial number: A maximum of 8 digits allocated on a sequential basis, provided that the total number of digits allocated to the form code and serial number shall not exceed ten
 	 *  * TICKETNUMBER can be replaced with PNR if the ticket number is unavailable
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public String getTicketNumber() {
 		return ticketNumber;
@@ -332,6 +375,7 @@ public class AirlineData {
 	 *  * Form code: A maximum of 3 digits indicating the type of document, the source of issue and the number of coupons it contains
 	 *  * Serial number: A maximum of 8 digits allocated on a sequential basis, provided that the total number of digits allocated to the form code and serial number shall not exceed ten
 	 *  * TICKETNUMBER can be replaced with PNR if the ticket number is unavailable
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public void setTicketNumber(String value) {
 		this.ticketNumber = value;
@@ -339,6 +383,7 @@ public class AirlineData {
 
 	/**
 	 * Total fare for all legs on the ticket, excluding taxes and fees. If multiple tickets are purchased, this is the total fare for all tickets
+	 * This field is used by the following payment products: 840
 	 */
 	public Integer getTotalFare() {
 		return totalFare;
@@ -346,6 +391,7 @@ public class AirlineData {
 
 	/**
 	 * Total fare for all legs on the ticket, excluding taxes and fees. If multiple tickets are purchased, this is the total fare for all tickets
+	 * This field is used by the following payment products: 840
 	 */
 	public void setTotalFare(Integer value) {
 		this.totalFare = value;
@@ -353,6 +399,7 @@ public class AirlineData {
 
 	/**
 	 * Total fee for all legs on the ticket. If multiple tickets are purchased, this is the total fee for all tickets
+	 * This field is used by the following payment products: 840
 	 */
 	public Integer getTotalFee() {
 		return totalFee;
@@ -360,6 +407,7 @@ public class AirlineData {
 
 	/**
 	 * Total fee for all legs on the ticket. If multiple tickets are purchased, this is the total fee for all tickets
+	 * This field is used by the following payment products: 840
 	 */
 	public void setTotalFee(Integer value) {
 		this.totalFee = value;
@@ -367,6 +415,7 @@ public class AirlineData {
 
 	/**
 	 * Total taxes for all legs on the ticket. If multiple tickets are purchased, this is the total taxes for all tickets
+	 * This field is used by the following payment products: 840
 	 */
 	public Integer getTotalTaxes() {
 		return totalTaxes;
@@ -374,6 +423,7 @@ public class AirlineData {
 
 	/**
 	 * Total taxes for all legs on the ticket. If multiple tickets are purchased, this is the total taxes for all tickets
+	 * This field is used by the following payment products: 840
 	 */
 	public void setTotalTaxes(Integer value) {
 		this.totalTaxes = value;
@@ -381,6 +431,7 @@ public class AirlineData {
 
 	/**
 	 * Name of the travel agency issuing the ticket. For direct airline integration, leave this property blank
+	 * This field is used by the following payment products: 840
 	 */
 	public String getTravelAgencyName() {
 		return travelAgencyName;
@@ -388,6 +439,7 @@ public class AirlineData {
 
 	/**
 	 * Name of the travel agency issuing the ticket. For direct airline integration, leave this property blank
+	 * This field is used by the following payment products: 840
 	 */
 	public void setTravelAgencyName(String value) {
 		this.travelAgencyName = value;

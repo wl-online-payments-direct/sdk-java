@@ -14,6 +14,8 @@ public class TokenResponse {
 
 	private String id = null;
 
+	private Boolean isTemporary = null;
+
 	private Integer paymentProductId = null;
 
 	/**
@@ -64,6 +66,20 @@ public class TokenResponse {
 	 */
 	public void setId(String value) {
 		this.id = value;
+	}
+
+	/**
+	 * Temporary tokens have a lifespan of two hours and can only be used once.
+	 */
+	public Boolean getIsTemporary() {
+		return isTemporary;
+	}
+
+	/**
+	 * Temporary tokens have a lifespan of two hours and can only be used once.
+	 */
+	public void setIsTemporary(Boolean value) {
+		this.isTemporary = value;
 	}
 
 	/**

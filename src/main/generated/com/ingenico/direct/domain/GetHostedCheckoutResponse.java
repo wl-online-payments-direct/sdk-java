@@ -28,6 +28,7 @@ public class GetHostedCheckoutResponse {
 	 * This is the status of the hosted checkout. Possible values are:
 	 * * IN_PROGRESS - The checkout is still in progress and has not finished yet
 	 * * PAYMENT_CREATED - A payment has been created
+	 * * CANCELLED_BY_CONSUMER - The HostedCheckout session have been cancelled by the customer
 	 */
 	public String getStatus() {
 		return status;
@@ -37,6 +38,7 @@ public class GetHostedCheckoutResponse {
 	 * This is the status of the hosted checkout. Possible values are:
 	 * * IN_PROGRESS - The checkout is still in progress and has not finished yet
 	 * * PAYMENT_CREATED - A payment has been created
+	 * * CANCELLED_BY_CONSUMER - The HostedCheckout session have been cancelled by the customer
 	 */
 	public void setStatus(String value) {
 		this.status = value;

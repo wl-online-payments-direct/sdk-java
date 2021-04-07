@@ -50,14 +50,14 @@ public class MobilePaymentMethodSpecificOutput {
 	}
 
 	/**
-	 * The network that was used for the refund
+	 * Deprecated: This field is not used by any payment product
 	 */
 	public String getNetwork() {
 		return network;
 	}
 
 	/**
-	 * The network that was used for the refund
+	 * Deprecated: This field is not used by any payment product
 	 */
 	public void setNetwork(String value) {
 		this.network = value;

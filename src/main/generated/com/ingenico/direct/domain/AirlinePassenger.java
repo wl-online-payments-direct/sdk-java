@@ -15,48 +15,55 @@ public class AirlinePassenger {
 	private String title = null;
 
 	/**
-	 * First name of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
+	 * First name of the passenger
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public String getFirstName() {
 		return firstName;
 	}
 
 	/**
-	 * First name of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
+	 * First name of the passenger
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public void setFirstName(String value) {
 		this.firstName = value;
 	}
 
 	/**
-	 * Surname of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
+	 * Surname of the passenger
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public String getSurname() {
 		return surname;
 	}
 
 	/**
-	 * Surname of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
+	 * Surname of the passenger
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public void setSurname(String value) {
 		this.surname = value;
 	}
 
 	/**
-	 * Surname prefix of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
+	 * Surname prefix or middle name of the passenger
+	 * This field is used by the following payment products: 840
 	 */
 	public String getSurnamePrefix() {
 		return surnamePrefix;
 	}
 
 	/**
-	 * Surname prefix of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
+	 * Surname prefix or middle name of the passenger
+	 * This field is used by the following payment products: 840
 	 */
 	public void setSurnamePrefix(String value) {
 		this.surnamePrefix = value;
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Title of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
 	 */
 	public String getTitle() {
@@ -64,6 +71,7 @@ public class AirlinePassenger {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Title of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
 	 */
 	public void setTitle(String value) {

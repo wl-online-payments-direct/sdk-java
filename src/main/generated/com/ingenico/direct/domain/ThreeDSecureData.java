@@ -30,28 +30,22 @@ public class ThreeDSecureData {
 	}
 
 	/**
-	 * Authentication used by the customer on your website
-	 * Possible values are
-	 *  * guest = no login occurred, customer is logged in as guest
-	 *  * merchant-credentials = the customer logged in using credentials that are specific to you
-	 *  * federated-id = the customer logged in using a federated ID
-	 *  * issuer-credentials = the customer logged in using credentials from the card issuer (of the card used in this transaction)
-	 *  * third-party-authentication = the customer logged in using third-party authentication
-	 *  * fido-authentication = the customer logged in using a FIDO authenticator
+	 * Method of authentication used for this transaction. Possible values:
+	 *  * frictionless = The authentication went without a challenge
+	 *  * challenged = Cardholder was challenged
+	 *  * avs-verified = The authentication was verified by AVS
+	 *  * other = Another issuer method was used to authenticate this transaction
 	 */
 	public String getMethod() {
 		return method;
 	}
 
 	/**
-	 * Authentication used by the customer on your website
-	 * Possible values are
-	 *  * guest = no login occurred, customer is logged in as guest
-	 *  * merchant-credentials = the customer logged in using credentials that are specific to you
-	 *  * federated-id = the customer logged in using a federated ID
-	 *  * issuer-credentials = the customer logged in using credentials from the card issuer (of the card used in this transaction)
-	 *  * third-party-authentication = the customer logged in using third-party authentication
-	 *  * fido-authentication = the customer logged in using a FIDO authenticator
+	 * Method of authentication used for this transaction. Possible values:
+	 *  * frictionless = The authentication went without a challenge
+	 *  * challenged = Cardholder was challenged
+	 *  * avs-verified = The authentication was verified by AVS
+	 *  * other = Another issuer method was used to authenticate this transaction
 	 */
 	public void setMethod(String value) {
 		this.method = value;

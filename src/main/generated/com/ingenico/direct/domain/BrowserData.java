@@ -13,6 +13,8 @@ public class BrowserData {
 
 	private Boolean javaEnabled = null;
 
+	private Boolean javaScriptEnabled = null;
+
 	private String screenHeight = null;
 
 	private String screenWidth = null;
@@ -67,6 +69,22 @@ public class BrowserData {
 	 */
 	public void setJavaEnabled(Boolean value) {
 		this.javaEnabled = value;
+	}
+
+	/**
+	 * * true = JavaScript is enabled in the browser.
+	 * * false = JavaScript is not enabled in the browser. In this case the following parameters are not mandatory anymore: colorDepth, javaEnabled, screenHeight, screenWidth, timezoneOffsetUtcMinutes.
+	 */
+	public Boolean getJavaScriptEnabled() {
+		return javaScriptEnabled;
+	}
+
+	/**
+	 * * true = JavaScript is enabled in the browser.
+	 * * false = JavaScript is not enabled in the browser. In this case the following parameters are not mandatory anymore: colorDepth, javaEnabled, screenHeight, screenWidth, timezoneOffsetUtcMinutes.
+	 */
+	public void setJavaScriptEnabled(Boolean value) {
+		this.javaScriptEnabled = value;
 	}
 
 	/**

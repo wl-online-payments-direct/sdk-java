@@ -12,6 +12,8 @@ public class CreateHostedCheckoutRequest {
 
 	private HostedCheckoutSpecificInput hostedCheckoutSpecificInput = null;
 
+	private MobilePaymentMethodHostedCheckoutSpecificInput mobilePaymentMethodSpecificInput = null;
+
 	private Order order = null;
 
 	private RedirectPaymentMethodSpecificInput redirectPaymentMethodSpecificInput = null;
@@ -56,6 +58,20 @@ public class CreateHostedCheckoutRequest {
 	 */
 	public void setHostedCheckoutSpecificInput(HostedCheckoutSpecificInput value) {
 		this.hostedCheckoutSpecificInput = value;
+	}
+
+	/**
+	 * Object containing the specific input details for mobile payments
+	 */
+	public MobilePaymentMethodHostedCheckoutSpecificInput getMobilePaymentMethodSpecificInput() {
+		return mobilePaymentMethodSpecificInput;
+	}
+
+	/**
+	 * Object containing the specific input details for mobile payments
+	 */
+	public void setMobilePaymentMethodSpecificInput(MobilePaymentMethodHostedCheckoutSpecificInput value) {
+		this.mobilePaymentMethodSpecificInput = value;
 	}
 
 	/**

@@ -13,6 +13,8 @@ public class CardPaymentMethodSpecificInputBase {
 
 	private String initialSchemeTransactionId = null;
 
+	private PaymentProduct130SpecificInput paymentProduct130SpecificInput = null;
+
 	private PaymentProduct5100SpecificInput paymentProduct5100SpecificInput = null;
 
 	private Integer paymentProductId = null;
@@ -67,6 +69,20 @@ public class CardPaymentMethodSpecificInputBase {
 	 */
 	public void setInitialSchemeTransactionId(String value) {
 		this.initialSchemeTransactionId = value;
+	}
+
+	/**
+	 * Object containing specific input required for CB payments
+	 */
+	public PaymentProduct130SpecificInput getPaymentProduct130SpecificInput() {
+		return paymentProduct130SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for CB payments
+	 */
+	public void setPaymentProduct130SpecificInput(PaymentProduct130SpecificInput value) {
+		this.paymentProduct130SpecificInput = value;
 	}
 
 	/**

@@ -19,6 +19,10 @@ public class Shipping {
 
 	private Boolean isFirstUsage = null;
 
+	private Long shippingCost = null;
+
+	private Long shippingCostTax = null;
+
 	private String type = null;
 
 	/**
@@ -111,6 +115,34 @@ public class Shipping {
 	 */
 	public void setIsFirstUsage(Boolean value) {
 		this.isFirstUsage = value;
+	}
+
+	/**
+	 * Cost associated with the shipping of the order.
+	 */
+	public Long getShippingCost() {
+		return shippingCost;
+	}
+
+	/**
+	 * Cost associated with the shipping of the order.
+	 */
+	public void setShippingCost(Long value) {
+		this.shippingCost = value;
+	}
+
+	/**
+	 * Tax amount of the shipping cost.
+	 */
+	public Long getShippingCostTax() {
+		return shippingCostTax;
+	}
+
+	/**
+	 * Tax amount of the shipping cost.
+	 */
+	public void setShippingCostTax(Long value) {
+		this.shippingCostTax = value;
 	}
 
 	/**

@@ -88,6 +88,7 @@ public class PaymentProductFieldDisplayHints {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Link that should be used to replace the '{link}' variable in the label.
 	 */
 	public String getLink() {
@@ -95,6 +96,7 @@ public class PaymentProductFieldDisplayHints {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Link that should be used to replace the '{link}' variable in the label.
 	 */
 	public void setLink(String value) {

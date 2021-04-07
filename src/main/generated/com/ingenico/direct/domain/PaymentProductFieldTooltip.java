@@ -14,6 +14,7 @@ public class PaymentProductFieldTooltip {
 	private String label = null;
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Relative URL that can be used to retrieve an image for the tooltip image.
 	 */
 	public String getImage() {
@@ -21,6 +22,7 @@ public class PaymentProductFieldTooltip {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Relative URL that can be used to retrieve an image for the tooltip image.
 	 */
 	public void setImage(String value) {

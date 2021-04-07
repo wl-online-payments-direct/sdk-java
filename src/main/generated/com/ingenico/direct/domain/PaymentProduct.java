@@ -25,6 +25,10 @@ public class PaymentProduct {
 
 	private String paymentMethod = null;
 
+	private PaymentProduct302SpecificData paymentProduct302SpecificData = null;
+
+	private PaymentProduct320SpecificData paymentProduct320SpecificData = null;
+
 	private String paymentProductGroup = null;
 
 	private Boolean usesRedirectionTo3rdParty = null;
@@ -133,6 +137,22 @@ public class PaymentProduct {
 	 */
 	public void setPaymentMethod(String value) {
 		this.paymentMethod = value;
+	}
+
+	public PaymentProduct302SpecificData getPaymentProduct302SpecificData() {
+		return paymentProduct302SpecificData;
+	}
+
+	public void setPaymentProduct302SpecificData(PaymentProduct302SpecificData value) {
+		this.paymentProduct302SpecificData = value;
+	}
+
+	public PaymentProduct320SpecificData getPaymentProduct320SpecificData() {
+		return paymentProduct320SpecificData;
+	}
+
+	public void setPaymentProduct320SpecificData(PaymentProduct320SpecificData value) {
+		this.paymentProduct320SpecificData = value;
 	}
 
 	/**

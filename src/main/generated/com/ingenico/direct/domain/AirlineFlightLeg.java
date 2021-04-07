@@ -37,6 +37,8 @@ public class AirlineFlightLeg {
 
 	private String flightNumber = null;
 
+	private Integer legFare = null;
+
 	private Integer number = null;
 
 	private String originAirport = null;
@@ -49,6 +51,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Reservation Booking Designator
+	 * This field is used by the following payment products: cards
 	 */
 	public String getAirlineClass() {
 		return airlineClass;
@@ -56,6 +59,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Reservation Booking Designator
+	 * This field is used by the following payment products: cards
 	 */
 	public void setAirlineClass(String value) {
 		this.airlineClass = value;
@@ -63,6 +67,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Arrival airport/city code
+	 * This field is used by the following payment products: 840
 	 */
 	public String getArrivalAirport() {
 		return arrivalAirport;
@@ -70,6 +75,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Arrival airport/city code
+	 * This field is used by the following payment products: 840
 	 */
 	public void setArrivalAirport(String value) {
 		this.arrivalAirport = value;
@@ -78,6 +84,7 @@ public class AirlineFlightLeg {
 	/**
 	 * The arrival time in the local time zone
 	 * Format: HH:MM
+	 * This field is used by the following payment products: 840
 	 */
 	public String getArrivalTime() {
 		return arrivalTime;
@@ -86,6 +93,7 @@ public class AirlineFlightLeg {
 	/**
 	 * The arrival time in the local time zone
 	 * Format: HH:MM
+	 * This field is used by the following payment products: 840
 	 */
 	public void setArrivalTime(String value) {
 		this.arrivalTime = value;
@@ -93,6 +101,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * IATA carrier code
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public String getCarrierCode() {
 		return carrierCode;
@@ -100,6 +109,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * IATA carrier code
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public void setCarrierCode(String value) {
 		this.carrierCode = value;
@@ -107,6 +117,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Identifying number of a ticket issued to a passenger in conjunction with this ticket and that constitutes a single contract of carriage
+	 * This field is used by the following payment products: 840
 	 */
 	public String getConjunctionTicket() {
 		return conjunctionTicket;
@@ -114,6 +125,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Identifying number of a ticket issued to a passenger in conjunction with this ticket and that constitutes a single contract of carriage
+	 * This field is used by the following payment products: 840
 	 */
 	public void setConjunctionTicket(String value) {
 		this.conjunctionTicket = value;
@@ -121,6 +133,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * The coupon number associated with this leg of the trip. A ticket can contain several legs of travel, and each leg of travel requires a separate coupon
+	 * This field is used by the following payment products: 840
 	 */
 	public String getCouponNumber() {
 		return couponNumber;
@@ -128,6 +141,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * The coupon number associated with this leg of the trip. A ticket can contain several legs of travel, and each leg of travel requires a separate coupon
+	 * This field is used by the following payment products: 840
 	 */
 	public void setCouponNumber(String value) {
 		this.couponNumber = value;
@@ -136,6 +150,7 @@ public class AirlineFlightLeg {
 	/**
 	 * Date of the leg
 	 * Format: YYYYMMDD
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public String getDate() {
 		return date;
@@ -144,6 +159,7 @@ public class AirlineFlightLeg {
 	/**
 	 * Date of the leg
 	 * Format: YYYYMMDD
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public void setDate(String value) {
 		this.date = value;
@@ -152,6 +168,7 @@ public class AirlineFlightLeg {
 	/**
 	 * The departure time in the local time at the departure airport
 	 * Format: HH:MM
+	 * This field is used by the following payment products: 840
 	 */
 	public String getDepartureTime() {
 		return departureTime;
@@ -160,6 +177,7 @@ public class AirlineFlightLeg {
 	/**
 	 * The departure time in the local time at the departure airport
 	 * Format: HH:MM
+	 * This field is used by the following payment products: 840
 	 */
 	public void setDepartureTime(String value) {
 		this.departureTime = value;
@@ -167,6 +185,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * An endorsement can be an agency-added notation or a mandatory government required notation, such as value-added tax. A restriction is a limitation based on the type of fare, such as a ticket with a 3-day minimum stay
+	 * This field is used by the following payment products: 840
 	 */
 	public String getEndorsementOrRestriction() {
 		return endorsementOrRestriction;
@@ -174,6 +193,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * An endorsement can be an agency-added notation or a mandatory government required notation, such as value-added tax. A restriction is a limitation based on the type of fare, such as a ticket with a 3-day minimum stay
+	 * This field is used by the following payment products: 840
 	 */
 	public void setEndorsementOrRestriction(String value) {
 		this.endorsementOrRestriction = value;
@@ -181,6 +201,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * New ticket number that is issued when a ticket is exchanged
+	 * This field is used by the following payment products: 840
 	 */
 	public String getExchangeTicket() {
 		return exchangeTicket;
@@ -188,12 +209,14 @@ public class AirlineFlightLeg {
 
 	/**
 	 * New ticket number that is issued when a ticket is exchanged
+	 * This field is used by the following payment products: 840
 	 */
 	public void setExchangeTicket(String value) {
 		this.exchangeTicket = value;
 	}
 
 	/**
+	 * Deprecated: Use legFare instead.
 	 * Fare of this leg
 	 */
 	public String getFare() {
@@ -201,6 +224,7 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * Deprecated: Use legFare instead.
 	 * Fare of this leg
 	 */
 	public void setFare(String value) {
@@ -209,6 +233,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Fare Basis/Ticket Designator
+	 * This field is used by the following payment products: 840
 	 */
 	public String getFareBasis() {
 		return fareBasis;
@@ -216,6 +241,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Fare Basis/Ticket Designator
+	 * This field is used by the following payment products: 840
 	 */
 	public void setFareBasis(String value) {
 		this.fareBasis = value;
@@ -223,6 +249,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Fee for this leg of the trip
+	 * This field is used by the following payment products: 840
 	 */
 	public Integer getFee() {
 		return fee;
@@ -230,6 +257,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Fee for this leg of the trip
+	 * This field is used by the following payment products: 840
 	 */
 	public void setFee(Integer value) {
 		this.fee = value;
@@ -238,6 +266,7 @@ public class AirlineFlightLeg {
 	/**
 	 * The flight number assigned by the airline carrier with no leading spaces
 	 * Should be a numeric string
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public String getFlightNumber() {
 		return flightNumber;
@@ -246,12 +275,30 @@ public class AirlineFlightLeg {
 	/**
 	 * The flight number assigned by the airline carrier with no leading spaces
 	 * Should be a numeric string
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public void setFlightNumber(String value) {
 		this.flightNumber = value;
 	}
 
 	/**
+	 * Fee for this leg of the trip
+	 * This field is used by the following payment products: 840
+	 */
+	public Integer getLegFare() {
+		return legFare;
+	}
+
+	/**
+	 * Fee for this leg of the trip
+	 * This field is used by the following payment products: 840
+	 */
+	public void setLegFare(Integer value) {
+		this.legFare = value;
+	}
+
+	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Sequence number of the flight leg
 	 */
 	public Integer getNumber() {
@@ -259,6 +306,7 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * Sequence number of the flight leg
 	 */
 	public void setNumber(Integer value) {
@@ -267,6 +315,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Origin airport/city code
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public String getOriginAirport() {
 		return originAirport;
@@ -274,6 +323,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Origin airport/city code
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public void setOriginAirport(String value) {
 		this.originAirport = value;
@@ -281,6 +331,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * PassengerClass if this leg
+	 * This field is used by the following payment products: 840
 	 */
 	public String getPassengerClass() {
 		return passengerClass;
@@ -288,6 +339,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * PassengerClass if this leg
+	 * This field is used by the following payment products: 840
 	 */
 	public void setPassengerClass(String value) {
 		this.passengerClass = value;
@@ -297,6 +349,7 @@ public class AirlineFlightLeg {
 	 * Possible values are:
 	 *  * permitted = Stopover permitted
 	 *  * non-permitted = Stopover not permitted
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public String getStopoverCode() {
 		return stopoverCode;
@@ -306,6 +359,7 @@ public class AirlineFlightLeg {
 	 * Possible values are:
 	 *  * permitted = Stopover permitted
 	 *  * non-permitted = Stopover not permitted
+	 * This field is used by the following payment products: cards, 840
 	 */
 	public void setStopoverCode(String value) {
 		this.stopoverCode = value;
@@ -313,6 +367,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Taxes for this leg of the trip
+	 * This field is used by the following payment products: 840
 	 */
 	public Integer getTaxes() {
 		return taxes;
@@ -320,6 +375,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Taxes for this leg of the trip
+	 * This field is used by the following payment products: 840
 	 */
 	public void setTaxes(Integer value) {
 		this.taxes = value;

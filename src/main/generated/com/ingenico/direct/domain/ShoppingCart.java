@@ -24,6 +24,7 @@ public class ShoppingCart {
 	private Boolean reOrderIndicator = null;
 
 	/**
+	 * Deprecated: Use order.shipping.shippingCost for shipping cost. Other amounts are not used.
 	 * Determines how the total amount is split into amount types
 	 */
 	public List<AmountBreakdown> getAmountBreakdown() {
@@ -31,6 +32,7 @@ public class ShoppingCart {
 	}
 
 	/**
+	 * Deprecated: Use order.shipping.shippingCost for shipping cost. Other amounts are not used.
 	 * Determines how the total amount is split into amount types
 	 */
 	public void setAmountBreakdown(List<AmountBreakdown> value) {

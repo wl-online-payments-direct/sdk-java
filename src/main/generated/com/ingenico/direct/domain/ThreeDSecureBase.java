@@ -15,9 +15,15 @@ public class ThreeDSecureBase {
 
 	private String exemptionRequest = null;
 
+	private Integer merchantFraudRate = null;
+
 	private ThreeDSecureData priorThreeDSecureData = null;
 
+	private Boolean secureCorporatePayment = null;
+
 	private Boolean skipAuthentication = null;
+
+	private Boolean skipSoftDecline = null;
 
 	/**
 	 * Dimensions of the challenge window that potentially will be displayed to the customer. The challenge content is formatted to appropriately render in this window to provide the best possible user experience. Preconfigured sizes are width x height in pixels of the window displayed in the customer browser window. Possible values are
@@ -100,6 +106,20 @@ public class ThreeDSecureBase {
 	}
 
 	/**
+	 * Merchant fraud rate in the EEA (all EEA card fraud divided by all EEA card volumes) calculated as per PSD2 RTS Mastercard will not calculate or validate the merchant fraud score
+	 */
+	public Integer getMerchantFraudRate() {
+		return merchantFraudRate;
+	}
+
+	/**
+	 * Merchant fraud rate in the EEA (all EEA card fraud divided by all EEA card volumes) calculated as per PSD2 RTS Mastercard will not calculate or validate the merchant fraud score
+	 */
+	public void setMerchantFraudRate(Integer value) {
+		this.merchantFraudRate = value;
+	}
+
+	/**
 	 * Object containing data regarding the customer authentication that occurred prior to the current transaction
 	 */
 	public ThreeDSecureData getPriorThreeDSecureData() {
@@ -111,6 +131,24 @@ public class ThreeDSecureBase {
 	 */
 	public void setPriorThreeDSecureData(ThreeDSecureData value) {
 		this.priorThreeDSecureData = value;
+	}
+
+	/**
+	 * Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies Logically this field should only be set to yes if the 
+	 * acquirer exemption field is blank. A merchant cannot claim both acquirer exemption and  secure payment. However, the DS will not validate 
+	 * the conditions in the extension. DS will pass data as presented.
+	 */
+	public Boolean getSecureCorporatePayment() {
+		return secureCorporatePayment;
+	}
+
+	/**
+	 * Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies Logically this field should only be set to yes if the 
+	 * acquirer exemption field is blank. A merchant cannot claim both acquirer exemption and  secure payment. However, the DS will not validate 
+	 * the conditions in the extension. DS will pass data as presented.
+	 */
+	public void setSecureCorporatePayment(Boolean value) {
+		this.secureCorporatePayment = value;
 	}
 
 	/**
@@ -131,5 +169,25 @@ public class ThreeDSecureBase {
 	 */
 	public void setSkipAuthentication(Boolean value) {
 		this.skipAuthentication = value;
+	}
+
+	/**
+	 * * true = Soft Decline retry mechanism will be skipped for this transaction. The transaction will result in "Authorization Declined" status. This setting should be used when skipAuthentication is set to true and the merchant does not want to use Soft Decline retry mechanism.
+	 * * false = Soft Decline retry mechanism will not be skipped for this transaction.
+	 * 
+	 * Note: skipSoftDecline defaults to false if empty. This is only possible if your account in our system is setup for 3D Secure authentication and if your configuration in our system allows you to override it per transaction.
+	 */
+	public Boolean getSkipSoftDecline() {
+		return skipSoftDecline;
+	}
+
+	/**
+	 * * true = Soft Decline retry mechanism will be skipped for this transaction. The transaction will result in "Authorization Declined" status. This setting should be used when skipAuthentication is set to true and the merchant does not want to use Soft Decline retry mechanism.
+	 * * false = Soft Decline retry mechanism will not be skipped for this transaction.
+	 * 
+	 * Note: skipSoftDecline defaults to false if empty. This is only possible if your account in our system is setup for 3D Secure authentication and if your configuration in our system allows you to override it per transaction.
+	 */
+	public void setSkipSoftDecline(Boolean value) {
+		this.skipSoftDecline = value;
 	}
 }

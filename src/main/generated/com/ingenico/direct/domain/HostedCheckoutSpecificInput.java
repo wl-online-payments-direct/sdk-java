@@ -9,6 +9,8 @@ package com.ingenico.direct.domain;
  */
 public class HostedCheckoutSpecificInput {
 
+	private CardPaymentMethodSpecificInputForHostedCheckout cardPaymentMethodSpecificInput = null;
+
 	private Boolean isRecurring = null;
 
 	private String locale = null;
@@ -22,6 +24,20 @@ public class HostedCheckoutSpecificInput {
 	private String tokens = null;
 
 	private String variant = null;
+
+	/**
+	 * Object containing card payment specific data for hosted checkout
+	 */
+	public CardPaymentMethodSpecificInputForHostedCheckout getCardPaymentMethodSpecificInput() {
+		return cardPaymentMethodSpecificInput;
+	}
+
+	/**
+	 * Object containing card payment specific data for hosted checkout
+	 */
+	public void setCardPaymentMethodSpecificInput(CardPaymentMethodSpecificInputForHostedCheckout value) {
+		this.cardPaymentMethodSpecificInput = value;
+	}
 
 	/**
 	 * * true - Only payment products that support recurring payments will be shown. Any transactions created will also be tagged as being a first of a recurring sequence.

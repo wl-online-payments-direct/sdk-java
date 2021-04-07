@@ -14,6 +14,7 @@ public class TokenEWallet {
 	private CustomerToken customer = null;
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * An alias for the token. This can be used to visually represent the token.
 	 */
 	public String getAlias() {
@@ -21,6 +22,7 @@ public class TokenEWallet {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
 	 * An alias for the token. This can be used to visually represent the token.
 	 */
 	public void setAlias(String value) {
