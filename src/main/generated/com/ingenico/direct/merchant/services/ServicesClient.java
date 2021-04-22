@@ -16,6 +16,8 @@ import com.ingenico.direct.ReferenceException;
 import com.ingenico.direct.ResponseException;
 import com.ingenico.direct.ValidationException;
 import com.ingenico.direct.domain.ErrorResponse;
+import com.ingenico.direct.domain.GetIINDetailsRequest;
+import com.ingenico.direct.domain.GetIINDetailsResponse;
 import com.ingenico.direct.domain.TestConnection;
 
 /**
@@ -47,6 +49,35 @@ public class ServicesClient extends ApiResource implements ServicesClientInterfa
 					getClientHeaders(),
 					null,
 					TestConnection.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public GetIINDetailsResponse getIINDetails(GetIINDetailsRequest body) {
+		return getIINDetails(body, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public GetIINDetailsResponse getIINDetails(GetIINDetailsRequest body, CallContext context) {
+		String uri = instantiateUri("/v2/{merchantId}/services/getIINdetails", null);
+		try {
+			return communicator.post(
+					uri,
+					getClientHeaders(),
+					null,
+					body,
+					GetIINDetailsResponse.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;

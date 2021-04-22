@@ -24,34 +24,62 @@ public class GetPaymentProductNetworksParams implements ParamRequest {
 
 	private Boolean isRecurring;
 
+	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
 	public String getCountryCode() {
 		return countryCode;
 	}
 
+	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
 	public void setCountryCode(String value) {
 		this.countryCode = value;
 	}
 
+	/**
+	 * Three-letter ISO currency code representing the currency for the amount
+	 */
 	public String getCurrencyCode() {
 		return currencyCode;
 	}
 
+	/**
+	 * Three-letter ISO currency code representing the currency for the amount
+	 */
 	public void setCurrencyCode(String value) {
 		this.currencyCode = value;
 	}
 
+	/**
+	 * Amount in cents and always having 2 decimals
+	 */
 	public Long getAmount() {
 		return amount;
 	}
 
+	/**
+	 * Amount in cents and always having 2 decimals
+	 */
 	public void setAmount(Long value) {
 		this.amount = value;
 	}
 
+	/**
+	 * This allows you to filter networks based on their support for recurring or not
+	 * * true
+	 * * false
+	 */
 	public Boolean getIsRecurring() {
 		return isRecurring;
 	}
 
+	/**
+	 * This allows you to filter networks based on their support for recurring or not
+	 * * true
+	 * * false
+	 */
 	public void setIsRecurring(Boolean value) {
 		this.isRecurring = value;
 	}

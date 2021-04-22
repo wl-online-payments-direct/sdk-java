@@ -28,54 +28,115 @@ public class GetProductGroupsParams implements ParamRequest {
 
 	private List<String> hide;
 
+	/**
+	 * ISO 3166-1 alpha-2 country code of the transaction
+	 */
 	public String getCountryCode() {
 		return countryCode;
 	}
 
+	/**
+	 * ISO 3166-1 alpha-2 country code of the transaction
+	 */
 	public void setCountryCode(String value) {
 		this.countryCode = value;
 	}
 
+	/**
+	 * Three-letter ISO currency code representing the currency for the amount
+	 */
 	public String getCurrencyCode() {
 		return currencyCode;
 	}
 
+	/**
+	 * Three-letter ISO currency code representing the currency for the amount
+	 */
 	public void setCurrencyCode(String value) {
 		this.currencyCode = value;
 	}
 
+	/**
+	 * Deprecated: This field has no effect.
+	 */
 	public String getLocale() {
 		return locale;
 	}
 
+	/**
+	 * Deprecated: This field has no effect.
+	 */
 	public void setLocale(String value) {
 		this.locale = value;
 	}
 
+	/**
+	 * Whole amount in cents (not containing any decimals)
+	 */
 	public Long getAmount() {
 		return amount;
 	}
 
+	/**
+	 * Whole amount in cents (not containing any decimals)
+	 */
 	public void setAmount(Long value) {
 		this.amount = value;
 	}
 
+	/**
+	 * This allows you to filter payment products based on their support for recurring payments.
+	 * * true - return only payment products that support recurring payments,
+	 * * false - return all payment products that support one-time transactions. Payment products that support recurring products are usually also part of this list.
+	 */
 	public Boolean getIsRecurring() {
 		return isRecurring;
 	}
 
+	/**
+	 * This allows you to filter payment products based on their support for recurring payments.
+	 * * true - return only payment products that support recurring payments,
+	 * * false - return all payment products that support one-time transactions. Payment products that support recurring products are usually also part of this list.
+	 */
 	public void setIsRecurring(Boolean value) {
 		this.isRecurring = value;
 	}
 
+	/**
+	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
+	 * * fields - Don't return any data on fields of the payment product
+	 * * accountsOnFile - Don't return any accounts on file data
+	 * * translations - Don't return any label texts associated with the payment products
+	 * * productsWithoutFields - Don't return products that require any additional data to be captured
+	 * * productsWithoutInstructions - Don't return products that show instructions
+	 * * productsWithRedirects - Don't return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden
+	 */
 	public List<String> getHide() {
 		return hide;
 	}
 
+	/**
+	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
+	 * * fields - Don't return any data on fields of the payment product
+	 * * accountsOnFile - Don't return any accounts on file data
+	 * * translations - Don't return any label texts associated with the payment products
+	 * * productsWithoutFields - Don't return products that require any additional data to be captured
+	 * * productsWithoutInstructions - Don't return products that show instructions
+	 * * productsWithRedirects - Don't return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden
+	 */
 	public void setHide(List<String> value) {
 		this.hide = value;
 	}
 
+	/**
+	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
+	 * * fields - Don't return any data on fields of the payment product
+	 * * accountsOnFile - Don't return any accounts on file data
+	 * * translations - Don't return any label texts associated with the payment products
+	 * * productsWithoutFields - Don't return products that require any additional data to be captured
+	 * * productsWithoutInstructions - Don't return products that show instructions
+	 * * productsWithRedirects - Don't return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden
+	 */
 	public void addHide(String value) {
 		if (this.hide == null) {
 			this.hide = new LinkedList<String>();

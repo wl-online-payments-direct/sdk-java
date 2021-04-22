@@ -48,7 +48,7 @@ public interface MerchantClientInterface {
 	PaymentsClientInterface payments();
 
 	/**
-	 * Resource /v2/{merchantId}/services/testconnection
+	 * Resource /v2/{merchantId}/services
 	 *
 	 * @return ServicesClient
 	 */

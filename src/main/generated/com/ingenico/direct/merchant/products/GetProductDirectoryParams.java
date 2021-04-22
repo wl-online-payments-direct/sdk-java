@@ -20,18 +20,30 @@ public class GetProductDirectoryParams implements ParamRequest {
 
 	private String currencyCode;
 
+	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
 	public String getCountryCode() {
 		return countryCode;
 	}
 
+	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
 	public void setCountryCode(String value) {
 		this.countryCode = value;
 	}
 
+	/**
+	 * Three-letter ISO currency code representing the currency of the transaction
+	 */
 	public String getCurrencyCode() {
 		return currencyCode;
 	}
 
+	/**
+	 * Three-letter ISO currency code representing the currency of the transaction
+	 */
 	public void setCurrencyCode(String value) {
 		this.currencyCode = value;
 	}

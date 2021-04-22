@@ -9,9 +9,25 @@ package com.ingenico.direct.domain;
  */
 public class CardEssentials {
 
+	private String bin = null;
+
 	private String cardNumber = null;
 
 	private String expiryDate = null;
+
+	/**
+	 * The first digits of the credit card number from left to right with a minimum of 6 digits.
+	 */
+	public String getBin() {
+		return bin;
+	}
+
+	/**
+	 * The first digits of the credit card number from left to right with a minimum of 6 digits.
+	 */
+	public void setBin(String value) {
+		this.bin = value;
+	}
 
 	/**
 	 * The complete credit/debit card number
