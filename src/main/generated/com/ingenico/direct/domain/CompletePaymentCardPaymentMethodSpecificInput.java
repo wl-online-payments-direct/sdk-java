@@ -15,4 +15,9 @@ public class CompletePaymentCardPaymentMethodSpecificInput {
 	public void setCard(CardWithoutCvv value) {
 		this.card = value;
 	}
+
+	public CompletePaymentCardPaymentMethodSpecificInput withCard(CardWithoutCvv value) {
+		this.card = value;
+		return this;
+	}
 }

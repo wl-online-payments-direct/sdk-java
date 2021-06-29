@@ -30,6 +30,14 @@ public class CardEssentials {
 	}
 
 	/**
+	 * The first digits of the credit card number from left to right with a minimum of 6 digits.
+	 */
+	public CardEssentials withBin(String value) {
+		this.bin = value;
+		return this;
+	}
+
+	/**
 	 * The complete credit/debit card number
 	 */
 	public String getCardNumber() {
@@ -41,6 +49,14 @@ public class CardEssentials {
 	 */
 	public void setCardNumber(String value) {
 		this.cardNumber = value;
+	}
+
+	/**
+	 * The complete credit/debit card number
+	 */
+	public CardEssentials withCardNumber(String value) {
+		this.cardNumber = value;
+		return this;
 	}
 
 	/**
@@ -57,5 +73,14 @@ public class CardEssentials {
 	 */
 	public void setExpiryDate(String value) {
 		this.expiryDate = value;
+	}
+
+	/**
+	 * Expiry date of the card 
+	 *  Format: MMYY
+	 */
+	public CardEssentials withExpiryDate(String value) {
+		this.expiryDate = value;
+		return this;
 	}
 }

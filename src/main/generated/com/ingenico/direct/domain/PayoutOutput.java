@@ -21,4 +21,12 @@ public class PayoutOutput {
 	public void setAmountOfMoney(AmountOfMoney value) {
 		this.amountOfMoney = value;
 	}
+
+	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
+	public PayoutOutput withAmountOfMoney(AmountOfMoney value) {
+		this.amountOfMoney = value;
+		return this;
+	}
 }

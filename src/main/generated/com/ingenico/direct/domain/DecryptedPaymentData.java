@@ -36,6 +36,15 @@ public class DecryptedPaymentData {
 	}
 
 	/**
+	 * Card holder's name on the card. 
+	 *  * For Apple Pay, maps to the cardholderName property in the encrypted payment data.
+	 */
+	public DecryptedPaymentData withCardholderName(String value) {
+		this.cardholderName = value;
+		return this;
+	}
+
+	/**
 	 * The 3D secure online payment cryptogram.
 	 * * For Apple Pay, maps to the paymentData.onlinePaymentCryptogram property in the encrypted payment data.
 	 * * For Google Pay, maps to the paymentMethodDetails.3dsCryptogram property in the encrypted payment data.
@@ -56,6 +65,17 @@ public class DecryptedPaymentData {
 	}
 
 	/**
+	 * The 3D secure online payment cryptogram.
+	 * * For Apple Pay, maps to the paymentData.onlinePaymentCryptogram property in the encrypted payment data.
+	 * * For Google Pay, maps to the paymentMethodDetails.3dsCryptogram property in the encrypted payment data.
+	 * Not allowed for Google Pay if the paymentMethod is CARD.
+	 */
+	public DecryptedPaymentData withCryptogram(String value) {
+		this.cryptogram = value;
+		return this;
+	}
+
+	/**
 	 * The device specific PAN. 
 	 *  * For Apple Pay, maps to the applicationPrimaryAccountNumber property in the encrypted payment.
 	 */
@@ -69,6 +89,15 @@ public class DecryptedPaymentData {
 	 */
 	public void setDpan(String value) {
 		this.dpan = value;
+	}
+
+	/**
+	 * The device specific PAN. 
+	 *  * For Apple Pay, maps to the applicationPrimaryAccountNumber property in the encrypted payment.
+	 */
+	public DecryptedPaymentData withDpan(String value) {
+		this.dpan = value;
+		return this;
 	}
 
 	/**
@@ -88,6 +117,15 @@ public class DecryptedPaymentData {
 	}
 
 	/**
+	 * Electronic Commerce Indicator. 
+	 *  * For Apple Pay, maps to the paymentData.eciIndicator property in the encrypted payment data.
+	 */
+	public DecryptedPaymentData withEci(Integer value) {
+		this.eci = value;
+		return this;
+	}
+
+	/**
 	 * Expiry date of the card Format: MMYY. 
 	 *  * For Apple Pay, maps to the applicationExpirationDate property in the encrypted payment data. This property is formatted as YYMMDD, so this needs to be converted to get a correctly formatted expiry date
 	 */
@@ -101,5 +139,14 @@ public class DecryptedPaymentData {
 	 */
 	public void setExpiryDate(String value) {
 		this.expiryDate = value;
+	}
+
+	/**
+	 * Expiry date of the card Format: MMYY. 
+	 *  * For Apple Pay, maps to the applicationExpirationDate property in the encrypted payment data. This property is formatted as YYMMDD, so this needs to be converted to get a correctly formatted expiry date
+	 */
+	public DecryptedPaymentData withExpiryDate(String value) {
+		this.expiryDate = value;
+		return this;
 	}
 }

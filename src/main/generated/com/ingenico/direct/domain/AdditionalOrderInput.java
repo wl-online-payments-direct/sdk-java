@@ -30,6 +30,14 @@ public class AdditionalOrderInput {
 	}
 
 	/**
+	 * Object that holds airline specific data
+	 */
+	public AdditionalOrderInput withAirlineData(AirlineData value) {
+		this.airlineData = value;
+		return this;
+	}
+
+	/**
 	 * Object containing specific data regarding the recipient of a loan in the UK
 	 */
 	public LoanRecipient getLoanRecipient() {
@@ -44,6 +52,14 @@ public class AdditionalOrderInput {
 	}
 
 	/**
+	 * Object containing specific data regarding the recipient of a loan in the UK
+	 */
+	public AdditionalOrderInput withLoanRecipient(LoanRecipient value) {
+		this.loanRecipient = value;
+		return this;
+	}
+
+	/**
 	 * Object that holds the purchase and usage type indicators
 	 */
 	public OrderTypeInformation getTypeInformation() {
@@ -55,5 +71,13 @@ public class AdditionalOrderInput {
 	 */
 	public void setTypeInformation(OrderTypeInformation value) {
 		this.typeInformation = value;
+	}
+
+	/**
+	 * Object that holds the purchase and usage type indicators
+	 */
+	public AdditionalOrderInput withTypeInformation(OrderTypeInformation value) {
+		this.typeInformation = value;
+		return this;
 	}
 }

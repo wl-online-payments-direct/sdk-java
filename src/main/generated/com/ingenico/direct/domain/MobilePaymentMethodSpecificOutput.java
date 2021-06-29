@@ -36,6 +36,14 @@ public class MobilePaymentMethodSpecificOutput {
 	}
 
 	/**
+	 * Card Authorization code as returned by the acquirer
+	 */
+	public MobilePaymentMethodSpecificOutput withAuthorisationCode(String value) {
+		this.authorisationCode = value;
+		return this;
+	}
+
+	/**
 	 * Fraud results contained in the CardFraudResults object
 	 */
 	public CardFraudResults getFraudResults() {
@@ -47,6 +55,14 @@ public class MobilePaymentMethodSpecificOutput {
 	 */
 	public void setFraudResults(CardFraudResults value) {
 		this.fraudResults = value;
+	}
+
+	/**
+	 * Fraud results contained in the CardFraudResults object
+	 */
+	public MobilePaymentMethodSpecificOutput withFraudResults(CardFraudResults value) {
+		this.fraudResults = value;
+		return this;
 	}
 
 	/**
@@ -64,6 +80,14 @@ public class MobilePaymentMethodSpecificOutput {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
+	 */
+	public MobilePaymentMethodSpecificOutput withNetwork(String value) {
+		this.network = value;
+		return this;
+	}
+
+	/**
 	 * Object containing payment details
 	 */
 	public MobilePaymentData getPaymentData() {
@@ -75,6 +99,14 @@ public class MobilePaymentMethodSpecificOutput {
 	 */
 	public void setPaymentData(MobilePaymentData value) {
 		this.paymentData = value;
+	}
+
+	/**
+	 * Object containing payment details
+	 */
+	public MobilePaymentMethodSpecificOutput withPaymentData(MobilePaymentData value) {
+		this.paymentData = value;
+		return this;
 	}
 
 	/**
@@ -92,6 +124,14 @@ public class MobilePaymentMethodSpecificOutput {
 	}
 
 	/**
+	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
+	 */
+	public MobilePaymentMethodSpecificOutput withPaymentProductId(Integer value) {
+		this.paymentProductId = value;
+		return this;
+	}
+
+	/**
 	 * 3D Secure results object
 	 */
 	public ThreeDSecureResults getThreeDSecureResults() {
@@ -103,5 +143,13 @@ public class MobilePaymentMethodSpecificOutput {
 	 */
 	public void setThreeDSecureResults(ThreeDSecureResults value) {
 		this.threeDSecureResults = value;
+	}
+
+	/**
+	 * 3D Secure results object
+	 */
+	public MobilePaymentMethodSpecificOutput withThreeDSecureResults(ThreeDSecureResults value) {
+		this.threeDSecureResults = value;
+		return this;
 	}
 }

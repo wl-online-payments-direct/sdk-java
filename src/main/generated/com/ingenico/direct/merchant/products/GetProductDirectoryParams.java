@@ -35,6 +35,14 @@ public class GetProductDirectoryParams implements ParamRequest {
 	}
 
 	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
+	public GetProductDirectoryParams withCountryCode(String value) {
+		this.countryCode = value;
+		return this;
+	}
+
+	/**
 	 * Three-letter ISO currency code representing the currency of the transaction
 	 */
 	public String getCurrencyCode() {
@@ -46,6 +54,14 @@ public class GetProductDirectoryParams implements ParamRequest {
 	 */
 	public void setCurrencyCode(String value) {
 		this.currencyCode = value;
+	}
+
+	/**
+	 * Three-letter ISO currency code representing the currency of the transaction
+	 */
+	public GetProductDirectoryParams withCurrencyCode(String value) {
+		this.currencyCode = value;
+		return this;
 	}
 
 	@Override

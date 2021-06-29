@@ -24,4 +24,12 @@ public class PaymentReferences {
 	public void setMerchantReference(String value) {
 		this.merchantReference = value;
 	}
+
+	/**
+	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+	 */
+	public PaymentReferences withMerchantReference(String value) {
+		this.merchantReference = value;
+		return this;
+	}
 }

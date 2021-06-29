@@ -37,6 +37,14 @@ public class Order {
 	}
 
 	/**
+	 * Object containing additional input on the order
+	 */
+	public Order withAdditionalInput(AdditionalOrderInput value) {
+		this.additionalInput = value;
+		return this;
+	}
+
+	/**
 	 * Object containing amount and ISO currency code attributes
 	 */
 	public AmountOfMoney getAmountOfMoney() {
@@ -48,6 +56,14 @@ public class Order {
 	 */
 	public void setAmountOfMoney(AmountOfMoney value) {
 		this.amountOfMoney = value;
+	}
+
+	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
+	public Order withAmountOfMoney(AmountOfMoney value) {
+		this.amountOfMoney = value;
+		return this;
 	}
 
 	/**
@@ -65,6 +81,14 @@ public class Order {
 	}
 
 	/**
+	 * Object containing the details of the customer
+	 */
+	public Order withCustomer(Customer value) {
+		this.customer = value;
+		return this;
+	}
+
+	/**
 	 * Object that holds all reference properties that are linked to this transaction
 	 */
 	public OrderReferences getReferences() {
@@ -76,6 +100,14 @@ public class Order {
 	 */
 	public void setReferences(OrderReferences value) {
 		this.references = value;
+	}
+
+	/**
+	 * Object that holds all reference properties that are linked to this transaction
+	 */
+	public Order withReferences(OrderReferences value) {
+		this.references = value;
+		return this;
 	}
 
 	/**
@@ -93,6 +125,14 @@ public class Order {
 	}
 
 	/**
+	 * Object containing information regarding shipping / delivery
+	 */
+	public Order withShipping(Shipping value) {
+		this.shipping = value;
+		return this;
+	}
+
+	/**
 	 * Shopping cart data, including items and specific amounts.
 	 */
 	public ShoppingCart getShoppingCart() {
@@ -104,5 +144,13 @@ public class Order {
 	 */
 	public void setShoppingCart(ShoppingCart value) {
 		this.shoppingCart = value;
+	}
+
+	/**
+	 * Shopping cart data, including items and specific amounts.
+	 */
+	public Order withShoppingCart(ShoppingCart value) {
+		this.shoppingCart = value;
+		return this;
 	}
 }

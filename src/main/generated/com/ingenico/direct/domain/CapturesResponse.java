@@ -23,4 +23,12 @@ public class CapturesResponse {
 	public void setCaptures(List<Capture> value) {
 		this.captures = value;
 	}
+
+	/**
+	 * The list of all captures performed on the requested payment.
+	 */
+	public CapturesResponse withCaptures(List<Capture> value) {
+		this.captures = value;
+		return this;
+	}
 }

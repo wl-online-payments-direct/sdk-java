@@ -33,6 +33,14 @@ public class TokenResponse {
 	}
 
 	/**
+	 * Object containing card details
+	 */
+	public TokenResponse withCard(TokenCard value) {
+		this.card = value;
+		return this;
+	}
+
+	/**
 	 * Object containing eWallet details
 	 */
 	public TokenEWallet getEWallet() {
@@ -46,12 +54,25 @@ public class TokenResponse {
 		this.eWallet = value;
 	}
 
+	/**
+	 * Object containing eWallet details
+	 */
+	public TokenResponse withEWallet(TokenEWallet value) {
+		this.eWallet = value;
+		return this;
+	}
+
 	public ExternalTokenLinked getExternalTokenLinked() {
 		return externalTokenLinked;
 	}
 
 	public void setExternalTokenLinked(ExternalTokenLinked value) {
 		this.externalTokenLinked = value;
+	}
+
+	public TokenResponse withExternalTokenLinked(ExternalTokenLinked value) {
+		this.externalTokenLinked = value;
+		return this;
 	}
 
 	/**
@@ -69,6 +90,14 @@ public class TokenResponse {
 	}
 
 	/**
+	 * ID of the token
+	 */
+	public TokenResponse withId(String value) {
+		this.id = value;
+		return this;
+	}
+
+	/**
 	 * Temporary tokens have a lifespan of two hours and can only be used once.
 	 */
 	public Boolean getIsTemporary() {
@@ -83,6 +112,14 @@ public class TokenResponse {
 	}
 
 	/**
+	 * Temporary tokens have a lifespan of two hours and can only be used once.
+	 */
+	public TokenResponse withIsTemporary(Boolean value) {
+		this.isTemporary = value;
+		return this;
+	}
+
+	/**
 	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
 	 */
 	public Integer getPaymentProductId() {
@@ -94,5 +131,13 @@ public class TokenResponse {
 	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;
+	}
+
+	/**
+	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
+	 */
+	public TokenResponse withPaymentProductId(Integer value) {
+		this.paymentProductId = value;
+		return this;
 	}
 }

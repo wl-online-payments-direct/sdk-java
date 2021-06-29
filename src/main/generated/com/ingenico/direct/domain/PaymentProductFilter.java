@@ -30,6 +30,14 @@ public class PaymentProductFilter {
 	}
 
 	/**
+	 * List containing all payment product groups that should either be restricted to in or excluded from the payment context. Currently, there is only one group, called 'cards'.
+	 */
+	public PaymentProductFilter withGroups(List<String> value) {
+		this.groups = value;
+		return this;
+	}
+
+	/**
 	 * List containing all payment product ids that should either be restricted to in or excluded from the payment context.
 	 */
 	public List<Integer> getProducts() {
@@ -41,5 +49,13 @@ public class PaymentProductFilter {
 	 */
 	public void setProducts(List<Integer> value) {
 		this.products = value;
+	}
+
+	/**
+	 * List containing all payment product ids that should either be restricted to in or excluded from the payment context.
+	 */
+	public PaymentProductFilter withProducts(List<Integer> value) {
+		this.products = value;
+		return this;
 	}
 }

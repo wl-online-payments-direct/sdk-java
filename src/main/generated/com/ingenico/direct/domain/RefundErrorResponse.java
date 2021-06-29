@@ -22,12 +22,22 @@ public class RefundErrorResponse {
 		this.errorId = value;
 	}
 
+	public RefundErrorResponse withErrorId(String value) {
+		this.errorId = value;
+		return this;
+	}
+
 	public List<APIError> getErrors() {
 		return errors;
 	}
 
 	public void setErrors(List<APIError> value) {
 		this.errors = value;
+	}
+
+	public RefundErrorResponse withErrors(List<APIError> value) {
+		this.errors = value;
+		return this;
 	}
 
 	/**
@@ -42,5 +52,13 @@ public class RefundErrorResponse {
 	 */
 	public void setRefundResult(RefundResponse value) {
 		this.refundResult = value;
+	}
+
+	/**
+	 * This object has the numeric representation of the current refund status, timestamp of last status change and performable action on the current refund resource. In case of a rejected refund, detailed error information is listed.
+	 */
+	public RefundErrorResponse withRefundResult(RefundResponse value) {
+		this.refundResult = value;
+		return this;
 	}
 }

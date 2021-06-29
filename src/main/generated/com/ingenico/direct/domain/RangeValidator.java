@@ -18,11 +18,21 @@ public class RangeValidator {
 		this.maxValue = value;
 	}
 
+	public RangeValidator withMaxValue(Integer value) {
+		this.maxValue = value;
+		return this;
+	}
+
 	public Integer getMinValue() {
 		return minValue;
 	}
 
 	public void setMinValue(Integer value) {
 		this.minValue = value;
+	}
+
+	public RangeValidator withMinValue(Integer value) {
+		this.minValue = value;
+		return this;
 	}
 }

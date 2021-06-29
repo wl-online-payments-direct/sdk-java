@@ -40,6 +40,14 @@ public class RedirectPaymentMethodSpecificInput {
 	}
 
 	/**
+	 * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
+	 */
+	public RedirectPaymentMethodSpecificInput withPaymentOption(String value) {
+		this.paymentOption = value;
+		return this;
+	}
+
+	/**
 	 * Object containing specific input required for iDeal payments (Payment product ID 809)
 	 */
 	public RedirectPaymentProduct809SpecificInput getPaymentProduct809SpecificInput() {
@@ -51,6 +59,14 @@ public class RedirectPaymentMethodSpecificInput {
 	 */
 	public void setPaymentProduct809SpecificInput(RedirectPaymentProduct809SpecificInput value) {
 		this.paymentProduct809SpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input required for iDeal payments (Payment product ID 809)
+	 */
+	public RedirectPaymentMethodSpecificInput withPaymentProduct809SpecificInput(RedirectPaymentProduct809SpecificInput value) {
+		this.paymentProduct809SpecificInput = value;
+		return this;
 	}
 
 	/**
@@ -68,6 +84,14 @@ public class RedirectPaymentMethodSpecificInput {
 	}
 
 	/**
+	 * Object containing specific input required for PayPal payments (Payment product ID 840)
+	 */
+	public RedirectPaymentMethodSpecificInput withPaymentProduct840SpecificInput(RedirectPaymentProduct840SpecificInput value) {
+		this.paymentProduct840SpecificInput = value;
+		return this;
+	}
+
+	/**
 	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
 	 */
 	public Integer getPaymentProductId() {
@@ -82,6 +106,14 @@ public class RedirectPaymentMethodSpecificInput {
 	}
 
 	/**
+	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
+	 */
+	public RedirectPaymentMethodSpecificInput withPaymentProductId(Integer value) {
+		this.paymentProductId = value;
+		return this;
+	}
+
+	/**
 	 * Object containing browser specific redirection related data
 	 */
 	public RedirectionData getRedirectionData() {
@@ -93,6 +125,14 @@ public class RedirectPaymentMethodSpecificInput {
 	 */
 	public void setRedirectionData(RedirectionData value) {
 		this.redirectionData = value;
+	}
+
+	/**
+	 * Object containing browser specific redirection related data
+	 */
+	public RedirectPaymentMethodSpecificInput withRedirectionData(RedirectionData value) {
+		this.redirectionData = value;
+		return this;
 	}
 
 	/**
@@ -112,6 +152,15 @@ public class RedirectPaymentMethodSpecificInput {
 	}
 
 	/**
+	 * * true = the payment requires approval before the funds will be captured using the Approve payment or Capture payment API
+	 * * false = the payment does not require approval, and the funds will be captured automatically
+	 */
+	public RedirectPaymentMethodSpecificInput withRequiresApproval(Boolean value) {
+		this.requiresApproval = value;
+		return this;
+	}
+
+	/**
 	 * ID of the token to use to create the payment.
 	 */
 	public String getToken() {
@@ -123,6 +172,14 @@ public class RedirectPaymentMethodSpecificInput {
 	 */
 	public void setToken(String value) {
 		this.token = value;
+	}
+
+	/**
+	 * ID of the token to use to create the payment.
+	 */
+	public RedirectPaymentMethodSpecificInput withToken(String value) {
+		this.token = value;
+		return this;
 	}
 
 	/**
@@ -141,5 +198,15 @@ public class RedirectPaymentMethodSpecificInput {
 	 */
 	public void setTokenize(Boolean value) {
 		this.tokenize = value;
+	}
+
+	/**
+	 * Indicates if this transaction should be tokenized
+	 *   * true - Tokenize the transaction.
+	 *   * false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.
+	 */
+	public RedirectPaymentMethodSpecificInput withTokenize(Boolean value) {
+		this.tokenize = value;
+		return this;
 	}
 }

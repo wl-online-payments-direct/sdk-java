@@ -22,12 +22,22 @@ public class PayoutResult {
 		this.id = value;
 	}
 
+	public PayoutResult withId(String value) {
+		this.id = value;
+		return this;
+	}
+
 	public PayoutOutput getPayoutOutput() {
 		return payoutOutput;
 	}
 
 	public void setPayoutOutput(PayoutOutput value) {
 		this.payoutOutput = value;
+	}
+
+	public PayoutResult withPayoutOutput(PayoutOutput value) {
+		this.payoutOutput = value;
+		return this;
 	}
 
 	/**
@@ -44,11 +54,24 @@ public class PayoutResult {
 		this.status = value;
 	}
 
+	/**
+	 * Current high-level status of the payout in a human-readable form.
+	 */
+	public PayoutResult withStatus(String value) {
+		this.status = value;
+		return this;
+	}
+
 	public PayoutStatusOutput getStatusOutput() {
 		return statusOutput;
 	}
 
 	public void setStatusOutput(PayoutStatusOutput value) {
 		this.statusOutput = value;
+	}
+
+	public PayoutResult withStatusOutput(PayoutStatusOutput value) {
+		this.statusOutput = value;
+		return this;
 	}
 }

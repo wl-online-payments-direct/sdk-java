@@ -29,6 +29,16 @@ public class CapturePaymentRequest {
 	}
 
 	/**
+	 * Here you can specify the amount that you want to capture (specified in cents, where single digit currencies are presumed to have 2 digits). The amount can be lower than the amount that was authorized, but not higher. 
+	 *  If left empty, the full amount will be captured and the request will be final. 
+	 *  If the full amount is captured, the request will also be final.
+	 */
+	public CapturePaymentRequest withAmount(Long value) {
+		this.amount = value;
+		return this;
+	}
+
+	/**
 	 * This property indicates whether this will be the final capture of this transaction. The default value for this property is false.
 	 */
 	public Boolean getIsFinal() {
@@ -40,5 +50,13 @@ public class CapturePaymentRequest {
 	 */
 	public void setIsFinal(Boolean value) {
 		this.isFinal = value;
+	}
+
+	/**
+	 * This property indicates whether this will be the final capture of this transaction. The default value for this property is false.
+	 */
+	public CapturePaymentRequest withIsFinal(Boolean value) {
+		this.isFinal = value;
+		return this;
 	}
 }

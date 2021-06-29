@@ -34,6 +34,14 @@ public class PaymentResponse {
 	}
 
 	/**
+	 * Hosted Checkout specific information. Populated if the payment was created on the platform through a Hosted Checkout.
+	 */
+	public PaymentResponse withHostedCheckoutSpecificOutput(HostedCheckoutSpecificOutput value) {
+		this.hostedCheckoutSpecificOutput = value;
+		return this;
+	}
+
+	/**
 	 * Our unique payment transaction identifier
 	 */
 	public String getId() {
@@ -45,6 +53,14 @@ public class PaymentResponse {
 	 */
 	public void setId(String value) {
 		this.id = value;
+	}
+
+	/**
+	 * Our unique payment transaction identifier
+	 */
+	public PaymentResponse withId(String value) {
+		this.id = value;
+		return this;
 	}
 
 	/**
@@ -62,6 +78,14 @@ public class PaymentResponse {
 	}
 
 	/**
+	 * Object containing payment details
+	 */
+	public PaymentResponse withPaymentOutput(PaymentOutput value) {
+		this.paymentOutput = value;
+		return this;
+	}
+
+	/**
 	 * Current high-level status of the payment in a human-readable form.
 	 */
 	public String getStatus() {
@@ -76,6 +100,14 @@ public class PaymentResponse {
 	}
 
 	/**
+	 * Current high-level status of the payment in a human-readable form.
+	 */
+	public PaymentResponse withStatus(String value) {
+		this.status = value;
+		return this;
+	}
+
+	/**
 	 * This object has the numeric representation of the current payment status, timestamp of last status change and performable action on the current payment resource. In case of failed payments and negative scenarios, detailed error information is listed.
 	 */
 	public PaymentStatusOutput getStatusOutput() {
@@ -87,5 +119,13 @@ public class PaymentResponse {
 	 */
 	public void setStatusOutput(PaymentStatusOutput value) {
 		this.statusOutput = value;
+	}
+
+	/**
+	 * This object has the numeric representation of the current payment status, timestamp of last status change and performable action on the current payment resource. In case of failed payments and negative scenarios, detailed error information is listed.
+	 */
+	public PaymentResponse withStatusOutput(PaymentStatusOutput value) {
+		this.statusOutput = value;
+		return this;
 	}
 }

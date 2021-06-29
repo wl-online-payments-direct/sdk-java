@@ -29,6 +29,15 @@ public class CardWithoutCvv {
 	}
 
 	/**
+	 * The complete credit/debit card number (also know as the PAN)
+	 * The card number is always obfuscated in any of our responses
+	 */
+	public CardWithoutCvv withCardNumber(String value) {
+		this.cardNumber = value;
+		return this;
+	}
+
+	/**
 	 * The card holder's name on the card.
 	 */
 	public String getCardholderName() {
@@ -40,6 +49,14 @@ public class CardWithoutCvv {
 	 */
 	public void setCardholderName(String value) {
 		this.cardholderName = value;
+	}
+
+	/**
+	 * The card holder's name on the card.
+	 */
+	public CardWithoutCvv withCardholderName(String value) {
+		this.cardholderName = value;
+		return this;
 	}
 
 	/**
@@ -56,5 +73,14 @@ public class CardWithoutCvv {
 	 */
 	public void setExpiryDate(String value) {
 		this.expiryDate = value;
+	}
+
+	/**
+	 * Expiry date of the card
+	 * Format: MMYY
+	 */
+	public CardWithoutCvv withExpiryDate(String value) {
+		this.expiryDate = value;
+		return this;
 	}
 }

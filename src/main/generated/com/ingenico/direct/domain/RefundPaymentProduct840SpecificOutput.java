@@ -15,4 +15,9 @@ public class RefundPaymentProduct840SpecificOutput {
 	public void setCustomerAccount(RefundPaymentProduct840CustomerAccount value) {
 		this.customerAccount = value;
 	}
+
+	public RefundPaymentProduct840SpecificOutput withCustomerAccount(RefundPaymentProduct840CustomerAccount value) {
+		this.customerAccount = value;
+		return this;
+	}
 }

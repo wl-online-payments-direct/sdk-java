@@ -18,6 +18,7 @@ import com.ingenico.direct.domain.CreatePaymentResponse;
 import com.ingenico.direct.domain.Customer;
 import com.ingenico.direct.domain.Order;
 import com.ingenico.direct.domain.RedirectionData;
+import com.ingenico.direct.domain.ThreeDSecure;
 
 public class IdempotenceTest extends ItTest {
 
@@ -27,42 +28,44 @@ public class IdempotenceTest extends ItTest {
 	@Test
 	public void test() throws URISyntaxException, IOException {
 
-		CreatePaymentRequest body = new CreatePaymentRequest();
+		AmountOfMoney amountOfMoney = new AmountOfMoney()
+				.withCurrencyCode("EUR")
+				.withAmount(100L);
 
-		Order order = new Order();
+		Address billingAddress = new Address()
+				.withCountryCode("NL");
 
-		AmountOfMoney amountOfMoney = new AmountOfMoney();
-		amountOfMoney.setCurrencyCode("EUR");
-		amountOfMoney.setAmount(100L);
-		order.setAmountOfMoney(amountOfMoney);
+        Customer customer = new Customer()
+                .withLocale("en")
+                .withBillingAddress(billingAddress);
 
-		Customer customer = new Customer();
-		customer.setLocale("en");
+		RedirectionData redirectionData = new RedirectionData()
+				.withReturnUrl("http://example.com/");
 
-		Address billingAddress = new Address();
-		billingAddress.setCountryCode("NL");
-		customer.setBillingAddress(billingAddress);
+        ThreeDSecure threeDSecure = new ThreeDSecure()
+                .withRedirectionData(redirectionData);
 
-		order.setCustomer(customer);
-		body.setOrder(order);
+        Card card = new Card()
+                .withCardNumber("4330264936344675")
+                .withCvv("123")
+                .withExpiryDate("1230")
+                .withCardholderName("Wile E. Coyote");
 
-		RedirectionData redirectionData = new RedirectionData();
-		redirectionData.setReturnUrl("http://example.com/");
+        CardPaymentMethodSpecificInput paymentMethodSpecificInput = new CardPaymentMethodSpecificInput()
+                .withPaymentProductId(1)
+                .withIsRecurring(false)
+                .withAuthorizationMode("FINAL_AUTHORIZATION")
+                .withSkipAuthentication(true)
+                .withCard(card)
+                .withThreeDSecure(threeDSecure);
 
-		CardPaymentMethodSpecificInput paymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
-		paymentMethodSpecificInput.setPaymentProductId(1);
-		paymentMethodSpecificInput.setIsRecurring(false);
-		paymentMethodSpecificInput.setAuthorizationMode("FINAL_AUTHORIZATION");
-		paymentMethodSpecificInput.setSkipAuthentication(true);
+        Order order = new Order()
+                .withAmountOfMoney(amountOfMoney)
+                .withCustomer(customer);
 
-		Card card = new Card();
-		card.setCardNumber("4330264936344675");
-		card.setCvv("123");
-		card.setExpiryDate("1230");
-		card.setCardholderName("Wile E. Coyote");
-		paymentMethodSpecificInput.setCard(card);
-
-		body.setCardPaymentMethodSpecificInput(paymentMethodSpecificInput);
+        CreatePaymentRequest body = new CreatePaymentRequest()
+                .withOrder(order)
+                .withCardPaymentMethodSpecificInput(paymentMethodSpecificInput);
 
 		String idempotenceKey = UUID.randomUUID().toString();
 		CallContext context = new CallContext().withIdempotenceKey(idempotenceKey);

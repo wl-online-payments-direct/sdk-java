@@ -32,6 +32,16 @@ public class ProtectionEligibility {
 	}
 
 	/**
+	 * * Eligible - Merchant is protected by PayPal's Seller Protection Policy for Unauthorized Payment and Item Not Received
+	 * * PartiallyEligible - Merchant is protected by PayPal's Seller Protection Policy for Item Not Received
+	 * * Ineligible — Merchant is not protected under the Seller Protection Policy
+	 */
+	public ProtectionEligibility withEligibility(String value) {
+		this.eligibility = value;
+		return this;
+	}
+
+	/**
 	 * - ItemNotReceivedEligible - Merchant is protected by PayPal's Seller Protection Policy for Item Not Received
 	 * - UnauthorizedPaymentEligible - Merchant is protected by PayPal's Seller Protection Policy for Unauthorized Payment
 	 * - Ineligible - Merchant is not protected under the Seller Protection Policy
@@ -47,5 +57,15 @@ public class ProtectionEligibility {
 	 */
 	public void setType(String value) {
 		this.type = value;
+	}
+
+	/**
+	 * - ItemNotReceivedEligible - Merchant is protected by PayPal's Seller Protection Policy for Item Not Received
+	 * - UnauthorizedPaymentEligible - Merchant is protected by PayPal's Seller Protection Policy for Unauthorized Payment
+	 * - Ineligible - Merchant is not protected under the Seller Protection Policy
+	 */
+	public ProtectionEligibility withType(String value) {
+		this.type = value;
+		return this;
 	}
 }

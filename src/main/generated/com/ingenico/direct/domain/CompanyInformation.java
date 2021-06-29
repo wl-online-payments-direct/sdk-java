@@ -24,4 +24,12 @@ public class CompanyInformation {
 	public void setName(String value) {
 		this.name = value;
 	}
+
+	/**
+	 * Name of company, as a customer
+	 */
+	public CompanyInformation withName(String value) {
+		this.name = value;
+		return this;
+	}
 }

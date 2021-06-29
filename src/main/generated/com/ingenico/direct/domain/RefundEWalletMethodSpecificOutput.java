@@ -20,6 +20,11 @@ public class RefundEWalletMethodSpecificOutput {
 		this.paymentProduct840SpecificOutput = value;
 	}
 
+	public RefundEWalletMethodSpecificOutput withPaymentProduct840SpecificOutput(RefundPaymentProduct840SpecificOutput value) {
+		this.paymentProduct840SpecificOutput = value;
+		return this;
+	}
+
 	public Long getTotalAmountPaid() {
 		return totalAmountPaid;
 	}
@@ -28,11 +33,21 @@ public class RefundEWalletMethodSpecificOutput {
 		this.totalAmountPaid = value;
 	}
 
+	public RefundEWalletMethodSpecificOutput withTotalAmountPaid(Long value) {
+		this.totalAmountPaid = value;
+		return this;
+	}
+
 	public Long getTotalAmountRefunded() {
 		return totalAmountRefunded;
 	}
 
 	public void setTotalAmountRefunded(Long value) {
 		this.totalAmountRefunded = value;
+	}
+
+	public RefundEWalletMethodSpecificOutput withTotalAmountRefunded(Long value) {
+		this.totalAmountRefunded = value;
+		return this;
 	}
 }

@@ -66,6 +66,15 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * Reservation Booking Designator
+	 * This field is used by the following payment products: cards
+	 */
+	public AirlineFlightLeg withAirlineClass(String value) {
+		this.airlineClass = value;
+		return this;
+	}
+
+	/**
 	 * Arrival airport/city code
 	 * This field is used by the following payment products: 840
 	 */
@@ -79,6 +88,15 @@ public class AirlineFlightLeg {
 	 */
 	public void setArrivalAirport(String value) {
 		this.arrivalAirport = value;
+	}
+
+	/**
+	 * Arrival airport/city code
+	 * This field is used by the following payment products: 840
+	 */
+	public AirlineFlightLeg withArrivalAirport(String value) {
+		this.arrivalAirport = value;
+		return this;
 	}
 
 	/**
@@ -100,6 +118,16 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * The arrival time in the local time zone
+	 * Format: HH:MM
+	 * This field is used by the following payment products: 840
+	 */
+	public AirlineFlightLeg withArrivalTime(String value) {
+		this.arrivalTime = value;
+		return this;
+	}
+
+	/**
 	 * IATA carrier code
 	 * This field is used by the following payment products: cards, 840
 	 */
@@ -113,6 +141,15 @@ public class AirlineFlightLeg {
 	 */
 	public void setCarrierCode(String value) {
 		this.carrierCode = value;
+	}
+
+	/**
+	 * IATA carrier code
+	 * This field is used by the following payment products: cards, 840
+	 */
+	public AirlineFlightLeg withCarrierCode(String value) {
+		this.carrierCode = value;
+		return this;
 	}
 
 	/**
@@ -132,6 +169,15 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * Identifying number of a ticket issued to a passenger in conjunction with this ticket and that constitutes a single contract of carriage
+	 * This field is used by the following payment products: 840
+	 */
+	public AirlineFlightLeg withConjunctionTicket(String value) {
+		this.conjunctionTicket = value;
+		return this;
+	}
+
+	/**
 	 * The coupon number associated with this leg of the trip. A ticket can contain several legs of travel, and each leg of travel requires a separate coupon
 	 * This field is used by the following payment products: 840
 	 */
@@ -145,6 +191,15 @@ public class AirlineFlightLeg {
 	 */
 	public void setCouponNumber(String value) {
 		this.couponNumber = value;
+	}
+
+	/**
+	 * The coupon number associated with this leg of the trip. A ticket can contain several legs of travel, and each leg of travel requires a separate coupon
+	 * This field is used by the following payment products: 840
+	 */
+	public AirlineFlightLeg withCouponNumber(String value) {
+		this.couponNumber = value;
+		return this;
 	}
 
 	/**
@@ -166,6 +221,16 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * Date of the leg
+	 * Format: YYYYMMDD
+	 * This field is used by the following payment products: cards, 840
+	 */
+	public AirlineFlightLeg withDate(String value) {
+		this.date = value;
+		return this;
+	}
+
+	/**
 	 * The departure time in the local time at the departure airport
 	 * Format: HH:MM
 	 * This field is used by the following payment products: 840
@@ -181,6 +246,16 @@ public class AirlineFlightLeg {
 	 */
 	public void setDepartureTime(String value) {
 		this.departureTime = value;
+	}
+
+	/**
+	 * The departure time in the local time at the departure airport
+	 * Format: HH:MM
+	 * This field is used by the following payment products: 840
+	 */
+	public AirlineFlightLeg withDepartureTime(String value) {
+		this.departureTime = value;
+		return this;
 	}
 
 	/**
@@ -200,6 +275,15 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * An endorsement can be an agency-added notation or a mandatory government required notation, such as value-added tax. A restriction is a limitation based on the type of fare, such as a ticket with a 3-day minimum stay
+	 * This field is used by the following payment products: 840
+	 */
+	public AirlineFlightLeg withEndorsementOrRestriction(String value) {
+		this.endorsementOrRestriction = value;
+		return this;
+	}
+
+	/**
 	 * New ticket number that is issued when a ticket is exchanged
 	 * This field is used by the following payment products: 840
 	 */
@@ -213,6 +297,15 @@ public class AirlineFlightLeg {
 	 */
 	public void setExchangeTicket(String value) {
 		this.exchangeTicket = value;
+	}
+
+	/**
+	 * New ticket number that is issued when a ticket is exchanged
+	 * This field is used by the following payment products: 840
+	 */
+	public AirlineFlightLeg withExchangeTicket(String value) {
+		this.exchangeTicket = value;
+		return this;
 	}
 
 	/**
@@ -232,6 +325,15 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * Deprecated: Use legFare instead.
+	 * Fare of this leg
+	 */
+	public AirlineFlightLeg withFare(String value) {
+		this.fare = value;
+		return this;
+	}
+
+	/**
 	 * Fare Basis/Ticket Designator
 	 * This field is used by the following payment products: 840
 	 */
@@ -248,6 +350,15 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * Fare Basis/Ticket Designator
+	 * This field is used by the following payment products: 840
+	 */
+	public AirlineFlightLeg withFareBasis(String value) {
+		this.fareBasis = value;
+		return this;
+	}
+
+	/**
 	 * Fee for this leg of the trip
 	 * This field is used by the following payment products: 840
 	 */
@@ -261,6 +372,15 @@ public class AirlineFlightLeg {
 	 */
 	public void setFee(Integer value) {
 		this.fee = value;
+	}
+
+	/**
+	 * Fee for this leg of the trip
+	 * This field is used by the following payment products: 840
+	 */
+	public AirlineFlightLeg withFee(Integer value) {
+		this.fee = value;
+		return this;
 	}
 
 	/**
@@ -282,6 +402,16 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * The flight number assigned by the airline carrier with no leading spaces
+	 * Should be a numeric string
+	 * This field is used by the following payment products: cards, 840
+	 */
+	public AirlineFlightLeg withFlightNumber(String value) {
+		this.flightNumber = value;
+		return this;
+	}
+
+	/**
 	 * Fee for this leg of the trip
 	 * This field is used by the following payment products: 840
 	 */
@@ -295,6 +425,15 @@ public class AirlineFlightLeg {
 	 */
 	public void setLegFare(Integer value) {
 		this.legFare = value;
+	}
+
+	/**
+	 * Fee for this leg of the trip
+	 * This field is used by the following payment products: 840
+	 */
+	public AirlineFlightLeg withLegFare(Integer value) {
+		this.legFare = value;
+		return this;
 	}
 
 	/**
@@ -314,6 +453,15 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
+	 * Sequence number of the flight leg
+	 */
+	public AirlineFlightLeg withNumber(Integer value) {
+		this.number = value;
+		return this;
+	}
+
+	/**
 	 * Origin airport/city code
 	 * This field is used by the following payment products: cards, 840
 	 */
@@ -330,6 +478,15 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * Origin airport/city code
+	 * This field is used by the following payment products: cards, 840
+	 */
+	public AirlineFlightLeg withOriginAirport(String value) {
+		this.originAirport = value;
+		return this;
+	}
+
+	/**
 	 * PassengerClass if this leg
 	 * This field is used by the following payment products: 840
 	 */
@@ -343,6 +500,15 @@ public class AirlineFlightLeg {
 	 */
 	public void setPassengerClass(String value) {
 		this.passengerClass = value;
+	}
+
+	/**
+	 * PassengerClass if this leg
+	 * This field is used by the following payment products: 840
+	 */
+	public AirlineFlightLeg withPassengerClass(String value) {
+		this.passengerClass = value;
+		return this;
 	}
 
 	/**
@@ -366,6 +532,17 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * Possible values are:
+	 *  * permitted = Stopover permitted
+	 *  * non-permitted = Stopover not permitted
+	 * This field is used by the following payment products: cards, 840
+	 */
+	public AirlineFlightLeg withStopoverCode(String value) {
+		this.stopoverCode = value;
+		return this;
+	}
+
+	/**
 	 * Taxes for this leg of the trip
 	 * This field is used by the following payment products: 840
 	 */
@@ -379,5 +556,14 @@ public class AirlineFlightLeg {
 	 */
 	public void setTaxes(Integer value) {
 		this.taxes = value;
+	}
+
+	/**
+	 * Taxes for this leg of the trip
+	 * This field is used by the following payment products: 840
+	 */
+	public AirlineFlightLeg withTaxes(Integer value) {
+		this.taxes = value;
+		return this;
 	}
 }

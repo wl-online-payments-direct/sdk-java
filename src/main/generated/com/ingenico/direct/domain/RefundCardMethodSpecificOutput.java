@@ -18,11 +18,21 @@ public class RefundCardMethodSpecificOutput {
 		this.totalAmountPaid = value;
 	}
 
+	public RefundCardMethodSpecificOutput withTotalAmountPaid(Long value) {
+		this.totalAmountPaid = value;
+		return this;
+	}
+
 	public Long getTotalAmountRefunded() {
 		return totalAmountRefunded;
 	}
 
 	public void setTotalAmountRefunded(Long value) {
 		this.totalAmountRefunded = value;
+	}
+
+	public RefundCardMethodSpecificOutput withTotalAmountRefunded(Long value) {
+		this.totalAmountRefunded = value;
+		return this;
 	}
 }

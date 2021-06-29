@@ -30,6 +30,14 @@ public class ThreeDSecureData {
 	}
 
 	/**
+	 * The ACS Transaction ID for a prior 3-D Secure authenticated transaction (for example, the first recurring transaction that was authenticated with the customer)
+	 */
+	public ThreeDSecureData withAcsTransactionId(String value) {
+		this.acsTransactionId = value;
+		return this;
+	}
+
+	/**
 	 * Method of authentication used for this transaction. Possible values:
 	 *  * frictionless = The authentication went without a challenge
 	 *  * challenged = Cardholder was challenged
@@ -52,6 +60,18 @@ public class ThreeDSecureData {
 	}
 
 	/**
+	 * Method of authentication used for this transaction. Possible values:
+	 *  * frictionless = The authentication went without a challenge
+	 *  * challenged = Cardholder was challenged
+	 *  * avs-verified = The authentication was verified by AVS
+	 *  * other = Another issuer method was used to authenticate this transaction
+	 */
+	public ThreeDSecureData withMethod(String value) {
+		this.method = value;
+		return this;
+	}
+
+	/**
 	 * Timestamp in UTC (YYYYMMDDHHmm) of the 3-D Secure authentication of this transaction
 	 */
 	public String getUtcTimestamp() {
@@ -63,5 +83,13 @@ public class ThreeDSecureData {
 	 */
 	public void setUtcTimestamp(String value) {
 		this.utcTimestamp = value;
+	}
+
+	/**
+	 * Timestamp in UTC (YYYYMMDDHHmm) of the 3-D Secure authentication of this transaction
+	 */
+	public ThreeDSecureData withUtcTimestamp(String value) {
+		this.utcTimestamp = value;
+		return this;
 	}
 }

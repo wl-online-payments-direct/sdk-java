@@ -18,11 +18,21 @@ public class LengthValidator {
 		this.maxLength = value;
 	}
 
+	public LengthValidator withMaxLength(Integer value) {
+		this.maxLength = value;
+		return this;
+	}
+
 	public Integer getMinLength() {
 		return minLength;
 	}
 
 	public void setMinLength(Integer value) {
 		this.minLength = value;
+	}
+
+	public LengthValidator withMinLength(Integer value) {
+		this.minLength = value;
+		return this;
 	}
 }

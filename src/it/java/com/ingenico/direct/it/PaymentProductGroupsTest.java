@@ -18,9 +18,9 @@ public class PaymentProductGroupsTest extends ItTest {
 	@Test
 	public void test() throws URISyntaxException, IOException {
 
-		GetProductGroupParams params = new GetProductGroupParams();
-		params.setCountryCode("NL");
-		params.setCurrencyCode("EUR");
+		GetProductGroupParams params = new GetProductGroupParams()
+				.withCountryCode("NL")
+				.withCurrencyCode("EUR");
 
 		Client client = getClient();
 		try {

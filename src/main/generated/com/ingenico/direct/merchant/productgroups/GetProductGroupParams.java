@@ -43,6 +43,14 @@ public class GetProductGroupParams implements ParamRequest {
 	}
 
 	/**
+	 * ISO 3166-1 alpha-2 country code of the transaction
+	 */
+	public GetProductGroupParams withCountryCode(String value) {
+		this.countryCode = value;
+		return this;
+	}
+
+	/**
 	 * Three-letter ISO currency code representing the currency for the amount
 	 */
 	public String getCurrencyCode() {
@@ -54,6 +62,14 @@ public class GetProductGroupParams implements ParamRequest {
 	 */
 	public void setCurrencyCode(String value) {
 		this.currencyCode = value;
+	}
+
+	/**
+	 * Three-letter ISO currency code representing the currency for the amount
+	 */
+	public GetProductGroupParams withCurrencyCode(String value) {
+		this.currencyCode = value;
+		return this;
 	}
 
 	/**
@@ -71,6 +87,14 @@ public class GetProductGroupParams implements ParamRequest {
 	}
 
 	/**
+	 * Deprecated: This field has no effect.
+	 */
+	public GetProductGroupParams withLocale(String value) {
+		this.locale = value;
+		return this;
+	}
+
+	/**
 	 * Whole amount in cents (not containing any decimals)
 	 */
 	public Long getAmount() {
@@ -82,6 +106,14 @@ public class GetProductGroupParams implements ParamRequest {
 	 */
 	public void setAmount(Long value) {
 		this.amount = value;
+	}
+
+	/**
+	 * Whole amount in cents (not containing any decimals)
+	 */
+	public GetProductGroupParams withAmount(Long value) {
+		this.amount = value;
+		return this;
 	}
 
 	/**
@@ -100,6 +132,16 @@ public class GetProductGroupParams implements ParamRequest {
 	 */
 	public void setIsRecurring(Boolean value) {
 		this.isRecurring = value;
+	}
+
+	/**
+	 * This allows you to filter payment products based on their support for recurring payments.
+	 * * true - return only payment products that support recurring payments,
+	 * * false - return all payment products that support one-time transactions. Payment products that support recurring products are usually also part of this list.
+	 */
+	public GetProductGroupParams withIsRecurring(Boolean value) {
+		this.isRecurring = value;
+		return this;
 	}
 
 	/**

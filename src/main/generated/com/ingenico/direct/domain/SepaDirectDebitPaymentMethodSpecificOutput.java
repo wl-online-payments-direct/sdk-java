@@ -29,12 +29,25 @@ public class SepaDirectDebitPaymentMethodSpecificOutput {
 		this.fraudResults = value;
 	}
 
+	/**
+	 * Object containing the results of the fraud screening
+	 */
+	public SepaDirectDebitPaymentMethodSpecificOutput withFraudResults(FraudResults value) {
+		this.fraudResults = value;
+		return this;
+	}
+
 	public PaymentProduct771SpecificOutput getPaymentProduct771SpecificOutput() {
 		return paymentProduct771SpecificOutput;
 	}
 
 	public void setPaymentProduct771SpecificOutput(PaymentProduct771SpecificOutput value) {
 		this.paymentProduct771SpecificOutput = value;
+	}
+
+	public SepaDirectDebitPaymentMethodSpecificOutput withPaymentProduct771SpecificOutput(PaymentProduct771SpecificOutput value) {
+		this.paymentProduct771SpecificOutput = value;
+		return this;
 	}
 
 	/**
@@ -49,5 +62,13 @@ public class SepaDirectDebitPaymentMethodSpecificOutput {
 	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;
+	}
+
+	/**
+	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
+	 */
+	public SepaDirectDebitPaymentMethodSpecificOutput withPaymentProductId(Integer value) {
+		this.paymentProductId = value;
+		return this;
 	}
 }

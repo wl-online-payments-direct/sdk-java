@@ -18,6 +18,11 @@ public class CompletePaymentRequest {
 		this.cardPaymentMethodSpecificInput = value;
 	}
 
+	public CompletePaymentRequest withCardPaymentMethodSpecificInput(CompletePaymentCardPaymentMethodSpecificInput value) {
+		this.cardPaymentMethodSpecificInput = value;
+		return this;
+	}
+
 	/**
 	 * Order object containing order related data 
 	 *  Please note that this object is required to be able to submit the amount.
@@ -32,5 +37,14 @@ public class CompletePaymentRequest {
 	 */
 	public void setOrder(Order value) {
 		this.order = value;
+	}
+
+	/**
+	 * Order object containing order related data 
+	 *  Please note that this object is required to be able to submit the amount.
+	 */
+	public CompletePaymentRequest withOrder(Order value) {
+		this.order = value;
+		return this;
 	}
 }

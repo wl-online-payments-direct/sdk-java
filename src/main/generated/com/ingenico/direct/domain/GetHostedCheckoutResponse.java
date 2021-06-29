@@ -25,6 +25,14 @@ public class GetHostedCheckoutResponse {
 	}
 
 	/**
+	 * When a payment has been created during the hosted checkout session this object will return the details
+	 */
+	public GetHostedCheckoutResponse withCreatedPaymentOutput(CreatedPaymentOutput value) {
+		this.createdPaymentOutput = value;
+		return this;
+	}
+
+	/**
 	 * This is the status of the hosted checkout. Possible values are:
 	 * * IN_PROGRESS - The checkout is still in progress and has not finished yet
 	 * * PAYMENT_CREATED - A payment has been created
@@ -42,5 +50,16 @@ public class GetHostedCheckoutResponse {
 	 */
 	public void setStatus(String value) {
 		this.status = value;
+	}
+
+	/**
+	 * This is the status of the hosted checkout. Possible values are:
+	 * * IN_PROGRESS - The checkout is still in progress and has not finished yet
+	 * * PAYMENT_CREATED - A payment has been created
+	 * * CANCELLED_BY_CONSUMER - The HostedCheckout session have been cancelled by the customer
+	 */
+	public GetHostedCheckoutResponse withStatus(String value) {
+		this.status = value;
+		return this;
 	}
 }

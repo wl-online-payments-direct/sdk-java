@@ -28,6 +28,14 @@ public class HostedCheckoutSpecificOutput {
 	}
 
 	/**
+	 * The ID of the Hosted Checkout Session in which the payment was made.
+	 */
+	public HostedCheckoutSpecificOutput withHostedCheckoutId(String value) {
+		this.hostedCheckoutId = value;
+		return this;
+	}
+
+	/**
 	 * Using the Back-Office it is possible to upload multiple templates of your HostedCheckout payment pages. You can force the use of another template by specifying it in the variant field. This allows you to test out the effect of certain changes to your hostedcheckout pages in a controlled manner. Please note that you need to specify the filename of the template.
 	 */
 	public String getVariant() {
@@ -39,5 +47,13 @@ public class HostedCheckoutSpecificOutput {
 	 */
 	public void setVariant(String value) {
 		this.variant = value;
+	}
+
+	/**
+	 * Using the Back-Office it is possible to upload multiple templates of your HostedCheckout payment pages. You can force the use of another template by specifying it in the variant field. This allows you to test out the effect of certain changes to your hostedcheckout pages in a controlled manner. Please note that you need to specify the filename of the template.
+	 */
+	public HostedCheckoutSpecificOutput withVariant(String value) {
+		this.variant = value;
+		return this;
 	}
 }

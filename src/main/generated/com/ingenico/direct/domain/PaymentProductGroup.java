@@ -20,6 +20,11 @@ public class PaymentProductGroup {
 		this.accountOnFile = value;
 	}
 
+	public PaymentProductGroup withAccountOnFile(AccountOnFile value) {
+		this.accountOnFile = value;
+		return this;
+	}
+
 	/**
 	 * Object containing display hints like the order of the product when shown in a list, the name of the product and the logo
 	 */
@@ -35,6 +40,14 @@ public class PaymentProductGroup {
 	}
 
 	/**
+	 * Object containing display hints like the order of the product when shown in a list, the name of the product and the logo
+	 */
+	public PaymentProductGroup withDisplayHints(PaymentProductDisplayHints value) {
+		this.displayHints = value;
+		return this;
+	}
+
+	/**
 	 * The ID of the payment product group in our system
 	 */
 	public String getId() {
@@ -46,5 +59,13 @@ public class PaymentProductGroup {
 	 */
 	public void setId(String value) {
 		this.id = value;
+	}
+
+	/**
+	 * The ID of the payment product group in our system
+	 */
+	public PaymentProductGroup withId(String value) {
+		this.id = value;
+		return this;
 	}
 }

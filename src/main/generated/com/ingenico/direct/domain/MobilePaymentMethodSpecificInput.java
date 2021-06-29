@@ -50,6 +50,19 @@ public class MobilePaymentMethodSpecificInput {
 	}
 
 	/**
+	 * Determines the type of the authorization that will be used. Allowed values: 
+	 *   * FINAL_AUTHORIZATION - The payment creation results in an authorization that is ready for capture. Final authorizations can't be reversed and need to be captured for the full amount within 7 days. 
+	 *   * PRE_AUTHORIZATION - The payment creation results in a pre-authorization that is ready for capture. Pre-authortizations can be reversed and can be captured within 30 days. The capture amount can be lower than the authorized amount. 
+	 *   * SALE - The payment creation results in an authorization that is already captured at the moment of approval. 
+	 * 
+	 *   Only used with some acquirers, ignored for acquirers that don't support this. In case the acquirer doesn't allow this to be specified the authorizationMode is 'unspecified', which behaves similar to a final authorization.
+	 */
+	public MobilePaymentMethodSpecificInput withAuthorizationMode(String value) {
+		this.authorizationMode = value;
+		return this;
+	}
+
+	/**
 	 * The payment data if you do the decryption of the encrypted payment data yourself.
 	 */
 	public DecryptedPaymentData getDecryptedPaymentData() {
@@ -61,6 +74,14 @@ public class MobilePaymentMethodSpecificInput {
 	 */
 	public void setDecryptedPaymentData(DecryptedPaymentData value) {
 		this.decryptedPaymentData = value;
+	}
+
+	/**
+	 * The payment data if you do the decryption of the encrypted payment data yourself.
+	 */
+	public MobilePaymentMethodSpecificInput withDecryptedPaymentData(DecryptedPaymentData value) {
+		this.decryptedPaymentData = value;
+		return this;
 	}
 
 	/**
@@ -80,6 +101,15 @@ public class MobilePaymentMethodSpecificInput {
 	}
 
 	/**
+	 * The payment data if we will do the decryption of the encrypted payment data. Typically you'd use encryptedCustomerInput in the root of the create payment request to provide the encrypted payment data instead.
+	 * * For Apple Pay, the encrypted payment data can be found in property data of the PKPayment.token.paymentData property.
+	 */
+	public MobilePaymentMethodSpecificInput withEncryptedPaymentData(String value) {
+		this.encryptedPaymentData = value;
+		return this;
+	}
+
+	/**
 	 * Ephemeral Key
 	 * A unique generated key used by Apple to encrypt data.
 	 */
@@ -93,6 +123,15 @@ public class MobilePaymentMethodSpecificInput {
 	 */
 	public void setEphemeralKey(String value) {
 		this.ephemeralKey = value;
+	}
+
+	/**
+	 * Ephemeral Key
+	 * A unique generated key used by Apple to encrypt data.
+	 */
+	public MobilePaymentMethodSpecificInput withEphemeralKey(String value) {
+		this.ephemeralKey = value;
+		return this;
 	}
 
 	/**
@@ -110,6 +149,14 @@ public class MobilePaymentMethodSpecificInput {
 	}
 
 	/**
+	 * Object containing information specific to Google Pay. Required for payments with product 320.
+	 */
+	public MobilePaymentMethodSpecificInput withPaymentProduct320SpecificInput(MobilePaymentProduct320SpecificInput value) {
+		this.paymentProduct320SpecificInput = value;
+		return this;
+	}
+
+	/**
 	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
 	 */
 	public Integer getPaymentProductId() {
@@ -121,6 +168,14 @@ public class MobilePaymentMethodSpecificInput {
 	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;
+	}
+
+	/**
+	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
+	 */
+	public MobilePaymentMethodSpecificInput withPaymentProductId(Integer value) {
+		this.paymentProductId = value;
+		return this;
 	}
 
 	/**
@@ -140,6 +195,15 @@ public class MobilePaymentMethodSpecificInput {
 	}
 
 	/**
+	 * Public Key Hash
+	 * A unique identifier to retrieve key used by Apple to encrypt information.
+	 */
+	public MobilePaymentMethodSpecificInput withPublicKeyHash(String value) {
+		this.publicKeyHash = value;
+		return this;
+	}
+
+	/**
 	 * * true = the payment requires approval before the funds will be captured using the Approve payment or Capture payment API
 	 * * false = the payment does not require approval, and the funds will be captured automatically
 	 */
@@ -153,5 +217,14 @@ public class MobilePaymentMethodSpecificInput {
 	 */
 	public void setRequiresApproval(Boolean value) {
 		this.requiresApproval = value;
+	}
+
+	/**
+	 * * true = the payment requires approval before the funds will be captured using the Approve payment or Capture payment API
+	 * * false = the payment does not require approval, and the funds will be captured automatically
+	 */
+	public MobilePaymentMethodSpecificInput withRequiresApproval(Boolean value) {
+		this.requiresApproval = value;
+		return this;
 	}
 }

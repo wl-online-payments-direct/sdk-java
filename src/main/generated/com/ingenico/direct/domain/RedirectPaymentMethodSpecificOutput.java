@@ -38,6 +38,14 @@ public class RedirectPaymentMethodSpecificOutput {
 	}
 
 	/**
+	 * Object containing the results of the fraud screening
+	 */
+	public RedirectPaymentMethodSpecificOutput withFraudResults(FraudResults value) {
+		this.fraudResults = value;
+		return this;
+	}
+
+	/**
 	 * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
 	 */
 	public String getPaymentOption() {
@@ -49,6 +57,14 @@ public class RedirectPaymentMethodSpecificOutput {
 	 */
 	public void setPaymentOption(String value) {
 		this.paymentOption = value;
+	}
+
+	/**
+	 * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
+	 */
+	public RedirectPaymentMethodSpecificOutput withPaymentOption(String value) {
+		this.paymentOption = value;
+		return this;
 	}
 
 	/**
@@ -66,6 +82,14 @@ public class RedirectPaymentMethodSpecificOutput {
 	}
 
 	/**
+	 * Meal vouchers (payment product 5402) specific details
+	 */
+	public RedirectPaymentMethodSpecificOutput withPaymentProduct5402SpecificOutput(PaymentProduct5402SpecificOutput value) {
+		this.paymentProduct5402SpecificOutput = value;
+		return this;
+	}
+
+	/**
 	 * Multibanco (payment product 5500) specific details
 	 */
 	public PaymentProduct5500SpecificOutput getPaymentProduct5500SpecificOutput() {
@@ -77,6 +101,14 @@ public class RedirectPaymentMethodSpecificOutput {
 	 */
 	public void setPaymentProduct5500SpecificOutput(PaymentProduct5500SpecificOutput value) {
 		this.paymentProduct5500SpecificOutput = value;
+	}
+
+	/**
+	 * Multibanco (payment product 5500) specific details
+	 */
+	public RedirectPaymentMethodSpecificOutput withPaymentProduct5500SpecificOutput(PaymentProduct5500SpecificOutput value) {
+		this.paymentProduct5500SpecificOutput = value;
+		return this;
 	}
 
 	/**
@@ -94,6 +126,14 @@ public class RedirectPaymentMethodSpecificOutput {
 	}
 
 	/**
+	 * PayPal (payment product 840) specific details
+	 */
+	public RedirectPaymentMethodSpecificOutput withPaymentProduct840SpecificOutput(PaymentProduct840SpecificOutput value) {
+		this.paymentProduct840SpecificOutput = value;
+		return this;
+	}
+
+	/**
 	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
 	 */
 	public Integer getPaymentProductId() {
@@ -108,6 +148,14 @@ public class RedirectPaymentMethodSpecificOutput {
 	}
 
 	/**
+	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
+	 */
+	public RedirectPaymentMethodSpecificOutput withPaymentProductId(Integer value) {
+		this.paymentProductId = value;
+		return this;
+	}
+
+	/**
 	 * ID of the token. This property is populated when the payment was done with a token or when the payment was tokenized.
 	 */
 	public String getToken() {
@@ -119,5 +167,13 @@ public class RedirectPaymentMethodSpecificOutput {
 	 */
 	public void setToken(String value) {
 		this.token = value;
+	}
+
+	/**
+	 * ID of the token. This property is populated when the payment was done with a token or when the payment was tokenized.
+	 */
+	public RedirectPaymentMethodSpecificOutput withToken(String value) {
+		this.token = value;
+		return this;
 	}
 }

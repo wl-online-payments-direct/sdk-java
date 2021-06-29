@@ -28,6 +28,14 @@ public class CreateTokenRequest {
 	}
 
 	/**
+	 * Object containing the token details for a card
+	 */
+	public CreateTokenRequest withCard(TokenCardSpecificInput value) {
+		this.card = value;
+		return this;
+	}
+
+	/**
 	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
 	 */
 	public Integer getPaymentProductId() {
@@ -39,5 +47,13 @@ public class CreateTokenRequest {
 	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;
+	}
+
+	/**
+	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
+	 */
+	public CreateTokenRequest withPaymentProductId(Integer value) {
+		this.paymentProductId = value;
+		return this;
 	}
 }

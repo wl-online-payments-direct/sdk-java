@@ -154,12 +154,8 @@ public class WebhooksHelper {
 			if (i < length && i < expectedLength) {
 				// both within string boundaries
 				result &= signature.charAt(i) == expectedSignature.charAt(i);
-			} else if (i >= length && i >= expectedLength) {
-				// past both string boundaries
-				result &= true;
 			} else {
-				// i >= length || i >= expectedLength but not both
-				result &= false;
+				result &= i >= length && i >= expectedLength;
 			}
 		}
 
@@ -181,7 +177,7 @@ public class WebhooksHelper {
 				if (value == null) {
 					value = header.getValue();
 				} else {
-					throw new SignatureValidationException("enocuntered multiple occurrences of header '" + headerName + "'");
+					throw new SignatureValidationException("encountered multiple occurrences of header '" + headerName + "'");
 				}
 			}
 		}

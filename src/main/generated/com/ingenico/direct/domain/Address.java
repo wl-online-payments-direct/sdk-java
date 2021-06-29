@@ -38,6 +38,14 @@ public class Address {
 	}
 
 	/**
+	 * Second line of street or additional address information
+	 */
+	public Address withAdditionalInfo(String value) {
+		this.additionalInfo = value;
+		return this;
+	}
+
+	/**
 	 * City
 	 */
 	public String getCity() {
@@ -49,6 +57,14 @@ public class Address {
 	 */
 	public void setCity(String value) {
 		this.city = value;
+	}
+
+	/**
+	 * City
+	 */
+	public Address withCity(String value) {
+		this.city = value;
+		return this;
 	}
 
 	/**
@@ -66,6 +82,14 @@ public class Address {
 	}
 
 	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
+	public Address withCountryCode(String value) {
+		this.countryCode = value;
+		return this;
+	}
+
+	/**
 	 * House number
 	 */
 	public String getHouseNumber() {
@@ -77,6 +101,14 @@ public class Address {
 	 */
 	public void setHouseNumber(String value) {
 		this.houseNumber = value;
+	}
+
+	/**
+	 * House number
+	 */
+	public Address withHouseNumber(String value) {
+		this.houseNumber = value;
+		return this;
 	}
 
 	/**
@@ -94,6 +126,14 @@ public class Address {
 	}
 
 	/**
+	 * Full name of the state or province
+	 */
+	public Address withState(String value) {
+		this.state = value;
+		return this;
+	}
+
+	/**
 	 * Street name
 	 */
 	public String getStreet() {
@@ -108,6 +148,14 @@ public class Address {
 	}
 
 	/**
+	 * Street name
+	 */
+	public Address withStreet(String value) {
+		this.street = value;
+		return this;
+	}
+
+	/**
 	 * Zip code
 	 */
 	public String getZip() {
@@ -119,5 +167,13 @@ public class Address {
 	 */
 	public void setZip(String value) {
 		this.zip = value;
+	}
+
+	/**
+	 * Zip code
+	 */
+	public Address withZip(String value) {
+		this.zip = value;
+		return this;
 	}
 }

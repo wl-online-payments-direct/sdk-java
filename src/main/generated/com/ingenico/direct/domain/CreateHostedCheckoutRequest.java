@@ -33,6 +33,14 @@ public class CreateHostedCheckoutRequest {
 	}
 
 	/**
+	 * Object containing the specific input details for card payments
+	 */
+	public CreateHostedCheckoutRequest withCardPaymentMethodSpecificInput(CardPaymentMethodSpecificInputBase value) {
+		this.cardPaymentMethodSpecificInput = value;
+		return this;
+	}
+
+	/**
 	 * Object containing additional data that will be used to assess the risk of fraud
 	 */
 	public FraudFields getFraudFields() {
@@ -44,6 +52,14 @@ public class CreateHostedCheckoutRequest {
 	 */
 	public void setFraudFields(FraudFields value) {
 		this.fraudFields = value;
+	}
+
+	/**
+	 * Object containing additional data that will be used to assess the risk of fraud
+	 */
+	public CreateHostedCheckoutRequest withFraudFields(FraudFields value) {
+		this.fraudFields = value;
+		return this;
 	}
 
 	/**
@@ -61,6 +77,14 @@ public class CreateHostedCheckoutRequest {
 	}
 
 	/**
+	 * Object containing hosted checkout specific data
+	 */
+	public CreateHostedCheckoutRequest withHostedCheckoutSpecificInput(HostedCheckoutSpecificInput value) {
+		this.hostedCheckoutSpecificInput = value;
+		return this;
+	}
+
+	/**
 	 * Object containing the specific input details for mobile payments
 	 */
 	public MobilePaymentMethodHostedCheckoutSpecificInput getMobilePaymentMethodSpecificInput() {
@@ -72,6 +96,14 @@ public class CreateHostedCheckoutRequest {
 	 */
 	public void setMobilePaymentMethodSpecificInput(MobilePaymentMethodHostedCheckoutSpecificInput value) {
 		this.mobilePaymentMethodSpecificInput = value;
+	}
+
+	/**
+	 * Object containing the specific input details for mobile payments
+	 */
+	public CreateHostedCheckoutRequest withMobilePaymentMethodSpecificInput(MobilePaymentMethodHostedCheckoutSpecificInput value) {
+		this.mobilePaymentMethodSpecificInput = value;
+		return this;
 	}
 
 	/**
@@ -91,6 +123,15 @@ public class CreateHostedCheckoutRequest {
 	}
 
 	/**
+	 * Order object containing order related data 
+	 *  Please note that this object is required to be able to submit the amount.
+	 */
+	public CreateHostedCheckoutRequest withOrder(Order value) {
+		this.order = value;
+		return this;
+	}
+
+	/**
 	 * Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
 	 */
 	public RedirectPaymentMethodSpecificInput getRedirectPaymentMethodSpecificInput() {
@@ -102,5 +143,13 @@ public class CreateHostedCheckoutRequest {
 	 */
 	public void setRedirectPaymentMethodSpecificInput(RedirectPaymentMethodSpecificInput value) {
 		this.redirectPaymentMethodSpecificInput = value;
+	}
+
+	/**
+	 * Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
+	 */
+	public CreateHostedCheckoutRequest withRedirectPaymentMethodSpecificInput(RedirectPaymentMethodSpecificInput value) {
+		this.redirectPaymentMethodSpecificInput = value;
+		return this;
 	}
 }

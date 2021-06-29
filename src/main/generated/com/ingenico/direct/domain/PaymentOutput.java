@@ -40,6 +40,14 @@ public class PaymentOutput {
 	}
 
 	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
+	public PaymentOutput withAmountOfMoney(AmountOfMoney value) {
+		this.amountOfMoney = value;
+		return this;
+	}
+
+	/**
 	 * Amount that has been paid
 	 */
 	public Long getAmountPaid() {
@@ -51,6 +59,14 @@ public class PaymentOutput {
 	 */
 	public void setAmountPaid(Long value) {
 		this.amountPaid = value;
+	}
+
+	/**
+	 * Amount that has been paid
+	 */
+	public PaymentOutput withAmountPaid(Long value) {
+		this.amountPaid = value;
+		return this;
 	}
 
 	/**
@@ -68,6 +84,14 @@ public class PaymentOutput {
 	}
 
 	/**
+	 * Object containing the card payment method details
+	 */
+	public PaymentOutput withCardPaymentMethodSpecificOutput(CardPaymentMethodSpecificOutput value) {
+		this.cardPaymentMethodSpecificOutput = value;
+		return this;
+	}
+
+	/**
 	 * Object containing the mobile payment method details
 	 */
 	public MobilePaymentMethodSpecificOutput getMobilePaymentMethodSpecificOutput() {
@@ -79,6 +103,14 @@ public class PaymentOutput {
 	 */
 	public void setMobilePaymentMethodSpecificOutput(MobilePaymentMethodSpecificOutput value) {
 		this.mobilePaymentMethodSpecificOutput = value;
+	}
+
+	/**
+	 * Object containing the mobile payment method details
+	 */
+	public PaymentOutput withMobilePaymentMethodSpecificOutput(MobilePaymentMethodSpecificOutput value) {
+		this.mobilePaymentMethodSpecificOutput = value;
+		return this;
 	}
 
 	/**
@@ -96,6 +128,14 @@ public class PaymentOutput {
 	}
 
 	/**
+	 * Payment method identifier used by the our payment engine.
+	 */
+	public PaymentOutput withPaymentMethod(String value) {
+		this.paymentMethod = value;
+		return this;
+	}
+
+	/**
 	 * Object containing the redirect payment product details
 	 */
 	public RedirectPaymentMethodSpecificOutput getRedirectPaymentMethodSpecificOutput() {
@@ -107,6 +147,14 @@ public class PaymentOutput {
 	 */
 	public void setRedirectPaymentMethodSpecificOutput(RedirectPaymentMethodSpecificOutput value) {
 		this.redirectPaymentMethodSpecificOutput = value;
+	}
+
+	/**
+	 * Object containing the redirect payment product details
+	 */
+	public PaymentOutput withRedirectPaymentMethodSpecificOutput(RedirectPaymentMethodSpecificOutput value) {
+		this.redirectPaymentMethodSpecificOutput = value;
+		return this;
 	}
 
 	/**
@@ -124,6 +172,14 @@ public class PaymentOutput {
 	}
 
 	/**
+	 * Object that holds all reference properties that are linked to this transaction
+	 */
+	public PaymentOutput withReferences(PaymentReferences value) {
+		this.references = value;
+		return this;
+	}
+
+	/**
 	 * Object containing the SEPA direct debit details
 	 */
 	public SepaDirectDebitPaymentMethodSpecificOutput getSepaDirectDebitPaymentMethodSpecificOutput() {
@@ -135,5 +191,13 @@ public class PaymentOutput {
 	 */
 	public void setSepaDirectDebitPaymentMethodSpecificOutput(SepaDirectDebitPaymentMethodSpecificOutput value) {
 		this.sepaDirectDebitPaymentMethodSpecificOutput = value;
+	}
+
+	/**
+	 * Object containing the SEPA direct debit details
+	 */
+	public PaymentOutput withSepaDirectDebitPaymentMethodSpecificOutput(SepaDirectDebitPaymentMethodSpecificOutput value) {
+		this.sepaDirectDebitPaymentMethodSpecificOutput = value;
+		return this;
 	}
 }

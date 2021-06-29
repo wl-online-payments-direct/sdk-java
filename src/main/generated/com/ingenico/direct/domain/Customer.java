@@ -44,6 +44,14 @@ public class Customer {
 	}
 
 	/**
+	 * Object containing data related to the account the customer has with you
+	 */
+	public Customer withAccount(CustomerAccount value) {
+		this.account = value;
+		return this;
+	}
+
+	/**
 	 * Type of the customer account that is used to place this order. Can have one of the following values:
 	 *  * none - The account that was used to place the order with is a guest account or no account was used at all
 	 *  * created - The customer account was created during this transaction
@@ -64,6 +72,17 @@ public class Customer {
 	}
 
 	/**
+	 * Type of the customer account that is used to place this order. Can have one of the following values:
+	 *  * none - The account that was used to place the order with is a guest account or no account was used at all
+	 *  * created - The customer account was created during this transaction
+	 *  * existing - The customer account was an already existing account prior to this transaction
+	 */
+	public Customer withAccountType(String value) {
+		this.accountType = value;
+		return this;
+	}
+
+	/**
 	 * Object containing billing address details
 	 */
 	public Address getBillingAddress() {
@@ -75,6 +94,14 @@ public class Customer {
 	 */
 	public void setBillingAddress(Address value) {
 		this.billingAddress = value;
+	}
+
+	/**
+	 * Object containing billing address details
+	 */
+	public Customer withBillingAddress(Address value) {
+		this.billingAddress = value;
+		return this;
 	}
 
 	/**
@@ -92,6 +119,14 @@ public class Customer {
 	}
 
 	/**
+	 * Object containing company information
+	 */
+	public Customer withCompanyInformation(CompanyInformation value) {
+		this.companyInformation = value;
+		return this;
+	}
+
+	/**
 	 * Object containing contact details like email address and phone number
 	 */
 	public ContactDetails getContactDetails() {
@@ -106,6 +141,14 @@ public class Customer {
 	}
 
 	/**
+	 * Object containing contact details like email address and phone number
+	 */
+	public Customer withContactDetails(ContactDetails value) {
+		this.contactDetails = value;
+		return this;
+	}
+
+	/**
 	 * Object containing information on the device and browser of the customer
 	 */
 	public CustomerDevice getDevice() {
@@ -117,6 +160,14 @@ public class Customer {
 	 */
 	public void setDevice(CustomerDevice value) {
 		this.device = value;
+	}
+
+	/**
+	 * Object containing information on the device and browser of the customer
+	 */
+	public Customer withDevice(CustomerDevice value) {
+		this.device = value;
+		return this;
 	}
 
 	/**
@@ -146,6 +197,20 @@ public class Customer {
 	}
 
 	/**
+	 * Fiscal registration number of the customer or the tax registration number of the company for a business customer. Please find below specifics per country:
+	 *  * Brazil - Consumer (CPF) with a length of 11 digits
+	 *  * Brazil - Company (CNPJ) with a length of 14 digits
+	 *  * Denmark - Consumer (CPR-nummer or personnummer) with a length of 10 digits
+	 *  * Finland - Consumer (Finnish: henkilötunnus (abbreviated as HETU), Swedish: personbeteckning) with a length of 11 characters
+	 *  * Norway - Consumer (fødselsnummer) with a length of 11 digits
+	 *  * Sweden - Consumer (personnummer) with a length of 10 or 12 digits
+	 */
+	public Customer withFiscalNumber(String value) {
+		this.fiscalNumber = value;
+		return this;
+	}
+
+	/**
 	 * The locale that the customer should be addressed in (for 3rd parties). Note that some 3rd party providers only support the languageCode part of the locale, in those cases we will only use part of the locale provided.
 	 */
 	public String getLocale() {
@@ -157,6 +222,14 @@ public class Customer {
 	 */
 	public void setLocale(String value) {
 		this.locale = value;
+	}
+
+	/**
+	 * The locale that the customer should be addressed in (for 3rd parties). Note that some 3rd party providers only support the languageCode part of the locale, in those cases we will only use part of the locale provided.
+	 */
+	public Customer withLocale(String value) {
+		this.locale = value;
+		return this;
 	}
 
 	/**
@@ -174,6 +247,14 @@ public class Customer {
 	}
 
 	/**
+	 * Your identifier for the customer. It is used in the fraud-screening process for payments on the Ogone Payment Platform.
+	 */
+	public Customer withMerchantCustomerId(String value) {
+		this.merchantCustomerId = value;
+		return this;
+	}
+
+	/**
 	 * Object containing personal information like name, date of birth and gender.
 	 */
 	public PersonalInformation getPersonalInformation() {
@@ -185,5 +266,13 @@ public class Customer {
 	 */
 	public void setPersonalInformation(PersonalInformation value) {
 		this.personalInformation = value;
+	}
+
+	/**
+	 * Object containing personal information like name, date of birth and gender.
+	 */
+	public Customer withPersonalInformation(PersonalInformation value) {
+		this.personalInformation = value;
+		return this;
 	}
 }

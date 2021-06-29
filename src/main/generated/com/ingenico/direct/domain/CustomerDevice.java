@@ -36,6 +36,14 @@ public class CustomerDevice {
 	}
 
 	/**
+	 * The accept-header of the customer client from the HTTP Headers.
+	 */
+	public CustomerDevice withAcceptHeader(String value) {
+		this.acceptHeader = value;
+		return this;
+	}
+
+	/**
 	 * Object containing information regarding the browser of the customer
 	 */
 	public BrowserData getBrowserData() {
@@ -50,6 +58,14 @@ public class CustomerDevice {
 	}
 
 	/**
+	 * Object containing information regarding the browser of the customer
+	 */
+	public CustomerDevice withBrowserData(BrowserData value) {
+		this.browserData = value;
+		return this;
+	}
+
+	/**
 	 * The IP address of the customer client from the HTTP Headers.
 	 */
 	public String getIpAddress() {
@@ -61,6 +77,14 @@ public class CustomerDevice {
 	 */
 	public void setIpAddress(String value) {
 		this.ipAddress = value;
+	}
+
+	/**
+	 * The IP address of the customer client from the HTTP Headers.
+	 */
+	public CustomerDevice withIpAddress(String value) {
+		this.ipAddress = value;
+		return this;
 	}
 
 	/**
@@ -82,6 +106,16 @@ public class CustomerDevice {
 	}
 
 	/**
+	 * Locale of the client device/browser. Returned in the browser from the navigator.language property.
+	 * 
+	 * If you use the latest version of our JavaScript Client SDK, we will collect this data and include it in the encryptedCustomerInput property. We will then automatically populate this data if available.
+	 */
+	public CustomerDevice withLocale(String value) {
+		this.locale = value;
+		return this;
+	}
+
+	/**
 	 * Offset in minutes of timezone of the client versus the UTC. Value is returned by the JavaScript getTimezoneOffset() Method.
 	 * 
 	 * If you use the latest version of our JavaScript Client SDK, we will collect this data and include it in the encryptedCustomerInput property. We will then automatically populate this data if available.
@@ -100,6 +134,16 @@ public class CustomerDevice {
 	}
 
 	/**
+	 * Offset in minutes of timezone of the client versus the UTC. Value is returned by the JavaScript getTimezoneOffset() Method.
+	 * 
+	 * If you use the latest version of our JavaScript Client SDK, we will collect this data and include it in the encryptedCustomerInput property. We will then automatically populate this data if available.
+	 */
+	public CustomerDevice withTimezoneOffsetUtcMinutes(String value) {
+		this.timezoneOffsetUtcMinutes = value;
+		return this;
+	}
+
+	/**
 	 * User-Agent of the client device/browser from the HTTP Headers.
 	 * 
 	 * As a fall-back we will use the userAgent that might be included in the encryptedCustomerInput, but this is captured client side using JavaScript and might be different.
@@ -115,5 +159,15 @@ public class CustomerDevice {
 	 */
 	public void setUserAgent(String value) {
 		this.userAgent = value;
+	}
+
+	/**
+	 * User-Agent of the client device/browser from the HTTP Headers.
+	 * 
+	 * As a fall-back we will use the userAgent that might be included in the encryptedCustomerInput, but this is captured client side using JavaScript and might be different.
+	 */
+	public CustomerDevice withUserAgent(String value) {
+		this.userAgent = value;
+		return this;
 	}
 }

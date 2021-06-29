@@ -30,6 +30,14 @@ public class CardPayoutMethodSpecificInput {
 	}
 
 	/**
+	 * Object containing card details
+	 */
+	public CardPayoutMethodSpecificInput withCard(Card value) {
+		this.card = value;
+		return this;
+	}
+
+	/**
 	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
 	 */
 	public Integer getPaymentProductId() {
@@ -44,6 +52,14 @@ public class CardPayoutMethodSpecificInput {
 	}
 
 	/**
+	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
+	 */
+	public CardPayoutMethodSpecificInput withPaymentProductId(Integer value) {
+		this.paymentProductId = value;
+		return this;
+	}
+
+	/**
 	 * ID of the token
 	 */
 	public String getToken() {
@@ -55,5 +71,13 @@ public class CardPayoutMethodSpecificInput {
 	 */
 	public void setToken(String value) {
 		this.token = value;
+	}
+
+	/**
+	 * ID of the token
+	 */
+	public CardPayoutMethodSpecificInput withToken(String value) {
+		this.token = value;
+		return this;
 	}
 }

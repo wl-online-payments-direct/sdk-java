@@ -33,6 +33,14 @@ public class CreatePaymentRequest {
 	}
 
 	/**
+	 * Object containing the specific input details for card payments
+	 */
+	public CreatePaymentRequest withCardPaymentMethodSpecificInput(CardPaymentMethodSpecificInput value) {
+		this.cardPaymentMethodSpecificInput = value;
+		return this;
+	}
+
+	/**
 	 * Data that was encrypted client side containing all customer entered data elements like card data.
 	 * Note: Because this data can only be submitted once to our system and contains encrypted card data you should not store it. As the data was captured within the context of a client session you also need to submit it to us before the session has expired.
 	 */
@@ -46,6 +54,15 @@ public class CreatePaymentRequest {
 	 */
 	public void setEncryptedCustomerInput(String value) {
 		this.encryptedCustomerInput = value;
+	}
+
+	/**
+	 * Data that was encrypted client side containing all customer entered data elements like card data.
+	 * Note: Because this data can only be submitted once to our system and contains encrypted card data you should not store it. As the data was captured within the context of a client session you also need to submit it to us before the session has expired.
+	 */
+	public CreatePaymentRequest withEncryptedCustomerInput(String value) {
+		this.encryptedCustomerInput = value;
+		return this;
 	}
 
 	/**
@@ -63,6 +80,14 @@ public class CreatePaymentRequest {
 	}
 
 	/**
+	 * Object containing additional data that will be used to assess the risk of fraud
+	 */
+	public CreatePaymentRequest withFraudFields(FraudFields value) {
+		this.fraudFields = value;
+		return this;
+	}
+
+	/**
 	 * Object containing the specific input details for mobile payments
 	 */
 	public MobilePaymentMethodSpecificInput getMobilePaymentMethodSpecificInput() {
@@ -74,6 +99,14 @@ public class CreatePaymentRequest {
 	 */
 	public void setMobilePaymentMethodSpecificInput(MobilePaymentMethodSpecificInput value) {
 		this.mobilePaymentMethodSpecificInput = value;
+	}
+
+	/**
+	 * Object containing the specific input details for mobile payments
+	 */
+	public CreatePaymentRequest withMobilePaymentMethodSpecificInput(MobilePaymentMethodSpecificInput value) {
+		this.mobilePaymentMethodSpecificInput = value;
+		return this;
 	}
 
 	/**
@@ -93,6 +126,15 @@ public class CreatePaymentRequest {
 	}
 
 	/**
+	 * Order object containing order related data 
+	 *  Please note that this object is required to be able to submit the amount.
+	 */
+	public CreatePaymentRequest withOrder(Order value) {
+		this.order = value;
+		return this;
+	}
+
+	/**
 	 * Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
 	 */
 	public RedirectPaymentMethodSpecificInput getRedirectPaymentMethodSpecificInput() {
@@ -104,5 +146,13 @@ public class CreatePaymentRequest {
 	 */
 	public void setRedirectPaymentMethodSpecificInput(RedirectPaymentMethodSpecificInput value) {
 		this.redirectPaymentMethodSpecificInput = value;
+	}
+
+	/**
+	 * Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
+	 */
+	public CreatePaymentRequest withRedirectPaymentMethodSpecificInput(RedirectPaymentMethodSpecificInput value) {
+		this.redirectPaymentMethodSpecificInput = value;
+		return this;
 	}
 }

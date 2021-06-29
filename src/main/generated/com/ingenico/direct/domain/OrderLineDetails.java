@@ -40,6 +40,14 @@ public class OrderLineDetails {
 	}
 
 	/**
+	 * Discount on the line item, with the last two digits implied as decimal places
+	 */
+	public OrderLineDetails withDiscountAmount(Long value) {
+		this.discountAmount = value;
+		return this;
+	}
+
+	/**
 	 * Product or UPC Code
 	 */
 	public String getProductCode() {
@@ -51,6 +59,14 @@ public class OrderLineDetails {
 	 */
 	public void setProductCode(String value) {
 		this.productCode = value;
+	}
+
+	/**
+	 * Product or UPC Code
+	 */
+	public OrderLineDetails withProductCode(String value) {
+		this.productCode = value;
+		return this;
 	}
 
 	/**
@@ -68,6 +84,14 @@ public class OrderLineDetails {
 	}
 
 	/**
+	 * The name of the product.
+	 */
+	public OrderLineDetails withProductName(String value) {
+		this.productName = value;
+		return this;
+	}
+
+	/**
 	 * The price of one unit of the product, the value should be zero or greater
 	 */
 	public Long getProductPrice() {
@@ -82,6 +106,14 @@ public class OrderLineDetails {
 	}
 
 	/**
+	 * The price of one unit of the product, the value should be zero or greater
+	 */
+	public OrderLineDetails withProductPrice(Long value) {
+		this.productPrice = value;
+		return this;
+	}
+
+	/**
 	 * Code used to classify items that are purchased
 	 */
 	public String getProductType() {
@@ -93,6 +125,14 @@ public class OrderLineDetails {
 	 */
 	public void setProductType(String value) {
 		this.productType = value;
+	}
+
+	/**
+	 * Code used to classify items that are purchased
+	 */
+	public OrderLineDetails withProductType(String value) {
+		this.productType = value;
+		return this;
 	}
 
 	/**
@@ -112,6 +152,15 @@ public class OrderLineDetails {
 	}
 
 	/**
+	 * Quantity of the units being purchased, should be greater than zero
+	 * Note: Must not be all spaces or all zeros
+	 */
+	public OrderLineDetails withQuantity(Long value) {
+		this.quantity = value;
+		return this;
+	}
+
+	/**
 	 * Tax on the line item, with the last two digits implied as decimal places
 	 */
 	public Long getTaxAmount() {
@@ -126,6 +175,14 @@ public class OrderLineDetails {
 	}
 
 	/**
+	 * Tax on the line item, with the last two digits implied as decimal places
+	 */
+	public OrderLineDetails withTaxAmount(Long value) {
+		this.taxAmount = value;
+		return this;
+	}
+
+	/**
 	 * Indicates the line item unit of measure; for example: each, kit, pair, gallon, month, etc.
 	 */
 	public String getUnit() {
@@ -137,5 +194,13 @@ public class OrderLineDetails {
 	 */
 	public void setUnit(String value) {
 		this.unit = value;
+	}
+
+	/**
+	 * Indicates the line item unit of measure; for example: each, kit, pair, gallon, month, etc.
+	 */
+	public OrderLineDetails withUnit(String value) {
+		this.unit = value;
+		return this;
 	}
 }

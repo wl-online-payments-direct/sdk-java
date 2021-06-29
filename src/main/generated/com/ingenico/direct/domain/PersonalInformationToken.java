@@ -15,4 +15,9 @@ public class PersonalInformationToken {
 	public void setName(PersonalNameToken value) {
 		this.name = value;
 	}
+
+	public PersonalInformationToken withName(PersonalNameToken value) {
+		this.name = value;
+		return this;
+	}
 }

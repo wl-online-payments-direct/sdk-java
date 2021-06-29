@@ -28,6 +28,14 @@ public class GiftCardPurchase {
 	}
 
 	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
+	public GiftCardPurchase withAmountOfMoney(AmountOfMoney value) {
+		this.amountOfMoney = value;
+		return this;
+	}
+
+	/**
 	 * Number of gift cards that are purchased through this transaction
 	 */
 	public Integer getNumberOfGiftCards() {
@@ -39,5 +47,13 @@ public class GiftCardPurchase {
 	 */
 	public void setNumberOfGiftCards(Integer value) {
 		this.numberOfGiftCards = value;
+	}
+
+	/**
+	 * Number of gift cards that are purchased through this transaction
+	 */
+	public GiftCardPurchase withNumberOfGiftCards(Integer value) {
+		this.numberOfGiftCards = value;
+		return this;
 	}
 }

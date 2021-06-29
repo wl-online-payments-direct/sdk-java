@@ -30,6 +30,15 @@ public class PaymentProductFieldTooltip {
 	}
 
 	/**
+	 * Deprecated: This field is not used by any payment product
+	 * Relative URL that can be used to retrieve an image for the tooltip image.
+	 */
+	public PaymentProductFieldTooltip withImage(String value) {
+		this.image = value;
+		return this;
+	}
+
+	/**
 	 * A text explaining the field in more detail. This is meant to be used for displaying to the customer.
 	 */
 	public String getLabel() {
@@ -41,5 +50,13 @@ public class PaymentProductFieldTooltip {
 	 */
 	public void setLabel(String value) {
 		this.label = value;
+	}
+
+	/**
+	 * A text explaining the field in more detail. This is meant to be used for displaying to the customer.
+	 */
+	public PaymentProductFieldTooltip withLabel(String value) {
+		this.label = value;
+		return this;
 	}
 }

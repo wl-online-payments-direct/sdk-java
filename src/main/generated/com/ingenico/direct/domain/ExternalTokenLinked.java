@@ -21,4 +21,12 @@ public class ExternalTokenLinked {
 	public void setGTSComputedToken(String value) {
 		this.GTSComputedToken = value;
 	}
+
+	/**
+	 * The GTS computed token
+	 */
+	public ExternalTokenLinked withGTSComputedToken(String value) {
+		this.GTSComputedToken = value;
+		return this;
+	}
 }

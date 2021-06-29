@@ -23,4 +23,12 @@ public class ProductDirectory {
 	public void setEntries(List<DirectoryEntry> value) {
 		this.entries = value;
 	}
+
+	/**
+	 * List of entries in the directory
+	 */
+	public ProductDirectory withEntries(List<DirectoryEntry> value) {
+		this.entries = value;
+		return this;
+	}
 }

@@ -23,6 +23,11 @@ public class ValueMappingElement {
 		this.displayElements = value;
 	}
 
+	public ValueMappingElement withDisplayElements(List<PaymentProductFieldDisplayElement> value) {
+		this.displayElements = value;
+		return this;
+	}
+
 	/**
 	 * Value corresponding to the key
 	 */
@@ -35,5 +40,13 @@ public class ValueMappingElement {
 	 */
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	/**
+	 * Value corresponding to the key
+	 */
+	public ValueMappingElement withValue(String value) {
+		this.value = value;
+		return this;
 	}
 }

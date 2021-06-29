@@ -316,34 +316,31 @@ public class PaymentsClientTest {
 
 	private CreatePaymentRequest createRequest() {
 
-		CreatePaymentRequest body = new CreatePaymentRequest();
+		AmountOfMoney amountOfMoney = new AmountOfMoney()
+                .withAmount(2345L)
+                .withCurrencyCode("EUR");
 
-		Order order = new Order();
+		Address billingAddress = new Address()
+                .withCountryCode("BE");
 
-		AmountOfMoney amountOfMoney = new AmountOfMoney();
-		amountOfMoney.setAmount(2345L);
-		amountOfMoney.setCurrencyCode("EUR");
-		order.setAmountOfMoney(amountOfMoney);
+        Customer customer = new Customer()
+                .withBillingAddress(billingAddress);
 
-		Customer customer = new Customer();
+        Order order = new Order()
+                .withAmountOfMoney(amountOfMoney)
+                .withCustomer(customer);
 
-		Address billingAddress = new Address();
-		billingAddress.setCountryCode("BE");
-		customer.setBillingAddress(billingAddress);
+		Card card = new Card()
+                .withCvv("123")
+                .withCardNumber("4567350000427977")
+                .withExpiryDate("1230");
 
-		order.setCustomer(customer);
+        CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput()
+                .withPaymentProductId(1)
+                .withCard(card);
 
-		CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
-		cardPaymentMethodSpecificInput.setPaymentProductId(1);
-
-		Card card = new Card();
-		card.setCvv("123");
-		card.setCardNumber("4567350000427977");
-		card.setExpiryDate("1230");
-		cardPaymentMethodSpecificInput.setCard(card);
-
-		body.setCardPaymentMethodSpecificInput(cardPaymentMethodSpecificInput);
-
-		return body;
+        return new CreatePaymentRequest()
+                .withOrder(order)
+                .withCardPaymentMethodSpecificInput(cardPaymentMethodSpecificInput);
 	}
 }

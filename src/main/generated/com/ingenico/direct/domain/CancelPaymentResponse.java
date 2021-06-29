@@ -21,4 +21,12 @@ public class CancelPaymentResponse {
 	public void setPayment(PaymentResponse value) {
 		this.payment = value;
 	}
+
+	/**
+	 * Object that holds the payment related properties
+	 */
+	public CancelPaymentResponse withPayment(PaymentResponse value) {
+		this.payment = value;
+		return this;
+	}
 }

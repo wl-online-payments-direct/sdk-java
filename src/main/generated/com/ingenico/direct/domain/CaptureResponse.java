@@ -28,12 +28,25 @@ public class CaptureResponse {
 		this.captureOutput = value;
 	}
 
+	/**
+	 * Object containing capture details
+	 */
+	public CaptureResponse withCaptureOutput(CaptureOutput value) {
+		this.captureOutput = value;
+		return this;
+	}
+
 	public String getId() {
 		return id;
 	}
 
 	public void setId(String value) {
 		this.id = value;
+	}
+
+	public CaptureResponse withId(String value) {
+		this.id = value;
+		return this;
 	}
 
 	/**
@@ -51,6 +64,14 @@ public class CaptureResponse {
 	}
 
 	/**
+	 * Current high-level status of the payment in a human-readable form.
+	 */
+	public CaptureResponse withStatus(String value) {
+		this.status = value;
+		return this;
+	}
+
+	/**
 	 * This object has the numeric representation of the current capture status, timestamp of last status change and performable action on the current payment resource. In case of failed payments and negative scenarios, detailed error information is listed.
 	 */
 	public CaptureStatusOutput getStatusOutput() {
@@ -62,5 +83,13 @@ public class CaptureResponse {
 	 */
 	public void setStatusOutput(CaptureStatusOutput value) {
 		this.statusOutput = value;
+	}
+
+	/**
+	 * This object has the numeric representation of the current capture status, timestamp of last status change and performable action on the current payment resource. In case of failed payments and negative scenarios, detailed error information is listed.
+	 */
+	public CaptureResponse withStatusOutput(CaptureStatusOutput value) {
+		this.statusOutput = value;
+		return this;
 	}
 }

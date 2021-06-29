@@ -40,6 +40,14 @@ public class AddressPersonal {
 	}
 
 	/**
+	 * Second line of street or additional address information
+	 */
+	public AddressPersonal withAdditionalInfo(String value) {
+		this.additionalInfo = value;
+		return this;
+	}
+
+	/**
 	 * City
 	 */
 	public String getCity() {
@@ -51,6 +59,14 @@ public class AddressPersonal {
 	 */
 	public void setCity(String value) {
 		this.city = value;
+	}
+
+	/**
+	 * City
+	 */
+	public AddressPersonal withCity(String value) {
+		this.city = value;
+		return this;
 	}
 
 	/**
@@ -68,6 +84,14 @@ public class AddressPersonal {
 	}
 
 	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
+	public AddressPersonal withCountryCode(String value) {
+		this.countryCode = value;
+		return this;
+	}
+
+	/**
 	 * House number
 	 */
 	public String getHouseNumber() {
@@ -79,6 +103,14 @@ public class AddressPersonal {
 	 */
 	public void setHouseNumber(String value) {
 		this.houseNumber = value;
+	}
+
+	/**
+	 * House number
+	 */
+	public AddressPersonal withHouseNumber(String value) {
+		this.houseNumber = value;
+		return this;
 	}
 
 	/**
@@ -96,6 +128,14 @@ public class AddressPersonal {
 	}
 
 	/**
+	 * Object containing the name details of the customer
+	 */
+	public AddressPersonal withName(PersonalName value) {
+		this.name = value;
+		return this;
+	}
+
+	/**
 	 * Full name of the state or province
 	 */
 	public String getState() {
@@ -107,6 +147,14 @@ public class AddressPersonal {
 	 */
 	public void setState(String value) {
 		this.state = value;
+	}
+
+	/**
+	 * Full name of the state or province
+	 */
+	public AddressPersonal withState(String value) {
+		this.state = value;
+		return this;
 	}
 
 	/**
@@ -124,6 +172,14 @@ public class AddressPersonal {
 	}
 
 	/**
+	 * Street name
+	 */
+	public AddressPersonal withStreet(String value) {
+		this.street = value;
+		return this;
+	}
+
+	/**
 	 * Zip code
 	 */
 	public String getZip() {
@@ -135,5 +191,13 @@ public class AddressPersonal {
 	 */
 	public void setZip(String value) {
 		this.zip = value;
+	}
+
+	/**
+	 * Zip code
+	 */
+	public AddressPersonal withZip(String value) {
+		this.zip = value;
+		return this;
 	}
 }

@@ -20,12 +20,22 @@ public class RefundPaymentProduct840CustomerAccount {
 		this.customerAccountStatus = value;
 	}
 
+	public RefundPaymentProduct840CustomerAccount withCustomerAccountStatus(String value) {
+		this.customerAccountStatus = value;
+		return this;
+	}
+
 	public String getCustomerAddressStatus() {
 		return customerAddressStatus;
 	}
 
 	public void setCustomerAddressStatus(String value) {
 		this.customerAddressStatus = value;
+	}
+
+	public RefundPaymentProduct840CustomerAccount withCustomerAddressStatus(String value) {
+		this.customerAddressStatus = value;
+		return this;
 	}
 
 	/**
@@ -40,5 +50,13 @@ public class RefundPaymentProduct840CustomerAccount {
 	 */
 	public void setPayerId(String value) {
 		this.payerId = value;
+	}
+
+	/**
+	 * The unique identifier of a PayPal account and will never change in the life cycle of a PayPal account
+	 */
+	public RefundPaymentProduct840CustomerAccount withPayerId(String value) {
+		this.payerId = value;
+		return this;
 	}
 }

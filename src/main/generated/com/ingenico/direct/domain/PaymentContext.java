@@ -27,6 +27,14 @@ public class PaymentContext {
 	}
 
 	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
+	public PaymentContext withAmountOfMoney(AmountOfMoney value) {
+		this.amountOfMoney = value;
+		return this;
+	}
+
+	/**
 	 * The country the payment takes place in
 	 */
 	public String getCountryCode() {
@@ -41,6 +49,14 @@ public class PaymentContext {
 	}
 
 	/**
+	 * The country the payment takes place in
+	 */
+	public PaymentContext withCountryCode(String value) {
+		this.countryCode = value;
+		return this;
+	}
+
+	/**
 	 * True if the payment is recurring
 	 */
 	public Boolean getIsRecurring() {
@@ -52,5 +68,13 @@ public class PaymentContext {
 	 */
 	public void setIsRecurring(Boolean value) {
 		this.isRecurring = value;
+	}
+
+	/**
+	 * True if the payment is recurring
+	 */
+	public PaymentContext withIsRecurring(Boolean value) {
+		this.isRecurring = value;
+		return this;
 	}
 }

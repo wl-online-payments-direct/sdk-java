@@ -30,6 +30,14 @@ public class PersonalName {
 	}
 
 	/**
+	 * Given name(s) or first name(s) of the customer
+	 */
+	public PersonalName withFirstName(String value) {
+		this.firstName = value;
+		return this;
+	}
+
+	/**
 	 * Surname(s) or last name(s) of the customer
 	 */
 	public String getSurname() {
@@ -44,6 +52,14 @@ public class PersonalName {
 	}
 
 	/**
+	 * Surname(s) or last name(s) of the customer
+	 */
+	public PersonalName withSurname(String value) {
+		this.surname = value;
+		return this;
+	}
+
+	/**
 	 * Title of customer
 	 */
 	public String getTitle() {
@@ -55,5 +71,13 @@ public class PersonalName {
 	 */
 	public void setTitle(String value) {
 		this.title = value;
+	}
+
+	/**
+	 * Title of customer
+	 */
+	public PersonalName withTitle(String value) {
+		this.title = value;
+		return this;
 	}
 }

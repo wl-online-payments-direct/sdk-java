@@ -30,6 +30,14 @@ public class CreatePayoutRequest {
 	}
 
 	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
+	public CreatePayoutRequest withAmountOfMoney(AmountOfMoney value) {
+		this.amountOfMoney = value;
+		return this;
+	}
+
+	/**
 	 * Object containing the payout details for a card
 	 */
 	public CardPayoutMethodSpecificInput getCardPayoutMethodSpecificInput() {
@@ -44,6 +52,14 @@ public class CreatePayoutRequest {
 	}
 
 	/**
+	 * Object containing the payout details for a card
+	 */
+	public CreatePayoutRequest withCardPayoutMethodSpecificInput(CardPayoutMethodSpecificInput value) {
+		this.cardPayoutMethodSpecificInput = value;
+		return this;
+	}
+
+	/**
 	 * Object that holds all reference properties that are linked to this transaction
 	 */
 	public PaymentReferences getReferences() {
@@ -55,5 +71,13 @@ public class CreatePayoutRequest {
 	 */
 	public void setReferences(PaymentReferences value) {
 		this.references = value;
+	}
+
+	/**
+	 * Object that holds all reference properties that are linked to this transaction
+	 */
+	public CreatePayoutRequest withReferences(PaymentReferences value) {
+		this.references = value;
+		return this;
 	}
 }

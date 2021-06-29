@@ -23,4 +23,12 @@ public class RefundsResponse {
 	public void setRefunds(List<RefundResponse> value) {
 		this.refunds = value;
 	}
+
+	/**
+	 * The list of all refunds performed on the requested payment.
+	 */
+	public RefundsResponse withRefunds(List<RefundResponse> value) {
+		this.refunds = value;
+		return this;
+	}
 }

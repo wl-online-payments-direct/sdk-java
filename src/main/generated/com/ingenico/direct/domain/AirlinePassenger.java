@@ -31,6 +31,15 @@ public class AirlinePassenger {
 	}
 
 	/**
+	 * First name of the passenger
+	 * This field is used by the following payment products: cards, 840
+	 */
+	public AirlinePassenger withFirstName(String value) {
+		this.firstName = value;
+		return this;
+	}
+
+	/**
 	 * Surname of the passenger
 	 * This field is used by the following payment products: cards, 840
 	 */
@@ -44,6 +53,15 @@ public class AirlinePassenger {
 	 */
 	public void setSurname(String value) {
 		this.surname = value;
+	}
+
+	/**
+	 * Surname of the passenger
+	 * This field is used by the following payment products: cards, 840
+	 */
+	public AirlinePassenger withSurname(String value) {
+		this.surname = value;
+		return this;
 	}
 
 	/**
@@ -63,6 +81,15 @@ public class AirlinePassenger {
 	}
 
 	/**
+	 * Surname prefix or middle name of the passenger
+	 * This field is used by the following payment products: 840
+	 */
+	public AirlinePassenger withSurnamePrefix(String value) {
+		this.surnamePrefix = value;
+		return this;
+	}
+
+	/**
 	 * Deprecated: This field is not used by any payment product
 	 * Title of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
 	 */
@@ -76,5 +103,14 @@ public class AirlinePassenger {
 	 */
 	public void setTitle(String value) {
 		this.title = value;
+	}
+
+	/**
+	 * Deprecated: This field is not used by any payment product
+	 * Title of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
+	 */
+	public AirlinePassenger withTitle(String value) {
+		this.title = value;
+		return this;
 	}
 }

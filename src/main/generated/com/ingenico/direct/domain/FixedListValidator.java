@@ -17,4 +17,9 @@ public class FixedListValidator {
 	public void setAllowedValues(List<String> value) {
 		this.allowedValues = value;
 	}
+
+	public FixedListValidator withAllowedValues(List<String> value) {
+		this.allowedValues = value;
+		return this;
+	}
 }

@@ -27,6 +27,14 @@ public class CustomerToken {
 	}
 
 	/**
+	 * Object containing billing address details
+	 */
+	public CustomerToken withBillingAddress(Address value) {
+		this.billingAddress = value;
+		return this;
+	}
+
+	/**
 	 * Object containing company information
 	 */
 	public CompanyInformation getCompanyInformation() {
@@ -40,11 +48,24 @@ public class CustomerToken {
 		this.companyInformation = value;
 	}
 
+	/**
+	 * Object containing company information
+	 */
+	public CustomerToken withCompanyInformation(CompanyInformation value) {
+		this.companyInformation = value;
+		return this;
+	}
+
 	public PersonalInformationToken getPersonalInformation() {
 		return personalInformation;
 	}
 
 	public void setPersonalInformation(PersonalInformationToken value) {
 		this.personalInformation = value;
+	}
+
+	public CustomerToken withPersonalInformation(PersonalInformationToken value) {
+		this.personalInformation = value;
+		return this;
 	}
 }

@@ -43,6 +43,14 @@ public class GetProductGroupsParams implements ParamRequest {
 	}
 
 	/**
+	 * ISO 3166-1 alpha-2 country code of the transaction
+	 */
+	public GetProductGroupsParams withCountryCode(String value) {
+		this.countryCode = value;
+		return this;
+	}
+
+	/**
 	 * Three-letter ISO currency code representing the currency for the amount
 	 */
 	public String getCurrencyCode() {
@@ -54,6 +62,14 @@ public class GetProductGroupsParams implements ParamRequest {
 	 */
 	public void setCurrencyCode(String value) {
 		this.currencyCode = value;
+	}
+
+	/**
+	 * Three-letter ISO currency code representing the currency for the amount
+	 */
+	public GetProductGroupsParams withCurrencyCode(String value) {
+		this.currencyCode = value;
+		return this;
 	}
 
 	/**
@@ -71,6 +87,14 @@ public class GetProductGroupsParams implements ParamRequest {
 	}
 
 	/**
+	 * Deprecated: This field has no effect.
+	 */
+	public GetProductGroupsParams withLocale(String value) {
+		this.locale = value;
+		return this;
+	}
+
+	/**
 	 * Whole amount in cents (not containing any decimals)
 	 */
 	public Long getAmount() {
@@ -82,6 +106,14 @@ public class GetProductGroupsParams implements ParamRequest {
 	 */
 	public void setAmount(Long value) {
 		this.amount = value;
+	}
+
+	/**
+	 * Whole amount in cents (not containing any decimals)
+	 */
+	public GetProductGroupsParams withAmount(Long value) {
+		this.amount = value;
+		return this;
 	}
 
 	/**
@@ -100,6 +132,16 @@ public class GetProductGroupsParams implements ParamRequest {
 	 */
 	public void setIsRecurring(Boolean value) {
 		this.isRecurring = value;
+	}
+
+	/**
+	 * This allows you to filter payment products based on their support for recurring payments.
+	 * * true - return only payment products that support recurring payments,
+	 * * false - return all payment products that support one-time transactions. Payment products that support recurring products are usually also part of this list.
+	 */
+	public GetProductGroupsParams withIsRecurring(Boolean value) {
+		this.isRecurring = value;
+		return this;
 	}
 
 	/**

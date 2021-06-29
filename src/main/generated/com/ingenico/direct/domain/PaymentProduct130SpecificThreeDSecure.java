@@ -32,6 +32,14 @@ public class PaymentProduct130SpecificThreeDSecure {
 	}
 
 	/**
+	 * Indicates the Acquirer TRA exemption
+	 */
+	public PaymentProduct130SpecificThreeDSecure withAcquirerExemption(Boolean value) {
+		this.acquirerExemption = value;
+		return this;
+	}
+
+	/**
 	 * Score calculated by the 3DS Requestor and provided to CB Scoring service only.
 	 */
 	public String getMerchantScore() {
@@ -43,6 +51,14 @@ public class PaymentProduct130SpecificThreeDSecure {
 	 */
 	public void setMerchantScore(String value) {
 		this.merchantScore = value;
+	}
+
+	/**
+	 * Score calculated by the 3DS Requestor and provided to CB Scoring service only.
+	 */
+	public PaymentProduct130SpecificThreeDSecure withMerchantScore(String value) {
+		this.merchantScore = value;
+		return this;
 	}
 
 	/**
@@ -60,6 +76,14 @@ public class PaymentProduct130SpecificThreeDSecure {
 	}
 
 	/**
+	 * Number of purchased items or services. 99 if more than 99 items
+	 */
+	public PaymentProduct130SpecificThreeDSecure withNumberOfItems(Integer value) {
+		this.numberOfItems = value;
+		return this;
+	}
+
+	/**
 	 * Indicates the type of payment for which an authentication is requested
 	 */
 	public String getUsecase() {
@@ -71,5 +95,13 @@ public class PaymentProduct130SpecificThreeDSecure {
 	 */
 	public void setUsecase(String value) {
 		this.usecase = value;
+	}
+
+	/**
+	 * Indicates the type of payment for which an authentication is requested
+	 */
+	public PaymentProduct130SpecificThreeDSecure withUsecase(String value) {
+		this.usecase = value;
+		return this;
 	}
 }

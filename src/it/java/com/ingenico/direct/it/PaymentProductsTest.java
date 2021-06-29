@@ -18,9 +18,9 @@ public class PaymentProductsTest extends ItTest {
 	@Test
 	public void test() throws URISyntaxException, IOException {
 
-		GetPaymentProductsParams params = new GetPaymentProductsParams();
-		params.setCountryCode("NL");
-		params.setCurrencyCode("EUR");
+		GetPaymentProductsParams params = new GetPaymentProductsParams()
+				.withCountryCode("NL")
+				.withCurrencyCode("EUR");
 
 		Client client = getClient();
 		try {

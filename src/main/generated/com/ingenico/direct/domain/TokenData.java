@@ -24,4 +24,12 @@ public class TokenData {
 	public void setCard(Card value) {
 		this.card = value;
 	}
+
+	/**
+	 * Object containing card details
+	 */
+	public TokenData withCard(Card value) {
+		this.card = value;
+		return this;
+	}
 }

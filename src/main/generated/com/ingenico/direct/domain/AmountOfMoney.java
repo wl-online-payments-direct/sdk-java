@@ -28,6 +28,14 @@ public class AmountOfMoney {
 	}
 
 	/**
+	 * Amount in cents and always having 2 decimals
+	 */
+	public AmountOfMoney withAmount(Long value) {
+		this.amount = value;
+		return this;
+	}
+
+	/**
 	 * Three-letter ISO currency code representing the currency for the amount
 	 */
 	public String getCurrencyCode() {
@@ -39,5 +47,13 @@ public class AmountOfMoney {
 	 */
 	public void setCurrencyCode(String value) {
 		this.currencyCode = value;
+	}
+
+	/**
+	 * Three-letter ISO currency code representing the currency for the amount
+	 */
+	public AmountOfMoney withCurrencyCode(String value) {
+		this.currencyCode = value;
+		return this;
 	}
 }

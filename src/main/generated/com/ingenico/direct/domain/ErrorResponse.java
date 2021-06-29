@@ -27,6 +27,14 @@ public class ErrorResponse {
 	}
 
 	/**
+	 * Unique reference, for debugging purposes, of this error response
+	 */
+	public ErrorResponse withErrorId(String value) {
+		this.errorId = value;
+		return this;
+	}
+
+	/**
 	 * List of one or more errors
 	 */
 	public List<APIError> getErrors() {
@@ -38,5 +46,13 @@ public class ErrorResponse {
 	 */
 	public void setErrors(List<APIError> value) {
 		this.errors = value;
+	}
+
+	/**
+	 * List of one or more errors
+	 */
+	public ErrorResponse withErrors(List<APIError> value) {
+		this.errors = value;
+		return this;
 	}
 }

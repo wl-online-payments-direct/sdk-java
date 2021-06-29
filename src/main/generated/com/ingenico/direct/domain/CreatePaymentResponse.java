@@ -30,6 +30,14 @@ public class CreatePaymentResponse {
 	}
 
 	/**
+	 * Object containing the details of the created payment.
+	 */
+	public CreatePaymentResponse withCreationOutput(PaymentCreationOutput value) {
+		this.creationOutput = value;
+		return this;
+	}
+
+	/**
 	 * Object that contains the action, including the needed data, that you should perform next, like showing instructions, showing the transaction results or redirect to a third party to complete the payment
 	 */
 	public MerchantAction getMerchantAction() {
@@ -44,6 +52,14 @@ public class CreatePaymentResponse {
 	}
 
 	/**
+	 * Object that contains the action, including the needed data, that you should perform next, like showing instructions, showing the transaction results or redirect to a third party to complete the payment
+	 */
+	public CreatePaymentResponse withMerchantAction(MerchantAction value) {
+		this.merchantAction = value;
+		return this;
+	}
+
+	/**
 	 * Object that holds the payment related properties
 	 */
 	public PaymentResponse getPayment() {
@@ -55,5 +71,13 @@ public class CreatePaymentResponse {
 	 */
 	public void setPayment(PaymentResponse value) {
 		this.payment = value;
+	}
+
+	/**
+	 * Object that holds the payment related properties
+	 */
+	public CreatePaymentResponse withPayment(PaymentResponse value) {
+		this.payment = value;
+		return this;
 	}
 }

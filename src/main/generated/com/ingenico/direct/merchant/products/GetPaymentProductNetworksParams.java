@@ -39,6 +39,14 @@ public class GetPaymentProductNetworksParams implements ParamRequest {
 	}
 
 	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
+	public GetPaymentProductNetworksParams withCountryCode(String value) {
+		this.countryCode = value;
+		return this;
+	}
+
+	/**
 	 * Three-letter ISO currency code representing the currency for the amount
 	 */
 	public String getCurrencyCode() {
@@ -53,6 +61,14 @@ public class GetPaymentProductNetworksParams implements ParamRequest {
 	}
 
 	/**
+	 * Three-letter ISO currency code representing the currency for the amount
+	 */
+	public GetPaymentProductNetworksParams withCurrencyCode(String value) {
+		this.currencyCode = value;
+		return this;
+	}
+
+	/**
 	 * Amount in cents and always having 2 decimals
 	 */
 	public Long getAmount() {
@@ -64,6 +80,14 @@ public class GetPaymentProductNetworksParams implements ParamRequest {
 	 */
 	public void setAmount(Long value) {
 		this.amount = value;
+	}
+
+	/**
+	 * Amount in cents and always having 2 decimals
+	 */
+	public GetPaymentProductNetworksParams withAmount(Long value) {
+		this.amount = value;
+		return this;
 	}
 
 	/**
@@ -82,6 +106,16 @@ public class GetPaymentProductNetworksParams implements ParamRequest {
 	 */
 	public void setIsRecurring(Boolean value) {
 		this.isRecurring = value;
+	}
+
+	/**
+	 * This allows you to filter networks based on their support for recurring or not
+	 * * true
+	 * * false
+	 */
+	public GetPaymentProductNetworksParams withIsRecurring(Boolean value) {
+		this.isRecurring = value;
+		return this;
 	}
 
 	@Override

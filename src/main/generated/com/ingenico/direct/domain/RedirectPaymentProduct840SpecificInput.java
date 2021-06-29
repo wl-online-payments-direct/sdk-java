@@ -32,4 +32,16 @@ public class RedirectPaymentProduct840SpecificInput {
 	public void setAddressSelectionAtPayPal(Boolean value) {
 		this.addressSelectionAtPayPal = value;
 	}
+
+	/**
+	 * Indicates whether to use PayPal Express Checkout Shortcut.
+	 *  * true = When shortcut is enabled, the consumer can select a shipping address during PayPal checkout.
+	 *  * false = When shortcut is disabled, the consumer cannot change the shipping address.
+	 * Default value is false.
+	 * Please note that this field is ignored when order.additionalInput.typeInformation.purchaseType is set to "digital"
+	 */
+	public RedirectPaymentProduct840SpecificInput withAddressSelectionAtPayPal(Boolean value) {
+		this.addressSelectionAtPayPal = value;
+		return this;
+	}
 }

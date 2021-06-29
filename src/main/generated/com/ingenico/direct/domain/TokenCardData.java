@@ -15,4 +15,9 @@ public class TokenCardData {
 	public void setCardWithoutCvv(CardWithoutCvv value) {
 		this.cardWithoutCvv = value;
 	}
+
+	public TokenCardData withCardWithoutCvv(CardWithoutCvv value) {
+		this.cardWithoutCvv = value;
+		return this;
+	}
 }

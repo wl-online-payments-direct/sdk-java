@@ -27,6 +27,14 @@ public class LineItem {
 	}
 
 	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
+	public LineItem withAmountOfMoney(AmountOfMoney value) {
+		this.amountOfMoney = value;
+		return this;
+	}
+
+	/**
 	 * Object containing the line items of the invoice or shopping cart
 	 */
 	public LineItemInvoiceData getInvoiceData() {
@@ -41,6 +49,14 @@ public class LineItem {
 	}
 
 	/**
+	 * Object containing the line items of the invoice or shopping cart
+	 */
+	public LineItem withInvoiceData(LineItemInvoiceData value) {
+		this.invoiceData = value;
+		return this;
+	}
+
+	/**
 	 * Object containing additional information that when supplied can have a beneficial effect on the discountrates
 	 */
 	public OrderLineDetails getOrderLineDetails() {
@@ -52,5 +68,13 @@ public class LineItem {
 	 */
 	public void setOrderLineDetails(OrderLineDetails value) {
 		this.orderLineDetails = value;
+	}
+
+	/**
+	 * Object containing additional information that when supplied can have a beneficial effect on the discountrates
+	 */
+	public LineItem withOrderLineDetails(OrderLineDetails value) {
+		this.orderLineDetails = value;
+		return this;
 	}
 }

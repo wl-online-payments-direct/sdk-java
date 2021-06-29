@@ -32,6 +32,14 @@ public class PaymentProductFieldDisplayElement {
 	}
 
 	/**
+	 * The ID of the display element.
+	 */
+	public PaymentProductFieldDisplayElement withId(String value) {
+		this.id = value;
+		return this;
+	}
+
+	/**
 	 * The label of the display element.
 	 */
 	public String getLabel() {
@@ -43,6 +51,14 @@ public class PaymentProductFieldDisplayElement {
 	 */
 	public void setLabel(String value) {
 		this.label = value;
+	}
+
+	/**
+	 * The label of the display element.
+	 */
+	public PaymentProductFieldDisplayElement withLabel(String value) {
+		this.label = value;
+		return this;
 	}
 
 	/**
@@ -70,6 +86,19 @@ public class PaymentProductFieldDisplayElement {
 	}
 
 	/**
+	 * The type of the display element. Indicates how the value should be presented. Possible values are:
+	 * * STRING - as plain text
+	 * * CURRENCY - as an amount in cents displayed with a decimal separator and the currency of the payment
+	 * * PERCENTAGE - as a number with a percentage sign
+	 * * INTEGER - as an integer
+	 * * URI - as a link
+	 */
+	public PaymentProductFieldDisplayElement withType(String value) {
+		this.type = value;
+		return this;
+	}
+
+	/**
 	 * the value of the display element.
 	 */
 	public String getValue() {
@@ -81,5 +110,13 @@ public class PaymentProductFieldDisplayElement {
 	 */
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	/**
+	 * the value of the display element.
+	 */
+	public PaymentProductFieldDisplayElement withValue(String value) {
+		this.value = value;
+		return this;
 	}
 }

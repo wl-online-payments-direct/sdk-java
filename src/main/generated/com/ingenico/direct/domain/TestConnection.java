@@ -15,4 +15,9 @@ public class TestConnection {
 	public void setResult(String value) {
 		this.result = value;
 	}
+
+	public TestConnection withResult(String value) {
+		this.result = value;
+		return this;
+	}
 }

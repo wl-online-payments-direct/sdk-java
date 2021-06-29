@@ -39,12 +39,25 @@ public class RefundOutput {
 		this.amountOfMoney = value;
 	}
 
+	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
+	public RefundOutput withAmountOfMoney(AmountOfMoney value) {
+		this.amountOfMoney = value;
+		return this;
+	}
+
 	public Long getAmountPaid() {
 		return amountPaid;
 	}
 
 	public void setAmountPaid(Long value) {
 		this.amountPaid = value;
+	}
+
+	public RefundOutput withAmountPaid(Long value) {
+		this.amountPaid = value;
+		return this;
 	}
 
 	public RefundCardMethodSpecificOutput getCardRefundMethodSpecificOutput() {
@@ -55,6 +68,11 @@ public class RefundOutput {
 		this.cardRefundMethodSpecificOutput = value;
 	}
 
+	public RefundOutput withCardRefundMethodSpecificOutput(RefundCardMethodSpecificOutput value) {
+		this.cardRefundMethodSpecificOutput = value;
+		return this;
+	}
+
 	public RefundEWalletMethodSpecificOutput getEWalletRefundMethodSpecificOutput() {
 		return eWalletRefundMethodSpecificOutput;
 	}
@@ -63,12 +81,22 @@ public class RefundOutput {
 		this.eWalletRefundMethodSpecificOutput = value;
 	}
 
+	public RefundOutput withEWalletRefundMethodSpecificOutput(RefundEWalletMethodSpecificOutput value) {
+		this.eWalletRefundMethodSpecificOutput = value;
+		return this;
+	}
+
 	public RefundMobileMethodSpecificOutput getMobileRefundMethodSpecificOutput() {
 		return mobileRefundMethodSpecificOutput;
 	}
 
 	public void setMobileRefundMethodSpecificOutput(RefundMobileMethodSpecificOutput value) {
 		this.mobileRefundMethodSpecificOutput = value;
+	}
+
+	public RefundOutput withMobileRefundMethodSpecificOutput(RefundMobileMethodSpecificOutput value) {
+		this.mobileRefundMethodSpecificOutput = value;
+		return this;
 	}
 
 	/**
@@ -85,12 +113,25 @@ public class RefundOutput {
 		this.paymentMethod = value;
 	}
 
+	/**
+	 * Payment method identifier used by the our payment engine.
+	 */
+	public RefundOutput withPaymentMethod(String value) {
+		this.paymentMethod = value;
+		return this;
+	}
+
 	public RefundRedirectMethodSpecificOutput getRedirectRefundMethodSpecificOutput() {
 		return redirectRefundMethodSpecificOutput;
 	}
 
 	public void setRedirectRefundMethodSpecificOutput(RefundRedirectMethodSpecificOutput value) {
 		this.redirectRefundMethodSpecificOutput = value;
+	}
+
+	public RefundOutput withRedirectRefundMethodSpecificOutput(RefundRedirectMethodSpecificOutput value) {
+		this.redirectRefundMethodSpecificOutput = value;
+		return this;
 	}
 
 	/**
@@ -105,5 +146,13 @@ public class RefundOutput {
 	 */
 	public void setReferences(PaymentReferences value) {
 		this.references = value;
+	}
+
+	/**
+	 * Object that holds all reference properties that are linked to this transaction
+	 */
+	public RefundOutput withReferences(PaymentReferences value) {
+		this.references = value;
+		return this;
 	}
 }

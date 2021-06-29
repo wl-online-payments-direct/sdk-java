@@ -24,4 +24,12 @@ public class CaptureStatusOutput {
 	public void setStatusCode(Integer value) {
 		this.statusCode = value;
 	}
+
+	/**
+	 * Numeric status code of the legacy API. It is returned to ease the migration from the legacy APIs to Ingenico Direct. You should not write new business logic based on this property as it will be deprecated in a future version of the API. The value can also be found in the BackOffice and in report files.
+	 */
+	public CaptureStatusOutput withStatusCode(Integer value) {
+		this.statusCode = value;
+		return this;
+	}
 }

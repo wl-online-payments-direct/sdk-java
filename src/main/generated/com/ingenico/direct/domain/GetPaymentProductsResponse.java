@@ -26,4 +26,12 @@ public class GetPaymentProductsResponse {
 	public void setPaymentProducts(List<PaymentProduct> value) {
 		this.paymentProducts = value;
 	}
+
+	/**
+	 * Array containing payment products and their characteristics
+	 */
+	public GetPaymentProductsResponse withPaymentProducts(List<PaymentProduct> value) {
+		this.paymentProducts = value;
+		return this;
+	}
 }

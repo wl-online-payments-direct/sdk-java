@@ -34,6 +34,14 @@ public class ContactDetails {
 	}
 
 	/**
+	 * Email address of the customer
+	 */
+	public ContactDetails withEmailAddress(String value) {
+		this.emailAddress = value;
+		return this;
+	}
+
+	/**
 	 * Fax number of the customer
 	 */
 	public String getFaxNumber() {
@@ -45,6 +53,14 @@ public class ContactDetails {
 	 */
 	public void setFaxNumber(String value) {
 		this.faxNumber = value;
+	}
+
+	/**
+	 * Fax number of the customer
+	 */
+	public ContactDetails withFaxNumber(String value) {
+		this.faxNumber = value;
+		return this;
 	}
 
 	/**
@@ -62,6 +78,14 @@ public class ContactDetails {
 	}
 
 	/**
+	 * International version of the mobile phone number of the customer including the leading + (i.e. +16127779311)
+	 */
+	public ContactDetails withMobilePhoneNumber(String value) {
+		this.mobilePhoneNumber = value;
+		return this;
+	}
+
+	/**
 	 * Phone number of the customer
 	 */
 	public String getPhoneNumber() {
@@ -76,6 +100,14 @@ public class ContactDetails {
 	}
 
 	/**
+	 * Phone number of the customer
+	 */
+	public ContactDetails withPhoneNumber(String value) {
+		this.phoneNumber = value;
+		return this;
+	}
+
+	/**
 	 * International version of the work phone number of the customer including the leading + (i.e. +31235671500)
 	 */
 	public String getWorkPhoneNumber() {
@@ -87,5 +119,13 @@ public class ContactDetails {
 	 */
 	public void setWorkPhoneNumber(String value) {
 		this.workPhoneNumber = value;
+	}
+
+	/**
+	 * International version of the work phone number of the customer including the leading + (i.e. +31235671500)
+	 */
+	public ContactDetails withWorkPhoneNumber(String value) {
+		this.workPhoneNumber = value;
+		return this;
 	}
 }

@@ -40,6 +40,14 @@ public class PaymentProduct840CustomerAccount {
 	}
 
 	/**
+	 * Username with which the PayPal account holder has registered at PayPal
+	 */
+	public PaymentProduct840CustomerAccount withAccountId(String value) {
+		this.accountId = value;
+		return this;
+	}
+
+	/**
 	 * Name of the company in case the PayPal account is owned by a business
 	 */
 	public String getCompanyName() {
@@ -54,6 +62,14 @@ public class PaymentProduct840CustomerAccount {
 	}
 
 	/**
+	 * Name of the company in case the PayPal account is owned by a business
+	 */
+	public PaymentProduct840CustomerAccount withCompanyName(String value) {
+		this.companyName = value;
+		return this;
+	}
+
+	/**
 	 * ISO 3166-1 alpha-2 country code
 	 */
 	public String getCountryCode() {
@@ -65,6 +81,14 @@ public class PaymentProduct840CustomerAccount {
 	 */
 	public void setCountryCode(String value) {
 		this.countryCode = value;
+	}
+
+	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
+	public PaymentProduct840CustomerAccount withCountryCode(String value) {
+		this.countryCode = value;
+		return this;
 	}
 
 	/**
@@ -83,6 +107,16 @@ public class PaymentProduct840CustomerAccount {
 	 */
 	public void setCustomerAccountStatus(String value) {
 		this.customerAccountStatus = value;
+	}
+
+	/**
+	 * Status of the PayPal account
+	 * * verified - PayPal has verified the funding means for this account
+	 * * unverified - PayPal has not verified the funding means for this account
+	 */
+	public PaymentProduct840CustomerAccount withCustomerAccountStatus(String value) {
+		this.customerAccountStatus = value;
+		return this;
 	}
 
 	/**
@@ -106,6 +140,17 @@ public class PaymentProduct840CustomerAccount {
 	}
 
 	/**
+	 * Status of the customer's shipping address as registered by PayPal
+	 * * none - Status is unknown at PayPal
+	 * * confirmed - The address has been confirmed
+	 * * unconfirmed - The address has not been confirmed
+	 */
+	public PaymentProduct840CustomerAccount withCustomerAddressStatus(String value) {
+		this.customerAddressStatus = value;
+		return this;
+	}
+
+	/**
 	 * First name of the PayPal account holder
 	 */
 	public String getFirstName() {
@@ -117,6 +162,14 @@ public class PaymentProduct840CustomerAccount {
 	 */
 	public void setFirstName(String value) {
 		this.firstName = value;
+	}
+
+	/**
+	 * First name of the PayPal account holder
+	 */
+	public PaymentProduct840CustomerAccount withFirstName(String value) {
+		this.firstName = value;
+		return this;
 	}
 
 	/**
@@ -134,6 +187,14 @@ public class PaymentProduct840CustomerAccount {
 	}
 
 	/**
+	 * The unique identifier of a PayPal account and will never change in the life cycle of a PayPal account
+	 */
+	public PaymentProduct840CustomerAccount withPayerId(String value) {
+		this.payerId = value;
+		return this;
+	}
+
+	/**
 	 * Surname of the PayPal account holder
 	 */
 	public String getSurname() {
@@ -145,5 +206,13 @@ public class PaymentProduct840CustomerAccount {
 	 */
 	public void setSurname(String value) {
 		this.surname = value;
+	}
+
+	/**
+	 * Surname of the PayPal account holder
+	 */
+	public PaymentProduct840CustomerAccount withSurname(String value) {
+		this.surname = value;
+		return this;
 	}
 }

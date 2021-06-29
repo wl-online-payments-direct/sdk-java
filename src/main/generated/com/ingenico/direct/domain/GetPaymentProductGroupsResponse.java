@@ -26,4 +26,12 @@ public class GetPaymentProductGroupsResponse {
 	public void setPaymentProductGroups(List<PaymentProductGroup> value) {
 		this.paymentProductGroups = value;
 	}
+
+	/**
+	 * Array containing payment product groups and their characteristics
+	 */
+	public GetPaymentProductGroupsResponse withPaymentProductGroups(List<PaymentProductGroup> value) {
+		this.paymentProductGroups = value;
+		return this;
+	}
 }

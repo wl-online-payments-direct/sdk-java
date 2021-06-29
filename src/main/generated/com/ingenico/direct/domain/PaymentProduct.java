@@ -48,6 +48,14 @@ public class PaymentProduct {
 	}
 
 	/**
+	 * List of tokens for that payment product
+	 */
+	public PaymentProduct withAccountsOnFile(List<AccountOnFile> value) {
+		this.accountsOnFile = value;
+		return this;
+	}
+
+	/**
 	 * Indicates if the product supports recurring payments
 	 * * true - This payment product supports recurring payments
 	 * * false - This payment product does not support recurring transactions and can only be used for one-off payments
@@ -63,6 +71,16 @@ public class PaymentProduct {
 	 */
 	public void setAllowsRecurring(Boolean value) {
 		this.allowsRecurring = value;
+	}
+
+	/**
+	 * Indicates if the product supports recurring payments
+	 * * true - This payment product supports recurring payments
+	 * * false - This payment product does not support recurring transactions and can only be used for one-off payments
+	 */
+	public PaymentProduct withAllowsRecurring(Boolean value) {
+		this.allowsRecurring = value;
+		return this;
 	}
 
 	/**
@@ -84,6 +102,16 @@ public class PaymentProduct {
 	}
 
 	/**
+	 * Indicates if the payment details can be tokenized for future re-use
+	 * * true - Payment details from payments done with this payment product can be tokenized for future re-use
+	 * * false - Payment details from payments done with this payment product can not be tokenized
+	 */
+	public PaymentProduct withAllowsTokenization(Boolean value) {
+		this.allowsTokenization = value;
+		return this;
+	}
+
+	/**
 	 * Object containing display hints like the order of the product when shown in a list, the name of the product and the logo
 	 */
 	public PaymentProductDisplayHints getDisplayHints() {
@@ -95,6 +123,14 @@ public class PaymentProduct {
 	 */
 	public void setDisplayHints(PaymentProductDisplayHints value) {
 		this.displayHints = value;
+	}
+
+	/**
+	 * Object containing display hints like the order of the product when shown in a list, the name of the product and the logo
+	 */
+	public PaymentProduct withDisplayHints(PaymentProductDisplayHints value) {
+		this.displayHints = value;
+		return this;
 	}
 
 	/**
@@ -112,6 +148,14 @@ public class PaymentProduct {
 	}
 
 	/**
+	 * Object containing all the fields and their details that are associated with this payment product. If you are not interested in the data on the fields you should have us filter them our (using filter=fields in the query-string)
+	 */
+	public PaymentProduct withFields(List<PaymentProductField> value) {
+		this.fields = value;
+		return this;
+	}
+
+	/**
 	 * The ID of the payment product in our system
 	 */
 	public Integer getId() {
@@ -123,6 +167,14 @@ public class PaymentProduct {
 	 */
 	public void setId(Integer value) {
 		this.id = value;
+	}
+
+	/**
+	 * The ID of the payment product in our system
+	 */
+	public PaymentProduct withId(Integer value) {
+		this.id = value;
+		return this;
 	}
 
 	/**
@@ -139,6 +191,14 @@ public class PaymentProduct {
 		this.paymentMethod = value;
 	}
 
+	/**
+	 * Payment method identifier used by the our payment engine.
+	 */
+	public PaymentProduct withPaymentMethod(String value) {
+		this.paymentMethod = value;
+		return this;
+	}
+
 	public PaymentProduct302SpecificData getPaymentProduct302SpecificData() {
 		return paymentProduct302SpecificData;
 	}
@@ -147,12 +207,22 @@ public class PaymentProduct {
 		this.paymentProduct302SpecificData = value;
 	}
 
+	public PaymentProduct withPaymentProduct302SpecificData(PaymentProduct302SpecificData value) {
+		this.paymentProduct302SpecificData = value;
+		return this;
+	}
+
 	public PaymentProduct320SpecificData getPaymentProduct320SpecificData() {
 		return paymentProduct320SpecificData;
 	}
 
 	public void setPaymentProduct320SpecificData(PaymentProduct320SpecificData value) {
 		this.paymentProduct320SpecificData = value;
+	}
+
+	public PaymentProduct withPaymentProduct320SpecificData(PaymentProduct320SpecificData value) {
+		this.paymentProduct320SpecificData = value;
+		return this;
 	}
 
 	/**
@@ -172,6 +242,15 @@ public class PaymentProduct {
 	}
 
 	/**
+	 * The payment product group that has this payment product, if there is any. Not populated otherwise. Currently only one payment product group is supported:
+	 * * cards
+	 */
+	public PaymentProduct withPaymentProductGroup(String value) {
+		this.paymentProductGroup = value;
+		return this;
+	}
+
+	/**
 	 * Indicates whether the payment product requires redirection to a third party to complete the payment. You can use this to filter out products that require a redirect if you don't want to support that.
 	 * * true - Redirection is required
 	 * * false - No redirection is required
@@ -187,5 +266,15 @@ public class PaymentProduct {
 	 */
 	public void setUsesRedirectionTo3rdParty(Boolean value) {
 		this.usesRedirectionTo3rdParty = value;
+	}
+
+	/**
+	 * Indicates whether the payment product requires redirection to a third party to complete the payment. You can use this to filter out products that require a redirect if you don't want to support that.
+	 * * true - Redirection is required
+	 * * false - No redirection is required
+	 */
+	public PaymentProduct withUsesRedirectionTo3rdParty(Boolean value) {
+		this.usesRedirectionTo3rdParty = value;
+		return this;
 	}
 }

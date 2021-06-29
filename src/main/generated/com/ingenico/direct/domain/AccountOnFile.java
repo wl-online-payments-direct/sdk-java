@@ -24,6 +24,11 @@ public class AccountOnFile {
 		this.attributes = value;
 	}
 
+	public AccountOnFile withAttributes(List<AccountOnFileAttribute> value) {
+		this.attributes = value;
+		return this;
+	}
+
 	/**
 	 * Object containing information for the client on how best to display this field
 	 */
@@ -38,12 +43,25 @@ public class AccountOnFile {
 		this.displayHints = value;
 	}
 
+	/**
+	 * Object containing information for the client on how best to display this field
+	 */
+	public AccountOnFile withDisplayHints(AccountOnFileDisplayHints value) {
+		this.displayHints = value;
+		return this;
+	}
+
 	public Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer value) {
 		this.id = value;
+	}
+
+	public AccountOnFile withId(Integer value) {
+		this.id = value;
+		return this;
 	}
 
 	/**
@@ -58,5 +76,13 @@ public class AccountOnFile {
 	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;
+	}
+
+	/**
+	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
+	 */
+	public AccountOnFile withPaymentProductId(Integer value) {
+		this.paymentProductId = value;
+		return this;
 	}
 }

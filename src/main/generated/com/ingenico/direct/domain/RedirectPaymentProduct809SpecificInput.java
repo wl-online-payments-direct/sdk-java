@@ -24,4 +24,12 @@ public class RedirectPaymentProduct809SpecificInput {
 	public void setIssuerId(String value) {
 		this.issuerId = value;
 	}
+
+	/**
+	 * Unique ID of the issuing bank of the customer
+	 */
+	public RedirectPaymentProduct809SpecificInput withIssuerId(String value) {
+		this.issuerId = value;
+		return this;
+	}
 }

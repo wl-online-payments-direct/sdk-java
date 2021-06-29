@@ -22,6 +22,11 @@ public class PayoutErrorResponse {
 		this.errorId = value;
 	}
 
+	public PayoutErrorResponse withErrorId(String value) {
+		this.errorId = value;
+		return this;
+	}
+
 	/**
 	 * Contains the set of errors
 	 */
@@ -36,11 +41,24 @@ public class PayoutErrorResponse {
 		this.errors = value;
 	}
 
+	/**
+	 * Contains the set of errors
+	 */
+	public PayoutErrorResponse withErrors(List<APIError> value) {
+		this.errors = value;
+		return this;
+	}
+
 	public PayoutResult getPayoutResult() {
 		return payoutResult;
 	}
 
 	public void setPayoutResult(PayoutResult value) {
 		this.payoutResult = value;
+	}
+
+	public PayoutErrorResponse withPayoutResult(PayoutResult value) {
+		this.payoutResult = value;
+		return this;
 	}
 }

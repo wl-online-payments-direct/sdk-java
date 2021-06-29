@@ -24,4 +24,12 @@ public class LineItemInvoiceData {
 	public void setDescription(String value) {
 		this.description = value;
 	}
+
+	/**
+	 * Shopping cart item description
+	 */
+	public LineItemInvoiceData withDescription(String value) {
+		this.description = value;
+		return this;
+	}
 }

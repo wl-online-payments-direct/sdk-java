@@ -22,21 +22,21 @@ public class TokenTest extends ItTest {
 	@Test
 	public void test() throws URISyntaxException, IOException {
 
-		CreateTokenRequest createTokenRequest = new CreateTokenRequest();
-		createTokenRequest.setPaymentProductId(1);
+        Card card = new Card()
+                .withCardholderName("Jan")
+                .withCvv("123")
+                .withCardNumber("4567350000427977")
+                .withExpiryDate("1230");
 
-		TokenCardSpecificInput cardToken = new TokenCardSpecificInput();
-		createTokenRequest.setCard(cardToken);
+        TokenData data = new TokenData()
+                .withCard(card);
 
-		TokenData data = new TokenData();
-		cardToken.setData(data);
+		TokenCardSpecificInput cardToken = new TokenCardSpecificInput()
+                .withData(data);
 
-		Card card = new Card();
-        data.setCard(card);
-		card.setCardholderName("Jan");
-		card.setCvv("123");
-		card.setCardNumber("4567350000427977");
-		card.setExpiryDate("1230");
+        CreateTokenRequest createTokenRequest = new CreateTokenRequest()
+                .withPaymentProductId(1)
+                .withCard(cardToken);
 
 		Client client = getClient();
 		try {

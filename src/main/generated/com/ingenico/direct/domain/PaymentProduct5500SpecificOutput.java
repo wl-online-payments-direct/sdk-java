@@ -30,6 +30,14 @@ public class PaymentProduct5500SpecificOutput {
 	}
 
 	/**
+	 * The end date of the payment validity
+	 */
+	public PaymentProduct5500SpecificOutput withPaymentEndDate(String value) {
+		this.paymentEndDate = value;
+		return this;
+	}
+
+	/**
 	 * The reference to be used within the Multibanco network to confirm the payment
 	 */
 	public String getPaymentReference() {
@@ -44,6 +52,14 @@ public class PaymentProduct5500SpecificOutput {
 	}
 
 	/**
+	 * The reference to be used within the Multibanco network to confirm the payment
+	 */
+	public PaymentProduct5500SpecificOutput withPaymentReference(String value) {
+		this.paymentReference = value;
+		return this;
+	}
+
+	/**
 	 * The start date of the payment validity
 	 */
 	public String getPaymentStartDate() {
@@ -55,5 +71,13 @@ public class PaymentProduct5500SpecificOutput {
 	 */
 	public void setPaymentStartDate(String value) {
 		this.paymentStartDate = value;
+	}
+
+	/**
+	 * The start date of the payment validity
+	 */
+	public PaymentProduct5500SpecificOutput withPaymentStartDate(String value) {
+		this.paymentStartDate = value;
+		return this;
 	}
 }

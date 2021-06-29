@@ -29,11 +29,25 @@ public class TokenEWallet {
 		this.alias = value;
 	}
 
+	/**
+	 * Deprecated: This field is not used by any payment product
+	 * An alias for the token. This can be used to visually represent the token.
+	 */
+	public TokenEWallet withAlias(String value) {
+		this.alias = value;
+		return this;
+	}
+
 	public CustomerToken getCustomer() {
 		return customer;
 	}
 
 	public void setCustomer(CustomerToken value) {
 		this.customer = value;
+	}
+
+	public TokenEWallet withCustomer(CustomerToken value) {
+		this.customer = value;
+		return this;
 	}
 }

@@ -20,6 +20,11 @@ public class RefundMobileMethodSpecificOutput {
 		this.network = value;
 	}
 
+	public RefundMobileMethodSpecificOutput withNetwork(String value) {
+		this.network = value;
+		return this;
+	}
+
 	public Long getTotalAmountPaid() {
 		return totalAmountPaid;
 	}
@@ -28,11 +33,21 @@ public class RefundMobileMethodSpecificOutput {
 		this.totalAmountPaid = value;
 	}
 
+	public RefundMobileMethodSpecificOutput withTotalAmountPaid(Long value) {
+		this.totalAmountPaid = value;
+		return this;
+	}
+
 	public Long getTotalAmountRefunded() {
 		return totalAmountRefunded;
 	}
 
 	public void setTotalAmountRefunded(Long value) {
 		this.totalAmountRefunded = value;
+	}
+
+	public RefundMobileMethodSpecificOutput withTotalAmountRefunded(Long value) {
+		this.totalAmountRefunded = value;
+		return this;
 	}
 }

@@ -65,7 +65,6 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.ssl.SSLContexts;
 
 import com.ingenico.direct.CommunicationException;
-import com.ingenico.direct.Communicator;
 import com.ingenico.direct.CommunicatorConfiguration;
 import com.ingenico.direct.Connection;
 import com.ingenico.direct.PooledConnection;

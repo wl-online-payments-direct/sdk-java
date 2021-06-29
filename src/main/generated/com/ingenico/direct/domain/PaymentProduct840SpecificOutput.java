@@ -32,6 +32,14 @@ public class PaymentProduct840SpecificOutput {
 	}
 
 	/**
+	 * Object containing billing address details
+	 */
+	public PaymentProduct840SpecificOutput withBillingAddress(Address value) {
+		this.billingAddress = value;
+		return this;
+	}
+
+	/**
 	 * Object containing the details of the PayPal account
 	 */
 	public PaymentProduct840CustomerAccount getCustomerAccount() {
@@ -43,6 +51,14 @@ public class PaymentProduct840SpecificOutput {
 	 */
 	public void setCustomerAccount(PaymentProduct840CustomerAccount value) {
 		this.customerAccount = value;
+	}
+
+	/**
+	 * Object containing the details of the PayPal account
+	 */
+	public PaymentProduct840SpecificOutput withCustomerAccount(PaymentProduct840CustomerAccount value) {
+		this.customerAccount = value;
+		return this;
 	}
 
 	/**
@@ -60,6 +76,14 @@ public class PaymentProduct840SpecificOutput {
 	}
 
 	/**
+	 * Object containing billing address details
+	 */
+	public PaymentProduct840SpecificOutput withCustomerAddress(Address value) {
+		this.customerAddress = value;
+		return this;
+	}
+
+	/**
 	 * Kind of seller protection in force for the PayPal transaction
 	 */
 	public ProtectionEligibility getProtectionEligibility() {
@@ -71,5 +95,13 @@ public class PaymentProduct840SpecificOutput {
 	 */
 	public void setProtectionEligibility(ProtectionEligibility value) {
 		this.protectionEligibility = value;
+	}
+
+	/**
+	 * Kind of seller protection in force for the PayPal transaction
+	 */
+	public PaymentProduct840SpecificOutput withProtectionEligibility(ProtectionEligibility value) {
+		this.protectionEligibility = value;
+		return this;
 	}
 }

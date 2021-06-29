@@ -32,6 +32,15 @@ public class PersonalInformation {
 	}
 
 	/**
+	 * The date of birth of the customer of the recipient of the loan.
+	 * Format YYYYMMDD
+	 */
+	public PersonalInformation withDateOfBirth(String value) {
+		this.dateOfBirth = value;
+		return this;
+	}
+
+	/**
 	 * The gender of the customer, possible values are:
 	 *  * male
 	 *  * female
@@ -52,6 +61,17 @@ public class PersonalInformation {
 	}
 
 	/**
+	 * The gender of the customer, possible values are:
+	 *  * male
+	 *  * female
+	 *  * unknown or empty
+	 */
+	public PersonalInformation withGender(String value) {
+		this.gender = value;
+		return this;
+	}
+
+	/**
 	 * Object containing the name details of the customer
 	 */
 	public PersonalName getName() {
@@ -63,5 +83,13 @@ public class PersonalInformation {
 	 */
 	public void setName(PersonalName value) {
 		this.name = value;
+	}
+
+	/**
+	 * Object containing the name details of the customer
+	 */
+	public PersonalInformation withName(PersonalName value) {
+		this.name = value;
+		return this;
 	}
 }

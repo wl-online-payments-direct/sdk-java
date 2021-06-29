@@ -24,4 +24,12 @@ public class MobilePaymentProduct320SpecificInput {
 	public void setThreeDSecure(GPayThreeDSecure value) {
 		this.threeDSecure = value;
 	}
+
+	/**
+	 * Object containing specific data regarding 3-D Secure
+	 */
+	public MobilePaymentProduct320SpecificInput withThreeDSecure(GPayThreeDSecure value) {
+		this.threeDSecure = value;
+		return this;
+	}
 }

@@ -28,6 +28,14 @@ public class ThreeDSecureResults {
 	}
 
 	/**
+	 * Indicates Authentication validation results returned after AuthenticationValidation
+	 */
+	public ThreeDSecureResults withEci(String value) {
+		this.eci = value;
+		return this;
+	}
+
+	/**
 	 * Transaction ID for the Authentication
 	 */
 	public String getXid() {
@@ -39,5 +47,13 @@ public class ThreeDSecureResults {
 	 */
 	public void setXid(String value) {
 		this.xid = value;
+	}
+
+	/**
+	 * Transaction ID for the Authentication
+	 */
+	public ThreeDSecureResults withXid(String value) {
+		this.xid = value;
+		return this;
 	}
 }

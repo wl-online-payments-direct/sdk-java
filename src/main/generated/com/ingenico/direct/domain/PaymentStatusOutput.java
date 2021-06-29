@@ -40,6 +40,14 @@ public class PaymentStatusOutput {
 	}
 
 	/**
+	 * Contains the set of errors
+	 */
+	public PaymentStatusOutput withErrors(List<APIError> value) {
+		this.errors = value;
+		return this;
+	}
+
+	/**
 	 * Indicates if the transaction has been authorized
 	 */
 	public Boolean getIsAuthorized() {
@@ -51,6 +59,14 @@ public class PaymentStatusOutput {
 	 */
 	public void setIsAuthorized(Boolean value) {
 		this.isAuthorized = value;
+	}
+
+	/**
+	 * Indicates if the transaction has been authorized
+	 */
+	public PaymentStatusOutput withIsAuthorized(Boolean value) {
+		this.isAuthorized = value;
+		return this;
 	}
 
 	/**
@@ -68,6 +84,14 @@ public class PaymentStatusOutput {
 	}
 
 	/**
+	 * Flag indicating if the payment can be cancelled
+	 */
+	public PaymentStatusOutput withIsCancellable(Boolean value) {
+		this.isCancellable = value;
+		return this;
+	}
+
+	/**
 	 * Flag indicating if the payment can be refunded
 	 */
 	public Boolean getIsRefundable() {
@@ -79,6 +103,14 @@ public class PaymentStatusOutput {
 	 */
 	public void setIsRefundable(Boolean value) {
 		this.isRefundable = value;
+	}
+
+	/**
+	 * Flag indicating if the payment can be refunded
+	 */
+	public PaymentStatusOutput withIsRefundable(Boolean value) {
+		this.isRefundable = value;
+		return this;
 	}
 
 	/**
@@ -96,6 +128,14 @@ public class PaymentStatusOutput {
 	}
 
 	/**
+	 * Highlevel status of the payment, payout or refund.
+	 */
+	public PaymentStatusOutput withStatusCategory(String value) {
+		this.statusCategory = value;
+		return this;
+	}
+
+	/**
 	 * Numeric status code of the legacy API. It is returned to ease the migration from the legacy APIs to Ingenico Direct. You should not write new business logic based on this property as it will be deprecated in a future version of the API. The value can also be found in the BackOffice and in report files.
 	 */
 	public Integer getStatusCode() {
@@ -110,6 +150,14 @@ public class PaymentStatusOutput {
 	}
 
 	/**
+	 * Numeric status code of the legacy API. It is returned to ease the migration from the legacy APIs to Ingenico Direct. You should not write new business logic based on this property as it will be deprecated in a future version of the API. The value can also be found in the BackOffice and in report files.
+	 */
+	public PaymentStatusOutput withStatusCode(Integer value) {
+		this.statusCode = value;
+		return this;
+	}
+
+	/**
 	 * Timestamp of the latest status change
 	 */
 	public String getStatusCodeChangeDateTime() {
@@ -121,5 +169,13 @@ public class PaymentStatusOutput {
 	 */
 	public void setStatusCodeChangeDateTime(String value) {
 		this.statusCodeChangeDateTime = value;
+	}
+
+	/**
+	 * Timestamp of the latest status change
+	 */
+	public PaymentStatusOutput withStatusCodeChangeDateTime(String value) {
+		this.statusCodeChangeDateTime = value;
+		return this;
 	}
 }

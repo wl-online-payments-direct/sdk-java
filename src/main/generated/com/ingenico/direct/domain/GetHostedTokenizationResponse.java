@@ -18,6 +18,11 @@ public class GetHostedTokenizationResponse {
 		this.token = value;
 	}
 
+	public GetHostedTokenizationResponse withToken(TokenResponse value) {
+		this.token = value;
+		return this;
+	}
+
 	/**
 	 * This is the status of the token in the hosted tokenization session. Possible values are:
 	 * * UNCHANGED - The token has not changed
@@ -36,5 +41,16 @@ public class GetHostedTokenizationResponse {
 	 */
 	public void setTokenStatus(String value) {
 		this.tokenStatus = value;
+	}
+
+	/**
+	 * This is the status of the token in the hosted tokenization session. Possible values are:
+	 * * UNCHANGED - The token has not changed
+	 * * CREATED - The token has been created
+	 * * UPDATED - The token has been updated
+	 */
+	public GetHostedTokenizationResponse withTokenStatus(String value) {
+		this.tokenStatus = value;
+		return this;
 	}
 }

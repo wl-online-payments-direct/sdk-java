@@ -27,51 +27,51 @@ public class PaymentsTest extends ItTest {
 	@Test
 	public void test() throws URISyntaxException, IOException {
 
-		Card card = new Card();
-		card.setCardNumber("4567350000427977");
-		card.setCardholderName("Wile E. Coyote");
-		card.setCvv("123");
-		card.setExpiryDate("1230");
+		Card card = new Card()
+				.withCardNumber("4567350000427977")
+				.withCardholderName("Wile E. Coyote")
+				.withCvv("123")
+				.withExpiryDate("1230");
 
-		RedirectionData redirectionData = new RedirectionData();
-		redirectionData.setReturnUrl("https://hostname.myownwebsite.url");
+		RedirectionData redirectionData = new RedirectionData()
+				.withReturnUrl("https://hostname.myownwebsite.url");
 
-		ThreeDSecure threeDSecure = new ThreeDSecure();
-		threeDSecure.setChallengeCanvasSize("600x400");
-		threeDSecure.setChallengeIndicator("challenge-requested");
-		threeDSecure.setRedirectionData(redirectionData);
-		threeDSecure.setSkipAuthentication(false);
+		ThreeDSecure threeDSecure = new ThreeDSecure()
+				.withChallengeCanvasSize("600x400")
+				.withChallengeIndicator("challenge-requested")
+				.withRedirectionData(redirectionData)
+				.withSkipAuthentication(false);
 
-		CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
-		cardPaymentMethodSpecificInput.setCard(card);
-		cardPaymentMethodSpecificInput.setIsRecurring(false);
-		cardPaymentMethodSpecificInput.setPaymentProductId(1);
-		cardPaymentMethodSpecificInput.setThreeDSecure(threeDSecure);
-		cardPaymentMethodSpecificInput.setTransactionChannel("ECOMMERCE");
+		CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput()
+				.withCard(card)
+				.withIsRecurring(false)
+				.withPaymentProductId(1)
+				.withThreeDSecure(threeDSecure)
+				.withTransactionChannel("ECOMMERCE");
 
-		AmountOfMoney amountOfMoney = new AmountOfMoney();
-		amountOfMoney.setAmount(2980L);
-		amountOfMoney.setCurrencyCode("EUR");
+		AmountOfMoney amountOfMoney = new AmountOfMoney()
+				.withAmount(2980L)
+				.withCurrencyCode("EUR");
 
-		Address billingAddress = new Address();
-		billingAddress.setCountryCode("US");
+		Address billingAddress = new Address()
+				.withCountryCode("US");
 
-		Customer customer = new Customer();
-		customer.setBillingAddress(billingAddress);
-		customer.setLocale("en_US");
+		Customer customer = new Customer()
+				.withBillingAddress(billingAddress)
+				.withLocale("en_US");
 
-		OrderReferences references = new OrderReferences();
-		references.setDescriptor("Fast and Furry-ous");
-		references.setMerchantReference("AcmeOrder0001");
+		OrderReferences references = new OrderReferences()
+				.withDescriptor("Fast and Furry-ous")
+				.withMerchantReference("AcmeOrder0001");
 
-		Order order = new Order();
-		order.setAmountOfMoney(amountOfMoney);
-		order.setCustomer(customer);
-		order.setReferences(references);
+		Order order = new Order()
+				.withAmountOfMoney(amountOfMoney)
+				.withCustomer(customer)
+				.withReferences(references);
 
-		CreatePaymentRequest body = new CreatePaymentRequest();
-		body.setCardPaymentMethodSpecificInput(cardPaymentMethodSpecificInput);
-		body.setOrder(order);
+		CreatePaymentRequest body = new CreatePaymentRequest()
+				.withCardPaymentMethodSpecificInput(cardPaymentMethodSpecificInput)
+				.withOrder(order);
 
 		Client client = getClient();
 		try {

@@ -100,7 +100,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 	public void testDeleteToken() throws Exception {
 		// POST with no request body and a void response
 
-		serverBootstrap.registerHandler("/v2/1/tokens/2" , requestHandler);
+		serverBootstrap.registerHandler("/v2/1/tokens/2", requestHandler);
 		HttpHost host = start();
 
 		ClientInterface client = createClient(host);
@@ -145,32 +145,32 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 		setupRequestHandler(setCreatedJsonResponse("createPayment.json", "http://localhost/v2/1/payments/000000000100000000010000100001"));
 
 		try {
-			AmountOfMoney amountOfMoney = new AmountOfMoney();
-			amountOfMoney.setCurrencyCode("EUR");
-			amountOfMoney.setAmount(2345L);
+			AmountOfMoney amountOfMoney = new AmountOfMoney()
+					.withCurrencyCode("EUR")
+					.withAmount(2345L);
 
-			Address billingAddress = new Address();
-			billingAddress.setCountryCode("BE");
+			Address billingAddress = new Address()
+					.withCountryCode("BE");
 
-			Customer customer = new Customer();
-			customer.setBillingAddress(billingAddress);
+			Customer customer = new Customer()
+					.withBillingAddress(billingAddress);
 
-			Order order = new Order();
-			order.setAmountOfMoney(amountOfMoney);
-			order.setCustomer(customer);
+			Order order = new Order()
+					.withAmountOfMoney(amountOfMoney)
+					.withCustomer(customer);
 
-			Card card = new Card();
-			card.setCvv("123");
-			card.setCardNumber("1234567890123456");
-			card.setExpiryDate("1230");
+			Card card = new Card()
+					.withCvv("123")
+					.withCardNumber("1234567890123456")
+					.withExpiryDate("1230");
 
-			CardPaymentMethodSpecificInput paymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
-			paymentMethodSpecificInput.setPaymentProductId(1);
-			paymentMethodSpecificInput.setCard(card);
+			CardPaymentMethodSpecificInput paymentMethodSpecificInput = new CardPaymentMethodSpecificInput()
+					.withPaymentProductId(1)
+					.withCard(card);
 
-			CreatePaymentRequest request = new CreatePaymentRequest();
-			request.setOrder(order);
-			request.setCardPaymentMethodSpecificInput(paymentMethodSpecificInput);
+			CreatePaymentRequest request = new CreatePaymentRequest()
+					.withOrder(order)
+					.withCardPaymentMethodSpecificInput(paymentMethodSpecificInput);
 
 			CreatePaymentResponse response = client.merchant("1").payments().createPayment(request);
 
@@ -211,32 +211,32 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 		setupRequestHandler(setJsonResponse("createPayment.failure.invalidCardNumber.json", 400));
 
 		try {
-			AmountOfMoney amountOfMoney = new AmountOfMoney();
-			amountOfMoney.setCurrencyCode("EUR");
-			amountOfMoney.setAmount(2345L);
+			AmountOfMoney amountOfMoney = new AmountOfMoney()
+					.withCurrencyCode("EUR")
+					.withAmount(2345L);
 
-			Address billingAddress = new Address();
-			billingAddress.setCountryCode("BE");
+			Address billingAddress = new Address()
+					.withCountryCode("BE");
 
-			Customer customer = new Customer();
-			customer.setBillingAddress(billingAddress);
+			Customer customer = new Customer()
+					.withBillingAddress(billingAddress);
 
-			Order order = new Order();
-			order.setAmountOfMoney(amountOfMoney);
-			order.setCustomer(customer);
+			Order order = new Order()
+					.withAmountOfMoney(amountOfMoney)
+					.withCustomer(customer);
 
-			Card card = new Card();
-			card.setCvv("123");
-			card.setCardNumber("1234567890123456");
-			card.setExpiryDate("1230");
+			Card card = new Card()
+					.withCvv("123")
+					.withCardNumber("1234567890123456")
+					.withExpiryDate("1230");
 
-			CardPaymentMethodSpecificInput paymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
-			paymentMethodSpecificInput.setPaymentProductId(1);
-			paymentMethodSpecificInput.setCard(card);
+			CardPaymentMethodSpecificInput paymentMethodSpecificInput = new CardPaymentMethodSpecificInput()
+					.withPaymentProductId(1)
+					.withCard(card);
 
-			CreatePaymentRequest request = new CreatePaymentRequest();
-			request.setOrder(order);
-			request.setCardPaymentMethodSpecificInput(paymentMethodSpecificInput);
+			CreatePaymentRequest request = new CreatePaymentRequest()
+					.withOrder(order)
+					.withCardPaymentMethodSpecificInput(paymentMethodSpecificInput);
 
 			client.merchant("1").payments().createPayment(request);
 
@@ -278,32 +278,32 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 		setupRequestHandler(setJsonResponse("createPayment.failure.rejected.json", 402));
 
-		AmountOfMoney amountOfMoney = new AmountOfMoney();
-		amountOfMoney.setCurrencyCode("EUR");
-		amountOfMoney.setAmount(2345L);
+		AmountOfMoney amountOfMoney = new AmountOfMoney()
+				.withCurrencyCode("EUR")
+				.withAmount(2345L);
 
-		Address billingAddress = new Address();
-		billingAddress.setCountryCode("BE");
+		Address billingAddress = new Address()
+				.withCountryCode("BE");
 
-		Customer customer = new Customer();
-		customer.setBillingAddress(billingAddress);
+		Customer customer = new Customer()
+				.withBillingAddress(billingAddress);
 
-		Order order = new Order();
-		order.setAmountOfMoney(amountOfMoney);
-		order.setCustomer(customer);
+		Order order = new Order()
+				.withAmountOfMoney(amountOfMoney)
+				.withCustomer(customer);
 
-		Card card = new Card();
-		card.setCvv("123");
-		card.setCardNumber("1234567890123452");
-		card.setExpiryDate("1230");
+		Card card = new Card()
+				.withCvv("123")
+				.withCardNumber("1234567890123452")
+				.withExpiryDate("1230");
 
-		CardPaymentMethodSpecificInput paymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
-		paymentMethodSpecificInput.setPaymentProductId(1);
-		paymentMethodSpecificInput.setCard(card);
+		CardPaymentMethodSpecificInput paymentMethodSpecificInput = new CardPaymentMethodSpecificInput()
+				.withPaymentProductId(1)
+				.withCard(card);
 
-		CreatePaymentRequest request = new CreatePaymentRequest();
-		request.setOrder(order);
-		request.setCardPaymentMethodSpecificInput(paymentMethodSpecificInput);
+		CreatePaymentRequest request = new CreatePaymentRequest()
+				.withOrder(order)
+				.withCardPaymentMethodSpecificInput(paymentMethodSpecificInput);
 
 		try {
 
@@ -639,7 +639,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 	private void setupRequestHandler(Answer<Void> answer) throws IOException, HttpException {
 		Mockito.doAnswer(answer)
-				.when(requestHandler).handle(Matchers.<HttpRequest>any(), Matchers.<HttpResponse>any(), Matchers.<HttpContext>any());
+		       .when(requestHandler).handle(Matchers.<HttpRequest>any(), Matchers.<HttpResponse>any(), Matchers.<HttpContext>any());
 	}
 
 	private Answer<Void> setVoidResponse() {

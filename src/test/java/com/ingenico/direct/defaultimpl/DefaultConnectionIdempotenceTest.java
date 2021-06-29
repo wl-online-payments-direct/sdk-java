@@ -329,34 +329,30 @@ public class DefaultConnectionIdempotenceTest extends LocalServerTestBase {
 
 	private CreatePaymentRequest createRequest() {
 
-		CreatePaymentRequest body = new CreatePaymentRequest();
+		AmountOfMoney amountOfMoney = new AmountOfMoney()
+                .withAmount(2345L)
+                .withCurrencyCode("EUR");
+        Address billingAddress = new Address()
+                .withCountryCode("BE");
 
-		Order order = new Order();
+		Customer customer = new Customer()
+                .withBillingAddress(billingAddress);
 
-		AmountOfMoney amountOfMoney = new AmountOfMoney();
-		amountOfMoney.setAmount(2345L);
-		amountOfMoney.setCurrencyCode("EUR");
-		order.setAmountOfMoney(amountOfMoney);
+        Order order = new Order()
+                .withAmountOfMoney(amountOfMoney)
+                .withCustomer(customer);
 
-		Customer customer = new Customer();
+        Card card = new Card()
+                .withCvv("123")
+                .withCardNumber("4567350000427977")
+                .withExpiryDate("1230");
 
-		Address billingAddress = new Address();
-		billingAddress.setCountryCode("BE");
-		customer.setBillingAddress(billingAddress);
+		CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput()
+                .withPaymentProductId(1)
+                .withCard(card);
 
-		order.setCustomer(customer);
-
-		CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
-		cardPaymentMethodSpecificInput.setPaymentProductId(1);
-
-		Card card = new Card();
-		card.setCvv("123");
-		card.setCardNumber("4567350000427977");
-		card.setExpiryDate("1230");
-		cardPaymentMethodSpecificInput.setCard(card);
-
-		body.setCardPaymentMethodSpecificInput(cardPaymentMethodSpecificInput);
-
-		return body;
+        return new CreatePaymentRequest()
+                .withOrder(order)
+                .withCardPaymentMethodSpecificInput(cardPaymentMethodSpecificInput);
 	}
 }

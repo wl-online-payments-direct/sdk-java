@@ -30,6 +30,15 @@ public class PaymentProductFieldDataRestrictions {
 	}
 
 	/**
+	 * * true - Indicates that this field is required
+	 * * false - Indicates that this field is optional
+	 */
+	public PaymentProductFieldDataRestrictions withIsRequired(Boolean value) {
+		this.isRequired = value;
+		return this;
+	}
+
+	/**
 	 * Object containing the details of the validations on the field
 	 */
 	public PaymentProductFieldValidators getValidators() {
@@ -41,5 +50,13 @@ public class PaymentProductFieldDataRestrictions {
 	 */
 	public void setValidators(PaymentProductFieldValidators value) {
 		this.validators = value;
+	}
+
+	/**
+	 * Object containing the details of the validations on the field
+	 */
+	public PaymentProductFieldDataRestrictions withValidators(PaymentProductFieldValidators value) {
+		this.validators = value;
+		return this;
 	}
 }

@@ -26,6 +26,11 @@ public class OrderStatusOutput {
 		this.errors = value;
 	}
 
+	public OrderStatusOutput withErrors(List<APIError> value) {
+		this.errors = value;
+		return this;
+	}
+
 	/**
 	 * Flag indicating if the payment can be cancelled 
 	 *  * true 
@@ -45,6 +50,16 @@ public class OrderStatusOutput {
 	}
 
 	/**
+	 * Flag indicating if the payment can be cancelled 
+	 *  * true 
+	 *  * false
+	 */
+	public OrderStatusOutput withIsCancellable(Boolean value) {
+		this.isCancellable = value;
+		return this;
+	}
+
+	/**
 	 * Highlevel status of the payment, payout or refund.
 	 */
 	public String getStatusCategory() {
@@ -56,6 +71,14 @@ public class OrderStatusOutput {
 	 */
 	public void setStatusCategory(String value) {
 		this.statusCategory = value;
+	}
+
+	/**
+	 * Highlevel status of the payment, payout or refund.
+	 */
+	public OrderStatusOutput withStatusCategory(String value) {
+		this.statusCategory = value;
+		return this;
 	}
 
 	/**
@@ -73,6 +96,14 @@ public class OrderStatusOutput {
 	}
 
 	/**
+	 * Numeric status code of the legacy API. It is returned to ease the migration from the legacy APIs to Ingenico Direct. You should not write new business logic based on this property as it will be deprecated in a future version of the API. The value can also be found in the BackOffice and in report files.
+	 */
+	public OrderStatusOutput withStatusCode(Integer value) {
+		this.statusCode = value;
+		return this;
+	}
+
+	/**
 	 * Timestamp of the latest status change
 	 */
 	public String getStatusCodeChangeDateTime() {
@@ -84,5 +115,13 @@ public class OrderStatusOutput {
 	 */
 	public void setStatusCodeChangeDateTime(String value) {
 		this.statusCodeChangeDateTime = value;
+	}
+
+	/**
+	 * Timestamp of the latest status change
+	 */
+	public OrderStatusOutput withStatusCodeChangeDateTime(String value) {
+		this.statusCodeChangeDateTime = value;
+		return this;
 	}
 }

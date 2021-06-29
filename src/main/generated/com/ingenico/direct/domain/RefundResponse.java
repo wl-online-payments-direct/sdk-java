@@ -25,6 +25,11 @@ public class RefundResponse {
 		this.id = value;
 	}
 
+	public RefundResponse withId(String value) {
+		this.id = value;
+		return this;
+	}
+
 	/**
 	 * Object containing refund details
 	 */
@@ -37,6 +42,14 @@ public class RefundResponse {
 	 */
 	public void setRefundOutput(RefundOutput value) {
 		this.refundOutput = value;
+	}
+
+	/**
+	 * Object containing refund details
+	 */
+	public RefundResponse withRefundOutput(RefundOutput value) {
+		this.refundOutput = value;
+		return this;
 	}
 
 	/**
@@ -53,11 +66,24 @@ public class RefundResponse {
 		this.status = value;
 	}
 
+	/**
+	 * Current high-level status of the payment in a human-readable form.
+	 */
+	public RefundResponse withStatus(String value) {
+		this.status = value;
+		return this;
+	}
+
 	public OrderStatusOutput getStatusOutput() {
 		return statusOutput;
 	}
 
 	public void setStatusOutput(OrderStatusOutput value) {
 		this.statusOutput = value;
+	}
+
+	public RefundResponse withStatusOutput(OrderStatusOutput value) {
+		this.statusOutput = value;
+		return this;
 	}
 }

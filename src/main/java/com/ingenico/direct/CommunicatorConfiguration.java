@@ -24,7 +24,7 @@ public class CommunicatorConfiguration {
 	public static final int DEFAULT_SOCKET_TIMEOUT = 10000;
 
 	/** The default HTTPS protocols. */
-	public static final Set<String> DEFAULT_HTTPS_PROTOCOLS = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList("TLSv1.2")));
+	public static final Set<String> DEFAULT_HTTPS_PROTOCOLS = Collections.singleton("TLSv1.2");
 
 	private static final Pattern COMMA_SEPARATOR_PATTERN = Pattern.compile("\\s*,\\s*");
 

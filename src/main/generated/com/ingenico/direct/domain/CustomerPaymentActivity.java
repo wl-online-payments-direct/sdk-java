@@ -30,6 +30,14 @@ public class CustomerPaymentActivity {
 	}
 
 	/**
+	 * Number of payment attempts (so including unsuccessful ones) made by this customer with you in the last 24 hours
+	 */
+	public CustomerPaymentActivity withNumberOfPaymentAttemptsLast24Hours(Integer value) {
+		this.numberOfPaymentAttemptsLast24Hours = value;
+		return this;
+	}
+
+	/**
 	 * Number of payment attempts (so including unsuccessful ones) made by this customer with you in the last 12 months
 	 */
 	public Integer getNumberOfPaymentAttemptsLastYear() {
@@ -44,6 +52,14 @@ public class CustomerPaymentActivity {
 	}
 
 	/**
+	 * Number of payment attempts (so including unsuccessful ones) made by this customer with you in the last 12 months
+	 */
+	public CustomerPaymentActivity withNumberOfPaymentAttemptsLastYear(Integer value) {
+		this.numberOfPaymentAttemptsLastYear = value;
+		return this;
+	}
+
+	/**
 	 * Number of successful purchases made by this customer with you in the last 6 months
 	 */
 	public Integer getNumberOfPurchasesLast6Months() {
@@ -55,5 +71,13 @@ public class CustomerPaymentActivity {
 	 */
 	public void setNumberOfPurchasesLast6Months(Integer value) {
 		this.numberOfPurchasesLast6Months = value;
+	}
+
+	/**
+	 * Number of successful purchases made by this customer with you in the last 6 months
+	 */
+	public CustomerPaymentActivity withNumberOfPurchasesLast6Months(Integer value) {
+		this.numberOfPurchasesLast6Months = value;
+		return this;
 	}
 }

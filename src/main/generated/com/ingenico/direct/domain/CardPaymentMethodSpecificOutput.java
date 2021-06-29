@@ -40,6 +40,14 @@ public class CardPaymentMethodSpecificOutput {
 	}
 
 	/**
+	 * Card Authorization code as returned by the acquirer
+	 */
+	public CardPaymentMethodSpecificOutput withAuthorisationCode(String value) {
+		this.authorisationCode = value;
+		return this;
+	}
+
+	/**
 	 * Object containing card details
 	 */
 	public CardEssentials getCard() {
@@ -51,6 +59,14 @@ public class CardPaymentMethodSpecificOutput {
 	 */
 	public void setCard(CardEssentials value) {
 		this.card = value;
+	}
+
+	/**
+	 * Object containing card details
+	 */
+	public CardPaymentMethodSpecificOutput withCard(CardEssentials value) {
+		this.card = value;
+		return this;
 	}
 
 	/**
@@ -68,6 +84,14 @@ public class CardPaymentMethodSpecificOutput {
 	}
 
 	/**
+	 * Fraud results contained in the CardFraudResults object
+	 */
+	public CardPaymentMethodSpecificOutput withFraudResults(CardFraudResults value) {
+		this.fraudResults = value;
+		return this;
+	}
+
+	/**
 	 * The unique scheme transactionId of the initial transaction that was performed with SCA. In case this is unknown a scheme transactionId of an earlier transaction part of the same sequence can be used as a fall-back. Strongly advised to be submitted for any MerchantInitiated or recurring transaction (a subsequent one).
 	 */
 	public String getInitialSchemeTransactionId() {
@@ -79,6 +103,14 @@ public class CardPaymentMethodSpecificOutput {
 	 */
 	public void setInitialSchemeTransactionId(String value) {
 		this.initialSchemeTransactionId = value;
+	}
+
+	/**
+	 * The unique scheme transactionId of the initial transaction that was performed with SCA. In case this is unknown a scheme transactionId of an earlier transaction part of the same sequence can be used as a fall-back. Strongly advised to be submitted for any MerchantInitiated or recurring transaction (a subsequent one).
+	 */
+	public CardPaymentMethodSpecificOutput withInitialSchemeTransactionId(String value) {
+		this.initialSchemeTransactionId = value;
+		return this;
 	}
 
 	/**
@@ -96,6 +128,14 @@ public class CardPaymentMethodSpecificOutput {
 	}
 
 	/**
+	 * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
+	 */
+	public CardPaymentMethodSpecificOutput withPaymentOption(String value) {
+		this.paymentOption = value;
+		return this;
+	}
+
+	/**
 	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
 	 */
 	public Integer getPaymentProductId() {
@@ -107,6 +147,14 @@ public class CardPaymentMethodSpecificOutput {
 	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;
+	}
+
+	/**
+	 * Payment product identifier - Please see [payment products](https://support.direct.ingenico.com/documentation/api/reference/index.html#tag/Products) for a full overview of possible values.
+	 */
+	public CardPaymentMethodSpecificOutput withPaymentProductId(Integer value) {
+		this.paymentProductId = value;
+		return this;
 	}
 
 	/**
@@ -124,6 +172,14 @@ public class CardPaymentMethodSpecificOutput {
 	}
 
 	/**
+	 * 3D Secure results object
+	 */
+	public CardPaymentMethodSpecificOutput withThreeDSecureResults(ThreeDSecureResults value) {
+		this.threeDSecureResults = value;
+		return this;
+	}
+
+	/**
 	 * ID of the token. This property is populated when the payment was done with a token or when the payment was tokenized.
 	 */
 	public String getToken() {
@@ -135,5 +191,13 @@ public class CardPaymentMethodSpecificOutput {
 	 */
 	public void setToken(String value) {
 		this.token = value;
+	}
+
+	/**
+	 * ID of the token. This property is populated when the payment was done with a token or when the payment was tokenized.
+	 */
+	public CardPaymentMethodSpecificOutput withToken(String value) {
+		this.token = value;
+		return this;
 	}
 }

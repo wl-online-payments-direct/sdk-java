@@ -28,6 +28,14 @@ public class FraudFields {
 	}
 
 	/**
+	 * Additional black list input
+	 */
+	public FraudFields withBlackListData(String value) {
+		this.blackListData = value;
+		return this;
+	}
+
+	/**
 	 * The IP Address of the customer that is making the payment
 	 */
 	public String getCustomerIpAddress() {
@@ -39,5 +47,13 @@ public class FraudFields {
 	 */
 	public void setCustomerIpAddress(String value) {
 		this.customerIpAddress = value;
+	}
+
+	/**
+	 * The IP Address of the customer that is making the payment
+	 */
+	public FraudFields withCustomerIpAddress(String value) {
+		this.customerIpAddress = value;
+		return this;
 	}
 }

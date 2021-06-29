@@ -28,6 +28,14 @@ public class MobilePaymentData {
 	}
 
 	/**
+	 * The obfuscated DPAN. Only the last four digits are visible.
+	 */
+	public MobilePaymentData withDpan(String value) {
+		this.dpan = value;
+		return this;
+	}
+
+	/**
 	 * Expiry date of the tokenized card. Format: MMYY
 	 */
 	public String getExpiryDate() {
@@ -39,5 +47,13 @@ public class MobilePaymentData {
 	 */
 	public void setExpiryDate(String value) {
 		this.expiryDate = value;
+	}
+
+	/**
+	 * Expiry date of the tokenized card. Format: MMYY
+	 */
+	public MobilePaymentData withExpiryDate(String value) {
+		this.expiryDate = value;
+		return this;
 	}
 }
