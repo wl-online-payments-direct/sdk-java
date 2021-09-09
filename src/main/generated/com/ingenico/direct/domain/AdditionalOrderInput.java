@@ -13,6 +13,8 @@ public class AdditionalOrderInput {
 
 	private LoanRecipient loanRecipient = null;
 
+	private LodgingData lodgingData = null;
+
 	private OrderTypeInformation typeInformation = null;
 
 	/**
@@ -56,6 +58,28 @@ public class AdditionalOrderInput {
 	 */
 	public AdditionalOrderInput withLoanRecipient(LoanRecipient value) {
 		this.loanRecipient = value;
+		return this;
+	}
+
+	/**
+	 * Object that holds lodging specific data
+	 */
+	public LodgingData getLodgingData() {
+		return lodgingData;
+	}
+
+	/**
+	 * Object that holds lodging specific data
+	 */
+	public void setLodgingData(LodgingData value) {
+		this.lodgingData = value;
+	}
+
+	/**
+	 * Object that holds lodging specific data
+	 */
+	public AdditionalOrderInput withLodgingData(LodgingData value) {
+		this.lodgingData = value;
 		return this;
 	}
 

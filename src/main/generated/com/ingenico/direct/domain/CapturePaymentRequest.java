@@ -10,6 +10,8 @@ public class CapturePaymentRequest {
 
 	private Boolean isFinal = null;
 
+	private PaymentReferences references = null;
+
 	/**
 	 * Here you can specify the amount that you want to capture (specified in cents, where single digit currencies are presumed to have 2 digits). The amount can be lower than the amount that was authorized, but not higher. 
 	 *  If left empty, the full amount will be captured and the request will be final. 
@@ -57,6 +59,28 @@ public class CapturePaymentRequest {
 	 */
 	public CapturePaymentRequest withIsFinal(Boolean value) {
 		this.isFinal = value;
+		return this;
+	}
+
+	/**
+	 * Object that holds all reference properties that are linked to this transaction
+	 */
+	public PaymentReferences getReferences() {
+		return references;
+	}
+
+	/**
+	 * Object that holds all reference properties that are linked to this transaction
+	 */
+	public void setReferences(PaymentReferences value) {
+		this.references = value;
+	}
+
+	/**
+	 * Object that holds all reference properties that are linked to this transaction
+	 */
+	public CapturePaymentRequest withReferences(PaymentReferences value) {
+		this.references = value;
 		return this;
 	}
 }

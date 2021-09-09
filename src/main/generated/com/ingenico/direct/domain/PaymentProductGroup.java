@@ -4,11 +4,15 @@
  */
 package com.ingenico.direct.domain;
 
+import java.util.List;
+
 public class PaymentProductGroup {
 
 	private AccountOnFile accountOnFile = null;
 
 	private PaymentProductDisplayHints displayHints = null;
+
+	private List<PaymentProductDisplayHints> displayHintsList = null;
 
 	private String id = null;
 
@@ -44,6 +48,28 @@ public class PaymentProductGroup {
 	 */
 	public PaymentProductGroup withDisplayHints(PaymentProductDisplayHints value) {
 		this.displayHints = value;
+		return this;
+	}
+
+	/**
+	 * List of display hints
+	 */
+	public List<PaymentProductDisplayHints> getDisplayHintsList() {
+		return displayHintsList;
+	}
+
+	/**
+	 * List of display hints
+	 */
+	public void setDisplayHintsList(List<PaymentProductDisplayHints> value) {
+		this.displayHintsList = value;
+	}
+
+	/**
+	 * List of display hints
+	 */
+	public PaymentProductGroup withDisplayHintsList(List<PaymentProductDisplayHints> value) {
+		this.displayHintsList = value;
 		return this;
 	}
 

@@ -27,6 +27,7 @@ import com.ingenico.direct.domain.CompletePaymentResponse;
 import com.ingenico.direct.domain.CreatePaymentRequest;
 import com.ingenico.direct.domain.CreatePaymentResponse;
 import com.ingenico.direct.domain.ErrorResponse;
+import com.ingenico.direct.domain.PaymentDetailsResponse;
 import com.ingenico.direct.domain.PaymentErrorResponse;
 import com.ingenico.direct.domain.PaymentResponse;
 import com.ingenico.direct.domain.RefundErrorResponse;
@@ -248,6 +249,36 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 					getClientHeaders(),
 					null,
 					CapturesResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public PaymentDetailsResponse getPaymentDetails(String paymentId) {
+		return getPaymentDetails(paymentId, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public PaymentDetailsResponse getPaymentDetails(String paymentId, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("paymentId", paymentId);
+		String uri = instantiateUri("/v2/{merchantId}/payments/{paymentId}/details", pathContext);
+		try {
+			return communicator.get(
+					uri,
+					getClientHeaders(),
+					null,
+					PaymentDetailsResponse.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;

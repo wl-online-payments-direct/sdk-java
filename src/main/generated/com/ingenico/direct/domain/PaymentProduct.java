@@ -19,6 +19,8 @@ public class PaymentProduct {
 
 	private PaymentProductDisplayHints displayHints = null;
 
+	private List<PaymentProductDisplayHints> displayHintsList = null;
+
 	private List<PaymentProductField> fields = null;
 
 	private Integer id = null;
@@ -130,6 +132,28 @@ public class PaymentProduct {
 	 */
 	public PaymentProduct withDisplayHints(PaymentProductDisplayHints value) {
 		this.displayHints = value;
+		return this;
+	}
+
+	/**
+	 * List of display hints
+	 */
+	public List<PaymentProductDisplayHints> getDisplayHintsList() {
+		return displayHintsList;
+	}
+
+	/**
+	 * List of display hints
+	 */
+	public void setDisplayHintsList(List<PaymentProductDisplayHints> value) {
+		this.displayHintsList = value;
+	}
+
+	/**
+	 * List of display hints
+	 */
+	public PaymentProduct withDisplayHintsList(List<PaymentProductDisplayHints> value) {
+		this.displayHintsList = value;
 		return this;
 	}
 

@@ -180,10 +180,8 @@ public class DefaultAuthenticator implements Authenticator {
 	 */
 	String createAuthenticationSignature(String dataToSign) {
 
-		Mac sha256Hmac;
 		try {
-
-			sha256Hmac = Mac.getInstance(HMAC_ALGORITHM);
+			Mac sha256Hmac = Mac.getInstance(HMAC_ALGORITHM);
 			SecretKeySpec secretKey = new SecretKeySpec(secretApiKey.getBytes(CHARSET), HMAC_ALGORITHM);
 			sha256Hmac.init(secretKey);
 
