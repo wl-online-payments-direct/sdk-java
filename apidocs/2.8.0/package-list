@@ -1,0 +1,15 @@
+com.ingenico.direct
+com.ingenico.direct.defaultimpl
+com.ingenico.direct.domain
+com.ingenico.direct.logging
+com.ingenico.direct.merchant
+com.ingenico.direct.merchant.hostedcheckout
+com.ingenico.direct.merchant.hostedtokenization
+com.ingenico.direct.merchant.payments
+com.ingenico.direct.merchant.payouts
+com.ingenico.direct.merchant.productgroups
+com.ingenico.direct.merchant.products
+com.ingenico.direct.merchant.services
+com.ingenico.direct.merchant.sessions
+com.ingenico.direct.merchant.tokens
+com.ingenico.direct.webhooks
