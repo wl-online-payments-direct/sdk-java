@@ -9,6 +9,8 @@ package com.ingenico.direct.domain;
  */
 public class ThreeDSecure {
 
+	private Long authenticationAmount = null;
+
 	private String challengeCanvasSize = null;
 
 	private String challengeIndicator = null;
@@ -28,6 +30,28 @@ public class ThreeDSecure {
 	private Boolean skipAuthentication = null;
 
 	private Boolean skipSoftDecline = null;
+
+	/**
+	 * Allows amount to be authenticated to be different from amount authorized. (Amount in cents and always having 2 decimals)
+	 */
+	public Long getAuthenticationAmount() {
+		return authenticationAmount;
+	}
+
+	/**
+	 * Allows amount to be authenticated to be different from amount authorized. (Amount in cents and always having 2 decimals)
+	 */
+	public void setAuthenticationAmount(Long value) {
+		this.authenticationAmount = value;
+	}
+
+	/**
+	 * Allows amount to be authenticated to be different from amount authorized. (Amount in cents and always having 2 decimals)
+	 */
+	public ThreeDSecure withAuthenticationAmount(Long value) {
+		this.authenticationAmount = value;
+		return this;
+	}
 
 	/**
 	 * Dimensions of the challenge window that potentially will be displayed to the customer. The challenge content is formatted to appropriately render in this window to provide the best possible user experience. Preconfigured sizes are width x height in pixels of the window displayed in the customer browser window. Possible values are

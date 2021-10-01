@@ -9,9 +9,13 @@ package com.ingenico.direct.domain;
  */
 public class CardPaymentMethodSpecificOutput {
 
+	private Long authenticatedAmount = null;
+
 	private String authorisationCode = null;
 
 	private CardEssentials card = null;
+
+	private ExternalTokenLinked externalTokenLinked = null;
 
 	private CardFraudResults fraudResults = null;
 
@@ -24,6 +28,28 @@ public class CardPaymentMethodSpecificOutput {
 	private ThreeDSecureResults threeDSecureResults = null;
 
 	private String token = null;
+
+	/**
+	 * Allows amount to be authenticated to be different from amount authorized. (Amount in cents and always having 2 decimals)
+	 */
+	public Long getAuthenticatedAmount() {
+		return authenticatedAmount;
+	}
+
+	/**
+	 * Allows amount to be authenticated to be different from amount authorized. (Amount in cents and always having 2 decimals)
+	 */
+	public void setAuthenticatedAmount(Long value) {
+		this.authenticatedAmount = value;
+	}
+
+	/**
+	 * Allows amount to be authenticated to be different from amount authorized. (Amount in cents and always having 2 decimals)
+	 */
+	public CardPaymentMethodSpecificOutput withAuthenticatedAmount(Long value) {
+		this.authenticatedAmount = value;
+		return this;
+	}
 
 	/**
 	 * Card Authorization code as returned by the acquirer
@@ -66,6 +92,19 @@ public class CardPaymentMethodSpecificOutput {
 	 */
 	public CardPaymentMethodSpecificOutput withCard(CardEssentials value) {
 		this.card = value;
+		return this;
+	}
+
+	public ExternalTokenLinked getExternalTokenLinked() {
+		return externalTokenLinked;
+	}
+
+	public void setExternalTokenLinked(ExternalTokenLinked value) {
+		this.externalTokenLinked = value;
+	}
+
+	public CardPaymentMethodSpecificOutput withExternalTokenLinked(ExternalTokenLinked value) {
+		this.externalTokenLinked = value;
 		return this;
 	}
 
