@@ -20,46 +20,11 @@ import com.ingenico.direct.merchant.tokens.TokensClientInterface;
 public interface MerchantClientInterface {
 
 	/**
-	 * Resource /v2/{merchantId}/products
+	 * Resource /v2/{merchantId}/hostedcheckouts
 	 *
-	 * @return ProductsClient
+	 * @return HostedCheckoutClient
 	 */
-	ProductsClientInterface products();
-
-	/**
-	 * Resource /v2/{merchantId}/sessions
-	 *
-	 * @return SessionsClient
-	 */
-	SessionsClientInterface sessions();
-
-	/**
-	 * Resource /v2/{merchantId}/payouts
-	 *
-	 * @return PayoutsClient
-	 */
-	PayoutsClientInterface payouts();
-
-	/**
-	 * Resource /v2/{merchantId}/payments
-	 *
-	 * @return PaymentsClient
-	 */
-	PaymentsClientInterface payments();
-
-	/**
-	 * Resource /v2/{merchantId}/services
-	 *
-	 * @return ServicesClient
-	 */
-	ServicesClientInterface services();
-
-	/**
-	 * Resource /v2/{merchantId}/productgroups
-	 *
-	 * @return ProductGroupsClient
-	 */
-	ProductGroupsClientInterface productGroups();
+	HostedCheckoutClientInterface hostedCheckout();
 
 	/**
 	 * Resource /v2/{merchantId}/hostedtokenizations
@@ -69,16 +34,51 @@ public interface MerchantClientInterface {
 	HostedTokenizationClientInterface hostedTokenization();
 
 	/**
+	 * Resource /v2/{merchantId}/payments
+	 *
+	 * @return PaymentsClient
+	 */
+	PaymentsClientInterface payments();
+
+	/**
+	 * Resource /v2/{merchantId}/payouts
+	 *
+	 * @return PayoutsClient
+	 */
+	PayoutsClientInterface payouts();
+
+	/**
+	 * Resource /v2/{merchantId}/productgroups
+	 *
+	 * @return ProductGroupsClient
+	 */
+	ProductGroupsClientInterface productGroups();
+
+	/**
+	 * Resource /v2/{merchantId}/products
+	 *
+	 * @return ProductsClient
+	 */
+	ProductsClientInterface products();
+
+	/**
+	 * Resource /v2/{merchantId}/services
+	 *
+	 * @return ServicesClient
+	 */
+	ServicesClientInterface services();
+
+	/**
+	 * Resource /v2/{merchantId}/sessions
+	 *
+	 * @return SessionsClient
+	 */
+	SessionsClientInterface sessions();
+
+	/**
 	 * Resource /v2/{merchantId}/tokens
 	 *
 	 * @return TokensClient
 	 */
 	TokensClientInterface tokens();
-
-	/**
-	 * Resource /v2/{merchantId}/hostedcheckouts
-	 *
-	 * @return HostedCheckoutClient
-	 */
-	HostedCheckoutClientInterface hostedCheckout();
 }

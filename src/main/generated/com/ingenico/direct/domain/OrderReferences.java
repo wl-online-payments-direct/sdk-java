@@ -11,6 +11,8 @@ public class OrderReferences {
 
 	private String descriptor = null;
 
+	private String merchantParameters = null;
+
 	private String merchantReference = null;
 
 	/**
@@ -131,6 +133,28 @@ public class OrderReferences {
 	 */
 	public OrderReferences withDescriptor(String value) {
 		this.descriptor = value;
+		return this;
+	}
+
+	/**
+	 * It allows you to store additional parameters for the transaction in the format you prefer (e.g.-> key-value query string, JSON, etc.) These parameters are then echoed back to you in API GET calls and Webhook notifications. This field must not contain any personal data.
+	 */
+	public String getMerchantParameters() {
+		return merchantParameters;
+	}
+
+	/**
+	 * It allows you to store additional parameters for the transaction in the format you prefer (e.g.-> key-value query string, JSON, etc.) These parameters are then echoed back to you in API GET calls and Webhook notifications. This field must not contain any personal data.
+	 */
+	public void setMerchantParameters(String value) {
+		this.merchantParameters = value;
+	}
+
+	/**
+	 * It allows you to store additional parameters for the transaction in the format you prefer (e.g.-> key-value query string, JSON, etc.) These parameters are then echoed back to you in API GET calls and Webhook notifications. This field must not contain any personal data.
+	 */
+	public OrderReferences withMerchantParameters(String value) {
+		this.merchantParameters = value;
 		return this;
 	}
 

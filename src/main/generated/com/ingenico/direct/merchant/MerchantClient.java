@@ -29,43 +29,8 @@ public class MerchantClient extends ApiResource implements MerchantClientInterfa
 	/**
 	 * {@inheritDoc}
 	 */
-	public ProductsClient products() {
-		return new ProductsClient(this, null);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public SessionsClient sessions() {
-		return new SessionsClient(this, null);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public PayoutsClient payouts() {
-		return new PayoutsClient(this, null);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public PaymentsClient payments() {
-		return new PaymentsClient(this, null);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public ServicesClient services() {
-		return new ServicesClient(this, null);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public ProductGroupsClient productGroups() {
-		return new ProductGroupsClient(this, null);
+	public HostedCheckoutClient hostedCheckout() {
+		return new HostedCheckoutClient(this, null);
 	}
 
 	/**
@@ -78,14 +43,49 @@ public class MerchantClient extends ApiResource implements MerchantClientInterfa
 	/**
 	 * {@inheritDoc}
 	 */
-	public TokensClient tokens() {
-		return new TokensClient(this, null);
+	public PaymentsClient payments() {
+		return new PaymentsClient(this, null);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public HostedCheckoutClient hostedCheckout() {
-		return new HostedCheckoutClient(this, null);
+	public PayoutsClient payouts() {
+		return new PayoutsClient(this, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public ProductGroupsClient productGroups() {
+		return new ProductGroupsClient(this, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public ProductsClient products() {
+		return new ProductsClient(this, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public ServicesClient services() {
+		return new ServicesClient(this, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public SessionsClient sessions() {
+		return new SessionsClient(this, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public TokensClient tokens() {
+		return new TokensClient(this, null);
 	}
 }

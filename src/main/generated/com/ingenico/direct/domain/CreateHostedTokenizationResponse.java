@@ -8,11 +8,41 @@ import java.util.List;
 
 public class CreateHostedTokenizationResponse {
 
+	private List<String> expiredCardTokens = null;
+
 	private String hostedTokenizationId = null;
 
 	private List<String> invalidTokens = null;
 
 	private String partialRedirectUrl = null;
+
+	/**
+	 * Tokens referencing expired cards are returned in this array. 
+	 * These tokens can be used in the hosted tokenization session but you must ensure that the expiry date fields are displayed in the form in order to be updated.
+	 * If you are using the option "hideTokenFields", these tokens should not be proposed to the customers.
+	 */
+	public List<String> getExpiredCardTokens() {
+		return expiredCardTokens;
+	}
+
+	/**
+	 * Tokens referencing expired cards are returned in this array. 
+	 * These tokens can be used in the hosted tokenization session but you must ensure that the expiry date fields are displayed in the form in order to be updated.
+	 * If you are using the option "hideTokenFields", these tokens should not be proposed to the customers.
+	 */
+	public void setExpiredCardTokens(List<String> value) {
+		this.expiredCardTokens = value;
+	}
+
+	/**
+	 * Tokens referencing expired cards are returned in this array. 
+	 * These tokens can be used in the hosted tokenization session but you must ensure that the expiry date fields are displayed in the form in order to be updated.
+	 * If you are using the option "hideTokenFields", these tokens should not be proposed to the customers.
+	 */
+	public CreateHostedTokenizationResponse withExpiredCardTokens(List<String> value) {
+		this.expiredCardTokens = value;
+		return this;
+	}
 
 	/**
 	 * The ID of the Hosted Tokenization Session
