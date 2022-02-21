@@ -73,16 +73,13 @@ public class DefaultAuthenticator implements Authenticator {
 	 *            for the HMAC algorithm.
 	 */
 	public DefaultAuthenticator(String apiKeyId, String secretApiKey, AuthorizationType authorizationType) {
-		if (authorizationType == null) {
-			throw new IllegalArgumentException("authorizationType is required");
-		}
 		if (secretApiKey == null || secretApiKey.trim().isEmpty()) {
 			throw new IllegalArgumentException("secretApiKey is required");
 		}
 		if (apiKeyId == null || apiKeyId.trim().isEmpty()) {
 			throw new IllegalArgumentException("apiKeyId is required");
 		}
-		this.authorizationType = authorizationType;
+		this.authorizationType = authorizationType == null ? AuthorizationType.V1HMAC : authorizationType;
 		this.apiKeyId = apiKeyId;
 		this.secretApiKey = secretApiKey;
 	}
