@@ -12,6 +12,8 @@ public class CardEssentials {
 
 	private String cardNumber = null;
 
+	private String countryCode = null;
+
 	private String expiryDate = null;
 
 	/**
@@ -55,6 +57,28 @@ public class CardEssentials {
 	 */
 	public CardEssentials withCardNumber(String value) {
 		this.cardNumber = value;
+		return this;
+	}
+
+	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
+	public void setCountryCode(String value) {
+		this.countryCode = value;
+	}
+
+	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
+	public CardEssentials withCountryCode(String value) {
+		this.countryCode = value;
 		return this;
 	}
 

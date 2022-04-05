@@ -11,6 +11,8 @@ public class CreatePaymentRequest {
 
 	private FraudFields fraudFields = null;
 
+	private String hostedTokenizationId = null;
+
 	private MobilePaymentMethodSpecificInput mobilePaymentMethodSpecificInput = null;
 
 	private Order order = null;
@@ -85,6 +87,28 @@ public class CreatePaymentRequest {
 	 */
 	public CreatePaymentRequest withFraudFields(FraudFields value) {
 		this.fraudFields = value;
+		return this;
+	}
+
+	/**
+	 * Use this field after a successful Hosted Tokenization session to create a payment with the tokenized payment method details.
+	 */
+	public String getHostedTokenizationId() {
+		return hostedTokenizationId;
+	}
+
+	/**
+	 * Use this field after a successful Hosted Tokenization session to create a payment with the tokenized payment method details.
+	 */
+	public void setHostedTokenizationId(String value) {
+		this.hostedTokenizationId = value;
+	}
+
+	/**
+	 * Use this field after a successful Hosted Tokenization session to create a payment with the tokenized payment method details.
+	 */
+	public CreatePaymentRequest withHostedTokenizationId(String value) {
+		this.hostedTokenizationId = value;
 		return this;
 	}
 
