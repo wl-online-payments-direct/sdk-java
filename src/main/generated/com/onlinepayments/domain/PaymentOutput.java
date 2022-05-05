@@ -14,6 +14,8 @@ public class PaymentOutput {
 
 	private CardPaymentMethodSpecificOutput cardPaymentMethodSpecificOutput = null;
 
+	private CustomerOutput customer = null;
+
 	private String merchantParameters = null;
 
 	private MobilePaymentMethodSpecificOutput mobilePaymentMethodSpecificOutput = null;
@@ -89,6 +91,28 @@ public class PaymentOutput {
 	 */
 	public PaymentOutput withCardPaymentMethodSpecificOutput(CardPaymentMethodSpecificOutput value) {
 		this.cardPaymentMethodSpecificOutput = value;
+		return this;
+	}
+
+	/**
+	 * Object containing the details of the customer
+	 */
+	public CustomerOutput getCustomer() {
+		return customer;
+	}
+
+	/**
+	 * Object containing the details of the customer
+	 */
+	public void setCustomer(CustomerOutput value) {
+		this.customer = value;
+	}
+
+	/**
+	 * Object containing the details of the customer
+	 */
+	public PaymentOutput withCustomer(CustomerOutput value) {
+		this.customer = value;
 		return this;
 	}
 
