@@ -12,6 +12,8 @@ public class APIError {
 
 	private String code = null;
 
+	private String errorCode = null;
+
 	private Integer httpStatusCode = null;
 
 	private String id = null;
@@ -52,6 +54,7 @@ public class APIError {
 	}
 
 	/**
+	 * Deprecated: Use errorCode instead.
 	 * Error code
 	 */
 	public String getCode() {
@@ -59,6 +62,7 @@ public class APIError {
 	}
 
 	/**
+	 * Deprecated: Use errorCode instead.
 	 * Error code
 	 */
 	public void setCode(String value) {
@@ -66,10 +70,33 @@ public class APIError {
 	}
 
 	/**
+	 * Deprecated: Use errorCode instead.
 	 * Error code
 	 */
 	public APIError withCode(String value) {
 		this.code = value;
+		return this;
+	}
+
+	/**
+	 * Error code
+	 */
+	public String getErrorCode() {
+		return errorCode;
+	}
+
+	/**
+	 * Error code
+	 */
+	public void setErrorCode(String value) {
+		this.errorCode = value;
+	}
+
+	/**
+	 * Error code
+	 */
+	public APIError withErrorCode(String value) {
+		this.errorCode = value;
 		return this;
 	}
 

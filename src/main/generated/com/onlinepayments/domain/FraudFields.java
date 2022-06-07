@@ -35,6 +35,8 @@ public class FraudFields {
 	}
 
 	/**
+	 * Deprecated: Use order.customer.device.ipAddress instead.
+	 * 
 	 * The IP Address of the customer that is making the payment
 	 */
 	public String getCustomerIpAddress() {
@@ -42,6 +44,8 @@ public class FraudFields {
 	}
 
 	/**
+	 * Deprecated: Use order.customer.device.ipAddress instead.
+	 * 
 	 * The IP Address of the customer that is making the payment
 	 */
 	public void setCustomerIpAddress(String value) {
@@ -49,6 +53,8 @@ public class FraudFields {
 	}
 
 	/**
+	 * Deprecated: Use order.customer.device.ipAddress instead.
+	 * 
 	 * The IP Address of the customer that is making the payment
 	 */
 	public FraudFields withCustomerIpAddress(String value) {
