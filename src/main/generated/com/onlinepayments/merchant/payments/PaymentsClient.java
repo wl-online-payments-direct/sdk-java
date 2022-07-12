@@ -11,6 +11,7 @@ import com.onlinepayments.CallContext;
 import com.onlinepayments.DeclinedPaymentException;
 import com.onlinepayments.DeclinedRefundException;
 import com.onlinepayments.ResponseException;
+import com.onlinepayments.domain.CancelPaymentRequest;
 import com.onlinepayments.domain.CancelPaymentResponse;
 import com.onlinepayments.domain.CapturePaymentRequest;
 import com.onlinepayments.domain.CaptureResponse;
@@ -132,7 +133,8 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	 */
 	@Override
 	public CancelPaymentResponse cancelPayment(String paymentId) {
-		return cancelPayment(paymentId, null);
+		CancelPaymentRequest body = null;
+		return cancelPayment(paymentId, body, null);
 	}
 
 	/**
@@ -140,6 +142,23 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 	 */
 	@Override
 	public CancelPaymentResponse cancelPayment(String paymentId, CallContext context) {
+		CancelPaymentRequest body = null;
+		return cancelPayment(paymentId, body, context);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CancelPaymentResponse cancelPayment(String paymentId, CancelPaymentRequest body) {
+		return cancelPayment(paymentId, body, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CancelPaymentResponse cancelPayment(String paymentId, CancelPaymentRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
 		String uri = instantiateUri("/v2/{merchantId}/payments/{paymentId}/cancel", pathContext);
@@ -148,7 +167,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
 					uri,
 					getClientHeaders(),
 					null,
-					null,
+					body,
 					CancelPaymentResponse.class,
 					context);
 		} catch (ResponseException e) {

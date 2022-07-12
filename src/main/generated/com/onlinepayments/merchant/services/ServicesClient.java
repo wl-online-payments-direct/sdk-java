@@ -11,6 +11,7 @@ import com.onlinepayments.ResponseException;
 import com.onlinepayments.domain.ErrorResponse;
 import com.onlinepayments.domain.GetIINDetailsRequest;
 import com.onlinepayments.domain.GetIINDetailsResponse;
+import com.onlinepayments.domain.GetPrivacyPolicyResponse;
 import com.onlinepayments.domain.TestConnection;
 
 /**
@@ -20,6 +21,34 @@ public class ServicesClient extends ApiResource implements ServicesClientInterfa
 
 	public ServicesClient(ApiResource parent, Map<String, String> pathContext) {
 		super(parent, pathContext);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public GetPrivacyPolicyResponse getPrivacyPolicy(GetPrivacyPolicyParams query) {
+		return getPrivacyPolicy(query, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public GetPrivacyPolicyResponse getPrivacyPolicy(GetPrivacyPolicyParams query, CallContext context) {
+		String uri = instantiateUri("/v2/{merchantId}/services/privacypolicy", null);
+		try {
+			return communicator.get(
+					uri,
+					getClientHeaders(),
+					query,
+					GetPrivacyPolicyResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
 	}
 
 	/**

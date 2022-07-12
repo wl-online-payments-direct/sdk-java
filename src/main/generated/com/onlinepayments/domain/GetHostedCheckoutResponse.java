@@ -10,21 +10,21 @@ public class GetHostedCheckoutResponse {
 	private String status = null;
 
 	/**
-	 * When a payment has been created during the hosted checkout session this object will return the details
+	 * This object will return the details of the payment after the payment is cancelled by the customer, rejected or authorized
 	 */
 	public CreatedPaymentOutput getCreatedPaymentOutput() {
 		return createdPaymentOutput;
 	}
 
 	/**
-	 * When a payment has been created during the hosted checkout session this object will return the details
+	 * This object will return the details of the payment after the payment is cancelled by the customer, rejected or authorized
 	 */
 	public void setCreatedPaymentOutput(CreatedPaymentOutput value) {
 		this.createdPaymentOutput = value;
 	}
 
 	/**
-	 * When a payment has been created during the hosted checkout session this object will return the details
+	 * This object will return the details of the payment after the payment is cancelled by the customer, rejected or authorized
 	 */
 	public GetHostedCheckoutResponse withCreatedPaymentOutput(CreatedPaymentOutput value) {
 		this.createdPaymentOutput = value;

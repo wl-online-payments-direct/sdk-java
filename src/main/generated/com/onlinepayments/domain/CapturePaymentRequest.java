@@ -40,21 +40,21 @@ public class CapturePaymentRequest {
 	}
 
 	/**
-	 * This property indicates whether this will be the final capture of this transaction. The default value for this property is false.
+	 * This property indicates whether this will be the final operation. The default value for this property is false.
 	 */
 	public Boolean getIsFinal() {
 		return isFinal;
 	}
 
 	/**
-	 * This property indicates whether this will be the final capture of this transaction. The default value for this property is false.
+	 * This property indicates whether this will be the final operation. The default value for this property is false.
 	 */
 	public void setIsFinal(Boolean value) {
 		this.isFinal = value;
 	}
 
 	/**
-	 * This property indicates whether this will be the final capture of this transaction. The default value for this property is false.
+	 * This property indicates whether this will be the final operation. The default value for this property is false.
 	 */
 	public CapturePaymentRequest withIsFinal(Boolean value) {
 		this.isFinal = value;

@@ -11,14 +11,23 @@ public class RefundMobileMethodSpecificOutput {
 
 	private Long totalAmountRefunded = null;
 
+	/**
+	 * The card network that was used for a mobile payment method operation
+	 */
 	public String getNetwork() {
 		return network;
 	}
 
+	/**
+	 * The card network that was used for a mobile payment method operation
+	 */
 	public void setNetwork(String value) {
 		this.network = value;
 	}
 
+	/**
+	 * The card network that was used for a mobile payment method operation
+	 */
 	public RefundMobileMethodSpecificOutput withNetwork(String value) {
 		this.network = value;
 		return this;

@@ -18,13 +18,13 @@ public class CardPaymentMethodSpecificInput {
 
 	private PaymentProduct130SpecificInput paymentProduct130SpecificInput = null;
 
-	private PaymentProduct3012SpecificInput paymentProduct3012SpecificInput = null;
-
 	private Integer paymentProductId = null;
 
 	private CardRecurrenceDetails recurring = null;
 
 	private String returnUrl = null;
+
+	private String schemeReferenceData = null;
 
 	private Boolean skipAuthentication = null;
 
@@ -172,28 +172,6 @@ public class CardPaymentMethodSpecificInput {
 	}
 
 	/**
-	 * Object containing specific input required for bancontact.
-	 */
-	public PaymentProduct3012SpecificInput getPaymentProduct3012SpecificInput() {
-		return paymentProduct3012SpecificInput;
-	}
-
-	/**
-	 * Object containing specific input required for bancontact.
-	 */
-	public void setPaymentProduct3012SpecificInput(PaymentProduct3012SpecificInput value) {
-		this.paymentProduct3012SpecificInput = value;
-	}
-
-	/**
-	 * Object containing specific input required for bancontact.
-	 */
-	public CardPaymentMethodSpecificInput withPaymentProduct3012SpecificInput(PaymentProduct3012SpecificInput value) {
-		this.paymentProduct3012SpecificInput = value;
-		return this;
-	}
-
-	/**
 	 * Payment product identifier - Please see Products documentation for a full overview of possible values.
 	 */
 	public Integer getPaymentProductId() {
@@ -262,6 +240,28 @@ public class CardPaymentMethodSpecificInput {
 	 */
 	public CardPaymentMethodSpecificInput withReturnUrl(String value) {
 		this.returnUrl = value;
+		return this;
+	}
+
+	/**
+	 * This is the unique Scheme Reference Data from the initial transaction that was performed with a Strong Customer Authentication. In case this value is unknown, a Scheme Reference of an earlier transaction that was part of the same sequence can be used as a fall-back. Still, it is strongly advised to submit this value for any Merchant Initiated Transaction or any recurring transaction (hereby defined as "Subsequent").
+	 */
+	public String getSchemeReferenceData() {
+		return schemeReferenceData;
+	}
+
+	/**
+	 * This is the unique Scheme Reference Data from the initial transaction that was performed with a Strong Customer Authentication. In case this value is unknown, a Scheme Reference of an earlier transaction that was part of the same sequence can be used as a fall-back. Still, it is strongly advised to submit this value for any Merchant Initiated Transaction or any recurring transaction (hereby defined as "Subsequent").
+	 */
+	public void setSchemeReferenceData(String value) {
+		this.schemeReferenceData = value;
+	}
+
+	/**
+	 * This is the unique Scheme Reference Data from the initial transaction that was performed with a Strong Customer Authentication. In case this value is unknown, a Scheme Reference of an earlier transaction that was part of the same sequence can be used as a fall-back. Still, it is strongly advised to submit this value for any Merchant Initiated Transaction or any recurring transaction (hereby defined as "Subsequent").
+	 */
+	public CardPaymentMethodSpecificInput withSchemeReferenceData(String value) {
+		this.schemeReferenceData = value;
 		return this;
 	}
 

@@ -4,7 +4,7 @@
 package com.onlinepayments.domain;
 
 /**
- * When a payment has been created during the hosted checkout session this object will return the details
+ * This object will return the details of the payment after the payment is cancelled by the customer, rejected or authorized
  */
 public class CreatedPaymentOutput {
 

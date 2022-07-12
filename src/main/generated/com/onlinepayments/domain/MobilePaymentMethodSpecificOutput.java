@@ -65,21 +65,21 @@ public class MobilePaymentMethodSpecificOutput {
 	}
 
 	/**
-	 * Deprecated: This field is not used by any payment product
+	 * The card network that was used for a mobile payment method operation
 	 */
 	public String getNetwork() {
 		return network;
 	}
 
 	/**
-	 * Deprecated: This field is not used by any payment product
+	 * The card network that was used for a mobile payment method operation
 	 */
 	public void setNetwork(String value) {
 		this.network = value;
 	}
 
 	/**
-	 * Deprecated: This field is not used by any payment product
+	 * The card network that was used for a mobile payment method operation
 	 */
 	public MobilePaymentMethodSpecificOutput withNetwork(String value) {
 		this.network = value;
