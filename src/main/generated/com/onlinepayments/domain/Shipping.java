@@ -18,6 +18,8 @@ public class Shipping {
 
 	private Boolean isFirstUsage = null;
 
+	private ShippingMethod method = null;
+
 	private Long shippingCost = null;
 
 	private Long shippingCostTax = null;
@@ -168,6 +170,28 @@ public class Shipping {
 	}
 
 	/**
+	 * Object containing information regarding shipping method
+	 */
+	public ShippingMethod getMethod() {
+		return method;
+	}
+
+	/**
+	 * Object containing information regarding shipping method
+	 */
+	public void setMethod(ShippingMethod value) {
+		this.method = value;
+	}
+
+	/**
+	 * Object containing information regarding shipping method
+	 */
+	public Shipping withMethod(ShippingMethod value) {
+		this.method = value;
+		return this;
+	}
+
+	/**
 	 * Cost associated with the shipping of the order.
 	 */
 	public Long getShippingCost() {
@@ -213,7 +237,7 @@ public class Shipping {
 
 	/**
 	 * Indicates the merchandise delivery timeframe. Possible values:
-	 *  * electronic = For electronic delivery (services or digital goods
+	 *  * electronic = For electronic delivery (services or digital goods)
 	 *  * same-day = For same day deliveries
 	 *  * overnight = For overnight deliveries
 	 *  * 2-day-or-more = For two day or more delivery time
@@ -224,7 +248,7 @@ public class Shipping {
 
 	/**
 	 * Indicates the merchandise delivery timeframe. Possible values:
-	 *  * electronic = For electronic delivery (services or digital goods
+	 *  * electronic = For electronic delivery (services or digital goods)
 	 *  * same-day = For same day deliveries
 	 *  * overnight = For overnight deliveries
 	 *  * 2-day-or-more = For two day or more delivery time
@@ -235,7 +259,7 @@ public class Shipping {
 
 	/**
 	 * Indicates the merchandise delivery timeframe. Possible values:
-	 *  * electronic = For electronic delivery (services or digital goods
+	 *  * electronic = For electronic delivery (services or digital goods)
 	 *  * same-day = For same day deliveries
 	 *  * overnight = For overnight deliveries
 	 *  * 2-day-or-more = For two day or more delivery time

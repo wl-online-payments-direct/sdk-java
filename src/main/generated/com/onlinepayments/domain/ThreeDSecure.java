@@ -198,21 +198,39 @@ public class ThreeDSecure {
 	}
 
 	/**
-	 * Merchant fraud rate in the EEA (all EEA card fraud divided by all EEA card volumes) calculated as per PSD2 RTS Mastercard will not calculate or validate the merchant fraud score
+	 * Merchant fraud rate in the EEA (all EEA card fraud divided by all EEA card volumes) calculated as per PSD2 RTS. Mastercard will not calculate or validate the merchant fraud score
+	 * Values accepted :
+	 * * 1 - represents fraud rate less than or equal to 1 basis point [bp], which is 0.01%
+	 * * 2 - represents fraud rate between 1 bp + - and 6 bps
+	 * * 3 - represents fraud rate between 6 bps + - and 13 bps
+	 * * 4 - represents fraud rate between 13 bps + - and 25 bps
+	 * * 5 - represents fraud rate greater than 25 bps
 	 */
 	public Integer getMerchantFraudRate() {
 		return merchantFraudRate;
 	}
 
 	/**
-	 * Merchant fraud rate in the EEA (all EEA card fraud divided by all EEA card volumes) calculated as per PSD2 RTS Mastercard will not calculate or validate the merchant fraud score
+	 * Merchant fraud rate in the EEA (all EEA card fraud divided by all EEA card volumes) calculated as per PSD2 RTS. Mastercard will not calculate or validate the merchant fraud score
+	 * Values accepted :
+	 * * 1 - represents fraud rate less than or equal to 1 basis point [bp], which is 0.01%
+	 * * 2 - represents fraud rate between 1 bp + - and 6 bps
+	 * * 3 - represents fraud rate between 6 bps + - and 13 bps
+	 * * 4 - represents fraud rate between 13 bps + - and 25 bps
+	 * * 5 - represents fraud rate greater than 25 bps
 	 */
 	public void setMerchantFraudRate(Integer value) {
 		this.merchantFraudRate = value;
 	}
 
 	/**
-	 * Merchant fraud rate in the EEA (all EEA card fraud divided by all EEA card volumes) calculated as per PSD2 RTS Mastercard will not calculate or validate the merchant fraud score
+	 * Merchant fraud rate in the EEA (all EEA card fraud divided by all EEA card volumes) calculated as per PSD2 RTS. Mastercard will not calculate or validate the merchant fraud score
+	 * Values accepted :
+	 * * 1 - represents fraud rate less than or equal to 1 basis point [bp], which is 0.01%
+	 * * 2 - represents fraud rate between 1 bp + - and 6 bps
+	 * * 3 - represents fraud rate between 6 bps + - and 13 bps
+	 * * 4 - represents fraud rate between 13 bps + - and 25 bps
+	 * * 5 - represents fraud rate greater than 25 bps
 	 */
 	public ThreeDSecure withMerchantFraudRate(Integer value) {
 		this.merchantFraudRate = value;

@@ -22,6 +22,8 @@ public class ThreeDSecureResults {
 
 	private String eci = null;
 
+	private String exemptionEngineFlow = null;
+
 	private String flow = null;
 
 	private String liability = null;
@@ -204,6 +206,28 @@ public class ThreeDSecureResults {
 	 */
 	public ThreeDSecureResults withEci(String value) {
 		this.eci = value;
+		return this;
+	}
+
+	/**
+	 * Detailed description of the Exemption Engine outcomes
+	 */
+	public String getExemptionEngineFlow() {
+		return exemptionEngineFlow;
+	}
+
+	/**
+	 * Detailed description of the Exemption Engine outcomes
+	 */
+	public void setExemptionEngineFlow(String value) {
+		this.exemptionEngineFlow = value;
+	}
+
+	/**
+	 * Detailed description of the Exemption Engine outcomes
+	 */
+	public ThreeDSecureResults withExemptionEngineFlow(String value) {
+		this.exemptionEngineFlow = value;
 		return this;
 	}
 
