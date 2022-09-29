@@ -8,6 +8,8 @@ package com.onlinepayments.domain;
  */
 public class CaptureOutput {
 
+	private AmountOfMoney acquiredAmount = null;
+
 	private AmountOfMoney amountOfMoney = null;
 
 	private Long amountPaid = null;
@@ -25,6 +27,28 @@ public class CaptureOutput {
 	private PaymentReferences references = null;
 
 	private SepaDirectDebitPaymentMethodSpecificOutput sepaDirectDebitPaymentMethodSpecificOutput = null;
+
+	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
+	public AmountOfMoney getAcquiredAmount() {
+		return acquiredAmount;
+	}
+
+	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
+	public void setAcquiredAmount(AmountOfMoney value) {
+		this.acquiredAmount = value;
+	}
+
+	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
+	public CaptureOutput withAcquiredAmount(AmountOfMoney value) {
+		this.acquiredAmount = value;
+		return this;
+	}
 
 	/**
 	 * Object containing amount and ISO currency code attributes
@@ -48,14 +72,23 @@ public class CaptureOutput {
 		return this;
 	}
 
+	/**
+	 * Amount that has been paid. This is deprecated. Use acquiredAmount instead.
+	 */
 	public Long getAmountPaid() {
 		return amountPaid;
 	}
 
+	/**
+	 * Amount that has been paid. This is deprecated. Use acquiredAmount instead.
+	 */
 	public void setAmountPaid(Long value) {
 		this.amountPaid = value;
 	}
 
+	/**
+	 * Amount that has been paid. This is deprecated. Use acquiredAmount instead.
+	 */
 	public CaptureOutput withAmountPaid(Long value) {
 		this.amountPaid = value;
 		return this;

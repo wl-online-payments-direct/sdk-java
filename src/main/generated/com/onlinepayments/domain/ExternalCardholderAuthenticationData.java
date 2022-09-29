@@ -20,6 +20,8 @@ public class ExternalCardholderAuthenticationData {
 
 	private Integer eci = null;
 
+	private String flow = null;
+
 	private Integer schemeRiskScore = null;
 
 	private String threeDSecureVersion = null;
@@ -197,6 +199,28 @@ public class ExternalCardholderAuthenticationData {
 	 */
 	public ExternalCardholderAuthenticationData withEci(Integer value) {
 		this.eci = value;
+		return this;
+	}
+
+	/**
+	 * 3D Secure Flow used during this transaction.
+	 */
+	public String getFlow() {
+		return flow;
+	}
+
+	/**
+	 * 3D Secure Flow used during this transaction.
+	 */
+	public void setFlow(String value) {
+		this.flow = value;
+	}
+
+	/**
+	 * 3D Secure Flow used during this transaction.
+	 */
+	public ExternalCardholderAuthenticationData withFlow(String value) {
+		this.flow = value;
 		return this;
 	}
 
