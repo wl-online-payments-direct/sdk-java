@@ -12,6 +12,10 @@ public class CardPaymentMethodSpecificInput {
 
 	private Card card = null;
 
+	private String cardOnFileRecurringExpiration = null;
+
+	private String cardOnFileRecurringFrequency = null;
+
 	private String initialSchemeTransactionId = null;
 
 	private Boolean isRecurring = null;
@@ -96,6 +100,68 @@ public class CardPaymentMethodSpecificInput {
 	 */
 	public CardPaymentMethodSpecificInput withCard(Card value) {
 		this.card = value;
+		return this;
+	}
+
+	/**
+	 * The end date of the last scheduled payment in a series of transactions.
+	 * Format YYYYMMDD
+	 */
+	public String getCardOnFileRecurringExpiration() {
+		return cardOnFileRecurringExpiration;
+	}
+
+	/**
+	 * The end date of the last scheduled payment in a series of transactions.
+	 * Format YYYYMMDD
+	 */
+	public void setCardOnFileRecurringExpiration(String value) {
+		this.cardOnFileRecurringExpiration = value;
+	}
+
+	/**
+	 * The end date of the last scheduled payment in a series of transactions.
+	 * Format YYYYMMDD
+	 */
+	public CardPaymentMethodSpecificInput withCardOnFileRecurringExpiration(String value) {
+		this.cardOnFileRecurringExpiration = value;
+		return this;
+	}
+
+	/**
+	 * Period of payment occurrence for recurring and installment payments. Allowed values:
+	 *   * Yearly
+	 *   * Quarterly
+	 *   * Monthly
+	 *   * Weekly
+	 *   * Daily
+	 */
+	public String getCardOnFileRecurringFrequency() {
+		return cardOnFileRecurringFrequency;
+	}
+
+	/**
+	 * Period of payment occurrence for recurring and installment payments. Allowed values:
+	 *   * Yearly
+	 *   * Quarterly
+	 *   * Monthly
+	 *   * Weekly
+	 *   * Daily
+	 */
+	public void setCardOnFileRecurringFrequency(String value) {
+		this.cardOnFileRecurringFrequency = value;
+	}
+
+	/**
+	 * Period of payment occurrence for recurring and installment payments. Allowed values:
+	 *   * Yearly
+	 *   * Quarterly
+	 *   * Monthly
+	 *   * Weekly
+	 *   * Daily
+	 */
+	public CardPaymentMethodSpecificInput withCardOnFileRecurringFrequency(String value) {
+		this.cardOnFileRecurringFrequency = value;
 		return this;
 	}
 

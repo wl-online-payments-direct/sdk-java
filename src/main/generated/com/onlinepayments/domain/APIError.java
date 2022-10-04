@@ -22,6 +22,8 @@ public class APIError {
 
 	private String propertyName = null;
 
+	private Boolean retriable = null;
+
 	/**
 	 * Category the error belongs to. The category should give an indication of the type of error you are dealing with. Possible values:
 	 * * DIRECT_PLATFORM_ERROR - indicating that a functional error has occurred in the platform.
@@ -206,6 +208,31 @@ public class APIError {
 	 */
 	public APIError withPropertyName(String value) {
 		this.propertyName = value;
+		return this;
+	}
+
+	/**
+	 * Flag indicating if the request is retriable. 
+	 * Retriable requests mean that a technical error happened and that the same request can safely be sent again with a new idempotence key.
+	 */
+	public Boolean getRetriable() {
+		return retriable;
+	}
+
+	/**
+	 * Flag indicating if the request is retriable. 
+	 * Retriable requests mean that a technical error happened and that the same request can safely be sent again with a new idempotence key.
+	 */
+	public void setRetriable(Boolean value) {
+		this.retriable = value;
+	}
+
+	/**
+	 * Flag indicating if the request is retriable. 
+	 * Retriable requests mean that a technical error happened and that the same request can safely be sent again with a new idempotence key.
+	 */
+	public APIError withRetriable(Boolean value) {
+		this.retriable = value;
 		return this;
 	}
 }
