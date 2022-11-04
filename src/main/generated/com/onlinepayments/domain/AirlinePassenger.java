@@ -5,13 +5,39 @@ package com.onlinepayments.domain;
 
 public class AirlinePassenger {
 
+	private String airlineLoyaltyStatus = null;
+
 	private String firstName = null;
+
+	private String passengerType = null;
 
 	private String surname = null;
 
 	private String surnamePrefix = null;
 
 	private String title = null;
+
+	/**
+	 * Airline loyalty program level for the passenger on the itinerary.
+	 */
+	public String getAirlineLoyaltyStatus() {
+		return airlineLoyaltyStatus;
+	}
+
+	/**
+	 * Airline loyalty program level for the passenger on the itinerary.
+	 */
+	public void setAirlineLoyaltyStatus(String value) {
+		this.airlineLoyaltyStatus = value;
+	}
+
+	/**
+	 * Airline loyalty program level for the passenger on the itinerary.
+	 */
+	public AirlinePassenger withAirlineLoyaltyStatus(String value) {
+		this.airlineLoyaltyStatus = value;
+		return this;
+	}
 
 	/**
 	 * First name of the passenger
@@ -35,6 +61,28 @@ public class AirlinePassenger {
 	 */
 	public AirlinePassenger withFirstName(String value) {
 		this.firstName = value;
+		return this;
+	}
+
+	/**
+	 * Type of passenger on the itinerary. 
+	 */
+	public String getPassengerType() {
+		return passengerType;
+	}
+
+	/**
+	 * Type of passenger on the itinerary. 
+	 */
+	public void setPassengerType(String value) {
+		this.passengerType = value;
+	}
+
+	/**
+	 * Type of passenger on the itinerary. 
+	 */
+	public AirlinePassenger withPassengerType(String value) {
+		this.passengerType = value;
 		return this;
 	}
 

@@ -16,14 +16,23 @@ public class RefundResponse {
 
 	private OrderStatusOutput statusOutput = null;
 
+	/**
+	 * Our unique payment transaction identifier
+	 */
 	public String getId() {
 		return id;
 	}
 
+	/**
+	 * Our unique payment transaction identifier
+	 */
 	public void setId(String value) {
 		this.id = value;
 	}
 
+	/**
+	 * Our unique payment transaction identifier
+	 */
 	public RefundResponse withId(String value) {
 		this.id = value;
 		return this;

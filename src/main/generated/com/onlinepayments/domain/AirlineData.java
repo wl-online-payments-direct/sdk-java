@@ -16,6 +16,8 @@ public class AirlineData {
 
 	private String flightDate = null;
 
+	private String flightIndicator = null;
+
 	private List<AirlineFlightLeg> flightLegs = null;
 
 	private String invoiceNumber = null;
@@ -43,6 +45,8 @@ public class AirlineData {
 	private String pointOfSale = null;
 
 	private String posCityCode = null;
+
+	private String ticketCurrency = null;
 
 	private String ticketDeliveryMethod = null;
 
@@ -131,6 +135,28 @@ public class AirlineData {
 	 */
 	public AirlineData withFlightDate(String value) {
 		this.flightDate = value;
+		return this;
+	}
+
+	/**
+	 * Indicator representing the type of flight on the itinerary.
+	 */
+	public String getFlightIndicator() {
+		return flightIndicator;
+	}
+
+	/**
+	 * Indicator representing the type of flight on the itinerary.
+	 */
+	public void setFlightIndicator(String value) {
+		this.flightIndicator = value;
+	}
+
+	/**
+	 * Indicator representing the type of flight on the itinerary.
+	 */
+	public AirlineData withFlightIndicator(String value) {
+		this.flightIndicator = value;
 		return this;
 	}
 
@@ -496,6 +522,28 @@ public class AirlineData {
 	 */
 	public AirlineData withPosCityCode(String value) {
 		this.posCityCode = value;
+		return this;
+	}
+
+	/**
+	 * Three-letter ISO currency code representing the currency in which ticket purchase amount is expressed.
+	 */
+	public String getTicketCurrency() {
+		return ticketCurrency;
+	}
+
+	/**
+	 * Three-letter ISO currency code representing the currency in which ticket purchase amount is expressed.
+	 */
+	public void setTicketCurrency(String value) {
+		this.ticketCurrency = value;
+	}
+
+	/**
+	 * Three-letter ISO currency code representing the currency in which ticket purchase amount is expressed.
+	 */
+	public AirlineData withTicketCurrency(String value) {
+		this.ticketCurrency = value;
 		return this;
 	}
 
