@@ -12,6 +12,8 @@ public class MerchantAction {
 
 	private RedirectData redirectData = null;
 
+	private ShowFormData showFormData = null;
+
 	/**
 	 * Action merchants needs to take in the online payment process. Possible values are: 
 	 *  * REDIRECT - The customer needs to be redirected using the details found in redirectData 
@@ -71,6 +73,28 @@ public class MerchantAction {
 	 */
 	public MerchantAction withRedirectData(RedirectData value) {
 		this.redirectData = value;
+		return this;
+	}
+
+	/**
+	 * Object returned for the SHOW_FORM actionType.
+	 */
+	public ShowFormData getShowFormData() {
+		return showFormData;
+	}
+
+	/**
+	 * Object returned for the SHOW_FORM actionType.
+	 */
+	public void setShowFormData(ShowFormData value) {
+		this.showFormData = value;
+	}
+
+	/**
+	 * Object returned for the SHOW_FORM actionType.
+	 */
+	public MerchantAction withShowFormData(ShowFormData value) {
+		this.showFormData = value;
 		return this;
 	}
 }

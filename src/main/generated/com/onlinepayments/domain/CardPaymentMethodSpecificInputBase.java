@@ -8,6 +8,8 @@ package com.onlinepayments.domain;
  */
 public class CardPaymentMethodSpecificInputBase {
 
+	private Boolean allowDynamicLinking = null;
+
 	private String authorizationMode = null;
 
 	private String initialSchemeTransactionId = null;
@@ -31,6 +33,31 @@ public class CardPaymentMethodSpecificInputBase {
 	private String unscheduledCardOnFileRequestor = null;
 
 	private String unscheduledCardOnFileSequenceIndicator = null;
+
+	/**
+	 * * true - Default - Allows subsequent payments to use PSD2 dynamic linking from this payment (including Card On File).
+	 * * false - Indicates that the dynamic linking (including Card On File data) will be ignored.
+	 */
+	public Boolean getAllowDynamicLinking() {
+		return allowDynamicLinking;
+	}
+
+	/**
+	 * * true - Default - Allows subsequent payments to use PSD2 dynamic linking from this payment (including Card On File).
+	 * * false - Indicates that the dynamic linking (including Card On File data) will be ignored.
+	 */
+	public void setAllowDynamicLinking(Boolean value) {
+		this.allowDynamicLinking = value;
+	}
+
+	/**
+	 * * true - Default - Allows subsequent payments to use PSD2 dynamic linking from this payment (including Card On File).
+	 * * false - Indicates that the dynamic linking (including Card On File data) will be ignored.
+	 */
+	public CardPaymentMethodSpecificInputBase withAllowDynamicLinking(Boolean value) {
+		this.allowDynamicLinking = value;
+		return this;
+	}
 
 	/**
 	 * Determines the type of the authorization that will be used. Allowed values: 

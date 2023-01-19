@@ -8,6 +8,8 @@ import java.util.Map;
 import com.onlinepayments.ApiResource;
 import com.onlinepayments.CallContext;
 import com.onlinepayments.ResponseException;
+import com.onlinepayments.domain.CalculateSurchargeRequest;
+import com.onlinepayments.domain.CalculateSurchargeResponse;
 import com.onlinepayments.domain.ErrorResponse;
 import com.onlinepayments.domain.GetIINDetailsRequest;
 import com.onlinepayments.domain.GetIINDetailsResponse;
@@ -21,6 +23,35 @@ public class ServicesClient extends ApiResource implements ServicesClientInterfa
 
 	public ServicesClient(ApiResource parent, Map<String, String> pathContext) {
 		super(parent, pathContext);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CalculateSurchargeResponse surchargeCalculation(CalculateSurchargeRequest body) {
+		return surchargeCalculation(body, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CalculateSurchargeResponse surchargeCalculation(CalculateSurchargeRequest body, CallContext context) {
+		String uri = instantiateUri("/v2/{merchantId}/services/surchargecalculation", null);
+		try {
+			return communicator.post(
+					uri,
+					getClientHeaders(),
+					null,
+					body,
+					CalculateSurchargeResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
 	}
 
 	/**

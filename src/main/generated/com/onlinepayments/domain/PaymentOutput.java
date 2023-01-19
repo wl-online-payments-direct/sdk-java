@@ -30,6 +30,8 @@ public class PaymentOutput {
 
 	private SepaDirectDebitPaymentMethodSpecificOutput sepaDirectDebitPaymentMethodSpecificOutput = null;
 
+	private SurchargeSpecificOutput surchargeSpecificOutput = null;
+
 	/**
 	 * Object containing amount and ISO currency code attributes
 	 */
@@ -269,6 +271,28 @@ public class PaymentOutput {
 	 */
 	public PaymentOutput withSepaDirectDebitPaymentMethodSpecificOutput(SepaDirectDebitPaymentMethodSpecificOutput value) {
 		this.sepaDirectDebitPaymentMethodSpecificOutput = value;
+		return this;
+	}
+
+	/**
+	 * Object containing specific surcharging attributes applied to an order.
+	 */
+	public SurchargeSpecificOutput getSurchargeSpecificOutput() {
+		return surchargeSpecificOutput;
+	}
+
+	/**
+	 * Object containing specific surcharging attributes applied to an order.
+	 */
+	public void setSurchargeSpecificOutput(SurchargeSpecificOutput value) {
+		this.surchargeSpecificOutput = value;
+	}
+
+	/**
+	 * Object containing specific surcharging attributes applied to an order.
+	 */
+	public PaymentOutput withSurchargeSpecificOutput(SurchargeSpecificOutput value) {
+		this.surchargeSpecificOutput = value;
 		return this;
 	}
 }

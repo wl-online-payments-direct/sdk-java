@@ -21,6 +21,8 @@ public class Order {
 
 	private ShoppingCart shoppingCart = null;
 
+	private SurchargeSpecificInput surchargeSpecificInput = null;
+
 	/**
 	 * Object containing additional input on the order
 	 */
@@ -150,6 +152,28 @@ public class Order {
 	 */
 	public Order withShoppingCart(ShoppingCart value) {
 		this.shoppingCart = value;
+		return this;
+	}
+
+	/**
+	 * Object containing specific input required to apply surcharging to an order.
+	 */
+	public SurchargeSpecificInput getSurchargeSpecificInput() {
+		return surchargeSpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required to apply surcharging to an order.
+	 */
+	public void setSurchargeSpecificInput(SurchargeSpecificInput value) {
+		this.surchargeSpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input required to apply surcharging to an order.
+	 */
+	public Order withSurchargeSpecificInput(SurchargeSpecificInput value) {
+		this.surchargeSpecificInput = value;
 		return this;
 	}
 }
