@@ -26,6 +26,8 @@ import com.onlinepayments.domain.PaymentResponse;
 import com.onlinepayments.domain.RefundRequest;
 import com.onlinepayments.domain.RefundResponse;
 import com.onlinepayments.domain.RefundsResponse;
+import com.onlinepayments.domain.SubsequentPaymentRequest;
+import com.onlinepayments.domain.SubsequentPaymentResponse;
 
 /**
  * Payments client. Thread-safe.
@@ -190,6 +192,39 @@ public interface PaymentsClientInterface {
 	 * @throws ApiException if the payment platform returned any other error
 	 */
 	CancelPaymentResponse cancelPayment(String paymentId, CancelPaymentRequest body, CallContext context);
+
+	/**
+	 * Resource /v2/{merchantId}/payments/{paymentId}/subsequent
+	 * - Subsequent payment
+	 *
+	 * @throws DeclinedPaymentException if the payment platform declined / rejected the payment. The payment result will be available from the exception.
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws PaymentPlatformException if something went wrong at the payment platform,
+	 *            the payment platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the payment platform returned any other error
+	 */
+	SubsequentPaymentResponse subsequentPayment(String paymentId, SubsequentPaymentRequest body);
+
+	/**
+	 * Resource /v2/{merchantId}/payments/{paymentId}/subsequent
+	 * - Subsequent payment
+	 *
+	 * @throws DeclinedPaymentException if the payment platform declined / rejected the payment. The payment result will be available from the exception.
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws PaymentPlatformException if something went wrong at the payment platform,
+	 *            the payment platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the payment platform returned any other error
+	 */
+	SubsequentPaymentResponse subsequentPayment(String paymentId, SubsequentPaymentRequest body, CallContext context);
 
 	/**
 	 * Resource /v2/{merchantId}/payments/{paymentId}/refund
