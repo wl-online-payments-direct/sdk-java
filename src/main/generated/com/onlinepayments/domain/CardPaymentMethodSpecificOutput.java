@@ -14,6 +14,8 @@ public class CardPaymentMethodSpecificOutput {
 
 	private CardEssentials card = null;
 
+	private CurrencyConversion currencyConversion = null;
+
 	private ExternalTokenLinked externalTokenLinked = null;
 
 	private CardFraudResults fraudResults = null;
@@ -21,6 +23,10 @@ public class CardPaymentMethodSpecificOutput {
 	private String initialSchemeTransactionId = null;
 
 	private String paymentOption = null;
+
+	private PaymentProduct3208SpecificOutput paymentProduct3208SpecificOutput = null;
+
+	private PaymentProduct3209SpecificOutput paymentProduct3209SpecificOutput = null;
 
 	private Integer paymentProductId = null;
 
@@ -93,6 +99,19 @@ public class CardPaymentMethodSpecificOutput {
 	 */
 	public CardPaymentMethodSpecificOutput withCard(CardEssentials value) {
 		this.card = value;
+		return this;
+	}
+
+	public CurrencyConversion getCurrencyConversion() {
+		return currencyConversion;
+	}
+
+	public void setCurrencyConversion(CurrencyConversion value) {
+		this.currencyConversion = value;
+	}
+
+	public CardPaymentMethodSpecificOutput withCurrencyConversion(CurrencyConversion value) {
+		this.currencyConversion = value;
 		return this;
 	}
 
@@ -172,6 +191,50 @@ public class CardPaymentMethodSpecificOutput {
 	 */
 	public CardPaymentMethodSpecificOutput withPaymentOption(String value) {
 		this.paymentOption = value;
+		return this;
+	}
+
+	/**
+	 * OneyDuplo Leroy Merlin specific details
+	 */
+	public PaymentProduct3208SpecificOutput getPaymentProduct3208SpecificOutput() {
+		return paymentProduct3208SpecificOutput;
+	}
+
+	/**
+	 * OneyDuplo Leroy Merlin specific details
+	 */
+	public void setPaymentProduct3208SpecificOutput(PaymentProduct3208SpecificOutput value) {
+		this.paymentProduct3208SpecificOutput = value;
+	}
+
+	/**
+	 * OneyDuplo Leroy Merlin specific details
+	 */
+	public CardPaymentMethodSpecificOutput withPaymentProduct3208SpecificOutput(PaymentProduct3208SpecificOutput value) {
+		this.paymentProduct3208SpecificOutput = value;
+		return this;
+	}
+
+	/**
+	 * OneyDuplo Alcampo specific details
+	 */
+	public PaymentProduct3209SpecificOutput getPaymentProduct3209SpecificOutput() {
+		return paymentProduct3209SpecificOutput;
+	}
+
+	/**
+	 * OneyDuplo Alcampo specific details
+	 */
+	public void setPaymentProduct3209SpecificOutput(PaymentProduct3209SpecificOutput value) {
+		this.paymentProduct3209SpecificOutput = value;
+	}
+
+	/**
+	 * OneyDuplo Alcampo specific details
+	 */
+	public CardPaymentMethodSpecificOutput withPaymentProduct3209SpecificOutput(PaymentProduct3209SpecificOutput value) {
+		this.paymentProduct3209SpecificOutput = value;
 		return this;
 	}
 

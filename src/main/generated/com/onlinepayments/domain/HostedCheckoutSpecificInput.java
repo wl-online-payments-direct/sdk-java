@@ -8,6 +8,8 @@ package com.onlinepayments.domain;
  */
 public class HostedCheckoutSpecificInput {
 
+	private Integer allowedNumberOfPaymentAttempts = null;
+
 	private CardPaymentMethodSpecificInputForHostedCheckout cardPaymentMethodSpecificInput = null;
 
 	private Boolean isRecurring = null;
@@ -25,6 +27,28 @@ public class HostedCheckoutSpecificInput {
 	private String tokens = null;
 
 	private String variant = null;
+
+	/**
+	 * The maximum number of times a customer can try to pay before the payment is definitely declined. The value must be between 1 and 10. By default, the value is set to 10 attempts.
+	 */
+	public Integer getAllowedNumberOfPaymentAttempts() {
+		return allowedNumberOfPaymentAttempts;
+	}
+
+	/**
+	 * The maximum number of times a customer can try to pay before the payment is definitely declined. The value must be between 1 and 10. By default, the value is set to 10 attempts.
+	 */
+	public void setAllowedNumberOfPaymentAttempts(Integer value) {
+		this.allowedNumberOfPaymentAttempts = value;
+	}
+
+	/**
+	 * The maximum number of times a customer can try to pay before the payment is definitely declined. The value must be between 1 and 10. By default, the value is set to 10 attempts.
+	 */
+	public HostedCheckoutSpecificInput withAllowedNumberOfPaymentAttempts(Integer value) {
+		this.allowedNumberOfPaymentAttempts = value;
+		return this;
+	}
 
 	/**
 	 * Object containing card payment specific data for hosted checkout

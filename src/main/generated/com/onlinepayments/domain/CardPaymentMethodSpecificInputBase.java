@@ -12,9 +12,15 @@ public class CardPaymentMethodSpecificInputBase {
 
 	private String authorizationMode = null;
 
+	private CurrencyConversionSpecificInput currencyConversionSpecificInput = null;
+
 	private String initialSchemeTransactionId = null;
 
 	private PaymentProduct130SpecificInput paymentProduct130SpecificInput = null;
+
+	private PaymentProduct3208SpecificInput paymentProduct3208SpecificInput = null;
+
+	private PaymentProduct3209SpecificInput paymentProduct3209SpecificInput = null;
 
 	private PaymentProduct5100SpecificInput paymentProduct5100SpecificInput = null;
 
@@ -97,6 +103,28 @@ public class CardPaymentMethodSpecificInputBase {
 	}
 
 	/**
+	 * Object containing specific input required for Dynamic Currency Conversion.
+	 */
+	public CurrencyConversionSpecificInput getCurrencyConversionSpecificInput() {
+		return currencyConversionSpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for Dynamic Currency Conversion.
+	 */
+	public void setCurrencyConversionSpecificInput(CurrencyConversionSpecificInput value) {
+		this.currencyConversionSpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input required for Dynamic Currency Conversion.
+	 */
+	public CardPaymentMethodSpecificInputBase withCurrencyConversionSpecificInput(CurrencyConversionSpecificInput value) {
+		this.currencyConversionSpecificInput = value;
+		return this;
+	}
+
+	/**
 	 * The unique scheme transactionId of the initial transaction that was performed with SCA. In case this is unknown a scheme transactionId of an earlier transaction part of the same sequence can be used as a fall-back. Strongly advised to be submitted for any MerchantInitiated or recurring transaction (a subsequent one).
 	 */
 	public String getInitialSchemeTransactionId() {
@@ -137,6 +165,50 @@ public class CardPaymentMethodSpecificInputBase {
 	 */
 	public CardPaymentMethodSpecificInputBase withPaymentProduct130SpecificInput(PaymentProduct130SpecificInput value) {
 		this.paymentProduct130SpecificInput = value;
+		return this;
+	}
+
+	/**
+	 * Object containing specific input required for OneyDuplo Leroy Merlin payments.
+	 */
+	public PaymentProduct3208SpecificInput getPaymentProduct3208SpecificInput() {
+		return paymentProduct3208SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for OneyDuplo Leroy Merlin payments.
+	 */
+	public void setPaymentProduct3208SpecificInput(PaymentProduct3208SpecificInput value) {
+		this.paymentProduct3208SpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input required for OneyDuplo Leroy Merlin payments.
+	 */
+	public CardPaymentMethodSpecificInputBase withPaymentProduct3208SpecificInput(PaymentProduct3208SpecificInput value) {
+		this.paymentProduct3208SpecificInput = value;
+		return this;
+	}
+
+	/**
+	 * Object containing specific input required for OneyDuplo Alcampo payments.
+	 */
+	public PaymentProduct3209SpecificInput getPaymentProduct3209SpecificInput() {
+		return paymentProduct3209SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for OneyDuplo Alcampo payments.
+	 */
+	public void setPaymentProduct3209SpecificInput(PaymentProduct3209SpecificInput value) {
+		this.paymentProduct3209SpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input required for OneyDuplo Alcampo payments.
+	 */
+	public CardPaymentMethodSpecificInputBase withPaymentProduct3209SpecificInput(PaymentProduct3209SpecificInput value) {
+		this.paymentProduct3209SpecificInput = value;
 		return this;
 	}
 

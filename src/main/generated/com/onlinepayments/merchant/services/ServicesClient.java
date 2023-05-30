@@ -10,6 +10,8 @@ import com.onlinepayments.CallContext;
 import com.onlinepayments.ResponseException;
 import com.onlinepayments.domain.CalculateSurchargeRequest;
 import com.onlinepayments.domain.CalculateSurchargeResponse;
+import com.onlinepayments.domain.CurrencyConversionRequest;
+import com.onlinepayments.domain.CurrencyConversionResponse;
 import com.onlinepayments.domain.ErrorResponse;
 import com.onlinepayments.domain.GetIINDetailsRequest;
 import com.onlinepayments.domain.GetIINDetailsResponse;
@@ -46,6 +48,35 @@ public class ServicesClient extends ApiResource implements ServicesClientInterfa
 					null,
 					body,
 					CalculateSurchargeResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CurrencyConversionResponse getDccRateInquiry(CurrencyConversionRequest body) {
+		return getDccRateInquiry(body, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CurrencyConversionResponse getDccRateInquiry(CurrencyConversionRequest body, CallContext context) {
+		String uri = instantiateUri("/v2/{merchantId}/services/dccrate", null);
+		try {
+			return communicator.post(
+					uri,
+					getClientHeaders(),
+					null,
+					body,
+					CurrencyConversionResponse.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;

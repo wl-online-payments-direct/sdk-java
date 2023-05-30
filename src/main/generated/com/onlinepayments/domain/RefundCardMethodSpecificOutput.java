@@ -5,9 +5,24 @@ package com.onlinepayments.domain;
 
 public class RefundCardMethodSpecificOutput {
 
+	private CurrencyConversion currencyConversion = null;
+
 	private Long totalAmountPaid = null;
 
 	private Long totalAmountRefunded = null;
+
+	public CurrencyConversion getCurrencyConversion() {
+		return currencyConversion;
+	}
+
+	public void setCurrencyConversion(CurrencyConversion value) {
+		this.currencyConversion = value;
+	}
+
+	public RefundCardMethodSpecificOutput withCurrencyConversion(CurrencyConversion value) {
+		this.currencyConversion = value;
+		return this;
+	}
 
 	public Long getTotalAmountPaid() {
 		return totalAmountPaid;
