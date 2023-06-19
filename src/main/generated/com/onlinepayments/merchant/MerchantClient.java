@@ -9,6 +9,7 @@ import com.onlinepayments.ApiResource;
 import com.onlinepayments.merchant.hostedcheckout.HostedCheckoutClient;
 import com.onlinepayments.merchant.hostedtokenization.HostedTokenizationClient;
 import com.onlinepayments.merchant.mandates.MandatesClient;
+import com.onlinepayments.merchant.paymentlinks.PaymentLinksClient;
 import com.onlinepayments.merchant.payments.PaymentsClient;
 import com.onlinepayments.merchant.payouts.PayoutsClient;
 import com.onlinepayments.merchant.productgroups.ProductGroupsClient;
@@ -45,6 +46,13 @@ public class MerchantClient extends ApiResource implements MerchantClientInterfa
 	 */
 	public MandatesClient mandates() {
 		return new MandatesClient(this, null);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public PaymentLinksClient paymentLinks() {
+		return new PaymentLinksClient(this, null);
 	}
 
 	/**

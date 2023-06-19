@@ -10,6 +10,8 @@ public class RedirectPaymentMethodSpecificInput {
 
 	private String paymentOption = null;
 
+	private RedirectPaymentProduct3306SpecificInput paymentProduct3306SpecificInput = null;
+
 	private RedirectPaymentProduct809SpecificInput paymentProduct809SpecificInput = null;
 
 	private RedirectPaymentProduct840SpecificInput paymentProduct840SpecificInput = null;
@@ -43,6 +45,28 @@ public class RedirectPaymentMethodSpecificInput {
 	 */
 	public RedirectPaymentMethodSpecificInput withPaymentOption(String value) {
 		this.paymentOption = value;
+		return this;
+	}
+
+	/**
+	 * Object containing specific input required for Klarna payments (Payment product ID 3306)
+	 */
+	public RedirectPaymentProduct3306SpecificInput getPaymentProduct3306SpecificInput() {
+		return paymentProduct3306SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for Klarna payments (Payment product ID 3306)
+	 */
+	public void setPaymentProduct3306SpecificInput(RedirectPaymentProduct3306SpecificInput value) {
+		this.paymentProduct3306SpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input required for Klarna payments (Payment product ID 3306)
+	 */
+	public RedirectPaymentMethodSpecificInput withPaymentProduct3306SpecificInput(RedirectPaymentProduct3306SpecificInput value) {
+		this.paymentProduct3306SpecificInput = value;
 		return this;
 	}
 

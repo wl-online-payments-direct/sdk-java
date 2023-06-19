@@ -6,6 +6,7 @@ package com.onlinepayments.merchant;
 import com.onlinepayments.merchant.hostedcheckout.HostedCheckoutClientInterface;
 import com.onlinepayments.merchant.hostedtokenization.HostedTokenizationClientInterface;
 import com.onlinepayments.merchant.mandates.MandatesClientInterface;
+import com.onlinepayments.merchant.paymentlinks.PaymentLinksClientInterface;
 import com.onlinepayments.merchant.payments.PaymentsClientInterface;
 import com.onlinepayments.merchant.payouts.PayoutsClientInterface;
 import com.onlinepayments.merchant.productgroups.ProductGroupsClientInterface;
@@ -39,6 +40,13 @@ public interface MerchantClientInterface {
 	 * @return MandatesClient
 	 */
 	MandatesClientInterface mandates();
+
+	/**
+	 * Resource /v2/{merchantId}/paymentlinks
+	 *
+	 * @return PaymentLinksClient
+	 */
+	PaymentLinksClientInterface paymentLinks();
 
 	/**
 	 * Resource /v2/{merchantId}/payments
