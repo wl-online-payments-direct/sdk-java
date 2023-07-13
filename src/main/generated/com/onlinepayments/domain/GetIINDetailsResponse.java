@@ -7,6 +7,8 @@ import java.util.List;
 
 public class GetIINDetailsResponse {
 
+	private String cardType = null;
+
 	private List<IINDetail> coBrands = null;
 
 	private String countryCode = null;
@@ -14,6 +16,37 @@ public class GetIINDetailsResponse {
 	private Boolean isAllowedInContext = null;
 
 	private Integer paymentProductId = null;
+
+	/**
+	 * The card's type as categorised by the payment method. Possible values are:
+	 *   * Credit
+	 *   * Debit
+	 *   * Prepaid
+	 */
+	public String getCardType() {
+		return cardType;
+	}
+
+	/**
+	 * The card's type as categorised by the payment method. Possible values are:
+	 *   * Credit
+	 *   * Debit
+	 *   * Prepaid
+	 */
+	public void setCardType(String value) {
+		this.cardType = value;
+	}
+
+	/**
+	 * The card's type as categorised by the payment method. Possible values are:
+	 *   * Credit
+	 *   * Debit
+	 *   * Prepaid
+	 */
+	public GetIINDetailsResponse withCardType(String value) {
+		this.cardType = value;
+		return this;
+	}
 
 	/**
 	 * List of IIN details

@@ -5,9 +5,42 @@ package com.onlinepayments.domain;
 
 public class IINDetail {
 
+	private String cardType = null;
+
 	private Boolean isAllowedInContext = null;
 
 	private Integer paymentProductId = null;
+
+	/**
+	 * The card's type as categorised by the payment method. Possible values are:
+	 *   * Credit
+	 *   * Debit
+	 *   * Prepaid
+	 */
+	public String getCardType() {
+		return cardType;
+	}
+
+	/**
+	 * The card's type as categorised by the payment method. Possible values are:
+	 *   * Credit
+	 *   * Debit
+	 *   * Prepaid
+	 */
+	public void setCardType(String value) {
+		this.cardType = value;
+	}
+
+	/**
+	 * The card's type as categorised by the payment method. Possible values are:
+	 *   * Credit
+	 *   * Debit
+	 *   * Prepaid
+	 */
+	public IINDetail withCardType(String value) {
+		this.cardType = value;
+		return this;
+	}
 
 	/**
 	 * Populated only if you submitted a payment context.

@@ -13,21 +13,30 @@ public class AmountOfMoney {
 	private String currencyCode = null;
 
 	/**
-	 * Amount in cents and always having 2 decimals
+	 * Amount in the smallest currency unit, i.e.:
+	 * * EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34
+	 * * KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234
+	 * * JPY is a zero-decimal currency, the value 1234 will result in JPY 1234
 	 */
 	public Long getAmount() {
 		return amount;
 	}
 
 	/**
-	 * Amount in cents and always having 2 decimals
+	 * Amount in the smallest currency unit, i.e.:
+	 * * EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34
+	 * * KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234
+	 * * JPY is a zero-decimal currency, the value 1234 will result in JPY 1234
 	 */
 	public void setAmount(Long value) {
 		this.amount = value;
 	}
 
 	/**
-	 * Amount in cents and always having 2 decimals
+	 * Amount in the smallest currency unit, i.e.:
+	 * * EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34
+	 * * KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234
+	 * * JPY is a zero-decimal currency, the value 1234 will result in JPY 1234
 	 */
 	public AmountOfMoney withAmount(Long value) {
 		this.amount = value;

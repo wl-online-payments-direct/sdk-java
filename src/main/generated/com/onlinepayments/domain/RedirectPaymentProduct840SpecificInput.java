@@ -10,6 +10,8 @@ public class RedirectPaymentProduct840SpecificInput {
 
 	private Boolean addressSelectionAtPayPal = null;
 
+	private String custom = null;
+
 	/**
 	 * Indicates whether to use PayPal Express Checkout Shortcut.
 	 *  * true = When shortcut is enabled, the consumer can select a shipping address during PayPal checkout.
@@ -41,6 +43,28 @@ public class RedirectPaymentProduct840SpecificInput {
 	 */
 	public RedirectPaymentProduct840SpecificInput withAddressSelectionAtPayPal(Boolean value) {
 		this.addressSelectionAtPayPal = value;
+		return this;
+	}
+
+	/**
+	 * Free text field that you can use to support reconciliation flow.
+	 */
+	public String getCustom() {
+		return custom;
+	}
+
+	/**
+	 * Free text field that you can use to support reconciliation flow.
+	 */
+	public void setCustom(String value) {
+		this.custom = value;
+	}
+
+	/**
+	 * Free text field that you can use to support reconciliation flow.
+	 */
+	public RedirectPaymentProduct840SpecificInput withCustom(String value) {
+		this.custom = value;
 		return this;
 	}
 }

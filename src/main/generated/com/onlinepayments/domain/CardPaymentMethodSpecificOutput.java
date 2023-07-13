@@ -8,6 +8,8 @@ package com.onlinepayments.domain;
  */
 public class CardPaymentMethodSpecificOutput {
 
+	private AcquirerInformation acquirerInformation = null;
+
 	private Long authenticatedAmount = null;
 
 	private String authorisationCode = null;
@@ -35,6 +37,28 @@ public class CardPaymentMethodSpecificOutput {
 	private ThreeDSecureResults threeDSecureResults = null;
 
 	private String token = null;
+
+	/**
+	 * Information about the acquirer used to process the transaction
+	 */
+	public AcquirerInformation getAcquirerInformation() {
+		return acquirerInformation;
+	}
+
+	/**
+	 * Information about the acquirer used to process the transaction
+	 */
+	public void setAcquirerInformation(AcquirerInformation value) {
+		this.acquirerInformation = value;
+	}
+
+	/**
+	 * Information about the acquirer used to process the transaction
+	 */
+	public CardPaymentMethodSpecificOutput withAcquirerInformation(AcquirerInformation value) {
+		this.acquirerInformation = value;
+		return this;
+	}
 
 	/**
 	 * Allows amount to be authenticated to be different from amount authorized. (Amount in cents and always having 2 decimals)

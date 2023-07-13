@@ -12,6 +12,8 @@ public class SurchargeSpecificOutput {
 
 	private AmountOfMoney surchargeAmount = null;
 
+	private SurchargeRate surchargeRate = null;
+
 	/**
 	 * The surcharge mode which defines how a merchant will apply surcharging.
 	 * * pass-through - Merchant to define and apply surcharge amount for a transaction for processing. This mode is not supported on Create Hosted Checkout Session.
@@ -59,6 +61,28 @@ public class SurchargeSpecificOutput {
 	 */
 	public SurchargeSpecificOutput withSurchargeAmount(AmountOfMoney value) {
 		this.surchargeAmount = value;
+		return this;
+	}
+
+	/**
+	 * A summary of surcharge details used in the calculation of the surcharge amount. null if result = NO_SURCHARGE
+	 */
+	public SurchargeRate getSurchargeRate() {
+		return surchargeRate;
+	}
+
+	/**
+	 * A summary of surcharge details used in the calculation of the surcharge amount. null if result = NO_SURCHARGE
+	 */
+	public void setSurchargeRate(SurchargeRate value) {
+		this.surchargeRate = value;
+	}
+
+	/**
+	 * A summary of surcharge details used in the calculation of the surcharge amount. null if result = NO_SURCHARGE
+	 */
+	public SurchargeSpecificOutput withSurchargeRate(SurchargeRate value) {
+		this.surchargeRate = value;
 		return this;
 	}
 }

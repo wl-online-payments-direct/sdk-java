@@ -9,29 +9,31 @@ public class CreateHostedTokenizationRequest {
 
 	private String locale = null;
 
+	private PaymentProductFiltersHostedTokenization paymentProductFilters = null;
+
 	private String tokens = null;
 
 	private String variant = null;
 
 	/**
-	 * Indicate if the tokenization form should contain a prompt asking the user to give consent for storing their information for future payments.
-	 * If this parameter is false, you should ask the user yourself and provide the answer when submitting the Tokenizer in your javascript code.
+	 * Indicate if the tokenization form should contain a checkbox asking the user to give consent for storing their information for future payments.
+	 * If this parameter is false or missing, you should ask the user yourself and provide their answer when submitting the Tokenizer in your JavaScript code. To pass this choice set the submitTokenization function's parameter storePermanently to false, if you choose not to store the token for subsequent payments, or to true otherwise.
 	 */
 	public Boolean getAskConsumerConsent() {
 		return askConsumerConsent;
 	}
 
 	/**
-	 * Indicate if the tokenization form should contain a prompt asking the user to give consent for storing their information for future payments.
-	 * If this parameter is false, you should ask the user yourself and provide the answer when submitting the Tokenizer in your javascript code.
+	 * Indicate if the tokenization form should contain a checkbox asking the user to give consent for storing their information for future payments.
+	 * If this parameter is false or missing, you should ask the user yourself and provide their answer when submitting the Tokenizer in your JavaScript code. To pass this choice set the submitTokenization function's parameter storePermanently to false, if you choose not to store the token for subsequent payments, or to true otherwise.
 	 */
 	public void setAskConsumerConsent(Boolean value) {
 		this.askConsumerConsent = value;
 	}
 
 	/**
-	 * Indicate if the tokenization form should contain a prompt asking the user to give consent for storing their information for future payments.
-	 * If this parameter is false, you should ask the user yourself and provide the answer when submitting the Tokenizer in your javascript code.
+	 * Indicate if the tokenization form should contain a checkbox asking the user to give consent for storing their information for future payments.
+	 * If this parameter is false or missing, you should ask the user yourself and provide their answer when submitting the Tokenizer in your JavaScript code. To pass this choice set the submitTokenization function's parameter storePermanently to false, if you choose not to store the token for subsequent payments, or to true otherwise.
 	 */
 	public CreateHostedTokenizationRequest withAskConsumerConsent(Boolean value) {
 		this.askConsumerConsent = value;
@@ -57,6 +59,28 @@ public class CreateHostedTokenizationRequest {
 	 */
 	public CreateHostedTokenizationRequest withLocale(String value) {
 		this.locale = value;
+		return this;
+	}
+
+	/**
+	 * Contains the payment product ids that will be used for manipulating the payment products available for the payment to the customer.
+	 */
+	public PaymentProductFiltersHostedTokenization getPaymentProductFilters() {
+		return paymentProductFilters;
+	}
+
+	/**
+	 * Contains the payment product ids that will be used for manipulating the payment products available for the payment to the customer.
+	 */
+	public void setPaymentProductFilters(PaymentProductFiltersHostedTokenization value) {
+		this.paymentProductFilters = value;
+	}
+
+	/**
+	 * Contains the payment product ids that will be used for manipulating the payment products available for the payment to the customer.
+	 */
+	public CreateHostedTokenizationRequest withPaymentProductFilters(PaymentProductFiltersHostedTokenization value) {
+		this.paymentProductFilters = value;
 		return this;
 	}
 
