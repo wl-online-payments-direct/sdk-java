@@ -1,0 +1,17 @@
+com.onlinepayments
+com.onlinepayments.defaultimpl
+com.onlinepayments.domain
+com.onlinepayments.logging
+com.onlinepayments.merchant
+com.onlinepayments.merchant.hostedcheckout
+com.onlinepayments.merchant.hostedtokenization
+com.onlinepayments.merchant.mandates
+com.onlinepayments.merchant.paymentlinks
+com.onlinepayments.merchant.payments
+com.onlinepayments.merchant.payouts
+com.onlinepayments.merchant.productgroups
+com.onlinepayments.merchant.products
+com.onlinepayments.merchant.services
+com.onlinepayments.merchant.sessions
+com.onlinepayments.merchant.tokens
+com.onlinepayments.webhooks
