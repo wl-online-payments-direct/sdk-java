@@ -5,20 +5,20 @@ package com.onlinepayments.domain;
 
 public class CurrencyConversionRequest {
 
-	private CardInfo card = null;
+	private DccCardSource cardSource = null;
 
 	private Transaction transaction = null;
 
-	public CardInfo getCard() {
-		return card;
+	public DccCardSource getCardSource() {
+		return cardSource;
 	}
 
-	public void setCard(CardInfo value) {
-		this.card = value;
+	public void setCardSource(DccCardSource value) {
+		this.cardSource = value;
 	}
 
-	public CurrencyConversionRequest withCard(CardInfo value) {
-		this.card = value;
+	public CurrencyConversionRequest withCardSource(DccCardSource value) {
+		this.cardSource = value;
 		return this;
 	}
 

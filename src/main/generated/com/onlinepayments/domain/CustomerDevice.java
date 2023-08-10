@@ -12,6 +12,8 @@ public class CustomerDevice {
 
 	private BrowserData browserData = null;
 
+	private String deviceFingerprint = null;
+
 	private String ipAddress = null;
 
 	private String locale = null;
@@ -61,6 +63,28 @@ public class CustomerDevice {
 	 */
 	public CustomerDevice withBrowserData(BrowserData value) {
 		this.browserData = value;
+		return this;
+	}
+
+	/**
+	 * Device fingerprint used for fraud detection
+	 */
+	public String getDeviceFingerprint() {
+		return deviceFingerprint;
+	}
+
+	/**
+	 * Device fingerprint used for fraud detection
+	 */
+	public void setDeviceFingerprint(String value) {
+		this.deviceFingerprint = value;
+	}
+
+	/**
+	 * Device fingerprint used for fraud detection
+	 */
+	public CustomerDevice withDeviceFingerprint(String value) {
+		this.deviceFingerprint = value;
 		return this;
 	}
 

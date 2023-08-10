@@ -8,6 +8,8 @@ package com.onlinepayments.domain;
  */
 public class RedirectPaymentMethodSpecificOutput {
 
+	private CustomerBankAccount customerBankAccount = null;
+
 	private FraudResults fraudResults = null;
 
 	private String paymentOption = null;
@@ -23,6 +25,28 @@ public class RedirectPaymentMethodSpecificOutput {
 	private Integer paymentProductId = null;
 
 	private String token = null;
+
+	/**
+	 * Data of customer bank account
+	 */
+	public CustomerBankAccount getCustomerBankAccount() {
+		return customerBankAccount;
+	}
+
+	/**
+	 * Data of customer bank account
+	 */
+	public void setCustomerBankAccount(CustomerBankAccount value) {
+		this.customerBankAccount = value;
+	}
+
+	/**
+	 * Data of customer bank account
+	 */
+	public RedirectPaymentMethodSpecificOutput withCustomerBankAccount(CustomerBankAccount value) {
+		this.customerBankAccount = value;
+		return this;
+	}
 
 	/**
 	 * Object containing the results of the fraud screening
