@@ -18,7 +18,7 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class MetaDataProvider {
 
-	private static final String SDK_VERSION = "4.13.0";
+	private static final String SDK_VERSION = "4.14.0";
 	protected static final String SDK_IDENTIFIER = "OnlinePaymentsJavaServerSDK/v" + SDK_VERSION;
 	protected static final String PLATFORM_IDENTIFIER;
 	static {

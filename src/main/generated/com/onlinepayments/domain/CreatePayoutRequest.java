@@ -12,6 +12,8 @@ public class CreatePayoutRequest {
 
 	private CardPayoutMethodSpecificInput cardPayoutMethodSpecificInput = null;
 
+	private OmnichannelPayoutSpecificInput omnichannelPayoutSpecificInput = null;
+
 	private PaymentReferences references = null;
 
 	/**
@@ -55,6 +57,28 @@ public class CreatePayoutRequest {
 	 */
 	public CreatePayoutRequest withCardPayoutMethodSpecificInput(CardPayoutMethodSpecificInput value) {
 		this.cardPayoutMethodSpecificInput = value;
+		return this;
+	}
+
+	/**
+	 * Object containing the additional payout details for a Omnichannel merchants
+	 */
+	public OmnichannelPayoutSpecificInput getOmnichannelPayoutSpecificInput() {
+		return omnichannelPayoutSpecificInput;
+	}
+
+	/**
+	 * Object containing the additional payout details for a Omnichannel merchants
+	 */
+	public void setOmnichannelPayoutSpecificInput(OmnichannelPayoutSpecificInput value) {
+		this.omnichannelPayoutSpecificInput = value;
+	}
+
+	/**
+	 * Object containing the additional payout details for a Omnichannel merchants
+	 */
+	public CreatePayoutRequest withOmnichannelPayoutSpecificInput(OmnichannelPayoutSpecificInput value) {
+		this.omnichannelPayoutSpecificInput = value;
 		return this;
 	}
 

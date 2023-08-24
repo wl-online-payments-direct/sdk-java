@@ -10,6 +10,8 @@ public class MobilePaymentMethodHostedCheckoutSpecificInput {
 
 	private String authorizationMode = null;
 
+	private MobilePaymentProduct320SpecificInput paymentProduct320SpecificInput = null;
+
 	private Integer paymentProductId = null;
 
 	/**
@@ -46,6 +48,28 @@ public class MobilePaymentMethodHostedCheckoutSpecificInput {
 	 */
 	public MobilePaymentMethodHostedCheckoutSpecificInput withAuthorizationMode(String value) {
 		this.authorizationMode = value;
+		return this;
+	}
+
+	/**
+	 * Object containing information specific to Google Pay. Required for payments with product 320.
+	 */
+	public MobilePaymentProduct320SpecificInput getPaymentProduct320SpecificInput() {
+		return paymentProduct320SpecificInput;
+	}
+
+	/**
+	 * Object containing information specific to Google Pay. Required for payments with product 320.
+	 */
+	public void setPaymentProduct320SpecificInput(MobilePaymentProduct320SpecificInput value) {
+		this.paymentProduct320SpecificInput = value;
+	}
+
+	/**
+	 * Object containing information specific to Google Pay. Required for payments with product 320.
+	 */
+	public MobilePaymentMethodHostedCheckoutSpecificInput withPaymentProduct320SpecificInput(MobilePaymentProduct320SpecificInput value) {
+		this.paymentProduct320SpecificInput = value;
 		return this;
 	}
 
