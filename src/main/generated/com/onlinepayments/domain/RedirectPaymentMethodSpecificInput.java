@@ -14,6 +14,8 @@ public class RedirectPaymentMethodSpecificInput {
 
 	private RedirectPaymentProduct5406SpecificInput paymentProduct5406SpecificInput = null;
 
+	private RedirectPaymentProduct5408SpecificInput paymentProduct5408SpecificInput = null;
+
 	private RedirectPaymentProduct809SpecificInput paymentProduct809SpecificInput = null;
 
 	private RedirectPaymentProduct840SpecificInput paymentProduct840SpecificInput = null;
@@ -91,6 +93,28 @@ public class RedirectPaymentMethodSpecificInput {
 	 */
 	public RedirectPaymentMethodSpecificInput withPaymentProduct5406SpecificInput(RedirectPaymentProduct5406SpecificInput value) {
 		this.paymentProduct5406SpecificInput = value;
+		return this;
+	}
+
+	/**
+	 * Object containing specific input for Account to Account payments (Payment product ID 5408)
+	 */
+	public RedirectPaymentProduct5408SpecificInput getPaymentProduct5408SpecificInput() {
+		return paymentProduct5408SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input for Account to Account payments (Payment product ID 5408)
+	 */
+	public void setPaymentProduct5408SpecificInput(RedirectPaymentProduct5408SpecificInput value) {
+		this.paymentProduct5408SpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input for Account to Account payments (Payment product ID 5408)
+	 */
+	public RedirectPaymentMethodSpecificInput withPaymentProduct5408SpecificInput(RedirectPaymentProduct5408SpecificInput value) {
+		this.paymentProduct5408SpecificInput = value;
 		return this;
 	}
 

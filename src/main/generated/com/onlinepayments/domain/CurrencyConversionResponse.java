@@ -15,21 +15,21 @@ public class CurrencyConversionResponse {
 	private CurrencyConversionResult result = null;
 
 	/**
-	 * The identifier of the Dynamic Currency Conversion(DCC) session that has been created.
+	 * The identifier of the Dynamic Currency Conversion(DCC) session that has been created. 'dccSessionId' will be populated exclusively when the result is "Allowed" for other outcomes such as "InvalidCard", "InvalidMerchant", "NoRate" or "NotAvailable" this field value will be an empty string.
 	 */
 	public String getDccSessionId() {
 		return dccSessionId;
 	}
 
 	/**
-	 * The identifier of the Dynamic Currency Conversion(DCC) session that has been created.
+	 * The identifier of the Dynamic Currency Conversion(DCC) session that has been created. 'dccSessionId' will be populated exclusively when the result is "Allowed" for other outcomes such as "InvalidCard", "InvalidMerchant", "NoRate" or "NotAvailable" this field value will be an empty string.
 	 */
 	public void setDccSessionId(String value) {
 		this.dccSessionId = value;
 	}
 
 	/**
-	 * The identifier of the Dynamic Currency Conversion(DCC) session that has been created.
+	 * The identifier of the Dynamic Currency Conversion(DCC) session that has been created. 'dccSessionId' will be populated exclusively when the result is "Allowed" for other outcomes such as "InvalidCard", "InvalidMerchant", "NoRate" or "NotAvailable" this field value will be an empty string.
 	 */
 	public CurrencyConversionResponse withDccSessionId(String value) {
 		this.dccSessionId = value;

@@ -39,21 +39,21 @@ public class CardEssentials {
 	}
 
 	/**
-	 * The complete credit/debit card number
+	 * The masked credit/debit card number
 	 */
 	public String getCardNumber() {
 		return cardNumber;
 	}
 
 	/**
-	 * The complete credit/debit card number
+	 * The masked credit/debit card number
 	 */
 	public void setCardNumber(String value) {
 		this.cardNumber = value;
 	}
 
 	/**
-	 * The complete credit/debit card number
+	 * The masked credit/debit card number
 	 */
 	public CardEssentials withCardNumber(String value) {
 		this.cardNumber = value;

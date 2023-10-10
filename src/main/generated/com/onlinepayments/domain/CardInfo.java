@@ -10,21 +10,21 @@ public class CardInfo {
 	private Integer paymentProductId = null;
 
 	/**
-	 * The complete credit/debit card number
+	 * Provide the complete credit/debit card number (also known as the PAN) for the most accurate results.
 	 */
 	public String getCardNumber() {
 		return cardNumber;
 	}
 
 	/**
-	 * The complete credit/debit card number
+	 * Provide the complete credit/debit card number (also known as the PAN) for the most accurate results.
 	 */
 	public void setCardNumber(String value) {
 		this.cardNumber = value;
 	}
 
 	/**
-	 * The complete credit/debit card number
+	 * Provide the complete credit/debit card number (also known as the PAN) for the most accurate results.
 	 */
 	public CardInfo withCardNumber(String value) {
 		this.cardNumber = value;

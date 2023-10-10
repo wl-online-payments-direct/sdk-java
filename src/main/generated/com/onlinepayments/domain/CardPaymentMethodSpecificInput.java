@@ -83,7 +83,7 @@ public class CardPaymentMethodSpecificInput {
 	 *   * PRE_AUTHORIZATION - The payment creation results in a pre-authorization that is ready for capture. Pre-authortizations can be reversed and can be captured within 30 days. The capture amount can be lower than the authorized amount. 
 	 *   * SALE - The payment creation results in an authorization that is already captured at the moment of approval. 
 	 * 
-	 *   Only used with some acquirers, ignored for acquirers that don't support this. In case the acquirer doesn't allow this to be specified the authorizationMode is 'unspecified', which behaves similar to a final authorization.
+	 *   Only used with some acquirers, ignored for acquirers that do not support this. In case the acquirer does not allow this to be specified the authorizationMode is 'unspecified', which behaves similar to a final authorization.
 	 */
 	public String getAuthorizationMode() {
 		return authorizationMode;
@@ -95,7 +95,7 @@ public class CardPaymentMethodSpecificInput {
 	 *   * PRE_AUTHORIZATION - The payment creation results in a pre-authorization that is ready for capture. Pre-authortizations can be reversed and can be captured within 30 days. The capture amount can be lower than the authorized amount. 
 	 *   * SALE - The payment creation results in an authorization that is already captured at the moment of approval. 
 	 * 
-	 *   Only used with some acquirers, ignored for acquirers that don't support this. In case the acquirer doesn't allow this to be specified the authorizationMode is 'unspecified', which behaves similar to a final authorization.
+	 *   Only used with some acquirers, ignored for acquirers that do not support this. In case the acquirer does not allow this to be specified the authorizationMode is 'unspecified', which behaves similar to a final authorization.
 	 */
 	public void setAuthorizationMode(String value) {
 		this.authorizationMode = value;
@@ -107,7 +107,7 @@ public class CardPaymentMethodSpecificInput {
 	 *   * PRE_AUTHORIZATION - The payment creation results in a pre-authorization that is ready for capture. Pre-authortizations can be reversed and can be captured within 30 days. The capture amount can be lower than the authorized amount. 
 	 *   * SALE - The payment creation results in an authorization that is already captured at the moment of approval. 
 	 * 
-	 *   Only used with some acquirers, ignored for acquirers that don't support this. In case the acquirer doesn't allow this to be specified the authorizationMode is 'unspecified', which behaves similar to a final authorization.
+	 *   Only used with some acquirers, ignored for acquirers that do not support this. In case the acquirer does not allow this to be specified the authorizationMode is 'unspecified', which behaves similar to a final authorization.
 	 */
 	public CardPaymentMethodSpecificInput withAuthorizationMode(String value) {
 		this.authorizationMode = value;

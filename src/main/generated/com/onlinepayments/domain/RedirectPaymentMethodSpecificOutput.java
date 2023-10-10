@@ -8,6 +8,8 @@ package com.onlinepayments.domain;
  */
 public class RedirectPaymentMethodSpecificOutput {
 
+	private String authorisationCode = null;
+
 	private CustomerBankAccount customerBankAccount = null;
 
 	private FraudResults fraudResults = null;
@@ -25,6 +27,28 @@ public class RedirectPaymentMethodSpecificOutput {
 	private Integer paymentProductId = null;
 
 	private String token = null;
+
+	/**
+	 * Card Authorization code as returned by the acquirer
+	 */
+	public String getAuthorisationCode() {
+		return authorisationCode;
+	}
+
+	/**
+	 * Card Authorization code as returned by the acquirer
+	 */
+	public void setAuthorisationCode(String value) {
+		this.authorisationCode = value;
+	}
+
+	/**
+	 * Card Authorization code as returned by the acquirer
+	 */
+	public RedirectPaymentMethodSpecificOutput withAuthorisationCode(String value) {
+		this.authorisationCode = value;
+		return this;
+	}
 
 	/**
 	 * Data of customer bank account

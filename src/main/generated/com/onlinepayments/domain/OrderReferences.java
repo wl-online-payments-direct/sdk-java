@@ -48,7 +48,7 @@ public class OrderReferences {
 	 *  * 8580 Qiwi - 255 characters
 	 *  * 1504 Konbini - 80 characters
 	 * 
-	 * All other payment products don't support a descriptor.
+	 * All other payment products do not support a descriptor.
 	 */
 	public String getDescriptor() {
 		return descriptor;
@@ -88,7 +88,7 @@ public class OrderReferences {
 	 *  * 8580 Qiwi - 255 characters
 	 *  * 1504 Konbini - 80 characters
 	 * 
-	 * All other payment products don't support a descriptor.
+	 * All other payment products do not support a descriptor.
 	 */
 	public void setDescriptor(String value) {
 		this.descriptor = value;
@@ -128,7 +128,7 @@ public class OrderReferences {
 	 *  * 8580 Qiwi - 255 characters
 	 *  * 1504 Konbini - 80 characters
 	 * 
-	 * All other payment products don't support a descriptor.
+	 * All other payment products do not support a descriptor.
 	 */
 	public OrderReferences withDescriptor(String value) {
 		this.descriptor = value;
@@ -159,6 +159,7 @@ public class OrderReferences {
 
 	/**
 	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+	 * It is highly recommended to provide a single MerchantReference per unique order on your side
 	 */
 	public String getMerchantReference() {
 		return merchantReference;
@@ -166,6 +167,7 @@ public class OrderReferences {
 
 	/**
 	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+	 * It is highly recommended to provide a single MerchantReference per unique order on your side
 	 */
 	public void setMerchantReference(String value) {
 		this.merchantReference = value;
@@ -173,6 +175,7 @@ public class OrderReferences {
 
 	/**
 	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+	 * It is highly recommended to provide a single MerchantReference per unique order on your side
 	 */
 	public OrderReferences withMerchantReference(String value) {
 		this.merchantReference = value;

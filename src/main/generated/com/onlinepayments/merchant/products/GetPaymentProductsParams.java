@@ -144,12 +144,12 @@ public class GetPaymentProductsParams implements ParamRequest {
 
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
-	 * * fields - Don't return any data on fields of the payment product
-	 * * accountsOnFile - Don't return any accounts on file data
-	 * * translations - Don't return any label texts associated with the payment products
-	 * * productsWithoutFields - Don't return products that require any additional data to be captured
-	 * * productsWithoutInstructions - Don't return products that show instructions
-	 * * productsWithRedirects - Don't return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden
+	 * * fields - Do not return any data on fields of the payment product
+	 * * accountsOnFile - Do not return any accounts on file data
+	 * * translations - Do not return any label texts associated with the payment products
+	 * * productsWithoutFields - Do not return products that require any additional data to be captured
+	 * * productsWithoutInstructions - Do not return products that show instructions
+	 * * productsWithRedirects - Do not return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden
 	 */
 	public List<String> getHide() {
 		return hide;
@@ -157,12 +157,12 @@ public class GetPaymentProductsParams implements ParamRequest {
 
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
-	 * * fields - Don't return any data on fields of the payment product
-	 * * accountsOnFile - Don't return any accounts on file data
-	 * * translations - Don't return any label texts associated with the payment products
-	 * * productsWithoutFields - Don't return products that require any additional data to be captured
-	 * * productsWithoutInstructions - Don't return products that show instructions
-	 * * productsWithRedirects - Don't return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden
+	 * * fields - Do not return any data on fields of the payment product
+	 * * accountsOnFile - Do not return any accounts on file data
+	 * * translations - Do not return any label texts associated with the payment products
+	 * * productsWithoutFields - Do not return products that require any additional data to be captured
+	 * * productsWithoutInstructions - Do not return products that show instructions
+	 * * productsWithRedirects - Do not return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden
 	 */
 	public void setHide(List<String> value) {
 		this.hide = value;
@@ -170,12 +170,12 @@ public class GetPaymentProductsParams implements ParamRequest {
 
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
-	 * * fields - Don't return any data on fields of the payment product
-	 * * accountsOnFile - Don't return any accounts on file data
-	 * * translations - Don't return any label texts associated with the payment products
-	 * * productsWithoutFields - Don't return products that require any additional data to be captured
-	 * * productsWithoutInstructions - Don't return products that show instructions
-	 * * productsWithRedirects - Don't return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden
+	 * * fields - Do not return any data on fields of the payment product
+	 * * accountsOnFile - Do not return any accounts on file data
+	 * * translations - Do not return any label texts associated with the payment products
+	 * * productsWithoutFields - Do not return products that require any additional data to be captured
+	 * * productsWithoutInstructions - Do not return products that show instructions
+	 * * productsWithRedirects - Do not return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden
 	 */
 	public void addHide(String value) {
 		if (this.hide == null) {

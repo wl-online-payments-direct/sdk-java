@@ -71,21 +71,21 @@ public class GetIINDetailsResponse {
 	}
 
 	/**
-	 * The ISO 3166-1 alpha-2 country code of the country where the card was issued. If we don't know where the card was issued, then the countryCode will return the value '99'.
+	 * The ISO 3166-1 alpha-2 country code of the country where the card was issued. If we do not know where the card was issued, then the countryCode will return the value '99'.
 	 */
 	public String getCountryCode() {
 		return countryCode;
 	}
 
 	/**
-	 * The ISO 3166-1 alpha-2 country code of the country where the card was issued. If we don't know where the card was issued, then the countryCode will return the value '99'.
+	 * The ISO 3166-1 alpha-2 country code of the country where the card was issued. If we do not know where the card was issued, then the countryCode will return the value '99'.
 	 */
 	public void setCountryCode(String value) {
 		this.countryCode = value;
 	}
 
 	/**
-	 * The ISO 3166-1 alpha-2 country code of the country where the card was issued. If we don't know where the card was issued, then the countryCode will return the value '99'.
+	 * The ISO 3166-1 alpha-2 country code of the country where the card was issued. If we do not know where the card was issued, then the countryCode will return the value '99'.
 	 */
 	public GetIINDetailsResponse withCountryCode(String value) {
 		this.countryCode = value;
