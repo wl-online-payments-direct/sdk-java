@@ -24,6 +24,8 @@ public class CardPaymentMethodSpecificOutput {
 
 	private String initialSchemeTransactionId = null;
 
+	private String paymentAccountReference = null;
+
 	private String paymentOption = null;
 
 	private PaymentProduct3208SpecificOutput paymentProduct3208SpecificOutput = null;
@@ -193,6 +195,28 @@ public class CardPaymentMethodSpecificOutput {
 	 */
 	public CardPaymentMethodSpecificOutput withInitialSchemeTransactionId(String value) {
 		this.initialSchemeTransactionId = value;
+		return this;
+	}
+
+	/**
+	 * The Payment Account Reference is a unique alphanumeric identifier that links a PAN with all subsequent PANs for the same payment account (e.g., following card replacement) and all EMV payment tokens associated with that account. On its own Payment Account Reference cannot be used to start financial transactions, but it does allow for complying with regulatory requirements, performing risk analysis &amp; supporting loyalty programs. Please note that the Payment Account Reference is a value returned after an authorization &amp; only if provided by the acquirer and/or the issuer.
+	 */
+	public String getPaymentAccountReference() {
+		return paymentAccountReference;
+	}
+
+	/**
+	 * The Payment Account Reference is a unique alphanumeric identifier that links a PAN with all subsequent PANs for the same payment account (e.g., following card replacement) and all EMV payment tokens associated with that account. On its own Payment Account Reference cannot be used to start financial transactions, but it does allow for complying with regulatory requirements, performing risk analysis &amp; supporting loyalty programs. Please note that the Payment Account Reference is a value returned after an authorization &amp; only if provided by the acquirer and/or the issuer.
+	 */
+	public void setPaymentAccountReference(String value) {
+		this.paymentAccountReference = value;
+	}
+
+	/**
+	 * The Payment Account Reference is a unique alphanumeric identifier that links a PAN with all subsequent PANs for the same payment account (e.g., following card replacement) and all EMV payment tokens associated with that account. On its own Payment Account Reference cannot be used to start financial transactions, but it does allow for complying with regulatory requirements, performing risk analysis &amp; supporting loyalty programs. Please note that the Payment Account Reference is a value returned after an authorization &amp; only if provided by the acquirer and/or the issuer.
+	 */
+	public CardPaymentMethodSpecificOutput withPaymentAccountReference(String value) {
+		this.paymentAccountReference = value;
 		return this;
 	}
 
