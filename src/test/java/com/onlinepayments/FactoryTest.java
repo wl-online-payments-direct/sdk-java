@@ -55,7 +55,7 @@ public class FactoryTest {
 		@SuppressWarnings("resource")
 		Connection connection = communicator.getConnection();
 		Assert.assertTrue(connection instanceof DefaultConnection);
-		DefaultConnectionTest.assertConnection((DefaultConnection) connection, -1, -1, 100, null);
+		DefaultConnectionTest.assertConnection((DefaultConnection) connection, -1, -1, -1, 100, null);
 
 		Authenticator authenticator = communicator.getAuthenticator();
 		Assert.assertTrue(authenticator instanceof DefaultAuthenticator);

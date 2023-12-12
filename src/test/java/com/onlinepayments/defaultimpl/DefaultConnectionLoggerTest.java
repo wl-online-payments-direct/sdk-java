@@ -427,7 +427,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 		serverBootstrap.registerHandler("/v2/1/services/testconnection", requestHandler);
 		HttpHost host = start();
 
-		ClientInterface client = createClient(host, 1000, 10);
+		ClientInterface client = createClient(host, 1000, 1000, 10);
 		TestLogger logger = new TestLogger();
 		client.enableLogging(logger);
 
@@ -535,7 +535,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 		serverBootstrap.registerHandler("/v2/1/services/testconnection", requestHandler);
 		HttpHost host = start();
 
-		ClientInterface client = createClient(host, 1000, 100);
+		ClientInterface client = createClient(host, 1000, 1000, 100);
 		TestLogger logger = new TestLogger();
 
 		setupRequestHandler(enableLogging(delayedAnswer(setHtmlResponse("notFound.html", 404), 200), client, logger));
@@ -757,6 +757,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 	// general utility methods
 
+	private static final int DEFAULT_CONNECTION_REQUEST_TIMEOUT = 1000;
 	private static final int DEFAULT_CONNECT_TIMEOUT = 1000;
 	private static final int DEFAULT_SOCKET_TIMEOUT = 1000;
 
@@ -765,27 +766,27 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 	}
 
 	private Communicator createCommunicator(HttpHost host) throws URISyntaxException {
-		return createCommunicator(host, DEFAULT_CONNECT_TIMEOUT, DEFAULT_SOCKET_TIMEOUT);
+		return createCommunicator(host, DEFAULT_CONNECTION_REQUEST_TIMEOUT, DEFAULT_CONNECT_TIMEOUT, DEFAULT_SOCKET_TIMEOUT);
 	}
 
 	@SuppressWarnings("resource")
-	private Communicator createCommunicator(HttpHost host, int connectTimeout, int socketTimeout) throws URISyntaxException {
+	private Communicator createCommunicator(HttpHost host, int connectionRequestTimeout, int connectTimeout, int socketTimeout) throws URISyntaxException {
 
 		URI uri = toURI(host);
-		Connection connection = new DefaultConnection(connectTimeout, socketTimeout);
+		Connection connection = new DefaultConnection(connectionRequestTimeout, connectTimeout, socketTimeout);
 		Authenticator authenticator = new DefaultAuthenticator("apiKey", "secret");
 		MetaDataProvider metaDataProvider = new MetaDataProvider("OnlinePayments");
 		return Factory.createCommunicator(uri, connection, authenticator, metaDataProvider);
 	}
 
 	private ClientInterface createClient(HttpHost host) throws URISyntaxException {
-		return createClient(host, DEFAULT_CONNECT_TIMEOUT, DEFAULT_SOCKET_TIMEOUT);
+		return createClient(host, DEFAULT_CONNECTION_REQUEST_TIMEOUT, DEFAULT_CONNECT_TIMEOUT, DEFAULT_SOCKET_TIMEOUT);
 	}
 
 	@SuppressWarnings("resource")
-	private ClientInterface createClient(HttpHost host, int connectTimeout, int socketTimeout) throws URISyntaxException {
+	private ClientInterface createClient(HttpHost host, int connectionRequestTimeout, int connectTimeout, int socketTimeout) throws URISyntaxException {
 
-		Communicator communicator = createCommunicator(host, connectTimeout, socketTimeout);
+		Communicator communicator = createCommunicator(host, connectionRequestTimeout, connectTimeout, socketTimeout);
 		return Factory.createClient(communicator);
 	}
 

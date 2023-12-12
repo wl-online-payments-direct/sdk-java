@@ -2,18 +2,17 @@ package com.onlinepayments.defaultimpl;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.ProxySelector;
 import java.net.URI;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 
+import com.onlinepayments.*;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpEntityEnclosingRequest;
@@ -48,6 +47,11 @@ import org.apache.http.conn.socket.ConnectionSocketFactory;
 import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.BufferedHttpEntity;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.ContentBody;
+import org.apache.http.entity.mime.content.InputStreamBody;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -64,14 +68,6 @@ import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.ssl.SSLContexts;
 
-import com.onlinepayments.CommunicationException;
-import com.onlinepayments.CommunicatorConfiguration;
-import com.onlinepayments.Connection;
-import com.onlinepayments.PooledConnection;
-import com.onlinepayments.ProxyConfiguration;
-import com.onlinepayments.RequestHeader;
-import com.onlinepayments.ResponseHandler;
-import com.onlinepayments.ResponseHeader;
 import com.onlinepayments.logging.CommunicatorLogger;
 import com.onlinepayments.logging.LogMessageBuilder;
 import com.onlinepayments.logging.RequestLogMessageBuilder;
@@ -84,6 +80,7 @@ public class DefaultConnection implements PooledConnection {
 
 	private static final Charset CHARSET = Charset.forName("UTF-8");
 
+	private static final String X_REQUEST_ID_HEADER = "X-Request-Id";
 	private static final String REQUEST_ID_ATTRIBUTE = DefaultConnection.class.getName() + ".requestId";
 	private static final String START_TIMME_ATTRIBUTE = DefaultConnection.class.getName() + ".startTme";
 
@@ -99,48 +96,59 @@ public class DefaultConnection implements PooledConnection {
 	private volatile CommunicatorLogger communicatorLogger;
 
 	public DefaultConnection() {
-		this(CommunicatorConfiguration.DEFAULT_CONNECT_TIMEOUT, CommunicatorConfiguration.DEFAULT_SOCKET_TIMEOUT);
+		this(CommunicatorConfiguration.DEFAULT_CONNECTION_REQUEST_TIMEOUT, CommunicatorConfiguration.DEFAULT_CONNECT_TIMEOUT, CommunicatorConfiguration.DEFAULT_SOCKET_TIMEOUT);
+	}
+
+	/**
+	 * Creates a new connection with the given connect and socket timeouts, default connection request timeout, the default number of maximum connections, no proxy and the default HTTPS protocols.
+	 ** @see CommunicatorConfiguration#DEFAULT_CONNECT_TIMEOUT
+	 * @see CommunicatorConfiguration#DEFAULT_SOCKET_TIMEOUT
+	 */
+	public DefaultConnection(int connectTimeout, int socketTimeout) {
+		this(CommunicatorConfiguration.DEFAULT_CONNECTION_REQUEST_TIMEOUT, connectTimeout, socketTimeout);
 	}
 
 	/**
 	 * Creates a new connection with the given timeouts, the default number of maximum connections, no proxy and the default HTTPS protocols.
-	 * @see CommunicatorConfiguration#DEFAULT_MAX_CONNECTIONS
-	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
+	 * @see CommunicatorConfiguration#DEFAULT_CONNECTION_REQUEST_TIMEOUT
+	 * @see CommunicatorConfiguration#DEFAULT_CONNECT_TIMEOUT
+	 * @see CommunicatorConfiguration#DEFAULT_SOCKET_TIMEOUT
 	 */
-	public DefaultConnection(int connectTimeout, int socketTimeout) {
-		this(connectTimeout, socketTimeout, null);
+	public DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout) {
+		this(connectionRequestTimeout, connectTimeout, socketTimeout, null);
 	}
 
 	/**
 	 * Creates a new connection with the given timeouts and number of maximum connections, no proxy and the default HTTPS protocols.
 	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
 	 */
-	public DefaultConnection(int connectTimeout, int socketTimeout, int maxConnections) {
-		this(connectTimeout, socketTimeout, maxConnections, null);
+	public DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout, int maxConnections) {
+		this(connectionRequestTimeout, connectTimeout, socketTimeout, maxConnections, null);
 	}
 
 	/**
 	 * Creates a new connection with the given timeouts and proxy configuration, the default number of maximum connections and the default HTTPS protocols.
+	 * @see CommunicatorConfiguration#DEFAULT_CONNECTION_REQUEST_TIMEOUT
 	 * @see CommunicatorConfiguration#DEFAULT_MAX_CONNECTIONS
 	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
 	 */
-	public DefaultConnection(int connectTimeout, int socketTimeout, ProxyConfiguration proxyConfiguration) {
-		this(connectTimeout, socketTimeout, CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, proxyConfiguration);
+	public DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout, ProxyConfiguration proxyConfiguration) {
+		this(connectionRequestTimeout, connectTimeout, socketTimeout, CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, proxyConfiguration);
 	}
 
 	/**
 	 * Creates a new connection with the given timeouts, number of maximum connections and proxy configuration, and the default HTTPS protocols.
 	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
 	 */
-	public DefaultConnection(int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration) {
-		this(connectTimeout, socketTimeout, maxConnections, proxyConfiguration, CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS);
+	public DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration) {
+		this(connectionRequestTimeout, connectTimeout, socketTimeout, maxConnections, proxyConfiguration, CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS);
 	}
 
 	/**
 	 * Creates a new connection with the given timeouts, number of maximum connections, proxy configuration and HTTPS protocols.
 	 */
-	public DefaultConnection(int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration, Set<String> httpsProtocols) {
-		this(connectTimeout, socketTimeout, maxConnections, proxyConfiguration, createSSLConnectionSocketFactory(httpsProtocols));
+	public DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration, Set<String> httpsProtocols) {
+		this(connectionRequestTimeout, connectTimeout, socketTimeout, maxConnections, proxyConfiguration, createSSLConnectionSocketFactory(httpsProtocols));
 	}
 
 	/**
@@ -148,13 +156,13 @@ public class DefaultConnection implements PooledConnection {
 	 * This constructor can be used in case none of the other constructors can be used due to SSL issues,
 	 * to provide a fully customizable SSL connection socket factory.
 	 */
-	public DefaultConnection(int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration,
+	public DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration,
 			SSLConnectionSocketFactory sslConnectionSocketFactory) {
 
 		if (sslConnectionSocketFactory == null) {
 			throw new IllegalArgumentException("sslConnectionSocketFactory is required");
 		}
-		requestConfig = createRequestConfig(connectTimeout, socketTimeout);
+		requestConfig = createRequestConfig(connectionRequestTimeout, connectTimeout, socketTimeout);
 		connectionManager = createHttpClientConnectionManager(maxConnections, sslConnectionSocketFactory);
 		httpClient = createHttpClient(proxyConfiguration);
 	}
@@ -168,8 +176,9 @@ public class DefaultConnection implements PooledConnection {
 		return new SSLConnectionSocketFactory(sslContext, supportedProtocols.toArray(new String[0]), null, hostnameVerifier);
 	}
 
-	private RequestConfig createRequestConfig(int connectTimeout, int socketTimeout) {
+	private RequestConfig createRequestConfig(int connectionRequestTimeout, int connectTimeout, int socketTimeout) {
 		return RequestConfig.custom()
+				.setConnectionRequestTimeout(connectionRequestTimeout)
 				.setSocketTimeout(socketTimeout)
 				.setConnectTimeout(connectTimeout)
 				.build();
@@ -267,6 +276,17 @@ public class DefaultConnection implements PooledConnection {
 	public <R> R post(URI uri, List<RequestHeader> requestHeaders, String body, ResponseHandler<R> responseHandler) {
 
 		HttpEntity requestEntity = createRequestEntity(body);
+		return post(uri, requestHeaders, requestEntity, responseHandler);
+	}
+
+	@Override
+	public <R> R post(URI uri, List<RequestHeader> requestHeaders, MultipartFormDataObject multipart, ResponseHandler<R> responseHandler) {
+
+		HttpEntity requestEntity = createRequestEntity(multipart);
+		return post(uri, requestHeaders, requestEntity, responseHandler);
+	}
+
+	private <R> R post(URI uri, List<RequestHeader> requestHeaders, HttpEntity requestEntity, ResponseHandler<R> responseHandler) {
 
 		HttpPost httpPost = new HttpPost(uri);
 		httpPost.setConfig(requestConfig);
@@ -295,6 +315,10 @@ public class DefaultConnection implements PooledConnection {
 		return body != null ? new JsonEntity(body, CHARSET) : null;
 	}
 
+	private static HttpEntity createRequestEntity(MultipartFormDataObject multipart) {
+		return new MultipartFormDataEntity(multipart);
+	}
+
 	@SuppressWarnings("resource")
 	protected <R> R executeRequest(HttpUriRequest request, ResponseHandler<R> responseHandler) {
 
@@ -304,6 +328,9 @@ public class DefaultConnection implements PooledConnection {
 		HttpContext context = new BasicHttpContext();
 		context.setAttribute(REQUEST_ID_ATTRIBUTE, requestId);
 		context.setAttribute(START_TIMME_ATTRIBUTE, startTime);
+
+		// set X-Request-Id for better traceability
+		request.setHeader(X_REQUEST_ID_HEADER, requestId);
 
 		boolean logRuntimeExceptions = true;
 
@@ -535,6 +562,135 @@ public class DefaultConnection implements PooledConnection {
 				}
 				// else the context was not sent through executeRequest
 			}
+		}
+	}
+
+	private static final class MultipartFormDataEntity implements HttpEntity {
+
+		private static final ContentType TEXT_PLAIN_UTF8 = ContentType.create("text/plain", CHARSET);
+
+		private final HttpEntity delegate;
+		private final boolean isChunked;
+
+		private MultipartFormDataEntity(MultipartFormDataObject multipart) {
+
+			boolean hasNegativeContentLength = false;
+			MultipartEntityBuilder builder = MultipartEntityBuilder.create()
+					.setBoundary(multipart.getBoundary())
+					.setMode(HttpMultipartMode.RFC6532);
+			for (Map.Entry<String, String> entry : multipart.getValues().entrySet()) {
+				builder = builder.addTextBody(entry.getKey(), entry.getValue(), TEXT_PLAIN_UTF8);
+			}
+			for (Map.Entry<String, UploadableFile> entry : multipart.getFiles().entrySet()) {
+				builder = builder.addPart(entry.getKey(), new UploadableFileBody(entry.getValue()));
+				hasNegativeContentLength |= entry.getValue().getContentLength() < 0;
+			}
+			delegate = builder.build();
+			isChunked = hasNegativeContentLength;
+
+			Header contentType = delegate.getContentType();
+			if (contentType == null || !(multipart.getContentType()).equals(contentType.getValue())) {
+				throw new IllegalStateException("MultipartEntityBuilder did not create the expected content type");
+			}
+		}
+
+		@Override
+		public boolean isRepeatable() {
+			return false;
+		}
+
+		@Override
+		public boolean isChunked() {
+			return isChunked;
+		}
+
+		@Override
+		public long getContentLength() {
+			return delegate.getContentLength();
+		}
+
+		@Override
+		public Header getContentType() {
+			return delegate.getContentType();
+		}
+
+		@Override
+		public Header getContentEncoding() {
+			return delegate.getContentEncoding();
+		}
+
+		@Override
+		public InputStream getContent() throws IOException {
+			return delegate.getContent();
+		}
+
+		@Override
+		public void writeTo(OutputStream outstream) throws IOException {
+			delegate.writeTo(outstream);
+		}
+
+		@Override
+		public boolean isStreaming() {
+			return true;
+		}
+
+		@Override
+		@Deprecated
+		public void consumeContent() throws IOException {
+			delegate.consumeContent();
+		}
+	}
+
+	private static final class UploadableFileBody implements ContentBody {
+
+		private final ContentBody delegate;
+		private final long contentLength;
+
+		private UploadableFileBody(UploadableFile file) {
+			@SuppressWarnings("resource")
+			InputStream content = file.getContent();
+			delegate = new InputStreamBody(content, ContentType.create(file.getContentType()), file.getFileName());
+			contentLength = Math.max(file.getContentLength(), -1);
+		}
+
+		@Override
+		public String getMimeType() {
+			return delegate.getMimeType();
+		}
+
+		@Override
+		public String getMediaType() {
+			return delegate.getMediaType();
+		}
+
+		@Override
+		public String getSubType() {
+			return delegate.getSubType();
+		}
+
+		@Override
+		public String getCharset() {
+			return delegate.getCharset();
+		}
+
+		@Override
+		public String getTransferEncoding() {
+			return delegate.getTransferEncoding();
+		}
+
+		@Override
+		public long getContentLength() {
+			return contentLength;
+		}
+
+		@Override
+		public String getFilename() {
+			return delegate.getFilename();
+		}
+
+		@Override
+		public void writeTo(OutputStream out) throws IOException {
+			delegate.writeTo(out);
 		}
 	}
 }

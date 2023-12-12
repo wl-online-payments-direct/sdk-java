@@ -320,7 +320,7 @@ public class DefaultConnectionIdempotenceTest extends LocalServerTestBase {
 	@SuppressWarnings("resource")
 	private ClientInterface createClient(HttpHost host) {
 
-		Connection connection = new DefaultConnection(500, 500);
+		Connection connection = new DefaultConnection(500, 500, 500);
 		Authenticator authenticator = new DefaultAuthenticator("apiKey", "secret");
 		MetaDataProvider metaDataProvider = new MetaDataProvider("OnlinePayments");
 		Communicator communicator = Factory.createCommunicator(URI.create(host.toURI()), connection, authenticator, metaDataProvider);

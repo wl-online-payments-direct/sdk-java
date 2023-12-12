@@ -15,24 +15,10 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
+import com.onlinepayments.*;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.utils.URIBuilder;
 
-import com.onlinepayments.Authenticator;
-import com.onlinepayments.CallContext;
-import com.onlinepayments.CommunicationException;
-import com.onlinepayments.Communicator;
-import com.onlinepayments.Connection;
-import com.onlinepayments.Marshaller;
-import com.onlinepayments.MetaDataProvider;
-import com.onlinepayments.NotFoundException;
-import com.onlinepayments.ParamRequest;
-import com.onlinepayments.PooledConnection;
-import com.onlinepayments.RequestHeader;
-import com.onlinepayments.RequestParam;
-import com.onlinepayments.ResponseException;
-import com.onlinepayments.ResponseHandler;
-import com.onlinepayments.ResponseHeader;
 import com.onlinepayments.logging.CommunicatorLogger;
 
 /**
@@ -131,6 +117,15 @@ public class DefaultCommunicator implements Communicator {
 	@SuppressWarnings("resource")
 	public <O> O post(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, Object requestBody,
 			final Class<O> responseType, final CallContext context) {
+
+		if (requestBody instanceof MultipartFormDataObject) {
+			return post(relativePath, requestHeaders, requestParameters, (MultipartFormDataObject) requestBody, responseType, context);
+		}
+		if (requestBody instanceof MultipartFormDataRequest) {
+			MultipartFormDataObject multipart = ((MultipartFormDataRequest) requestBody).toMultipartFormDataObject();
+			return post(relativePath, requestHeaders, requestParameters, multipart, responseType, context);
+		}
+
 		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
 		URI uri = toAbsoluteURI(relativePath, requestParameterList);
 
@@ -142,6 +137,36 @@ public class DefaultCommunicator implements Communicator {
 
 		addGenericHeaders("POST", uri, requestHeaders, context);
 		return connection.post(uri, requestHeaders, requestJson, getDefaultResponseHandler(relativePath, responseType, context));
+	}
+
+	/**
+	 * HTTP POST method for {@link MultipartFormDataObject}
+	 *
+	 * @param relativePath The path to call, relative to the base URI.
+	 * @param requestHeaders An optional list of request headers.
+	 * @param requestParameters An optional set of request parameters.
+	 * @param multipart The optional {@link MultipartFormDataObject} to send.
+	 * @param responseType The type of response to return.
+	 * @param context The optional call context to use.
+	 * @throws CommunicationException when an exception occurred communicating with the Online Payments platform
+	 * @throws ResponseException when an error response was received from the Online Payments platform
+	 * @throws ApiException when an error response was received from the Online Payments platform which contained a list of errors
+	 */
+	@SuppressWarnings("resource")
+	private <O> O post(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, MultipartFormDataObject multipart,
+					  final Class<O> responseType, final CallContext context) {
+		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
+		URI uri = toAbsoluteURI(relativePath, requestParameterList);
+
+		if (requestHeaders == null) {
+			requestHeaders = new ArrayList<RequestHeader>();
+		}
+
+		requestHeaders.add(new RequestHeader("Content-Type", multipart.getContentType()));
+
+		addGenericHeaders("POST", uri, requestHeaders, context);
+
+		return connection.post(uri, requestHeaders, multipart, getDefaultResponseHandler(relativePath, responseType, context));
 	}
 
 	/** {@inheritDoc} */

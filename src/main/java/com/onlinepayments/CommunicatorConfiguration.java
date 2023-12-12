@@ -20,6 +20,7 @@ public class CommunicatorConfiguration {
 
 	/** The default number of maximum connections. */
 	public static final int DEFAULT_MAX_CONNECTIONS = 10;
+	public static final int DEFAULT_CONNECTION_REQUEST_TIMEOUT = 10000;
 	public static final int DEFAULT_CONNECT_TIMEOUT = 10000;
 	public static final int DEFAULT_SOCKET_TIMEOUT = 10000;
 
@@ -29,6 +30,8 @@ public class CommunicatorConfiguration {
 	private static final Pattern COMMA_SEPARATOR_PATTERN = Pattern.compile("\\s*,\\s*");
 
 	private URI apiEndpoint;
+
+	private int connectionRequestTimeout;
 
 	private int connectTimeout;
 
@@ -56,6 +59,7 @@ public class CommunicatorConfiguration {
 		if (properties != null) {
 			apiEndpoint       = getApiEndpoint(properties);
 			authorizationType = AuthorizationType.fromString(properties.getProperty("onlinePayments.api.authorizationType", AuthorizationType.V1HMAC.name()));
+			connectionRequestTimeout = getProperty(properties, "onlinePayments.api.connectionRequestTimeout", DEFAULT_CONNECTION_REQUEST_TIMEOUT);
 			connectTimeout    = getProperty(properties, "onlinePayments.api.connectTimeout", DEFAULT_CONNECT_TIMEOUT);
 			socketTimeout     = getProperty(properties, "onlinePayments.api.socketTimeout", DEFAULT_SOCKET_TIMEOUT);
 			maxConnections    = getProperty(properties, "onlinePayments.api.maxConnections", DEFAULT_MAX_CONNECTIONS);
@@ -178,6 +182,17 @@ public class CommunicatorConfiguration {
 	}
 	public CommunicatorConfiguration withAuthorizationType(AuthorizationType authorizationType) {
 		setAuthorizationType(authorizationType);
+		return this;
+	}
+
+	public int getConnectionRequestTimeout() {
+		return connectionRequestTimeout;
+	}
+	public void setConnectionRequestTimeout(int connectionRequestTimeout) {
+		this.connectionRequestTimeout = connectionRequestTimeout;
+	}
+	public CommunicatorConfiguration withConnectionRequestTimeout(int connectionRequestTimeout) {
+		setConnectionRequestTimeout(connectionRequestTimeout);
 		return this;
 	}
 

@@ -30,6 +30,7 @@ import com.onlinepayments.util.ReflectionUtil;
 
 public class DefaultConnectionTest {
 
+	private static final int CONNECTION_REQUEST_TIMEOUT = 10000;
 	private static final int CONNECT_TIMEOUT	= 10000;
 	private static final int SOCKET_TIMEOUT		= 20000;
 	private static final int MAX_CONNECTIONS	= 100;
@@ -38,8 +39,8 @@ public class DefaultConnectionTest {
 	@SuppressWarnings("resource")
 	public void testConstructWithoutProxy() {
 
-		DefaultConnection connection = new DefaultConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT);
-		assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
+		DefaultConnection connection = new DefaultConnection(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
+		assertRequestConfig(connection, CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertMaxConnections(connection, CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, null);
 		assertNoProxy(connection);
 		assertHttpsProtocols(connection, CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS);
@@ -50,8 +51,8 @@ public class DefaultConnectionTest {
 	public void testConstructWithProxyWithoutAuthentication() {
 		ProxyConfiguration proxyConfiguration = new ProxyConfiguration(URI.create("http://test-proxy"));
 
-		DefaultConnection connection = new DefaultConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT, proxyConfiguration);
-		assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
+		DefaultConnection connection = new DefaultConnection(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT, proxyConfiguration);
+		assertRequestConfig(connection, CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertMaxConnections(connection, CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, proxyConfiguration);
 		assertProxy(connection, proxyConfiguration);
 		assertHttpsProtocols(connection, CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS);
@@ -62,8 +63,8 @@ public class DefaultConnectionTest {
 	public void testConstructWithProxyWithAuthentication() {
 		ProxyConfiguration proxyConfiguration = new ProxyConfiguration(URI.create("http://test-proxy"), "test-username", "test-password");
 
-		DefaultConnection connection = new DefaultConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT, proxyConfiguration);
-		assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
+		DefaultConnection connection = new DefaultConnection(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT, proxyConfiguration);
+		assertRequestConfig(connection, CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertMaxConnections(connection, CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, proxyConfiguration);
 		assertProxy(connection, proxyConfiguration);
 		assertHttpsProtocols(connection, CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS);
@@ -73,8 +74,8 @@ public class DefaultConnectionTest {
 	@SuppressWarnings("resource")
 	public void testConstructWithMaxConnectionsWithoutProxy() {
 
-		DefaultConnection connection = new DefaultConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS);
-		assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
+		DefaultConnection connection = new DefaultConnection(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS);
+		assertRequestConfig(connection, CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertMaxConnections(connection, MAX_CONNECTIONS, null);
 		assertNoProxy(connection);
 		assertHttpsProtocols(connection, CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS);
@@ -85,8 +86,8 @@ public class DefaultConnectionTest {
 	public void testConstructWithMaxConnectionsWithProxy() {
 		ProxyConfiguration proxyConfiguration = new ProxyConfiguration(URI.create("http://test-proxy"));
 
-		DefaultConnection connection = new DefaultConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS, proxyConfiguration);
-		assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
+		DefaultConnection connection = new DefaultConnection(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS, proxyConfiguration);
+		assertRequestConfig(connection, CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertMaxConnections(connection, MAX_CONNECTIONS, proxyConfiguration);
 		assertProxy(connection, proxyConfiguration);
 		assertHttpsProtocols(connection, CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS);
@@ -97,8 +98,8 @@ public class DefaultConnectionTest {
 	public void testConstructWithHttpsProtocols() {
 		Set<String> httpsProtocols = new HashSet<String>(Arrays.asList("TLSv1", "TLSv1.1", "TLSv1.2"));
 
-		DefaultConnection connection = new DefaultConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS, null, httpsProtocols);
-		assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
+		DefaultConnection connection = new DefaultConnection(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS, null, httpsProtocols);
+		assertRequestConfig(connection, CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertMaxConnections(connection, MAX_CONNECTIONS, null);
 		assertNoProxy(connection);
 		assertHttpsProtocols(connection, httpsProtocols);
@@ -109,8 +110,8 @@ public class DefaultConnectionTest {
 	public void testConstructWithZeroHttpsProtocols() {
 		Set<String> httpsProtocols = Collections.emptySet();
 
-		DefaultConnection connection = new DefaultConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS, null, httpsProtocols);
-		assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
+		DefaultConnection connection = new DefaultConnection(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS, null, httpsProtocols);
+		assertRequestConfig(connection, CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertMaxConnections(connection, MAX_CONNECTIONS, null);
 		assertNoProxy(connection);
 		assertHttpsProtocols(connection, CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS);
@@ -121,15 +122,15 @@ public class DefaultConnectionTest {
 	public void testConstructWithNullHttpsProtocols() {
 		Set<String> httpsProtocols = null;
 
-		DefaultConnection connection = new DefaultConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS, null, httpsProtocols);
-		assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
+		DefaultConnection connection = new DefaultConnection(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS, null, httpsProtocols);
+		assertRequestConfig(connection, CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertMaxConnections(connection, MAX_CONNECTIONS, null);
 		assertNoProxy(connection);
 		assertHttpsProtocols(connection, CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS);
 	}
 
-	public static void assertConnection(DefaultConnection connection, int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration) {
-		assertRequestConfig(connection, connectTimeout, socketTimeout);
+	public static void assertConnection(DefaultConnection connection, int connectionRequestTimeout, int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration) {
+		assertRequestConfig(connection, connectionRequestTimeout, connectTimeout, socketTimeout);
 		assertMaxConnections(connection, maxConnections, proxyConfiguration);
 		if (proxyConfiguration != null) {
 			assertProxy(connection, proxyConfiguration);
@@ -138,9 +139,10 @@ public class DefaultConnectionTest {
 		}
 	}
 
-	private static void assertRequestConfig(DefaultConnection connection, int connectTimeout, int socketTimeout) {
+	private static void assertRequestConfig(DefaultConnection connection, int connectionRequestTimeout, int connectTimeout, int socketTimeout) {
 
 		RequestConfig requestConfig = connection.requestConfig;
+		Assert.assertEquals(connectionRequestTimeout, requestConfig.getConnectionRequestTimeout());
 		Assert.assertEquals(connectTimeout, requestConfig.getConnectTimeout());
 		Assert.assertEquals(socketTimeout, requestConfig.getSocketTimeout());
 	}
