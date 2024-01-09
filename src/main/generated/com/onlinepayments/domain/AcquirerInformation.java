@@ -8,7 +8,31 @@ package com.onlinepayments.domain;
  */
 public class AcquirerInformation {
 
+	private AcquirerSelectionInformation acquirerSelectionInformation = null;
+
 	private String name = null;
+
+	/**
+	 * Information about the acquirer selection
+	 */
+	public AcquirerSelectionInformation getAcquirerSelectionInformation() {
+		return acquirerSelectionInformation;
+	}
+
+	/**
+	 * Information about the acquirer selection
+	 */
+	public void setAcquirerSelectionInformation(AcquirerSelectionInformation value) {
+		this.acquirerSelectionInformation = value;
+	}
+
+	/**
+	 * Information about the acquirer selection
+	 */
+	public AcquirerInformation withAcquirerSelectionInformation(AcquirerSelectionInformation value) {
+		this.acquirerSelectionInformation = value;
+		return this;
+	}
 
 	/**
 	 * Name of the acquirer used to process the transaction

@@ -7,6 +7,8 @@ public class CreateHostedTokenizationRequest {
 
 	private Boolean askConsumerConsent = null;
 
+	private CreditCardSpecificInputHostedTokenization creditCardSpecificInput = null;
+
 	private String locale = null;
 
 	private PaymentProductFiltersHostedTokenization paymentProductFilters = null;
@@ -37,6 +39,19 @@ public class CreateHostedTokenizationRequest {
 	 */
 	public CreateHostedTokenizationRequest withAskConsumerConsent(Boolean value) {
 		this.askConsumerConsent = value;
+		return this;
+	}
+
+	public CreditCardSpecificInputHostedTokenization getCreditCardSpecificInput() {
+		return creditCardSpecificInput;
+	}
+
+	public void setCreditCardSpecificInput(CreditCardSpecificInputHostedTokenization value) {
+		this.creditCardSpecificInput = value;
+	}
+
+	public CreateHostedTokenizationRequest withCreditCardSpecificInput(CreditCardSpecificInputHostedTokenization value) {
+		this.creditCardSpecificInput = value;
 		return this;
 	}
 

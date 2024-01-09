@@ -12,7 +12,7 @@ public class CreatePaymentLinkRequest {
 
 	private String expirationDate = null;
 
-	private PaymentLinkOrder paymentLinkOrder = null;
+	private PaymentLinkOrderInput paymentLinkOrder = null;
 
 	private String recipientName = null;
 
@@ -61,23 +61,23 @@ public class CreatePaymentLinkRequest {
 	}
 
 	/**
-	 * An object containing the details of the related payment.
+	 * An object containing the details of the related payment input.
 	 */
-	public PaymentLinkOrder getPaymentLinkOrder() {
+	public PaymentLinkOrderInput getPaymentLinkOrder() {
 		return paymentLinkOrder;
 	}
 
 	/**
-	 * An object containing the details of the related payment.
+	 * An object containing the details of the related payment input.
 	 */
-	public void setPaymentLinkOrder(PaymentLinkOrder value) {
+	public void setPaymentLinkOrder(PaymentLinkOrderInput value) {
 		this.paymentLinkOrder = value;
 	}
 
 	/**
-	 * An object containing the details of the related payment.
+	 * An object containing the details of the related payment input.
 	 */
-	public CreatePaymentLinkRequest withPaymentLinkOrder(PaymentLinkOrder value) {
+	public CreatePaymentLinkRequest withPaymentLinkOrder(PaymentLinkOrderInput value) {
 		this.paymentLinkOrder = value;
 		return this;
 	}

@@ -15,21 +15,21 @@ public class PaymentLinkEvent {
 	private String type = null;
 
 	/**
-	 * The date and time the change occurred.
+	 * The date and time the change occurred. The date will contain the UTC offset.
 	 */
 	public String getDateTime() {
 		return dateTime;
 	}
 
 	/**
-	 * The date and time the change occurred.
+	 * The date and time the change occurred. The date will contain the UTC offset.
 	 */
 	public void setDateTime(String value) {
 		this.dateTime = value;
 	}
 
 	/**
-	 * The date and time the change occurred.
+	 * The date and time the change occurred. The date will contain the UTC offset.
 	 */
 	public PaymentLinkEvent withDateTime(String value) {
 		this.dateTime = value;

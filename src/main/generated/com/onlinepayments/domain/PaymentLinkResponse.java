@@ -18,7 +18,7 @@ public class PaymentLinkResponse {
 
 	private String paymentLinkId = null;
 
-	private PaymentLinkOrder paymentLinkOrder = null;
+	private PaymentLinkOrderOutput paymentLinkOrder = null;
 
 	private String recipientName = null;
 
@@ -27,21 +27,21 @@ public class PaymentLinkResponse {
 	private String status = null;
 
 	/**
-	 * The date after which the payment link will not be usable to complete the payment. The date sent must contain the UTC offset.
+	 * The date after which the payment link will not be usable to complete the payment. The date will contain the UTC offset.
 	 */
 	public String getExpirationDate() {
 		return expirationDate;
 	}
 
 	/**
-	 * The date after which the payment link will not be usable to complete the payment. The date sent must contain the UTC offset.
+	 * The date after which the payment link will not be usable to complete the payment. The date will contain the UTC offset.
 	 */
 	public void setExpirationDate(String value) {
 		this.expirationDate = value;
 	}
 
 	/**
-	 * The date after which the payment link will not be usable to complete the payment. The date sent must contain the UTC offset.
+	 * The date after which the payment link will not be usable to complete the payment. The date will contain the UTC offset.
 	 */
 	public PaymentLinkResponse withExpirationDate(String value) {
 		this.expirationDate = value;
@@ -106,23 +106,23 @@ public class PaymentLinkResponse {
 	}
 
 	/**
-	 * An object containing the details of the related payment.
+	 * An object containing the details of the related payment output.
 	 */
-	public PaymentLinkOrder getPaymentLinkOrder() {
+	public PaymentLinkOrderOutput getPaymentLinkOrder() {
 		return paymentLinkOrder;
 	}
 
 	/**
-	 * An object containing the details of the related payment.
+	 * An object containing the details of the related payment output.
 	 */
-	public void setPaymentLinkOrder(PaymentLinkOrder value) {
+	public void setPaymentLinkOrder(PaymentLinkOrderOutput value) {
 		this.paymentLinkOrder = value;
 	}
 
 	/**
-	 * An object containing the details of the related payment.
+	 * An object containing the details of the related payment output.
 	 */
-	public PaymentLinkResponse withPaymentLinkOrder(PaymentLinkOrder value) {
+	public PaymentLinkResponse withPaymentLinkOrder(PaymentLinkOrderOutput value) {
 		this.paymentLinkOrder = value;
 		return this;
 	}

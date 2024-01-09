@@ -15,6 +15,8 @@ public class Order {
 
 	private Customer customer = null;
 
+	private Discount discount = null;
+
 	private OrderReferences references = null;
 
 	private Shipping shipping = null;
@@ -86,6 +88,28 @@ public class Order {
 	 */
 	public Order withCustomer(Customer value) {
 		this.customer = value;
+		return this;
+	}
+
+	/**
+	 * Object to apply a discount to the total basket by adding a discount line.
+	 */
+	public Discount getDiscount() {
+		return discount;
+	}
+
+	/**
+	 * Object to apply a discount to the total basket by adding a discount line.
+	 */
+	public void setDiscount(Discount value) {
+		this.discount = value;
+	}
+
+	/**
+	 * Object to apply a discount to the total basket by adding a discount line.
+	 */
+	public Order withDiscount(Discount value) {
+		this.discount = value;
 		return this;
 	}
 

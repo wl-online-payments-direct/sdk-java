@@ -4,9 +4,9 @@
 package com.onlinepayments.domain;
 
 /**
- * An object containing the details of the related payment.
+ * An object containing the details of the related payment input.
  */
-public class PaymentLinkOrder {
+public class PaymentLinkOrderInput {
 
 	private AmountOfMoney amount = null;
 
@@ -29,7 +29,7 @@ public class PaymentLinkOrder {
 	/**
 	 * Object containing amount and ISO currency code attributes
 	 */
-	public PaymentLinkOrder withAmount(AmountOfMoney value) {
+	public PaymentLinkOrderInput withAmount(AmountOfMoney value) {
 		this.amount = value;
 		return this;
 	}
@@ -54,7 +54,7 @@ public class PaymentLinkOrder {
 	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
 	 * It is highly recommended to provide a single MerchantReference per unique order on your side
 	 */
-	public PaymentLinkOrder withMerchantReference(String value) {
+	public PaymentLinkOrderInput withMerchantReference(String value) {
 		this.merchantReference = value;
 		return this;
 	}

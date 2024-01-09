@@ -41,21 +41,21 @@ public class ContactDetails {
 	}
 
 	/**
-	 * Fax number of the customer
+	 * International version of the fax number of the customer including the leading + (i.e. +16127779311)
 	 */
 	public String getFaxNumber() {
 		return faxNumber;
 	}
 
 	/**
-	 * Fax number of the customer
+	 * International version of the fax number of the customer including the leading + (i.e. +16127779311)
 	 */
 	public void setFaxNumber(String value) {
 		this.faxNumber = value;
 	}
 
 	/**
-	 * Fax number of the customer
+	 * International version of the fax number of the customer including the leading + (i.e. +16127779311)
 	 */
 	public ContactDetails withFaxNumber(String value) {
 		this.faxNumber = value;
@@ -85,21 +85,21 @@ public class ContactDetails {
 	}
 
 	/**
-	 * Phone number of the customer
+	 * International version of the phone number of the customer including the leading + (i.e. +16127779311)
 	 */
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
 	/**
-	 * Phone number of the customer
+	 * International version of the phone number of the customer including the leading + (i.e. +16127779311)
 	 */
 	public void setPhoneNumber(String value) {
 		this.phoneNumber = value;
 	}
 
 	/**
-	 * Phone number of the customer
+	 * International version of the phone number of the customer including the leading + (i.e. +16127779311)
 	 */
 	public ContactDetails withPhoneNumber(String value) {
 		this.phoneNumber = value;
