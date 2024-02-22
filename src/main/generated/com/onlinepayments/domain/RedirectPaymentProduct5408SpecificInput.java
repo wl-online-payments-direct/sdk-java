@@ -35,24 +35,24 @@ public class RedirectPaymentProduct5408SpecificInput {
 	}
 
 	/**
-	 * * true - customer is allowed to do only instant payment for Account to Account Bank transfer payments
-	 * * false - customer is allowed to choose between instant or standard payment after the bank selection page for Account to Account Bank transfer payments
+	 * * true - consumer can only use instant payment for Account to Account Bank transfer payments
+	 * * false - consumer can only use standard payment for Account to Account Bank transfer payments
 	 */
 	public Boolean getInstantPaymentOnly() {
 		return instantPaymentOnly;
 	}
 
 	/**
-	 * * true - customer is allowed to do only instant payment for Account to Account Bank transfer payments
-	 * * false - customer is allowed to choose between instant or standard payment after the bank selection page for Account to Account Bank transfer payments
+	 * * true - consumer can only use instant payment for Account to Account Bank transfer payments
+	 * * false - consumer can only use standard payment for Account to Account Bank transfer payments
 	 */
 	public void setInstantPaymentOnly(Boolean value) {
 		this.instantPaymentOnly = value;
 	}
 
 	/**
-	 * * true - customer is allowed to do only instant payment for Account to Account Bank transfer payments
-	 * * false - customer is allowed to choose between instant or standard payment after the bank selection page for Account to Account Bank transfer payments
+	 * * true - consumer can only use instant payment for Account to Account Bank transfer payments
+	 * * false - consumer can only use standard payment for Account to Account Bank transfer payments
 	 */
 	public RedirectPaymentProduct5408SpecificInput withInstantPaymentOnly(Boolean value) {
 		this.instantPaymentOnly = value;

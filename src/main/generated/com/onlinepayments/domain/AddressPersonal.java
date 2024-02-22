@@ -135,21 +135,21 @@ public class AddressPersonal {
 	}
 
 	/**
-	 * Full name of the state or province
+	 * ISO 3166-2 country subdivision code
 	 */
 	public String getState() {
 		return state;
 	}
 
 	/**
-	 * Full name of the state or province
+	 * ISO 3166-2 country subdivision code
 	 */
 	public void setState(String value) {
 		this.state = value;
 	}
 
 	/**
-	 * Full name of the state or province
+	 * ISO 3166-2 country subdivision code
 	 */
 	public AddressPersonal withState(String value) {
 		this.state = value;
