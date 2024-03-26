@@ -8,9 +8,33 @@ package com.onlinepayments.domain;
  */
 public class ShowFormData {
 
+	private PaymentProduct3012 paymentProduct3012 = null;
+
 	private PaymentProduct5404 paymentProduct5404 = null;
 
 	private PaymentProduct5407 paymentProduct5407 = null;
+
+	/**
+	 * Contains the third party data for payment product 3012 (Bancontact)
+	 */
+	public PaymentProduct3012 getPaymentProduct3012() {
+		return paymentProduct3012;
+	}
+
+	/**
+	 * Contains the third party data for payment product 3012 (Bancontact)
+	 */
+	public void setPaymentProduct3012(PaymentProduct3012 value) {
+		this.paymentProduct3012 = value;
+	}
+
+	/**
+	 * Contains the third party data for payment product 3012 (Bancontact)
+	 */
+	public ShowFormData withPaymentProduct3012(PaymentProduct3012 value) {
+		this.paymentProduct3012 = value;
+		return this;
+	}
 
 	/**
 	 * Contains the third party data for payment product 5404 (WeChat Pay)
