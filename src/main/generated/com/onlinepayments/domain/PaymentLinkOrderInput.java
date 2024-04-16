@@ -12,6 +12,8 @@ public class PaymentLinkOrderInput {
 
 	private String merchantReference = null;
 
+	private SurchargeForPaymentLink surchargeSpecificInput = null;
+
 	/**
 	 * Object containing amount and ISO currency code attributes
 	 */
@@ -56,6 +58,28 @@ public class PaymentLinkOrderInput {
 	 */
 	public PaymentLinkOrderInput withMerchantReference(String value) {
 		this.merchantReference = value;
+		return this;
+	}
+
+	/**
+	 * Object containing details how surcharge will be applied to a payment link.
+	 */
+	public SurchargeForPaymentLink getSurchargeSpecificInput() {
+		return surchargeSpecificInput;
+	}
+
+	/**
+	 * Object containing details how surcharge will be applied to a payment link.
+	 */
+	public void setSurchargeSpecificInput(SurchargeForPaymentLink value) {
+		this.surchargeSpecificInput = value;
+	}
+
+	/**
+	 * Object containing details how surcharge will be applied to a payment link.
+	 */
+	public PaymentLinkOrderInput withSurchargeSpecificInput(SurchargeForPaymentLink value) {
+		this.surchargeSpecificInput = value;
 		return this;
 	}
 }

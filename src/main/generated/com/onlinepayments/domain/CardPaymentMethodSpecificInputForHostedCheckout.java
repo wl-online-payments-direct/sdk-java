@@ -3,12 +3,16 @@
  */
 package com.onlinepayments.domain;
 
+import java.util.List;
+
 /**
  * Object containing card payment specific data for hosted checkout
  */
 public class CardPaymentMethodSpecificInputForHostedCheckout {
 
 	private Boolean groupCards = null;
+
+	private List<Integer> paymentProductPreferredOrder = null;
 
 	/**
 	 * * true - Hosted Checkout will allow to show cards grouped as one payment method
@@ -32,6 +36,28 @@ public class CardPaymentMethodSpecificInputForHostedCheckout {
 	 */
 	public CardPaymentMethodSpecificInputForHostedCheckout withGroupCards(Boolean value) {
 		this.groupCards = value;
+		return this;
+	}
+
+	/**
+	 * This array contains the payment product identifiers representing the brands. For co-badged cards, this displays their available brands in the order defined by this array, when groupCards is activated.
+	 */
+	public List<Integer> getPaymentProductPreferredOrder() {
+		return paymentProductPreferredOrder;
+	}
+
+	/**
+	 * This array contains the payment product identifiers representing the brands. For co-badged cards, this displays their available brands in the order defined by this array, when groupCards is activated.
+	 */
+	public void setPaymentProductPreferredOrder(List<Integer> value) {
+		this.paymentProductPreferredOrder = value;
+	}
+
+	/**
+	 * This array contains the payment product identifiers representing the brands. For co-badged cards, this displays their available brands in the order defined by this array, when groupCards is activated.
+	 */
+	public CardPaymentMethodSpecificInputForHostedCheckout withPaymentProductPreferredOrder(List<Integer> value) {
+		this.paymentProductPreferredOrder = value;
 		return this;
 	}
 }

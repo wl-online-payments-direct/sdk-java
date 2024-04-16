@@ -12,6 +12,8 @@ public class PaymentLinkOrderOutput {
 
 	private String merchantReference = null;
 
+	private SurchargeForPaymentLink surchargeSpecificOutput = null;
+
 	/**
 	 * Object containing amount and ISO currency code attributes
 	 */
@@ -56,6 +58,28 @@ public class PaymentLinkOrderOutput {
 	 */
 	public PaymentLinkOrderOutput withMerchantReference(String value) {
 		this.merchantReference = value;
+		return this;
+	}
+
+	/**
+	 * Object containing details how surcharge will be applied to a payment link.
+	 */
+	public SurchargeForPaymentLink getSurchargeSpecificOutput() {
+		return surchargeSpecificOutput;
+	}
+
+	/**
+	 * Object containing details how surcharge will be applied to a payment link.
+	 */
+	public void setSurchargeSpecificOutput(SurchargeForPaymentLink value) {
+		this.surchargeSpecificOutput = value;
+	}
+
+	/**
+	 * Object containing details how surcharge will be applied to a payment link.
+	 */
+	public PaymentLinkOrderOutput withSurchargeSpecificOutput(SurchargeForPaymentLink value) {
+		this.surchargeSpecificOutput = value;
 		return this;
 	}
 }
