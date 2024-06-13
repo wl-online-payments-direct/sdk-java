@@ -8,6 +8,8 @@ package com.onlinepayments.domain;
  */
 public class MobilePaymentMethodSpecificOutput {
 
+	private AcquirerInformation acquirerInformation = null;
+
 	private String authorisationCode = null;
 
 	private CardFraudResults fraudResults = null;
@@ -19,6 +21,28 @@ public class MobilePaymentMethodSpecificOutput {
 	private Integer paymentProductId = null;
 
 	private ThreeDSecureResults threeDSecureResults = null;
+
+	/**
+	 * Information about the acquirer used to process the transaction
+	 */
+	public AcquirerInformation getAcquirerInformation() {
+		return acquirerInformation;
+	}
+
+	/**
+	 * Information about the acquirer used to process the transaction
+	 */
+	public void setAcquirerInformation(AcquirerInformation value) {
+		this.acquirerInformation = value;
+	}
+
+	/**
+	 * Information about the acquirer used to process the transaction
+	 */
+	public MobilePaymentMethodSpecificOutput withAcquirerInformation(AcquirerInformation value) {
+		this.acquirerInformation = value;
+		return this;
+	}
 
 	/**
 	 * Card Authorization code as returned by the acquirer

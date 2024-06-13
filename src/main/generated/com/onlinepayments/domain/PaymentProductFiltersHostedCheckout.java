@@ -13,21 +13,21 @@ public class PaymentProductFiltersHostedCheckout {
 	private PaymentProductFilter restrictTo = null;
 
 	/**
-	 * Contains the payment product ids and payment product groups that should be excluded from the payment products available for the payment. Note that excluding a payment product will ensure exclusion, even if the payment product is also present in the restrictTo filter, and that excluding a payment product group will exclude all payment products that are a part of that group, even if one or more of them are present in the restrictTo filters.
+	 * The payment product ids to be be excluded or restricted to from the payment products available for the payment. Note that you can add exclusions on top of the 'restrictTo' filter.
 	 */
 	public PaymentProductFilter getExclude() {
 		return exclude;
 	}
 
 	/**
-	 * Contains the payment product ids and payment product groups that should be excluded from the payment products available for the payment. Note that excluding a payment product will ensure exclusion, even if the payment product is also present in the restrictTo filter, and that excluding a payment product group will exclude all payment products that are a part of that group, even if one or more of them are present in the restrictTo filters.
+	 * The payment product ids to be be excluded or restricted to from the payment products available for the payment. Note that you can add exclusions on top of the 'restrictTo' filter.
 	 */
 	public void setExclude(PaymentProductFilter value) {
 		this.exclude = value;
 	}
 
 	/**
-	 * Contains the payment product ids and payment product groups that should be excluded from the payment products available for the payment. Note that excluding a payment product will ensure exclusion, even if the payment product is also present in the restrictTo filter, and that excluding a payment product group will exclude all payment products that are a part of that group, even if one or more of them are present in the restrictTo filters.
+	 * The payment product ids to be be excluded or restricted to from the payment products available for the payment. Note that you can add exclusions on top of the 'restrictTo' filter.
 	 */
 	public PaymentProductFiltersHostedCheckout withExclude(PaymentProductFilter value) {
 		this.exclude = value;
@@ -35,21 +35,21 @@ public class PaymentProductFiltersHostedCheckout {
 	}
 
 	/**
-	 * Contains the payment product ids and payment product groups that should be excluded from the payment products available for the payment. Note that excluding a payment product will ensure exclusion, even if the payment product is also present in the restrictTo filter, and that excluding a payment product group will exclude all payment products that are a part of that group, even if one or more of them are present in the restrictTo filters.
+	 * The payment product ids to be be excluded or restricted to from the payment products available for the payment. Note that you can add exclusions on top of the 'restrictTo' filter.
 	 */
 	public PaymentProductFilter getRestrictTo() {
 		return restrictTo;
 	}
 
 	/**
-	 * Contains the payment product ids and payment product groups that should be excluded from the payment products available for the payment. Note that excluding a payment product will ensure exclusion, even if the payment product is also present in the restrictTo filter, and that excluding a payment product group will exclude all payment products that are a part of that group, even if one or more of them are present in the restrictTo filters.
+	 * The payment product ids to be be excluded or restricted to from the payment products available for the payment. Note that you can add exclusions on top of the 'restrictTo' filter.
 	 */
 	public void setRestrictTo(PaymentProductFilter value) {
 		this.restrictTo = value;
 	}
 
 	/**
-	 * Contains the payment product ids and payment product groups that should be excluded from the payment products available for the payment. Note that excluding a payment product will ensure exclusion, even if the payment product is also present in the restrictTo filter, and that excluding a payment product group will exclude all payment products that are a part of that group, even if one or more of them are present in the restrictTo filters.
+	 * The payment product ids to be be excluded or restricted to from the payment products available for the payment. Note that you can add exclusions on top of the 'restrictTo' filter.
 	 */
 	public PaymentProductFiltersHostedCheckout withRestrictTo(PaymentProductFilter value) {
 		this.restrictTo = value;

@@ -49,7 +49,11 @@ public class RequestHeader {
 	}
 
 	/**
-	 * @return The header from the given list with the given name, or {@code null} if there was no such header.
+	 * The header from the given list with the given name, or {@code null} if there was no such header.
+	 *
+	 * @param headers List of request headers
+	 * @param headerName A header name to be located in the request headers list
+	 * @return The request header that matches the request header with the given name
 	 */
 	public static RequestHeader getHeader(List<RequestHeader> headers, String headerName) {
 		for (RequestHeader header : headers) {
@@ -61,7 +65,11 @@ public class RequestHeader {
 	}
 
 	/**
-	 * @return The value of the header from the given list with the given name, or {@code null} if there was no such header.
+	 * The value of the header from the given list with the given name, or {@code null} if there was no such header.
+	 *
+	 * @param headers List of request headers
+	 * @param headerName A header name to be located in the request headers list
+	 * @return The value of the header from the given list with the given name
 	 */
 	public static String getHeaderValue(List<RequestHeader> headers, String headerName) {
 		RequestHeader header = getHeader(headers, headerName);

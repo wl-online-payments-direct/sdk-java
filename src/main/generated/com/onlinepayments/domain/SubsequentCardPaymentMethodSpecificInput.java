@@ -56,21 +56,21 @@ public class SubsequentCardPaymentMethodSpecificInput {
 	}
 
 	/**
-	 * This is the unique Scheme Reference Data from the initial transaction that was performed with a Strong Customer Authentication. In case this value is unknown, a Scheme Reference of an earlier transaction that was part of the same sequence can be used as a fall-back. Still, it is strongly advised to submit this value for any Merchant Initiated Transaction or any recurring transaction (hereby defined as "Subsequent").
+	 * Deprecated: This is the unique Scheme Reference Data from the initial transaction that was performed with a Strong Customer Authentication. In case this value is unknown, a Scheme Reference of an earlier transaction that was part of the same sequence can be used as a fall-back. Still, it is strongly advised to submit this value for any Merchant Initiated Transaction or any recurring transaction (hereby defined as "Subsequent").
 	 */
 	public String getSchemeReferenceData() {
 		return schemeReferenceData;
 	}
 
 	/**
-	 * This is the unique Scheme Reference Data from the initial transaction that was performed with a Strong Customer Authentication. In case this value is unknown, a Scheme Reference of an earlier transaction that was part of the same sequence can be used as a fall-back. Still, it is strongly advised to submit this value for any Merchant Initiated Transaction or any recurring transaction (hereby defined as "Subsequent").
+	 * Deprecated: This is the unique Scheme Reference Data from the initial transaction that was performed with a Strong Customer Authentication. In case this value is unknown, a Scheme Reference of an earlier transaction that was part of the same sequence can be used as a fall-back. Still, it is strongly advised to submit this value for any Merchant Initiated Transaction or any recurring transaction (hereby defined as "Subsequent").
 	 */
 	public void setSchemeReferenceData(String value) {
 		this.schemeReferenceData = value;
 	}
 
 	/**
-	 * This is the unique Scheme Reference Data from the initial transaction that was performed with a Strong Customer Authentication. In case this value is unknown, a Scheme Reference of an earlier transaction that was part of the same sequence can be used as a fall-back. Still, it is strongly advised to submit this value for any Merchant Initiated Transaction or any recurring transaction (hereby defined as "Subsequent").
+	 * Deprecated: This is the unique Scheme Reference Data from the initial transaction that was performed with a Strong Customer Authentication. In case this value is unknown, a Scheme Reference of an earlier transaction that was part of the same sequence can be used as a fall-back. Still, it is strongly advised to submit this value for any Merchant Initiated Transaction or any recurring transaction (hereby defined as "Subsequent").
 	 */
 	public SubsequentCardPaymentMethodSpecificInput withSchemeReferenceData(String value) {
 		this.schemeReferenceData = value;
@@ -121,21 +121,21 @@ public class SubsequentCardPaymentMethodSpecificInput {
 	}
 
 	/**
-	 * ID of the token to use to create the payment.
+	 * Deprecated: ID of the token to use to create the payment.
 	 */
 	public String getToken() {
 		return token;
 	}
 
 	/**
-	 * ID of the token to use to create the payment.
+	 * Deprecated: ID of the token to use to create the payment.
 	 */
 	public void setToken(String value) {
 		this.token = value;
 	}
 
 	/**
-	 * ID of the token to use to create the payment.
+	 * Deprecated: ID of the token to use to create the payment.
 	 */
 	public SubsequentCardPaymentMethodSpecificInput withToken(String value) {
 		this.token = value;

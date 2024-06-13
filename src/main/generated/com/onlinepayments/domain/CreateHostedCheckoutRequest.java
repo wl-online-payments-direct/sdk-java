@@ -15,6 +15,8 @@ public class CreateHostedCheckoutRequest {
 
 	private Order order = null;
 
+	private PageCustomization pageCustomization = null;
+
 	private RedirectPaymentMethodSpecificInput redirectPaymentMethodSpecificInput = null;
 
 	private SepaDirectDebitPaymentMethodSpecificInputBase sepaDirectDebitPaymentMethodSpecificInput = null;
@@ -129,6 +131,19 @@ public class CreateHostedCheckoutRequest {
 	 */
 	public CreateHostedCheckoutRequest withOrder(Order value) {
 		this.order = value;
+		return this;
+	}
+
+	public PageCustomization getPageCustomization() {
+		return pageCustomization;
+	}
+
+	public void setPageCustomization(PageCustomization value) {
+		this.pageCustomization = value;
+	}
+
+	public CreateHostedCheckoutRequest withPageCustomization(PageCustomization value) {
+		this.pageCustomization = value;
 		return this;
 	}
 

@@ -6,7 +6,7 @@ package com.onlinepayments.domain;
 import java.util.List;
 
 /**
- * Contains the payment product ids that should be excluded from the payment products available for the payment. Note that excluding a payment product will ensure exclusion, even if the payment product is also present in the restrictTo filter.
+ * The payment product ids to be be excluded or restricted to from the payment products available for the payment. Note that you can add exclusions on top of the 'restrictTo' filter.
  */
 public class PaymentProductFilterHostedTokenization {
 

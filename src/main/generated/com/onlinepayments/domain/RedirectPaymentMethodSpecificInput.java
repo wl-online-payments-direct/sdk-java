@@ -12,6 +12,8 @@ public class RedirectPaymentMethodSpecificInput {
 
 	private RedirectPaymentProduct3306SpecificInput paymentProduct3306SpecificInput = null;
 
+	private RedirectPaymentProduct5001SpecificInput paymentProduct5001SpecificInput = null;
+
 	private RedirectPaymentProduct5406SpecificInput paymentProduct5406SpecificInput = null;
 
 	private RedirectPaymentProduct5408SpecificInput paymentProduct5408SpecificInput = null;
@@ -71,6 +73,28 @@ public class RedirectPaymentMethodSpecificInput {
 	 */
 	public RedirectPaymentMethodSpecificInput withPaymentProduct3306SpecificInput(RedirectPaymentProduct3306SpecificInput value) {
 		this.paymentProduct3306SpecificInput = value;
+		return this;
+	}
+
+	/**
+	 * Object containing specific input required for Bizum payments
+	 */
+	public RedirectPaymentProduct5001SpecificInput getPaymentProduct5001SpecificInput() {
+		return paymentProduct5001SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for Bizum payments
+	 */
+	public void setPaymentProduct5001SpecificInput(RedirectPaymentProduct5001SpecificInput value) {
+		this.paymentProduct5001SpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input required for Bizum payments
+	 */
+	public RedirectPaymentMethodSpecificInput withPaymentProduct5001SpecificInput(RedirectPaymentProduct5001SpecificInput value) {
+		this.paymentProduct5001SpecificInput = value;
 		return this;
 	}
 

@@ -12,24 +12,21 @@ public class CardWithoutCvv {
 	private String expiryDate = null;
 
 	/**
-	 * The complete credit/debit card number (also know as the PAN)
-	 * The card number is always obfuscated in any of our responses
+	 * The obfuscated card number
 	 */
 	public String getCardNumber() {
 		return cardNumber;
 	}
 
 	/**
-	 * The complete credit/debit card number (also know as the PAN)
-	 * The card number is always obfuscated in any of our responses
+	 * The obfuscated card number
 	 */
 	public void setCardNumber(String value) {
 		this.cardNumber = value;
 	}
 
 	/**
-	 * The complete credit/debit card number (also know as the PAN)
-	 * The card number is always obfuscated in any of our responses
+	 * The obfuscated card number
 	 */
 	public CardWithoutCvv withCardNumber(String value) {
 		this.cardNumber = value;

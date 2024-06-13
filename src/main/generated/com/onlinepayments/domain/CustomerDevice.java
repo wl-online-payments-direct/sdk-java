@@ -67,21 +67,21 @@ public class CustomerDevice {
 	}
 
 	/**
-	 * Device fingerprint used for fraud detection
+	 * The session ID for the device fingerprint must match the one sent in the device fingerprint script.
 	 */
 	public String getDeviceFingerprint() {
 		return deviceFingerprint;
 	}
 
 	/**
-	 * Device fingerprint used for fraud detection
+	 * The session ID for the device fingerprint must match the one sent in the device fingerprint script.
 	 */
 	public void setDeviceFingerprint(String value) {
 		this.deviceFingerprint = value;
 	}
 
 	/**
-	 * Device fingerprint used for fraud detection
+	 * The session ID for the device fingerprint must match the one sent in the device fingerprint script.
 	 */
 	public CustomerDevice withDeviceFingerprint(String value) {
 		this.deviceFingerprint = value;

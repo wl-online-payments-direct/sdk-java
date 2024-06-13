@@ -13,6 +13,9 @@ public class WebhooksHelperBuilder {
 
 	/**
 	 * Sets the {@link Marshaller} to use.
+	 *
+	 * @param marshaller The marshaller to be used
+	 * @return The instance of the WebhooksHelperBuilder
 	 */
 	public WebhooksHelperBuilder withMarshaller(Marshaller marshaller) {
 		this.marshaller = marshaller;
@@ -21,6 +24,9 @@ public class WebhooksHelperBuilder {
 
 	/**
 	 * Sets the {@link SecretKeyStore} to use.
+	 *
+	 * @param secretKeyStore The keystore to be used
+	 * @return The instance of the WebhooksHelperBuilder
 	 */
 	public WebhooksHelperBuilder withSecretKeyStore(SecretKeyStore secretKeyStore) {
 		this.secretKeyStore = secretKeyStore;
@@ -30,6 +36,7 @@ public class WebhooksHelperBuilder {
 	/**
 	 * Creates a fully initialized {@link WebhooksHelper} object.
 	 *
+	 * @return A new instance of {@link WebhooksHelper}
 	 * @throws IllegalArgumentException if not all required components are set
 	 */
 	public WebhooksHelper build() {

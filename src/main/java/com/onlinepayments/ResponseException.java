@@ -42,14 +42,20 @@ public class ResponseException extends RuntimeException {
 	}
 
 	/**
-	 * @return The header with the given name, or {@code null} if there was no such header.
+	 * The header with the given name, or {@code null} if there was no such header.
+	 *
+	 * @param headerName The header name
+	 * @return The response header that matches the header name
 	 */
 	public ResponseHeader getHeader(String headerName) {
 		return ResponseHeader.getHeader(headers, headerName);
 	}
 
 	/**
-	 * @return The value of the header with the given name, or {@code null} if there was no such header.
+	 * The value of the header with the given name, or {@code null} if there was no such header.
+	 *
+	 * @param headerName The header name
+	 * @return The value of the response header that matches the header name
 	 */
 	public String getHeaderValue(String headerName) {
 		return ResponseHeader.getHeaderValue(headers, headerName);

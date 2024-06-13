@@ -26,9 +26,13 @@ public class CardPaymentMethodSpecificInput {
 
 	private PaymentProduct130SpecificInput paymentProduct130SpecificInput = null;
 
+	private PaymentProduct3012SpecificInput paymentProduct3012SpecificInput = null;
+
 	private PaymentProduct3208SpecificInput paymentProduct3208SpecificInput = null;
 
 	private PaymentProduct3209SpecificInput paymentProduct3209SpecificInput = null;
+
+	private PaymentProduct5002SpecificInput paymentProduct5002SpecificInput = null;
 
 	private Integer paymentProductId = null;
 
@@ -284,6 +288,28 @@ public class CardPaymentMethodSpecificInput {
 	}
 
 	/**
+	 * Object containing specific input required for bancontact.
+	 */
+	public PaymentProduct3012SpecificInput getPaymentProduct3012SpecificInput() {
+		return paymentProduct3012SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for bancontact.
+	 */
+	public void setPaymentProduct3012SpecificInput(PaymentProduct3012SpecificInput value) {
+		this.paymentProduct3012SpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input required for bancontact.
+	 */
+	public CardPaymentMethodSpecificInput withPaymentProduct3012SpecificInput(PaymentProduct3012SpecificInput value) {
+		this.paymentProduct3012SpecificInput = value;
+		return this;
+	}
+
+	/**
 	 * Object containing specific input required for OneyDuplo Leroy Merlin payments.
 	 */
 	public PaymentProduct3208SpecificInput getPaymentProduct3208SpecificInput() {
@@ -324,6 +350,28 @@ public class CardPaymentMethodSpecificInput {
 	 */
 	public CardPaymentMethodSpecificInput withPaymentProduct3209SpecificInput(PaymentProduct3209SpecificInput value) {
 		this.paymentProduct3209SpecificInput = value;
+		return this;
+	}
+
+	/**
+	 * Object containing specific input required for Click to Pay payments.
+	 */
+	public PaymentProduct5002SpecificInput getPaymentProduct5002SpecificInput() {
+		return paymentProduct5002SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for Click to Pay payments.
+	 */
+	public void setPaymentProduct5002SpecificInput(PaymentProduct5002SpecificInput value) {
+		this.paymentProduct5002SpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input required for Click to Pay payments.
+	 */
+	public CardPaymentMethodSpecificInput withPaymentProduct5002SpecificInput(PaymentProduct5002SpecificInput value) {
+		this.paymentProduct5002SpecificInput = value;
 		return this;
 	}
 

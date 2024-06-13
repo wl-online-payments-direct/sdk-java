@@ -18,6 +18,8 @@ public class PaymentOutput {
 
 	private CustomerOutput customer = null;
 
+	private Discount discount = null;
+
 	private String merchantParameters = null;
 
 	private MobilePaymentMethodSpecificOutput mobilePaymentMethodSpecificOutput = null;
@@ -139,6 +141,28 @@ public class PaymentOutput {
 	 */
 	public PaymentOutput withCustomer(CustomerOutput value) {
 		this.customer = value;
+		return this;
+	}
+
+	/**
+	 * Object to apply a discount to the total basket by adding a discount line.
+	 */
+	public Discount getDiscount() {
+		return discount;
+	}
+
+	/**
+	 * Object to apply a discount to the total basket by adding a discount line.
+	 */
+	public void setDiscount(Discount value) {
+		this.discount = value;
+	}
+
+	/**
+	 * Object to apply a discount to the total basket by adding a discount line.
+	 */
+	public PaymentOutput withDiscount(Discount value) {
+		this.discount = value;
 		return this;
 	}
 

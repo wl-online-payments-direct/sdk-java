@@ -101,8 +101,11 @@ public class DefaultConnection implements PooledConnection {
 
 	/**
 	 * Creates a new connection with the given connect and socket timeouts, default connection request timeout, the default number of maximum connections, no proxy and the default HTTPS protocols.
-	 ** @see CommunicatorConfiguration#DEFAULT_CONNECT_TIMEOUT
+	 * @see CommunicatorConfiguration#DEFAULT_CONNECT_TIMEOUT
 	 * @see CommunicatorConfiguration#DEFAULT_SOCKET_TIMEOUT
+	 *
+	 * @param connectTimeout The connect timeout
+	 * @param socketTimeout  The socket timeout
 	 */
 	public DefaultConnection(int connectTimeout, int socketTimeout) {
 		this(CommunicatorConfiguration.DEFAULT_CONNECTION_REQUEST_TIMEOUT, connectTimeout, socketTimeout);
@@ -113,6 +116,10 @@ public class DefaultConnection implements PooledConnection {
 	 * @see CommunicatorConfiguration#DEFAULT_CONNECTION_REQUEST_TIMEOUT
 	 * @see CommunicatorConfiguration#DEFAULT_CONNECT_TIMEOUT
 	 * @see CommunicatorConfiguration#DEFAULT_SOCKET_TIMEOUT
+	 *
+	 * @param connectionRequestTimeout The connection request timeout
+	 * @param connectTimeout The connect timeout
+	 * @param socketTimeout The socket timeout
 	 */
 	public DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout) {
 		this(connectionRequestTimeout, connectTimeout, socketTimeout, null);
@@ -121,6 +128,11 @@ public class DefaultConnection implements PooledConnection {
 	/**
 	 * Creates a new connection with the given timeouts and number of maximum connections, no proxy and the default HTTPS protocols.
 	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
+	 *
+	 * @param connectionRequestTimeout The connect request timeout
+	 * @param connectTimeout The connect timeout
+	 * @param socketTimeout The socket timeout
+	 * @param maxConnections The maximum number of connections
 	 */
 	public DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout, int maxConnections) {
 		this(connectionRequestTimeout, connectTimeout, socketTimeout, maxConnections, null);
@@ -131,6 +143,11 @@ public class DefaultConnection implements PooledConnection {
 	 * @see CommunicatorConfiguration#DEFAULT_CONNECTION_REQUEST_TIMEOUT
 	 * @see CommunicatorConfiguration#DEFAULT_MAX_CONNECTIONS
 	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
+	 *
+	 * @param connectionRequestTimeout The connect request timeout
+	 * @param connectTimeout The connect timeout
+	 * @param socketTimeout The socket timeout
+	 * @param proxyConfiguration A proxy configuration used
 	 */
 	public DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout, ProxyConfiguration proxyConfiguration) {
 		this(connectionRequestTimeout, connectTimeout, socketTimeout, CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, proxyConfiguration);
@@ -139,6 +156,12 @@ public class DefaultConnection implements PooledConnection {
 	/**
 	 * Creates a new connection with the given timeouts, number of maximum connections and proxy configuration, and the default HTTPS protocols.
 	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
+	 *
+	 * @param connectionRequestTimeout The connect request timeout
+	 * @param connectTimeout The connect timeout
+	 * @param socketTimeout The socket timeout
+	 * @param maxConnections The maximum number of connections
+	 * @param proxyConfiguration A proxy configuration used
 	 */
 	public DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration) {
 		this(connectionRequestTimeout, connectTimeout, socketTimeout, maxConnections, proxyConfiguration, CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS);
@@ -146,6 +169,13 @@ public class DefaultConnection implements PooledConnection {
 
 	/**
 	 * Creates a new connection with the given timeouts, number of maximum connections, proxy configuration and HTTPS protocols.
+	 *
+	 * @param connectionRequestTimeout The connect request timeout
+	 * @param connectTimeout The connect timeout
+	 * @param socketTimeout The socket timeout
+	 * @param maxConnections The maximum number of connections
+	 * @param proxyConfiguration A proxy configuration used
+	 * @param httpsProtocols The http protocols used
 	 */
 	public DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration, Set<String> httpsProtocols) {
 		this(connectionRequestTimeout, connectTimeout, socketTimeout, maxConnections, proxyConfiguration, createSSLConnectionSocketFactory(httpsProtocols));
@@ -155,6 +185,18 @@ public class DefaultConnection implements PooledConnection {
 	 * Creates a new connection with the given timeouts, number of maximum connections, proxy configuration and SSL connection socket factory.
 	 * This constructor can be used in case none of the other constructors can be used due to SSL issues,
 	 * to provide a fully customizable SSL connection socket factory.
+	 */
+	/**
+	 * Creates a new connection with the given timeouts, number of maximum connections, proxy configuration and SSL connection socket factory.
+	 * This constructor can be used in case none of the other constructors can be used due to SSL issues,
+	 * to provide a fully customizable SSL connection socket factory.
+	 *
+	 * @param connectionRequestTimeout The connect request timeout
+	 * @param connectTimeout The connect timeout
+	 * @param socketTimeout The socket timeout
+	 * @param maxConnections The maximum number of connections
+	 * @param proxyConfiguration A proxy configuration used
+	 * @param sslConnectionSocketFactory A SSL connection socket factory
 	 */
 	public DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration,
 			SSLConnectionSocketFactory sslConnectionSocketFactory) {

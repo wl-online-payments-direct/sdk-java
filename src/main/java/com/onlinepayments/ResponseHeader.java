@@ -39,7 +39,11 @@ public class ResponseHeader {
 	}
 
 	/**
-	 * @return The header from the given list with the given name, or {@code null} if there was no such header.
+	 * The header from the given list with the given name, or {@code null} if there was no such header.
+	 *
+	 * @param headers List of response headers
+	 * @param headerName The header name
+	 * @return The response header that matches the header name
 	 */
 	public static ResponseHeader getHeader(List<ResponseHeader> headers, String headerName) {
 		for (ResponseHeader header : headers) {
@@ -51,7 +55,11 @@ public class ResponseHeader {
 	}
 
 	/**
-	 * @return The value of the header from the given list with the given name, or {@code null} if there was no such header.
+	 * The value of the header from the given list with the given name, or {@code null} if there was no such header.
+	 *
+	 * @param headers List of response headers
+	 * @param headerName The header name
+	 * @return The response header value of the response header that matches the header name
 	 */
 	public static String getHeaderValue(List<ResponseHeader> headers, String headerName) {
 		ResponseHeader header = getHeader(headers, headerName);
@@ -59,8 +67,11 @@ public class ResponseHeader {
 	}
 
 	/**
-	 * @return The value of the {@code filename} parameter of the {@code Content-Disposition} header from the given list,
-	 *         or {@code null} if there was no such header or parameter.
+	 * The value of the {@code filename} parameter of the {@code Content-Disposition} header from the given list,
+	 * or {@code null} if there was no such header or parameter.
+	 *
+	 * @param headers List of response headers
+	 * @return A value of the Content-Disposition header
 	 */
 	public static String getDispositionFilename(List<ResponseHeader> headers) {
 		String headerValue = getHeaderValue(headers, "Content-Disposition");

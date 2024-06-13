@@ -120,6 +120,8 @@ public class CommunicatorConfiguration {
 
 	/**
 	 * Returns the Online Payments platform API endpoint URI.
+	 *
+	 * @return The API Endpoint URI
 	 */
 	public URI getApiEndpoint() {
 		return apiEndpoint;
@@ -145,6 +147,8 @@ public class CommunicatorConfiguration {
 	/**
 	 * An identifier for the secret API key. This identifier is visible in
 	 * the HTTP request and is also used to identify the correct account.
+	 *
+	 * @return The API Key ID
 	 */
 	public String getApiKeyId() {
 		return apiKeyId;
@@ -162,6 +166,8 @@ public class CommunicatorConfiguration {
 	 * go hand-in-hand, the difference is that {@code secretApiKey} is never
 	 * visible in the HTTP request. This secret is used as input for the HMAC
 	 * algorithm.
+	 *
+	 * @return The API Secret Key
 	 */
 	public String getSecretApiKey() {
 		return secretApiKey;

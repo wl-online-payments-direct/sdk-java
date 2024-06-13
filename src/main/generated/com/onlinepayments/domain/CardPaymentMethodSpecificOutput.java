@@ -24,6 +24,8 @@ public class CardPaymentMethodSpecificOutput {
 
 	private String initialSchemeTransactionId = null;
 
+	private NetworkTokenEssentials networkTokenData = null;
+
 	private String paymentAccountReference = null;
 
 	private String paymentOption = null;
@@ -195,6 +197,28 @@ public class CardPaymentMethodSpecificOutput {
 	 */
 	public CardPaymentMethodSpecificOutput withInitialSchemeTransactionId(String value) {
 		this.initialSchemeTransactionId = value;
+		return this;
+	}
+
+	/**
+	 * Object containing network token details
+	 */
+	public NetworkTokenEssentials getNetworkTokenData() {
+		return networkTokenData;
+	}
+
+	/**
+	 * Object containing network token details
+	 */
+	public void setNetworkTokenData(NetworkTokenEssentials value) {
+		this.networkTokenData = value;
+	}
+
+	/**
+	 * Object containing network token details
+	 */
+	public CardPaymentMethodSpecificOutput withNetworkTokenData(NetworkTokenEssentials value) {
+		this.networkTokenData = value;
 		return this;
 	}
 

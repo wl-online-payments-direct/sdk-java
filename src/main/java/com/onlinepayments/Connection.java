@@ -25,6 +25,8 @@ public interface Connection extends Closeable, LoggingCapable {
 	 * @param uri The URI to call, including any necessary query parameters.
 	 * @param requestHeaders An optional list of request headers.
 	 * @param responseHandler A handler for the response.
+	 * @return An object of type R that corresponds to the response from the HTTP GET request
+	 * @param <R> The type that corresponds to the response from the HTTP GET request
 	 * @throws CommunicationException when an exception occurred communicating with the Online Payments platform
 	 */
 	<R> R get(URI uri, List<RequestHeader> requestHeaders, ResponseHandler<R> responseHandler);
@@ -35,6 +37,8 @@ public interface Connection extends Closeable, LoggingCapable {
 	 * @param uri The URI to call, including any necessary query parameters.
 	 * @param requestHeaders An optional list of request headers.
 	 * @param responseHandler A handler for the response.
+	 * @return An object of type R that corresponds to the response from the HTTP DELETE request
+	 * @param <R> The type that corresponds to the response from the HTTP DELETE request
 	 * @throws CommunicationException when an exception occurred communicating with the Online Payments platform
 	 */
 	<R> R delete(URI uri, List<RequestHeader> requestHeaders, ResponseHandler<R> responseHandler);
@@ -46,6 +50,8 @@ public interface Connection extends Closeable, LoggingCapable {
 	 * @param requestHeaders An optional list of request headers.
 	 * @param body The optional body to send.
 	 * @param responseHandler A handler for the response.
+	 * @return An object of type R that corresponds to the response from the HTTP POST request
+	 * @param <R> The type that corresponds to the response from the HTTP POST request
 	 * @throws CommunicationException when an exception occurred communicating with the Online Payments platform
 	 */
 	<R> R post(URI uri, List<RequestHeader> requestHeaders, String body, ResponseHandler<R> responseHandler);
@@ -61,6 +67,8 @@ public interface Connection extends Closeable, LoggingCapable {
 	 * @param requestHeaders An optional list of request headers.
 	 * @param multipart The multipart/form-data request to send.
 	 * @param responseHandler A handler for the response.
+	 * @return An object of type R that corresponds to the response from the HTTP POST request
+	 * @param <R> The type that corresponds to the response from the HTTP POST request
 	 * @throws CommunicationException when an exception occurred communicating with the Online Payments platform
 	 */
 	<R> R post(URI uri, List<RequestHeader> requestHeaders, MultipartFormDataObject multipart, ResponseHandler<R> responseHandler);
@@ -72,6 +80,8 @@ public interface Connection extends Closeable, LoggingCapable {
 	 * @param requestHeaders An optional list of request headers.
 	 * @param body The optional body to send.
 	 * @param responseHandler A handler for the response.
+	 * @return An object of type R that corresponds to the response from the HTTP PUT request
+	 * @param <R> The type that corresponds to the response from the HTTP PUT request
 	 * @throws CommunicationException when an exception occurred communicating with the Online Payments platform
 	 */
 	<R> R put(URI uri, List<RequestHeader> requestHeaders, String body, ResponseHandler<R> responseHandler);

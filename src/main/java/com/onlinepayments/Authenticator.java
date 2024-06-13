@@ -16,6 +16,7 @@ public interface Authenticator {
 	 * @param requestHeaders
 	 *            A list of {@link RequestHeader}s. This list may not be
 	 *            modified and may not contain headers with the same name.
+	 * @return The authentication signature that can be used as Authentication header
 	 */
 	String createSimpleAuthenticationSignature(String httpMethod, URI resourceUri, List<RequestHeader> requestHeaders);
 }

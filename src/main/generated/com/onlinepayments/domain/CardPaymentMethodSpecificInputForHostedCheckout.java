@@ -10,9 +10,36 @@ import java.util.List;
  */
 public class CardPaymentMethodSpecificInputForHostedCheckout {
 
+	private Boolean clickToPay = null;
+
 	private Boolean groupCards = null;
 
 	private List<Integer> paymentProductPreferredOrder = null;
+
+	/**
+	 * * true - Hosted Checkout will show Click to Pay, with cards grouped as one payment method
+	 * * false - Default - Hosted Checkout will show cards as separate payment methods without Click to Pay
+	 */
+	public Boolean getClickToPay() {
+		return clickToPay;
+	}
+
+	/**
+	 * * true - Hosted Checkout will show Click to Pay, with cards grouped as one payment method
+	 * * false - Default - Hosted Checkout will show cards as separate payment methods without Click to Pay
+	 */
+	public void setClickToPay(Boolean value) {
+		this.clickToPay = value;
+	}
+
+	/**
+	 * * true - Hosted Checkout will show Click to Pay, with cards grouped as one payment method
+	 * * false - Default - Hosted Checkout will show cards as separate payment methods without Click to Pay
+	 */
+	public CardPaymentMethodSpecificInputForHostedCheckout withClickToPay(Boolean value) {
+		this.clickToPay = value;
+		return this;
+	}
 
 	/**
 	 * * true - Hosted Checkout will allow to show cards grouped as one payment method

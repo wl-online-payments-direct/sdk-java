@@ -451,24 +451,21 @@ public class AirlineData {
 	}
 
 	/**
-	 * Deprecated: This field is not used by any payment product
-	 * Passenger name record
+	 * ***Deprecated***. Use passengers instead.
 	 */
 	public String getPnr() {
 		return pnr;
 	}
 
 	/**
-	 * Deprecated: This field is not used by any payment product
-	 * Passenger name record
+	 * ***Deprecated***. Use passengers instead.
 	 */
 	public void setPnr(String value) {
 		this.pnr = value;
 	}
 
 	/**
-	 * Deprecated: This field is not used by any payment product
-	 * Passenger name record
+	 * ***Deprecated***. Use passengers instead.
 	 */
 	public AirlineData withPnr(String value) {
 		this.pnr = value;

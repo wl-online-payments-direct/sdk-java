@@ -25,6 +25,9 @@ public class MetaDataProviderBuilder {
 
 	/**
 	 * Sets the shopping cart extension to use.
+	 *
+	 * @param shoppingCartExtension Shopping cart extension used added to the instance
+	 * @return The instance of the Metadata Provider Builder
 	 */
 	public MetaDataProviderBuilder withShoppingCartExtension(ShoppingCartExtension shoppingCartExtension) {
 		this.shoppingCartExtension = shoppingCartExtension;
@@ -32,7 +35,7 @@ public class MetaDataProviderBuilder {
 	}
 
 	/**
-	 * Adds an additional request header.
+	 * Adds additional request header.
 	 * The following names are prohibited in these additional request headers, because these will be set automatically
 	 * as needed:
 	 * <ul>
@@ -43,6 +46,9 @@ public class MetaDataProviderBuilder {
 	 * <li>Content-Type</li>
 	 * <li>Authorization</li>
 	 * </ul>
+	 *
+	 * @param additionalRequestHeader Additional request header added to the instance
+	 * @return The instance of the Metadata Provider Builder
 	 */
 	public MetaDataProviderBuilder withAdditionalRequestHeader(RequestHeader additionalRequestHeader) {
 		MetaDataProvider.validateAdditionalRequestHeader(additionalRequestHeader);
@@ -52,6 +58,8 @@ public class MetaDataProviderBuilder {
 
 	/**
 	 * Creates a fully initialized {@link MetaDataProvider} object.
+	 *
+	 * @return The instance of the Metadata Provider Builder
 	 */
 	public MetaDataProvider build() {
 		return new MetaDataProvider(this);

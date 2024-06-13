@@ -20,6 +20,8 @@ public class CallContext {
 
 	/**
 	 * Sets the idempotence key to use for the next request for which this call context is used.
+	 *
+	 * @param idempotenceKey The idempotence key
 	 * @return This call context object.
 	 */
 	public CallContext withIdempotenceKey(String idempotenceKey) {
@@ -39,6 +41,8 @@ public class CallContext {
 	 * Sets the idempotence request timestamp.
 	 * This method should only be called by {@link Communicator} objects based on the response to the request for which this
 	 * call context was used.
+	 *
+	 * @param idempotenceRequestTimestamp The idempotence request timestamp
 	 */
 	public void setIdempotenceRequestTimestamp(Long idempotenceRequestTimestamp) {
 		this.idempotenceRequestTimestamp = idempotenceRequestTimestamp;

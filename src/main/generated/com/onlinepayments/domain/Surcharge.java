@@ -40,21 +40,21 @@ public class Surcharge {
 	}
 
 	/**
-	 * The payment product identifier.
+	 * Payment product identifier - Please see Products documentation for a full overview of possible values.
 	 */
 	public Integer getPaymentProductId() {
 		return paymentProductId;
 	}
 
 	/**
-	 * The payment product identifier.
+	 * Payment product identifier - Please see Products documentation for a full overview of possible values.
 	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;
 	}
 
 	/**
-	 * The payment product identifier.
+	 * Payment product identifier - Please see Products documentation for a full overview of possible values.
 	 */
 	public Surcharge withPaymentProductId(Integer value) {
 		this.paymentProductId = value;

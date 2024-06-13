@@ -71,21 +71,21 @@ public class IINDetail {
 	}
 
 	/**
-	 * The payment product identifier associated with the card. If the card has multiple brands, then we select the most appropriate payment product based on your configuration and the payment context, if you submitted one.
+	 * Payment product identifier - Please see Products documentation for a full overview of possible values.
 	 */
 	public Integer getPaymentProductId() {
 		return paymentProductId;
 	}
 
 	/**
-	 * The payment product identifier associated with the card. If the card has multiple brands, then we select the most appropriate payment product based on your configuration and the payment context, if you submitted one.
+	 * Payment product identifier - Please see Products documentation for a full overview of possible values.
 	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;
 	}
 
 	/**
-	 * The payment product identifier associated with the card. If the card has multiple brands, then we select the most appropriate payment product based on your configuration and the payment context, if you submitted one.
+	 * Payment product identifier - Please see Products documentation for a full overview of possible values.
 	 */
 	public IINDetail withPaymentProductId(Integer value) {
 		this.paymentProductId = value;

@@ -17,9 +17,13 @@ public class CreatePaymentRequest {
 
 	private Order order = null;
 
+	private PageCustomization pageCustomization = null;
+
 	private RedirectPaymentMethodSpecificInput redirectPaymentMethodSpecificInput = null;
 
 	private SepaDirectDebitPaymentMethodSpecificInput sepaDirectDebitPaymentMethodSpecificInput = null;
+
+	private Integer sessionTimeout = null;
 
 	/**
 	 * Object containing the specific input details for card payments
@@ -159,6 +163,19 @@ public class CreatePaymentRequest {
 		return this;
 	}
 
+	public PageCustomization getPageCustomization() {
+		return pageCustomization;
+	}
+
+	public void setPageCustomization(PageCustomization value) {
+		this.pageCustomization = value;
+	}
+
+	public CreatePaymentRequest withPageCustomization(PageCustomization value) {
+		this.pageCustomization = value;
+		return this;
+	}
+
 	/**
 	 * Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
 	 */
@@ -200,6 +217,28 @@ public class CreatePaymentRequest {
 	 */
 	public CreatePaymentRequest withSepaDirectDebitPaymentMethodSpecificInput(SepaDirectDebitPaymentMethodSpecificInput value) {
 		this.sepaDirectDebitPaymentMethodSpecificInput = value;
+		return this;
+	}
+
+	/**
+	 * Time (in minutes) after which the scheme or issuer shall refuse to finalize the transaction, if supported by said scheme/ issuer
+	 */
+	public Integer getSessionTimeout() {
+		return sessionTimeout;
+	}
+
+	/**
+	 * Time (in minutes) after which the scheme or issuer shall refuse to finalize the transaction, if supported by said scheme/ issuer
+	 */
+	public void setSessionTimeout(Integer value) {
+		this.sessionTimeout = value;
+	}
+
+	/**
+	 * Time (in minutes) after which the scheme or issuer shall refuse to finalize the transaction, if supported by said scheme/ issuer
+	 */
+	public CreatePaymentRequest withSessionTimeout(Integer value) {
+		this.sessionTimeout = value;
 		return this;
 	}
 }

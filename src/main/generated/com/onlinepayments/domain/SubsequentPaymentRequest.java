@@ -7,6 +7,8 @@ public class SubsequentPaymentRequest {
 
 	private Order order = null;
 
+	private SubsequentPaymentProduct5001SpecificInput subsequentPaymentProduct5001SpecificInput = null;
+
 	private SubsequentCardPaymentMethodSpecificInput subsequentcardPaymentMethodSpecificInput = null;
 
 	/**
@@ -31,6 +33,28 @@ public class SubsequentPaymentRequest {
 	 */
 	public SubsequentPaymentRequest withOrder(Order value) {
 		this.order = value;
+		return this;
+	}
+
+	/**
+	 * specific data required for Bizum subsequent payment
+	 */
+	public SubsequentPaymentProduct5001SpecificInput getSubsequentPaymentProduct5001SpecificInput() {
+		return subsequentPaymentProduct5001SpecificInput;
+	}
+
+	/**
+	 * specific data required for Bizum subsequent payment
+	 */
+	public void setSubsequentPaymentProduct5001SpecificInput(SubsequentPaymentProduct5001SpecificInput value) {
+		this.subsequentPaymentProduct5001SpecificInput = value;
+	}
+
+	/**
+	 * specific data required for Bizum subsequent payment
+	 */
+	public SubsequentPaymentRequest withSubsequentPaymentProduct5001SpecificInput(SubsequentPaymentProduct5001SpecificInput value) {
+		this.subsequentPaymentProduct5001SpecificInput = value;
 		return this;
 	}
 

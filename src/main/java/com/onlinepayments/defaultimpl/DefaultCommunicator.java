@@ -262,6 +262,11 @@ public class DefaultCommunicator implements Communicator {
 	 * Adds the necessary headers to the given list of headers. This includes the authorization header, which uses
 	 * other headers, so when you need to override this method, make sure to call {@code super.addGenericHeaders}
 	 * at the <i>end</i> of your overridden method.
+	 *
+	 * @param httpMethod The HTTP method
+	 * @param uri The URI
+	 * @param requestHeaders The request headers
+	 * @param context The {@link CallContext}
 	 */
 	protected void addGenericHeaders(String httpMethod, URI uri, List<RequestHeader> requestHeaders, CallContext context) {
 
@@ -283,6 +288,8 @@ public class DefaultCommunicator implements Communicator {
 
 	/**
 	 * Returns the date in the preferred format for the HTTP date header (RFC1123).
+	 *
+	 * @return The date string to be used as HTTP date header
 	 */
 	protected String getHeaderDateString() {
 		Calendar calendar = Calendar.getInstance();
@@ -313,6 +320,9 @@ public class DefaultCommunicator implements Communicator {
 
 	/**
 	 * Updates the given call context based on the contents of the given response.
+	 *
+	 * @param headers List of request headers
+	 * @param context The {@link CallContext}
 	 */
 	protected void updateContext(List<ResponseHeader> headers, CallContext context) {
 
@@ -327,6 +337,11 @@ public class DefaultCommunicator implements Communicator {
 
 	/**
 	 * Checks the status code and headers for errors and throws an exception if necessary.
+	 *
+	 * @param statusCode The status code
+	 * @param bodyStream The input stream of the response body
+	 * @param headers The list of headers
+	 * @param requestPath The request path used
 	 */
 	protected void throwExceptionIfNecessary(int statusCode, InputStream bodyStream, List<ResponseHeader> headers, String requestPath) {
 

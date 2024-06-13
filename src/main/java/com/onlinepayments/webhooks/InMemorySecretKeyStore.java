@@ -27,6 +27,9 @@ public final class InMemorySecretKeyStore implements SecretKeyStore {
 
 	/**
 	 * Stores the given secret key for the given key id.
+	 *
+	 * @param keyId The key id
+	 * @param secretKey The secret key
 	 */
 	public void storeSecretKey(String keyId, String secretKey) {
 		if (keyId == null || keyId.trim().isEmpty()) {
@@ -40,6 +43,8 @@ public final class InMemorySecretKeyStore implements SecretKeyStore {
 
 	/**
 	 * Removes the secret key for the given key id.
+	 *
+	 * @param keyId The key id
 	 */
 	public void removeSecretKey(String keyId) {
 		store.remove(keyId);

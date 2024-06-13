@@ -62,6 +62,9 @@ public final class LoggingUtil {
 
 	/**
 	 * Obfuscates the given body as necessary.
+	 *
+	 * @param body The body to be obfuscated
+	 * @return String that contains obfuscated body
 	 */
 	public static String obfuscateBody(CharSequence body) {
 		return PROPERTY_OBFUSCATOR.obfuscate(body);
@@ -69,7 +72,11 @@ public final class LoggingUtil {
 
 	/**
 	 * Obfuscates the body from the given stream as necessary.
+	 *
+	 * @param bodyStream The body stream to be obfuscated
 	 * @param charset The charset to use to read the body input stream.
+	 * @return String that contains obfuscated body
+	 * @throws IOException If the InputStream can not be read
 	 */
 	public static String obfuscateBody(InputStream bodyStream, Charset charset) throws IOException {
 		return obfuscateBody(new InputStreamReader(bodyStream, charset));
@@ -77,6 +84,10 @@ public final class LoggingUtil {
 
 	/**
 	 * Obfuscates the body from the given stream as necessary.
+	 *
+	 * @param bodyStream The body as {@link Reader}
+	 * @return String that contains obfuscated body
+	 * @throws IOException If the Reader can not be read
 	 */
 	public static String obfuscateBody(Reader bodyStream) throws IOException {
 		StringBuilder body = new StringBuilder();
@@ -91,6 +102,10 @@ public final class LoggingUtil {
 
 	/**
 	 * Obfuscates the value for the given header as necessary.
+	 *
+	 * @param name The header name
+	 * @param value The header value
+	 * @return String that contains obfuscated header
 	 */
 	public static String obfuscateHeader(String name, String value) {
 		return HEADER_OBFUSCATOR.obfuscateValue(name, value);

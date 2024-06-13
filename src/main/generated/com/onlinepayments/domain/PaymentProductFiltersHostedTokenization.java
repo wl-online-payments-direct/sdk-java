@@ -13,21 +13,21 @@ public class PaymentProductFiltersHostedTokenization {
 	private PaymentProductFilterHostedTokenization restrictTo = null;
 
 	/**
-	 * Contains the payment product ids that should be excluded from the payment products available for the payment. Note that excluding a payment product will ensure exclusion, even if the payment product is also present in the restrictTo filter.
+	 * The payment product ids to be be excluded or restricted to from the payment products available for the payment. Note that you can add exclusions on top of the 'restrictTo' filter.
 	 */
 	public PaymentProductFilterHostedTokenization getExclude() {
 		return exclude;
 	}
 
 	/**
-	 * Contains the payment product ids that should be excluded from the payment products available for the payment. Note that excluding a payment product will ensure exclusion, even if the payment product is also present in the restrictTo filter.
+	 * The payment product ids to be be excluded or restricted to from the payment products available for the payment. Note that you can add exclusions on top of the 'restrictTo' filter.
 	 */
 	public void setExclude(PaymentProductFilterHostedTokenization value) {
 		this.exclude = value;
 	}
 
 	/**
-	 * Contains the payment product ids that should be excluded from the payment products available for the payment. Note that excluding a payment product will ensure exclusion, even if the payment product is also present in the restrictTo filter.
+	 * The payment product ids to be be excluded or restricted to from the payment products available for the payment. Note that you can add exclusions on top of the 'restrictTo' filter.
 	 */
 	public PaymentProductFiltersHostedTokenization withExclude(PaymentProductFilterHostedTokenization value) {
 		this.exclude = value;
@@ -35,21 +35,21 @@ public class PaymentProductFiltersHostedTokenization {
 	}
 
 	/**
-	 * Contains the payment product ids that should be excluded from the payment products available for the payment. Note that excluding a payment product will ensure exclusion, even if the payment product is also present in the restrictTo filter.
+	 * The payment product ids to be be excluded or restricted to from the payment products available for the payment. Note that you can add exclusions on top of the 'restrictTo' filter.
 	 */
 	public PaymentProductFilterHostedTokenization getRestrictTo() {
 		return restrictTo;
 	}
 
 	/**
-	 * Contains the payment product ids that should be excluded from the payment products available for the payment. Note that excluding a payment product will ensure exclusion, even if the payment product is also present in the restrictTo filter.
+	 * The payment product ids to be be excluded or restricted to from the payment products available for the payment. Note that you can add exclusions on top of the 'restrictTo' filter.
 	 */
 	public void setRestrictTo(PaymentProductFilterHostedTokenization value) {
 		this.restrictTo = value;
 	}
 
 	/**
-	 * Contains the payment product ids that should be excluded from the payment products available for the payment. Note that excluding a payment product will ensure exclusion, even if the payment product is also present in the restrictTo filter.
+	 * The payment product ids to be be excluded or restricted to from the payment products available for the payment. Note that you can add exclusions on top of the 'restrictTo' filter.
 	 */
 	public PaymentProductFiltersHostedTokenization withRestrictTo(PaymentProductFilterHostedTokenization value) {
 		this.restrictTo = value;

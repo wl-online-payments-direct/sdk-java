@@ -24,6 +24,8 @@ public interface Communicator extends Closeable, LoggingCapable {
 	 * @param requestParameters An optional set of request parameters.
 	 * @param responseType The type of response to return.
 	 * @param context The optional call context to use.
+	 * @return an object of type O that corresponds to the response from the HTTP GET request
+	 * @param <O> The type that corresponds to the response from the HTTP GET request
 	 * @throws CommunicationException when an exception occurred communicating with the Online Payments platform
 	 * @throws ResponseException when an error response was received from the Online Payments platform
 	 * @throws ApiException when an error response was received from the Online Payments platform which contained a list of errors
@@ -40,6 +42,8 @@ public interface Communicator extends Closeable, LoggingCapable {
 	 * @param requestParameters An optional set of request parameters.
 	 * @param responseType The type of response to return.
 	 * @param context The optional call context to use.
+	 * @return an object of type O that corresponds to the response from the HTTP DELETE request
+	 * @param <O> The type that corresponds to the response from the HTTP DELETE request
 	 * @throws CommunicationException when an exception occurred communicating with the Online Payments platform
 	 * @throws ResponseException when an error response was received from the Online Payments platform
 	 * @throws ApiException when an error response was received from the Online Payments platform which contained a list of errors
@@ -57,6 +61,8 @@ public interface Communicator extends Closeable, LoggingCapable {
 	 * @param requestBody The optional request body to send.
 	 * @param responseType The type of response to return.
 	 * @param context The optional call context to use.
+	 * @return an object of type O that corresponds to the response from the HTTP POST request
+	 * @param <O> The type that corresponds to the response from the HTTP POST request
 	 * @throws CommunicationException when an exception occurred communicating with the Online Payments platform
 	 * @throws ResponseException when an error response was received from the Online Payments platform
 	 * @throws ApiException when an error response was received from the Online Payments platform which contained a list of errors
@@ -74,6 +80,8 @@ public interface Communicator extends Closeable, LoggingCapable {
 	 * @param requestBody The optional request body to send.
 	 * @param responseType The type of response to return.
 	 * @param context The optional call context to use.
+	 * @return an object of type O that corresponds to the response from the HTTP PUT request
+	 * @param <O> The type that corresponds to the response from the HTTP PUT request
 	 * @throws CommunicationException when an exception occurred communicating with the Online Payments platform
 	 * @throws ResponseException when an error response was received from the Online Payments platform
 	 * @throws ApiException when an error response was received from the Online Payments platform which contained a list of errors
