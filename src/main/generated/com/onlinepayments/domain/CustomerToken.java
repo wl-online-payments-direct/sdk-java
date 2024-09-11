@@ -12,21 +12,21 @@ public class CustomerToken {
 	private PersonalInformationToken personalInformation = null;
 
 	/**
-	 * Object containing billing address details
+	 * Object containing billing address details.
 	 */
 	public Address getBillingAddress() {
 		return billingAddress;
 	}
 
 	/**
-	 * Object containing billing address details
+	 * Object containing billing address details.
 	 */
 	public void setBillingAddress(Address value) {
 		this.billingAddress = value;
 	}
 
 	/**
-	 * Object containing billing address details
+	 * Object containing billing address details.
 	 */
 	public CustomerToken withBillingAddress(Address value) {
 		this.billingAddress = value;

@@ -17,21 +17,21 @@ public class PaymentProduct840SpecificOutput {
 	private ProtectionEligibility protectionEligibility = null;
 
 	/**
-	 * Object containing billing address details
+	 * Object containing billing address details.
 	 */
 	public Address getBillingAddress() {
 		return billingAddress;
 	}
 
 	/**
-	 * Object containing billing address details
+	 * Object containing billing address details.
 	 */
 	public void setBillingAddress(Address value) {
 		this.billingAddress = value;
 	}
 
 	/**
-	 * Object containing billing address details
+	 * Object containing billing address details.
 	 */
 	public PaymentProduct840SpecificOutput withBillingAddress(Address value) {
 		this.billingAddress = value;
@@ -61,21 +61,21 @@ public class PaymentProduct840SpecificOutput {
 	}
 
 	/**
-	 * Object containing billing address details
+	 * Object containing billing address details.
 	 */
 	public Address getCustomerAddress() {
 		return customerAddress;
 	}
 
 	/**
-	 * Object containing billing address details
+	 * Object containing billing address details.
 	 */
 	public void setCustomerAddress(Address value) {
 		this.customerAddress = value;
 	}
 
 	/**
-	 * Object containing billing address details
+	 * Object containing billing address details.
 	 */
 	public PaymentProduct840SpecificOutput withCustomerAddress(Address value) {
 		this.customerAddress = value;

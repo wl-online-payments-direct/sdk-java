@@ -10,6 +10,8 @@ public class SubsequentCardPaymentMethodSpecificInput {
 
 	private String authorizationMode = null;
 
+	private Integer paymentNumber = null;
+
 	private String schemeReferenceData = null;
 
 	private String subsequentType = null;
@@ -52,6 +54,34 @@ public class SubsequentCardPaymentMethodSpecificInput {
 	 */
 	public SubsequentCardPaymentMethodSpecificInput withAuthorizationMode(String value) {
 		this.authorizationMode = value;
+		return this;
+	}
+
+	/**
+	 * This payment's ordinal number in the sequence of payments. <br> As the payments are numbered from 1 to the totalNumberOfPayments provided at initialization of the sequence in the multiplePaymentInformation container, the allowed values for this field actually depend on whether the initial call to CreatePayment or CreateHostedCheckout led to a payment or not. <br>
+	 *   - if the initial call led to a payment, since it is implicitly numbered 1, then the allowed values for this field range from 2 to the totalNumberOfPayments.
+	 *   - if the initial call did not lead to a payment (e.g. this was a 0 amount operation for authentication), then the allowed values for this field range from 1 to the totalNumberOfPayments.
+	 */
+	public Integer getPaymentNumber() {
+		return paymentNumber;
+	}
+
+	/**
+	 * This payment's ordinal number in the sequence of payments. <br> As the payments are numbered from 1 to the totalNumberOfPayments provided at initialization of the sequence in the multiplePaymentInformation container, the allowed values for this field actually depend on whether the initial call to CreatePayment or CreateHostedCheckout led to a payment or not. <br>
+	 *   - if the initial call led to a payment, since it is implicitly numbered 1, then the allowed values for this field range from 2 to the totalNumberOfPayments.
+	 *   - if the initial call did not lead to a payment (e.g. this was a 0 amount operation for authentication), then the allowed values for this field range from 1 to the totalNumberOfPayments.
+	 */
+	public void setPaymentNumber(Integer value) {
+		this.paymentNumber = value;
+	}
+
+	/**
+	 * This payment's ordinal number in the sequence of payments. <br> As the payments are numbered from 1 to the totalNumberOfPayments provided at initialization of the sequence in the multiplePaymentInformation container, the allowed values for this field actually depend on whether the initial call to CreatePayment or CreateHostedCheckout led to a payment or not. <br>
+	 *   - if the initial call led to a payment, since it is implicitly numbered 1, then the allowed values for this field range from 2 to the totalNumberOfPayments.
+	 *   - if the initial call did not lead to a payment (e.g. this was a 0 amount operation for authentication), then the allowed values for this field range from 1 to the totalNumberOfPayments.
+	 */
+	public SubsequentCardPaymentMethodSpecificInput withPaymentNumber(Integer value) {
+		this.paymentNumber = value;
 		return this;
 	}
 

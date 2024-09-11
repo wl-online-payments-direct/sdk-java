@@ -16,9 +16,9 @@ public class CardPaymentMethodSpecificInputBase {
 
 	private String initialSchemeTransactionId = null;
 
-	private PaymentProduct130SpecificInput paymentProduct130SpecificInput = null;
+	private MultiplePaymentInformation multiplePaymentInformation = null;
 
-	private PaymentProduct3012SpecificInput paymentProduct3012SpecificInput = null;
+	private PaymentProduct130SpecificInput paymentProduct130SpecificInput = null;
 
 	private PaymentProduct3208SpecificInput paymentProduct3208SpecificInput = null;
 
@@ -149,6 +149,28 @@ public class CardPaymentMethodSpecificInputBase {
 	}
 
 	/**
+	 * Container announcing forecoming subsequent payments. Holds modalities of these subsequent payments.
+	 */
+	public MultiplePaymentInformation getMultiplePaymentInformation() {
+		return multiplePaymentInformation;
+	}
+
+	/**
+	 * Container announcing forecoming subsequent payments. Holds modalities of these subsequent payments.
+	 */
+	public void setMultiplePaymentInformation(MultiplePaymentInformation value) {
+		this.multiplePaymentInformation = value;
+	}
+
+	/**
+	 * Container announcing forecoming subsequent payments. Holds modalities of these subsequent payments.
+	 */
+	public CardPaymentMethodSpecificInputBase withMultiplePaymentInformation(MultiplePaymentInformation value) {
+		this.multiplePaymentInformation = value;
+		return this;
+	}
+
+	/**
 	 * Object containing specific input required for CB payments
 	 */
 	public PaymentProduct130SpecificInput getPaymentProduct130SpecificInput() {
@@ -167,28 +189,6 @@ public class CardPaymentMethodSpecificInputBase {
 	 */
 	public CardPaymentMethodSpecificInputBase withPaymentProduct130SpecificInput(PaymentProduct130SpecificInput value) {
 		this.paymentProduct130SpecificInput = value;
-		return this;
-	}
-
-	/**
-	 * Object containing specific input required for bancontact.
-	 */
-	public PaymentProduct3012SpecificInput getPaymentProduct3012SpecificInput() {
-		return paymentProduct3012SpecificInput;
-	}
-
-	/**
-	 * Object containing specific input required for bancontact.
-	 */
-	public void setPaymentProduct3012SpecificInput(PaymentProduct3012SpecificInput value) {
-		this.paymentProduct3012SpecificInput = value;
-	}
-
-	/**
-	 * Object containing specific input required for bancontact.
-	 */
-	public CardPaymentMethodSpecificInputBase withPaymentProduct3012SpecificInput(PaymentProduct3012SpecificInput value) {
-		this.paymentProduct3012SpecificInput = value;
 		return this;
 	}
 

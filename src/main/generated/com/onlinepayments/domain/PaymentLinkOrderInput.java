@@ -5,6 +5,14 @@ package com.onlinepayments.domain;
 
 /**
  * An object containing the details of the related payment input.
+ * 
+ * Deprecated: All properties in `paymentLinkOrder` are deprecated.  
+ * Use corresponding values as noted below:  
+ * | Property | Replacement |
+ * | - | - |
+ * | merchantReference | `order/references/merchantReference` |  
+ * | amount | `order/amountOfMoney` |  
+ * | surchargeSpecificInput | `order/surchargeSpecificInput` |
  */
 public class PaymentLinkOrderInput {
 

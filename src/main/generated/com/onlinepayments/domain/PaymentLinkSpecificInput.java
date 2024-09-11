@@ -37,21 +37,21 @@ public class PaymentLinkSpecificInput {
 	}
 
 	/**
-	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 30 days in the future or a past date. It must also contain the UTC offset.
+	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.
 	 */
 	public String getExpirationDate() {
 		return expirationDate;
 	}
 
 	/**
-	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 30 days in the future or a past date. It must also contain the UTC offset.
+	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.
 	 */
 	public void setExpirationDate(String value) {
 		this.expirationDate = value;
 	}
 
 	/**
-	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 30 days in the future or a past date. It must also contain the UTC offset.
+	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.
 	 */
 	public PaymentLinkSpecificInput withExpirationDate(String value) {
 		this.expirationDate = value;

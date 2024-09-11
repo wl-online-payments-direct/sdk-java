@@ -8,19 +8,15 @@ package com.onlinepayments.domain;
  */
 public class ThreeDSecureBase {
 
+	private Long authenticationAmount = null;
+
 	private String challengeCanvasSize = null;
 
 	private String challengeIndicator = null;
 
-	private Boolean decoupledIndicator = null;
-
-	private String decoupledMaxTime = null;
-
 	private String exemptionRequest = null;
 
 	private Integer merchantFraudRate = null;
-
-	private String paymentTokenSource = null;
 
 	private ThreeDSecureData priorThreeDSecureData = null;
 
@@ -30,9 +26,27 @@ public class ThreeDSecureBase {
 
 	private Boolean skipSoftDecline = null;
 
-	private String threeRIIndicator = null;
+	/**
+	 * The amount to be authenticated. This field should be populated if the amount to be authenticated differs from the amount to be authorized (by default they are considered equal). Amount in cents and always having 2 decimals.
+	 */
+	public Long getAuthenticationAmount() {
+		return authenticationAmount;
+	}
 
-	private ThreeDSWhitelist whitelist = null;
+	/**
+	 * The amount to be authenticated. This field should be populated if the amount to be authenticated differs from the amount to be authorized (by default they are considered equal). Amount in cents and always having 2 decimals.
+	 */
+	public void setAuthenticationAmount(Long value) {
+		this.authenticationAmount = value;
+	}
+
+	/**
+	 * The amount to be authenticated. This field should be populated if the amount to be authenticated differs from the amount to be authorized (by default they are considered equal). Amount in cents and always having 2 decimals.
+	 */
+	public ThreeDSecureBase withAuthenticationAmount(Long value) {
+		this.authenticationAmount = value;
+		return this;
+	}
 
 	/**
 	 * Dimensions of the challenge window that potentially will be displayed to the customer. The challenge content is formatted to appropriately render in this window to provide the best possible user experience. Preconfigured sizes are width x height in pixels of the window displayed in the customer browser window. Possible values are
@@ -124,59 +138,6 @@ public class ThreeDSecureBase {
 	}
 
 	/**
-	 * 3DS Requestor Decoupled Request Indicator. Indicates whether the 3DS Requestor requests the ACS to utilise Decoupled Authentication and agrees to utilise Decoupled Authentication if the ACS confirms its use.
-	 * Possible values:
-	 * * true
-	 * * false
-	 */
-	public Boolean getDecoupledIndicator() {
-		return decoupledIndicator;
-	}
-
-	/**
-	 * 3DS Requestor Decoupled Request Indicator. Indicates whether the 3DS Requestor requests the ACS to utilise Decoupled Authentication and agrees to utilise Decoupled Authentication if the ACS confirms its use.
-	 * Possible values:
-	 * * true
-	 * * false
-	 */
-	public void setDecoupledIndicator(Boolean value) {
-		this.decoupledIndicator = value;
-	}
-
-	/**
-	 * 3DS Requestor Decoupled Request Indicator. Indicates whether the 3DS Requestor requests the ACS to utilise Decoupled Authentication and agrees to utilise Decoupled Authentication if the ACS confirms its use.
-	 * Possible values:
-	 * * true
-	 * * false
-	 */
-	public ThreeDSecureBase withDecoupledIndicator(Boolean value) {
-		this.decoupledIndicator = value;
-		return this;
-	}
-
-	/**
-	 * 3DS Requestor Decoupled Max Time. Indicates the maximum amount of time that the 3DS Requestor will wait for an ACS to provide the results of a Decoupled Authentication transaction (in minutes).
-	 */
-	public String getDecoupledMaxTime() {
-		return decoupledMaxTime;
-	}
-
-	/**
-	 * 3DS Requestor Decoupled Max Time. Indicates the maximum amount of time that the 3DS Requestor will wait for an ACS to provide the results of a Decoupled Authentication transaction (in minutes).
-	 */
-	public void setDecoupledMaxTime(String value) {
-		this.decoupledMaxTime = value;
-	}
-
-	/**
-	 * 3DS Requestor Decoupled Max Time. Indicates the maximum amount of time that the 3DS Requestor will wait for an ACS to provide the results of a Decoupled Authentication transaction (in minutes).
-	 */
-	public ThreeDSecureBase withDecoupledMaxTime(String value) {
-		this.decoupledMaxTime = value;
-		return this;
-	}
-
-	/**
 	 * In PSD2, the ExemptionRequest field is used by merchants requesting an exemption when not using authentication on a transaction, in order to keep the conversion up.
 	 * * none = No exemption requested
 	 * * transaction-risk-analysis = Fraud analysis has been done already by your own fraud module and transaction scored as low risk
@@ -247,28 +208,6 @@ public class ThreeDSecureBase {
 	 */
 	public ThreeDSecureBase withMerchantFraudRate(Integer value) {
 		this.merchantFraudRate = value;
-		return this;
-	}
-
-	/**
-	 * EMV Payment Token Source. This data element will be populated by the system residing in the 3-D Secure domain where the tokenisation occurs.
-	 */
-	public String getPaymentTokenSource() {
-		return paymentTokenSource;
-	}
-
-	/**
-	 * EMV Payment Token Source. This data element will be populated by the system residing in the 3-D Secure domain where the tokenisation occurs.
-	 */
-	public void setPaymentTokenSource(String value) {
-		this.paymentTokenSource = value;
-	}
-
-	/**
-	 * EMV Payment Token Source. This data element will be populated by the system residing in the 3-D Secure domain where the tokenisation occurs.
-	 */
-	public ThreeDSecureBase withPaymentTokenSource(String value) {
-		this.paymentTokenSource = value;
 		return this;
 	}
 
@@ -381,41 +320,6 @@ public class ThreeDSecureBase {
 	 */
 	public ThreeDSecureBase withSkipSoftDecline(Boolean value) {
 		this.skipSoftDecline = value;
-		return this;
-	}
-
-	/**
-	 * Indicates the type of 3RI request. This data element provides additional information to the ACS to determine the best approach for handing a 3RI request.
-	 */
-	public String getThreeRIIndicator() {
-		return threeRIIndicator;
-	}
-
-	/**
-	 * Indicates the type of 3RI request. This data element provides additional information to the ACS to determine the best approach for handing a 3RI request.
-	 */
-	public void setThreeRIIndicator(String value) {
-		this.threeRIIndicator = value;
-	}
-
-	/**
-	 * Indicates the type of 3RI request. This data element provides additional information to the ACS to determine the best approach for handing a 3RI request.
-	 */
-	public ThreeDSecureBase withThreeRIIndicator(String value) {
-		this.threeRIIndicator = value;
-		return this;
-	}
-
-	public ThreeDSWhitelist getWhitelist() {
-		return whitelist;
-	}
-
-	public void setWhitelist(ThreeDSWhitelist value) {
-		this.whitelist = value;
-	}
-
-	public ThreeDSecureBase withWhitelist(ThreeDSWhitelist value) {
-		this.whitelist = value;
 		return this;
 	}
 }

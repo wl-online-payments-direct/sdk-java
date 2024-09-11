@@ -4,11 +4,9 @@
 package com.onlinepayments.domain;
 
 /**
- * Object containing billing address details.
+ * Object containing consumer address details
  */
-public class Address {
-
-	private String additionalInfo = null;
+public class MandateAddressResponse {
 
 	private String city = null;
 
@@ -16,33 +14,9 @@ public class Address {
 
 	private String houseNumber = null;
 
-	private String state = null;
-
 	private String street = null;
 
 	private String zip = null;
-
-	/**
-	 * Second line of street or additional address information
-	 */
-	public String getAdditionalInfo() {
-		return additionalInfo;
-	}
-
-	/**
-	 * Second line of street or additional address information
-	 */
-	public void setAdditionalInfo(String value) {
-		this.additionalInfo = value;
-	}
-
-	/**
-	 * Second line of street or additional address information
-	 */
-	public Address withAdditionalInfo(String value) {
-		this.additionalInfo = value;
-		return this;
-	}
 
 	/**
 	 * City
@@ -61,29 +35,29 @@ public class Address {
 	/**
 	 * City
 	 */
-	public Address withCity(String value) {
+	public MandateAddressResponse withCity(String value) {
 		this.city = value;
 		return this;
 	}
 
 	/**
-	 * ISO 3166-1 alpha-2 country code
+	 * ISO 3166-1 alpha-2 country code.
 	 */
 	public String getCountryCode() {
 		return countryCode;
 	}
 
 	/**
-	 * ISO 3166-1 alpha-2 country code
+	 * ISO 3166-1 alpha-2 country code.
 	 */
 	public void setCountryCode(String value) {
 		this.countryCode = value;
 	}
 
 	/**
-	 * ISO 3166-1 alpha-2 country code
+	 * ISO 3166-1 alpha-2 country code.
 	 */
-	public Address withCountryCode(String value) {
+	public MandateAddressResponse withCountryCode(String value) {
 		this.countryCode = value;
 		return this;
 	}
@@ -105,51 +79,29 @@ public class Address {
 	/**
 	 * House number
 	 */
-	public Address withHouseNumber(String value) {
+	public MandateAddressResponse withHouseNumber(String value) {
 		this.houseNumber = value;
 		return this;
 	}
 
 	/**
-	 * ISO 3166-2 country subdivision code
-	 */
-	public String getState() {
-		return state;
-	}
-
-	/**
-	 * ISO 3166-2 country subdivision code
-	 */
-	public void setState(String value) {
-		this.state = value;
-	}
-
-	/**
-	 * ISO 3166-2 country subdivision code
-	 */
-	public Address withState(String value) {
-		this.state = value;
-		return this;
-	}
-
-	/**
-	 * Street name
+	 * Streetname
 	 */
 	public String getStreet() {
 		return street;
 	}
 
 	/**
-	 * Street name
+	 * Streetname
 	 */
 	public void setStreet(String value) {
 		this.street = value;
 	}
 
 	/**
-	 * Street name
+	 * Streetname
 	 */
-	public Address withStreet(String value) {
+	public MandateAddressResponse withStreet(String value) {
 		this.street = value;
 		return this;
 	}
@@ -171,7 +123,7 @@ public class Address {
 	/**
 	 * Zip code
 	 */
-	public Address withZip(String value) {
+	public MandateAddressResponse withZip(String value) {
 		this.zip = value;
 		return this;
 	}

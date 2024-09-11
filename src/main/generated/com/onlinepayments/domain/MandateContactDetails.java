@@ -4,7 +4,7 @@
 package com.onlinepayments.domain;
 
 /**
- * Object containing contact details like email address and phone number
+ * Object containing email address
  */
 public class MandateContactDetails {
 

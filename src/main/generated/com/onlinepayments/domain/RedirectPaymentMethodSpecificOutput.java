@@ -16,6 +16,8 @@ public class RedirectPaymentMethodSpecificOutput {
 
 	private String paymentOption = null;
 
+	private PaymentProduct3203SpecificOutput paymentProduct3203SpecificOutput = null;
+
 	private PaymentProduct5001SpecificOutput paymentProduct5001SpecificOutput = null;
 
 	private PaymentProduct5402SpecificOutput paymentProduct5402SpecificOutput = null;
@@ -113,6 +115,28 @@ public class RedirectPaymentMethodSpecificOutput {
 	 */
 	public RedirectPaymentMethodSpecificOutput withPaymentOption(String value) {
 		this.paymentOption = value;
+		return this;
+	}
+
+	/**
+	 * PostFinancePay (payment product 3203) specific details
+	 */
+	public PaymentProduct3203SpecificOutput getPaymentProduct3203SpecificOutput() {
+		return paymentProduct3203SpecificOutput;
+	}
+
+	/**
+	 * PostFinancePay (payment product 3203) specific details
+	 */
+	public void setPaymentProduct3203SpecificOutput(PaymentProduct3203SpecificOutput value) {
+		this.paymentProduct3203SpecificOutput = value;
+	}
+
+	/**
+	 * PostFinancePay (payment product 3203) specific details
+	 */
+	public RedirectPaymentMethodSpecificOutput withPaymentProduct3203SpecificOutput(PaymentProduct3203SpecificOutput value) {
+		this.paymentProduct3203SpecificOutput = value;
 		return this;
 	}
 

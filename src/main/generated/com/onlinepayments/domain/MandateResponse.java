@@ -10,9 +10,11 @@ public class MandateResponse {
 
 	private String alias = null;
 
-	private MandateCustomer customer = null;
+	private MandateCustomerResponse customer = null;
 
 	private String customerReference = null;
+
+	private String mandatePdf = null;
 
 	private String recurrenceType = null;
 
@@ -43,26 +45,23 @@ public class MandateResponse {
 	}
 
 	/**
-	 * Customer object containing customer specific inputs.
-	 * Required for Create mandate and Create payment calls.
+	 * Customer object containing customer specific outputs.
 	 */
-	public MandateCustomer getCustomer() {
+	public MandateCustomerResponse getCustomer() {
 		return customer;
 	}
 
 	/**
-	 * Customer object containing customer specific inputs.
-	 * Required for Create mandate and Create payment calls.
+	 * Customer object containing customer specific outputs.
 	 */
-	public void setCustomer(MandateCustomer value) {
+	public void setCustomer(MandateCustomerResponse value) {
 		this.customer = value;
 	}
 
 	/**
-	 * Customer object containing customer specific inputs.
-	 * Required for Create mandate and Create payment calls.
+	 * Customer object containing customer specific outputs.
 	 */
-	public MandateResponse withCustomer(MandateCustomer value) {
+	public MandateResponse withCustomer(MandateCustomerResponse value) {
 		this.customer = value;
 		return this;
 	}
@@ -86,6 +85,28 @@ public class MandateResponse {
 	 */
 	public MandateResponse withCustomerReference(String value) {
 		this.customerReference = value;
+		return this;
+	}
+
+	/**
+	 * The mandate PDF in base64 encoded string
+	 */
+	public String getMandatePdf() {
+		return mandatePdf;
+	}
+
+	/**
+	 * The mandate PDF in base64 encoded string
+	 */
+	public void setMandatePdf(String value) {
+		this.mandatePdf = value;
+	}
+
+	/**
+	 * The mandate PDF in base64 encoded string
+	 */
+	public MandateResponse withMandatePdf(String value) {
+		this.mandatePdf = value;
 		return this;
 	}
 

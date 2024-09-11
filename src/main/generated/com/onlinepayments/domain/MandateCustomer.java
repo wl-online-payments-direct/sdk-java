@@ -64,21 +64,21 @@ public class MandateCustomer {
 	}
 
 	/**
-	 * Object containing contact details like email address and phone number
+	 * Object containing email address
 	 */
 	public MandateContactDetails getContactDetails() {
 		return contactDetails;
 	}
 
 	/**
-	 * Object containing contact details like email address and phone number
+	 * Object containing email address
 	 */
 	public void setContactDetails(MandateContactDetails value) {
 		this.contactDetails = value;
 	}
 
 	/**
-	 * Object containing contact details like email address and phone number
+	 * Object containing email address
 	 */
 	public MandateCustomer withContactDetails(MandateContactDetails value) {
 		this.contactDetails = value;
@@ -86,7 +86,7 @@ public class MandateCustomer {
 	}
 
 	/**
-	 * Object containing billing address details.
+	 * Object containing consumer address details.
 	 * Required for Create mandate and Create payment calls.
 	 * Required for Create hostedCheckout calls where the IBAN is also provided.
 	 */
@@ -95,7 +95,7 @@ public class MandateCustomer {
 	}
 
 	/**
-	 * Object containing billing address details.
+	 * Object containing consumer address details.
 	 * Required for Create mandate and Create payment calls.
 	 * Required for Create hostedCheckout calls where the IBAN is also provided.
 	 */
@@ -104,7 +104,7 @@ public class MandateCustomer {
 	}
 
 	/**
-	 * Object containing billing address details.
+	 * Object containing consumer address details.
 	 * Required for Create mandate and Create payment calls.
 	 * Required for Create hostedCheckout calls where the IBAN is also provided.
 	 */

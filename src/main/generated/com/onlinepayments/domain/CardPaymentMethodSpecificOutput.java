@@ -24,8 +24,6 @@ public class CardPaymentMethodSpecificOutput {
 
 	private String initialSchemeTransactionId = null;
 
-	private NetworkTokenEssentials networkTokenData = null;
-
 	private String paymentAccountReference = null;
 
 	private String paymentOption = null;
@@ -65,21 +63,21 @@ public class CardPaymentMethodSpecificOutput {
 	}
 
 	/**
-	 * Allows amount to be authenticated to be different from amount authorized. (Amount in cents and always having 2 decimals)
+	 * The amount to be authenticated. This field should be populated if the amount to be authenticated differs from the amount to be authorized (by default they are considered equal). Amount in cents and always having 2 decimals.
 	 */
 	public Long getAuthenticatedAmount() {
 		return authenticatedAmount;
 	}
 
 	/**
-	 * Allows amount to be authenticated to be different from amount authorized. (Amount in cents and always having 2 decimals)
+	 * The amount to be authenticated. This field should be populated if the amount to be authenticated differs from the amount to be authorized (by default they are considered equal). Amount in cents and always having 2 decimals.
 	 */
 	public void setAuthenticatedAmount(Long value) {
 		this.authenticatedAmount = value;
 	}
 
 	/**
-	 * Allows amount to be authenticated to be different from amount authorized. (Amount in cents and always having 2 decimals)
+	 * The amount to be authenticated. This field should be populated if the amount to be authenticated differs from the amount to be authorized (by default they are considered equal). Amount in cents and always having 2 decimals.
 	 */
 	public CardPaymentMethodSpecificOutput withAuthenticatedAmount(Long value) {
 		this.authenticatedAmount = value;
@@ -197,28 +195,6 @@ public class CardPaymentMethodSpecificOutput {
 	 */
 	public CardPaymentMethodSpecificOutput withInitialSchemeTransactionId(String value) {
 		this.initialSchemeTransactionId = value;
-		return this;
-	}
-
-	/**
-	 * Object containing network token details
-	 */
-	public NetworkTokenEssentials getNetworkTokenData() {
-		return networkTokenData;
-	}
-
-	/**
-	 * Object containing network token details
-	 */
-	public void setNetworkTokenData(NetworkTokenEssentials value) {
-		this.networkTokenData = value;
-	}
-
-	/**
-	 * Object containing network token details
-	 */
-	public CardPaymentMethodSpecificOutput withNetworkTokenData(NetworkTokenEssentials value) {
-		this.networkTokenData = value;
 		return this;
 	}
 

@@ -12,6 +12,8 @@ public class AddressPersonal {
 
 	private String city = null;
 
+	private String companyName = null;
+
 	private String countryCode = null;
 
 	private String houseNumber = null;
@@ -65,6 +67,28 @@ public class AddressPersonal {
 	 */
 	public AddressPersonal withCity(String value) {
 		this.city = value;
+		return this;
+	}
+
+	/**
+	 * Company Name
+	 */
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	/**
+	 * Company Name
+	 */
+	public void setCompanyName(String value) {
+		this.companyName = value;
+	}
+
+	/**
+	 * Company Name
+	 */
+	public AddressPersonal withCompanyName(String value) {
+		this.companyName = value;
 		return this;
 	}
 

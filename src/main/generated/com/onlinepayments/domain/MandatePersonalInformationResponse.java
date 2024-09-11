@@ -4,36 +4,32 @@
 package com.onlinepayments.domain;
 
 /**
- * Object containing personal information of the customer.
- * Required for Create mandate and Create payment calls.
+ * Object containing personal information of the customer
  */
-public class MandatePersonalInformation {
+public class MandatePersonalInformationResponse {
 
-	private MandatePersonalName name = null;
+	private MandatePersonalNameResponse name = null;
 
 	private String title = null;
 
 	/**
 	 * Object containing the name details of the customer.
-	 * Required for Create mandate and Create payment calls.
 	 */
-	public MandatePersonalName getName() {
+	public MandatePersonalNameResponse getName() {
 		return name;
 	}
 
 	/**
 	 * Object containing the name details of the customer.
-	 * Required for Create mandate and Create payment calls.
 	 */
-	public void setName(MandatePersonalName value) {
+	public void setName(MandatePersonalNameResponse value) {
 		this.name = value;
 	}
 
 	/**
 	 * Object containing the name details of the customer.
-	 * Required for Create mandate and Create payment calls.
 	 */
-	public MandatePersonalInformation withName(MandatePersonalName value) {
+	public MandatePersonalInformationResponse withName(MandatePersonalNameResponse value) {
 		this.name = value;
 		return this;
 	}
@@ -55,7 +51,7 @@ public class MandatePersonalInformation {
 	/**
 	 * Object containing the title of the customer (Mr, Miss or Mrs)
 	 */
-	public MandatePersonalInformation withTitle(String value) {
+	public MandatePersonalInformationResponse withTitle(String value) {
 		this.title = value;
 		return this;
 	}

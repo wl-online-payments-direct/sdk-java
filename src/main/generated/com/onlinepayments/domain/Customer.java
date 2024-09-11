@@ -82,21 +82,21 @@ public class Customer {
 	}
 
 	/**
-	 * Object containing billing address details
+	 * Object containing billing address details.
 	 */
 	public Address getBillingAddress() {
 		return billingAddress;
 	}
 
 	/**
-	 * Object containing billing address details
+	 * Object containing billing address details.
 	 */
 	public void setBillingAddress(Address value) {
 		this.billingAddress = value;
 	}
 
 	/**
-	 * Object containing billing address details
+	 * Object containing billing address details.
 	 */
 	public Customer withBillingAddress(Address value) {
 		this.billingAddress = value;

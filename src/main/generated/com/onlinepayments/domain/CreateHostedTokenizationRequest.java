@@ -11,8 +11,6 @@ public class CreateHostedTokenizationRequest {
 
 	private String locale = null;
 
-	private PageCustomization pageCustomization = null;
-
 	private PaymentProductFiltersHostedTokenization paymentProductFilters = null;
 
 	private String tokens = null;
@@ -76,19 +74,6 @@ public class CreateHostedTokenizationRequest {
 	 */
 	public CreateHostedTokenizationRequest withLocale(String value) {
 		this.locale = value;
-		return this;
-	}
-
-	public PageCustomization getPageCustomization() {
-		return pageCustomization;
-	}
-
-	public void setPageCustomization(PageCustomization value) {
-		this.pageCustomization = value;
-	}
-
-	public CreateHostedTokenizationRequest withPageCustomization(PageCustomization value) {
-		this.pageCustomization = value;
 		return this;
 	}
 

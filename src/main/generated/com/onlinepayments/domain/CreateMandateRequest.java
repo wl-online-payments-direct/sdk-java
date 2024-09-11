@@ -193,27 +193,30 @@ public class CreateMandateRequest {
 	}
 
 	/**
-	 * Specifies whether the mandate is unsigned or signed by SMS. Possible values are:
+	 * Specifies whether the mandate is tick box, unsigned or signed by SMS. Possible values are:
 	 * * UNSIGNED
 	 * * SMS
+	 * * TICK_BOX - This option is only available for Equens Worldline
 	 */
 	public String getSignatureType() {
 		return signatureType;
 	}
 
 	/**
-	 * Specifies whether the mandate is unsigned or signed by SMS. Possible values are:
+	 * Specifies whether the mandate is tick box, unsigned or signed by SMS. Possible values are:
 	 * * UNSIGNED
 	 * * SMS
+	 * * TICK_BOX - This option is only available for Equens Worldline
 	 */
 	public void setSignatureType(String value) {
 		this.signatureType = value;
 	}
 
 	/**
-	 * Specifies whether the mandate is unsigned or signed by SMS. Possible values are:
+	 * Specifies whether the mandate is tick box, unsigned or signed by SMS. Possible values are:
 	 * * UNSIGNED
 	 * * SMS
+	 * * TICK_BOX - This option is only available for Equens Worldline
 	 */
 	public CreateMandateRequest withSignatureType(String value) {
 		this.signatureType = value;

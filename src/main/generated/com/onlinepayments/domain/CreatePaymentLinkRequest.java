@@ -56,6 +56,8 @@ public class CreatePaymentLinkRequest {
 
 	/**
 	 * A note related to the created payment link.
+	 * 
+	 * Deprecated: Use `paymentLinkSpecificInput/description` instead.
 	 */
 	public String getDescription() {
 		return description;
@@ -63,6 +65,8 @@ public class CreatePaymentLinkRequest {
 
 	/**
 	 * A note related to the created payment link.
+	 * 
+	 * Deprecated: Use `paymentLinkSpecificInput/description` instead.
 	 */
 	public void setDescription(String value) {
 		this.description = value;
@@ -70,6 +74,8 @@ public class CreatePaymentLinkRequest {
 
 	/**
 	 * A note related to the created payment link.
+	 * 
+	 * Deprecated: Use `paymentLinkSpecificInput/description` instead.
 	 */
 	public CreatePaymentLinkRequest withDescription(String value) {
 		this.description = value;
@@ -77,21 +83,27 @@ public class CreatePaymentLinkRequest {
 	}
 
 	/**
-	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 30 days in the future or a past date. It must also contain the UTC offset.
+	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.
+	 * 
+	 * Deprecated: Use `paymentLinkSpecificInput/expirationDate` instead.
 	 */
 	public String getExpirationDate() {
 		return expirationDate;
 	}
 
 	/**
-	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 30 days in the future or a past date. It must also contain the UTC offset.
+	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.
+	 * 
+	 * Deprecated: Use `paymentLinkSpecificInput/expirationDate` instead.
 	 */
 	public void setExpirationDate(String value) {
 		this.expirationDate = value;
 	}
 
 	/**
-	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 30 days in the future or a past date. It must also contain the UTC offset.
+	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.
+	 * 
+	 * Deprecated: Use `paymentLinkSpecificInput/expirationDate` instead.
 	 */
 	public CreatePaymentLinkRequest withExpirationDate(String value) {
 		this.expirationDate = value;
@@ -191,6 +203,14 @@ public class CreatePaymentLinkRequest {
 
 	/**
 	 * An object containing the details of the related payment input.
+	 * 
+	 * Deprecated: All properties in `paymentLinkOrder` are deprecated.  
+	 * Use corresponding values as noted below:  
+	 * | Property | Replacement |
+	 * | - | - |
+	 * | merchantReference | `order/references/merchantReference` |  
+	 * | amount | `order/amountOfMoney` |  
+	 * | surchargeSpecificInput | `order/surchargeSpecificInput` |
 	 */
 	public PaymentLinkOrderInput getPaymentLinkOrder() {
 		return paymentLinkOrder;
@@ -198,6 +218,14 @@ public class CreatePaymentLinkRequest {
 
 	/**
 	 * An object containing the details of the related payment input.
+	 * 
+	 * Deprecated: All properties in `paymentLinkOrder` are deprecated.  
+	 * Use corresponding values as noted below:  
+	 * | Property | Replacement |
+	 * | - | - |
+	 * | merchantReference | `order/references/merchantReference` |  
+	 * | amount | `order/amountOfMoney` |  
+	 * | surchargeSpecificInput | `order/surchargeSpecificInput` |
 	 */
 	public void setPaymentLinkOrder(PaymentLinkOrderInput value) {
 		this.paymentLinkOrder = value;
@@ -205,6 +233,14 @@ public class CreatePaymentLinkRequest {
 
 	/**
 	 * An object containing the details of the related payment input.
+	 * 
+	 * Deprecated: All properties in `paymentLinkOrder` are deprecated.  
+	 * Use corresponding values as noted below:  
+	 * | Property | Replacement |
+	 * | - | - |
+	 * | merchantReference | `order/references/merchantReference` |  
+	 * | amount | `order/amountOfMoney` |  
+	 * | surchargeSpecificInput | `order/surchargeSpecificInput` |
 	 */
 	public CreatePaymentLinkRequest withPaymentLinkOrder(PaymentLinkOrderInput value) {
 		this.paymentLinkOrder = value;
@@ -235,6 +271,8 @@ public class CreatePaymentLinkRequest {
 
 	/**
 	 * The payment link recipient name.
+	 * 
+	 * Deprecated: Use `paymentLinkSpecificInput/recipientName` instead.
 	 */
 	public String getRecipientName() {
 		return recipientName;
@@ -242,6 +280,8 @@ public class CreatePaymentLinkRequest {
 
 	/**
 	 * The payment link recipient name.
+	 * 
+	 * Deprecated: Use `paymentLinkSpecificInput/recipientName` instead.
 	 */
 	public void setRecipientName(String value) {
 		this.recipientName = value;
@@ -249,6 +289,8 @@ public class CreatePaymentLinkRequest {
 
 	/**
 	 * The payment link recipient name.
+	 * 
+	 * Deprecated: Use `paymentLinkSpecificInput/recipientName` instead.
 	 */
 	public CreatePaymentLinkRequest withRecipientName(String value) {
 		this.recipientName = value;
