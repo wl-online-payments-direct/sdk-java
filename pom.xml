@@ -5,41 +5,41 @@
 
 	<groupId>com.worldline-solutions</groupId>
 	<artifactId>onlinepayments-sdk-java</artifactId>
-	<version>4.23.0</version>
+	<version>4.24.0</version>
 	<packaging>jar</packaging>
 
 	<name>onlinepayments-sdk-java</name>
 	<description>SDK to communicate with the payment platform using the server API</description>
-	<url>https://github.com/wl-online-payments-direct/sdk-java</url>
+	<url>https://github.com/Online-Payments/sdk-java</url>
 
 	<organization>
-		<name>Worldline Online Payments Direct</name>
+		<name>Online Payments</name>
 	</organization>
 
 	<licenses>
 		<license>
 			<name>MIT</name>
-			<url>https://github.com/wl-online-payments-direct/sdk-java/blob/master/LICENSE.txt</url>
+			<url>https://github.com/Online-Payments/sdk-java/blob/master/LICENSE.txt</url>
 		</license>
 	</licenses>
 
 	<developers>
 		<developer>
-			<name>Worldline Direct support team</name>
-			<email>82139942+worldline-direct-support-team@users.noreply.github.com</email>
-			<organization>Worldline Online Payments Direct</organization>
+			<name>Online Payments support team</name>
+			<email>96182451+online-payments-support-team@users.noreply.github.com</email>
+			<organization>Online Payments</organization>
 		</developer>
 	</developers>
 
 	<scm>
-		<connection>scm:git:git@github.com:wl-online-payments-direct/sdk-java.git</connection>
-		<developerConnection>scm:git:git@github.com:wl-online-payments-direct/sdk-java.git</developerConnection>
-		<url>https://github.com/wl-online-payments-direct/sdk-java</url>
+		<connection>scm:git:git@github.com:Online-Payments/sdk-java.git</connection>
+		<developerConnection>scm:git:git@github.com:Online-Payments/sdk-java.git</developerConnection>
+		<url>https://github.com/Online-Payments/sdk-java</url>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/wl-online-payments-direct/sdk-java/issues</url>
+		<url>https://github.com/Online-Payments/sdk-java/issues</url>
 	</issueManagement>
 
 	<properties>
@@ -114,13 +114,13 @@
 						<manifestEntries>
 							<Specification-Title>${project.name}</Specification-Title>
 							<Specification-Version>${project.version}</Specification-Version>
-							<Specification-Vendor>Worldline Online Payments Direct</Specification-Vendor>
+							<Specification-Vendor>Online Payments</Specification-Vendor>
 							<Implementation-Title>${project.name}</Implementation-Title>
 							<Implementation-Version>${project.version}</Implementation-Version>
-							<Implementation-Vendor>Worldline Online Payments Direct</Implementation-Vendor>
+							<Implementation-Vendor>Online Payments</Implementation-Vendor>
 
 							<!-- override default Built-By -->
-							<Built-By>Worldline Online Payments Direct</Built-By>
+							<Built-By>Online Payments</Built-By>
 						</manifestEntries>
 					</archive>
 				</configuration>
@@ -144,13 +144,13 @@
 						<manifestEntries>
 							<Specification-Title>${project.name}</Specification-Title>
 							<Specification-Version>${project.version}</Specification-Version>
-							<Specification-Vendor>Worldline Online Payments Direct</Specification-Vendor>
+							<Specification-Vendor>Online Payments</Specification-Vendor>
 							<Implementation-Title>${project.name}</Implementation-Title>
 							<Implementation-Version>${project.version}</Implementation-Version>
-							<Implementation-Vendor>Worldline Online Payments Direct</Implementation-Vendor>
+							<Implementation-Vendor>Online Payments</Implementation-Vendor>
 
 							<!-- override default Built-By -->
-							<Built-By>Worldline Online Payments Direct</Built-By>
+							<Built-By>Online Payments</Built-By>
 						</manifestEntries>
 					</archive>
 				</configuration>
@@ -180,13 +180,13 @@
 						<manifestEntries>
 							<Specification-Title>${project.name}</Specification-Title>
 							<Specification-Version>${project.version}</Specification-Version>
-							<Specification-Vendor>Worldline Online Payments Direct</Specification-Vendor>
+							<Specification-Vendor>Online Payments</Specification-Vendor>
 							<Implementation-Title>${project.name}</Implementation-Title>
 							<Implementation-Version>${project.version}</Implementation-Version>
-							<Implementation-Vendor>Worldline Online Payments Direct</Implementation-Vendor>
+							<Implementation-Vendor>Online Payments</Implementation-Vendor>
 
 							<!-- override default Built-By -->
-							<Built-By>Worldline Online Payments Direct</Built-By>
+							<Built-By>Online Payments</Built-By>
 						</manifestEntries>
 					</archive>
 				</configuration>

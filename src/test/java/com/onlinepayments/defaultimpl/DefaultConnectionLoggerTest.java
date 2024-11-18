@@ -813,7 +813,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 	private static final class TestLogger implements CommunicatorLogger {
 
-		private List<TestLoggerEntry> entries = new ArrayList<DefaultConnectionLoggerTest.TestLoggerEntry>();
+		private List<TestLoggerEntry> entries = new ArrayList<TestLoggerEntry>();
 
 		@Override
 		public void log(String message) {

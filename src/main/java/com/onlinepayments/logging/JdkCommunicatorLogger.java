@@ -4,7 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * A communicator logger that is backed by a {@link java.util.logging.Logger}.
+ * A communicator logger that is backed by a {@link Logger}.
  */
 public class JdkCommunicatorLogger implements CommunicatorLogger {
 

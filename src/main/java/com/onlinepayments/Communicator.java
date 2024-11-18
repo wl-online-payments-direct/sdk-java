@@ -32,7 +32,7 @@ public interface Communicator extends Closeable, LoggingCapable {
 	 */
 	@SuppressWarnings("resource")
 	<O> O get(String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters,
-			Class<O> responseType, CallContext context);
+              Class<O> responseType, CallContext context);
 
 	/**
 	 * Corresponds to the HTTP DELETE method.
@@ -50,7 +50,7 @@ public interface Communicator extends Closeable, LoggingCapable {
 	 */
 	@SuppressWarnings("resource")
 	<O> O delete(String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters,
-			Class<O> responseType, CallContext context);
+                 Class<O> responseType, CallContext context);
 
 	/**
 	 * Corresponds to the HTTP POST method.
@@ -69,7 +69,7 @@ public interface Communicator extends Closeable, LoggingCapable {
 	 */
 	@SuppressWarnings("resource")
 	<O> O post(String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, Object requestBody,
-			Class<O> responseType, CallContext context);
+               Class<O> responseType, CallContext context);
 
 	/**
 	 * Corresponds to the HTTP PUT method.
@@ -88,7 +88,7 @@ public interface Communicator extends Closeable, LoggingCapable {
 	 */
 	@SuppressWarnings("resource")
 	<O> O put(String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, Object requestBody,
-			Class<O> responseType, CallContext context);
+              Class<O> responseType, CallContext context);
 
 	Connection getConnection();
 

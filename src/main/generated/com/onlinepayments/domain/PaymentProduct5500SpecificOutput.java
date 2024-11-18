@@ -14,6 +14,8 @@ public class PaymentProduct5500SpecificOutput {
 
 	private String paymentStartDate = null;
 
+	private String entityId = null;
+
 	/**
 	 * The end date of the payment validity
 	 */
@@ -77,6 +79,29 @@ public class PaymentProduct5500SpecificOutput {
 	 */
 	public PaymentProduct5500SpecificOutput withPaymentStartDate(String value) {
 		this.paymentStartDate = value;
+		return this;
+	}
+
+	/**
+	 * Gets the entity ID.
+	 */
+	public String getEntityId() {
+		return entityId;
+	}
+
+	/**
+	 * Sets the entity ID.
+	 */
+	public void setEntityId(String value) {
+		this.entityId = value;
+	}
+
+	/**
+	 * Sets the entity ID. Method to enable chaining.
+	 */
+	public PaymentProduct5500SpecificOutput withEntityId(String value) {
+		this.entityId = value;
+
 		return this;
 	}
 }

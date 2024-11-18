@@ -30,7 +30,7 @@ Assuming you have [Maven](http://maven.apache.org/) installed, simply include th
       <version>x.y.z</version>
     </dependency>
 
-Alternatively, download the latest version of the SDK from GitHub. Choose the `onlinepayments-sdk-java-x.y.z-bin.zip` file from the [releases](https://github.com/wl-online-payments-direct/sdk-java/releases) page, where `x.y.z` is the version number. Add all JAR files inside the `lib` folder of this file to your project, except for `onlinepayments-sdk-java-x.y.z-javadoc.jar` and `onlinepayments-sdk-java-x.y.z-sources.jar`
+Alternatively, download the latest version of the SDK from GitHub. Choose the `onlinepayments-sdk-java-x.y.z-bin.zip` file from the [releases](https://github.com/Online-Payments/sdk-java/releases) page, where `x.y.z` is the version number. Add all JAR files inside the `lib` folder of this file to your project, except for `onlinepayments-sdk-java-x.y.z-javadoc.jar` and `onlinepayments-sdk-java-x.y.z-sources.jar`
 
 ## Building the repository
 
