@@ -1,32 +1,32 @@
 package com.onlinepayments.util;
 
-import java.lang.reflect.Field;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
-import org.junit.Assert;
+import java.lang.reflect.Field;
 
 public final class ReflectionUtil {
 
-	private ReflectionUtil() {}
+    private ReflectionUtil() {
+    }
 
-	public static <T> T getField(Object object, String fieldName, Class<T> fieldType) {
-		Class<?> clazz = object.getClass();
-		while (clazz != Object.class) {
-			try {
-				Field field = clazz.getDeclaredField(fieldName);
-				field.setAccessible(true);
-				Object fieldValue = field.get(object);
-				Assert.assertTrue(fieldType.isInstance(fieldValue));
-				return fieldType.cast(fieldValue);
-			} catch (@SuppressWarnings("unused") NoSuchFieldException e) {
-				// try next class
-			} catch (IllegalAccessException e) {
-				// should no longer occur
-				throw new RuntimeException(e);
-			}
+    public static <T> T getField(Object object, String fieldName, Class<T> fieldType) {
+        Class<?> clazz = object.getClass();
+        while (clazz != Object.class) {
+            try {
+                Field field = clazz.getDeclaredField(fieldName);
+                field.setAccessible(true);
+                Object fieldValue = field.get(object);
+                return assertInstanceOf(fieldType, fieldValue);
+            } catch (@SuppressWarnings("unused") NoSuchFieldException e) {
+                // try next class
+            } catch (IllegalAccessException e) {
+                // should no longer occur
+                throw new IllegalStateException(e);
+            }
 
-			clazz = clazz.getSuperclass();
-		}
+            clazz = clazz.getSuperclass();
+        }
 
-		return null;
-	}
+        return null;
+    }
 }

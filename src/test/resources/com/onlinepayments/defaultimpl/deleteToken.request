@@ -1,4 +1,0 @@
-\QOutgoing request (requestId='\E([-a-zA-Z0-9]+)\Q'):
-  method:       'DELETE'
-  uri:          '/v2/1/tokens/2'
-  headers:      'X-GCS-ServerMetaInfo="\E[^"]*\Q", Date="\E[^"]+\Q", Authorization="***"\E[^']*\Q'\E

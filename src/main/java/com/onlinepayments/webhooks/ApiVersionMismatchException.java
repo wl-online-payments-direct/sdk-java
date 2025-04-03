@@ -6,26 +6,26 @@ package com.onlinepayments.webhooks;
 @SuppressWarnings("serial")
 public class ApiVersionMismatchException extends RuntimeException {
 
-	private final String eventApiVersion;
-	private final String sdkApiVersion;
+    private final String eventApiVersion;
+    private final String sdkApiVersion;
 
-	public ApiVersionMismatchException(String eventApiVersion, String sdkApiVersion) {
-		super("event API version " + eventApiVersion + " is not compatible with SDK API version " + sdkApiVersion);
-		this.sdkApiVersion = sdkApiVersion;
-		this.eventApiVersion = eventApiVersion;
-	}
+    public ApiVersionMismatchException(String eventApiVersion, String sdkApiVersion) {
+        super("event API version " + eventApiVersion + " is not compatible with SDK API version " + sdkApiVersion);
+        this.sdkApiVersion = sdkApiVersion;
+        this.eventApiVersion = eventApiVersion;
+    }
 
-	/**
-	 * @return The API version from the webhooks event.
-	 */
-	public String getEventApiVersion() {
-		return eventApiVersion;
-	}
+    /**
+     * @return The API version from the webhooks event.
+     */
+    public String getEventApiVersion() {
+        return eventApiVersion;
+    }
 
-	/**
-	 * @return The API version that this version of the SDK supports.
-	 */
-	public String getSdkApiVersion() {
-		return sdkApiVersion;
-	}
+    /**
+     * @return The API version that this version of the SDK supports.
+     */
+    public String getSdkApiVersion() {
+        return sdkApiVersion;
+    }
 }

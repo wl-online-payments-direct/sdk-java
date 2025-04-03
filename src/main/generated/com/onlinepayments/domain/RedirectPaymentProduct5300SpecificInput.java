@@ -1,0 +1,178 @@
+/*
+ * This file was automatically generated.
+ */
+
+package com.onlinepayments.domain;
+
+import java.time.LocalDate;
+
+public class RedirectPaymentProduct5300SpecificInput {
+
+    private String birthCity;
+
+    private String birthCountry;
+
+    private String birthZipCode;
+
+    private String channel;
+
+    private String loyaltyCardNumber;
+
+    private LocalDate secondInstallmentPaymentDate;
+
+    private Integer sessionDuration;
+
+    /**
+     * The city of the address where the customer was born
+     */
+    public String getBirthCity() {
+        return birthCity;
+    }
+
+    /**
+     * The city of the address where the customer was born
+     */
+    public void setBirthCity(String value) {
+        this.birthCity = value;
+    }
+
+    /**
+     * The city of the address where the customer was born
+     */
+    public RedirectPaymentProduct5300SpecificInput withBirthCity(String value) {
+        this.birthCity = value;
+        return this;
+    }
+
+    /**
+     * ISO 3166-1 alpha-2 country code of the address where the customer was born
+     */
+    public String getBirthCountry() {
+        return birthCountry;
+    }
+
+    /**
+     * ISO 3166-1 alpha-2 country code of the address where the customer was born
+     */
+    public void setBirthCountry(String value) {
+        this.birthCountry = value;
+    }
+
+    /**
+     * ISO 3166-1 alpha-2 country code of the address where the customer was born
+     */
+    public RedirectPaymentProduct5300SpecificInput withBirthCountry(String value) {
+        this.birthCountry = value;
+        return this;
+    }
+
+    /**
+     * The zip code of the address where the customer was born
+     */
+    public String getBirthZipCode() {
+        return birthZipCode;
+    }
+
+    /**
+     * The zip code of the address where the customer was born
+     */
+    public void setBirthZipCode(String value) {
+        this.birthZipCode = value;
+    }
+
+    /**
+     * The zip code of the address where the customer was born
+     */
+    public RedirectPaymentProduct5300SpecificInput withBirthZipCode(String value) {
+        this.birthZipCode = value;
+        return this;
+    }
+
+    /**
+     * The channel used by the customer
+     */
+    public String getChannel() {
+        return channel;
+    }
+
+    /**
+     * The channel used by the customer
+     */
+    public void setChannel(String value) {
+        this.channel = value;
+    }
+
+    /**
+     * The channel used by the customer
+     */
+    public RedirectPaymentProduct5300SpecificInput withChannel(String value) {
+        this.channel = value;
+        return this;
+    }
+
+    /**
+     * The number of customer's loyalty card or program
+     */
+    public String getLoyaltyCardNumber() {
+        return loyaltyCardNumber;
+    }
+
+    /**
+     * The number of customer's loyalty card or program
+     */
+    public void setLoyaltyCardNumber(String value) {
+        this.loyaltyCardNumber = value;
+    }
+
+    /**
+     * The number of customer's loyalty card or program
+     */
+    public RedirectPaymentProduct5300SpecificInput withLoyaltyCardNumber(String value) {
+        this.loyaltyCardNumber = value;
+        return this;
+    }
+
+    /**
+     * The date of the second installment (YYYYMMDD)
+     */
+    public LocalDate getSecondInstallmentPaymentDate() {
+        return secondInstallmentPaymentDate;
+    }
+
+    /**
+     * The date of the second installment (YYYYMMDD)
+     */
+    public void setSecondInstallmentPaymentDate(LocalDate value) {
+        this.secondInstallmentPaymentDate = value;
+    }
+
+    /**
+     * The date of the second installment (YYYYMMDD)
+     */
+    public RedirectPaymentProduct5300SpecificInput withSecondInstallmentPaymentDate(LocalDate value) {
+        this.secondInstallmentPaymentDate = value;
+        return this;
+    }
+
+    /**
+     * The duration of the session in seconds
+     */
+    public Integer getSessionDuration() {
+        return sessionDuration;
+    }
+
+    /**
+     * The duration of the session in seconds
+     */
+    public void setSessionDuration(Integer value) {
+        this.sessionDuration = value;
+    }
+
+    /**
+     * The duration of the session in seconds
+     */
+    public RedirectPaymentProduct5300SpecificInput withSessionDuration(Integer value) {
+        this.sessionDuration = value;
+        return this;
+    }
+}

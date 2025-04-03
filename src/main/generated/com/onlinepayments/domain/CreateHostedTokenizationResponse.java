@@ -1,144 +1,154 @@
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
+
 package com.onlinepayments.domain;
 
 import java.util.List;
 
 public class CreateHostedTokenizationResponse {
 
-	private List<String> expiredCardTokens = null;
+    private List<String> expiredCardTokens;
 
-	private String hostedTokenizationId = null;
+    private String hostedTokenizationId;
 
-	private String hostedTokenizationUrl = null;
+    private String hostedTokenizationUrl;
 
-	private List<String> invalidTokens = null;
+    private List<String> invalidTokens;
 
-	private String partialRedirectUrl = null;
+    private String partialRedirectUrl;
 
-	/**
-	 * Tokens referencing expired cards are returned in this array. 
-	 * These tokens can be used in the hosted tokenization session but you must ensure that the expiry date fields are displayed in the form in order to be updated.
-	 * If you are using the option "hideTokenFields", these tokens should not be proposed to the customers.
-	 */
-	public List<String> getExpiredCardTokens() {
-		return expiredCardTokens;
-	}
+    /**
+     * Tokens referencing expired cards are returned in this array.
+     * These tokens can be used in the hosted tokenization session but you must ensure that the expiry date fields are displayed in the form in order to be updated.
+     * If you are using the option &quot;hideTokenFields&quot;, these tokens should not be proposed to the customers.
+     */
+    public List<String> getExpiredCardTokens() {
+        return expiredCardTokens;
+    }
 
-	/**
-	 * Tokens referencing expired cards are returned in this array. 
-	 * These tokens can be used in the hosted tokenization session but you must ensure that the expiry date fields are displayed in the form in order to be updated.
-	 * If you are using the option "hideTokenFields", these tokens should not be proposed to the customers.
-	 */
-	public void setExpiredCardTokens(List<String> value) {
-		this.expiredCardTokens = value;
-	}
+    /**
+     * Tokens referencing expired cards are returned in this array.
+     * These tokens can be used in the hosted tokenization session but you must ensure that the expiry date fields are displayed in the form in order to be updated.
+     * If you are using the option &quot;hideTokenFields&quot;, these tokens should not be proposed to the customers.
+     */
+    public void setExpiredCardTokens(List<String> value) {
+        this.expiredCardTokens = value;
+    }
 
-	/**
-	 * Tokens referencing expired cards are returned in this array. 
-	 * These tokens can be used in the hosted tokenization session but you must ensure that the expiry date fields are displayed in the form in order to be updated.
-	 * If you are using the option "hideTokenFields", these tokens should not be proposed to the customers.
-	 */
-	public CreateHostedTokenizationResponse withExpiredCardTokens(List<String> value) {
-		this.expiredCardTokens = value;
-		return this;
-	}
+    /**
+     * Tokens referencing expired cards are returned in this array.
+     * These tokens can be used in the hosted tokenization session but you must ensure that the expiry date fields are displayed in the form in order to be updated.
+     * If you are using the option &quot;hideTokenFields&quot;, these tokens should not be proposed to the customers.
+     */
+    public CreateHostedTokenizationResponse withExpiredCardTokens(List<String> value) {
+        this.expiredCardTokens = value;
+        return this;
+    }
 
-	/**
-	 * The ID of the Hosted Tokenization Session
-	 */
-	public String getHostedTokenizationId() {
-		return hostedTokenizationId;
-	}
+    /**
+     * The ID of the Hosted Tokenization Session
+     */
+    public String getHostedTokenizationId() {
+        return hostedTokenizationId;
+    }
 
-	/**
-	 * The ID of the Hosted Tokenization Session
-	 */
-	public void setHostedTokenizationId(String value) {
-		this.hostedTokenizationId = value;
-	}
+    /**
+     * The ID of the Hosted Tokenization Session
+     */
+    public void setHostedTokenizationId(String value) {
+        this.hostedTokenizationId = value;
+    }
 
-	/**
-	 * The ID of the Hosted Tokenization Session
-	 */
-	public CreateHostedTokenizationResponse withHostedTokenizationId(String value) {
-		this.hostedTokenizationId = value;
-		return this;
-	}
+    /**
+     * The ID of the Hosted Tokenization Session
+     */
+    public CreateHostedTokenizationResponse withHostedTokenizationId(String value) {
+        this.hostedTokenizationId = value;
+        return this;
+    }
 
-	/**
-	 * The URL you can use in your JavaScript when instantiating the Tokenizer.
-	 */
-	public String getHostedTokenizationUrl() {
-		return hostedTokenizationUrl;
-	}
+    /**
+     * The URL you can use in your JavaScript when instantiating the Tokenizer.
+     */
+    public String getHostedTokenizationUrl() {
+        return hostedTokenizationUrl;
+    }
 
-	/**
-	 * The URL you can use in your JavaScript when instantiating the Tokenizer.
-	 */
-	public void setHostedTokenizationUrl(String value) {
-		this.hostedTokenizationUrl = value;
-	}
+    /**
+     * The URL you can use in your JavaScript when instantiating the Tokenizer.
+     */
+    public void setHostedTokenizationUrl(String value) {
+        this.hostedTokenizationUrl = value;
+    }
 
-	/**
-	 * The URL you can use in your JavaScript when instantiating the Tokenizer.
-	 */
-	public CreateHostedTokenizationResponse withHostedTokenizationUrl(String value) {
-		this.hostedTokenizationUrl = value;
-		return this;
-	}
+    /**
+     * The URL you can use in your JavaScript when instantiating the Tokenizer.
+     */
+    public CreateHostedTokenizationResponse withHostedTokenizationUrl(String value) {
+        this.hostedTokenizationUrl = value;
+        return this;
+    }
 
-	/**
-	 * Tokens that are submitted in the request are validated. Tokens that cannot be used in the current session are returned in this array. 
-	 * These tokens might not be valid anymore. The validity of tokens can be verified using the [Get token](#operation/GetTokenApi) endpoint.
-	 */
-	public List<String> getInvalidTokens() {
-		return invalidTokens;
-	}
+    /**
+     * Tokens that are submitted in the request are validated. Tokens that cannot be used in the current session are returned in this array.
+     * These tokens might not be valid anymore. The validity of tokens can be verified using the <a href="#operation/GetTokenApi">Get token</a> endpoint.
+     */
+    public List<String> getInvalidTokens() {
+        return invalidTokens;
+    }
 
-	/**
-	 * Tokens that are submitted in the request are validated. Tokens that cannot be used in the current session are returned in this array. 
-	 * These tokens might not be valid anymore. The validity of tokens can be verified using the [Get token](#operation/GetTokenApi) endpoint.
-	 */
-	public void setInvalidTokens(List<String> value) {
-		this.invalidTokens = value;
-	}
+    /**
+     * Tokens that are submitted in the request are validated. Tokens that cannot be used in the current session are returned in this array.
+     * These tokens might not be valid anymore. The validity of tokens can be verified using the <a href="#operation/GetTokenApi">Get token</a> endpoint.
+     */
+    public void setInvalidTokens(List<String> value) {
+        this.invalidTokens = value;
+    }
 
-	/**
-	 * Tokens that are submitted in the request are validated. Tokens that cannot be used in the current session are returned in this array. 
-	 * These tokens might not be valid anymore. The validity of tokens can be verified using the [Get token](#operation/GetTokenApi) endpoint.
-	 */
-	public CreateHostedTokenizationResponse withInvalidTokens(List<String> value) {
-		this.invalidTokens = value;
-		return this;
-	}
+    /**
+     * Tokens that are submitted in the request are validated. Tokens that cannot be used in the current session are returned in this array.
+     * These tokens might not be valid anymore. The validity of tokens can be verified using the <a href="#operation/GetTokenApi">Get token</a> endpoint.
+     */
+    public CreateHostedTokenizationResponse withInvalidTokens(List<String> value) {
+        this.invalidTokens = value;
+        return this;
+    }
 
-	/**
-	 * Deprecated. Use hostedTokenizationUrl instead.
-	 * 
-	 * The partial URL as generated by our system. You will need to add the protocol and the relevant subdomain to this URL, before redirecting your customer to this URL. A special 'payment' subdomain will always work so you can always add 'https://payment.' at the beginning of this response value to view your hosted pages.
-	 */
-	public String getPartialRedirectUrl() {
-		return partialRedirectUrl;
-	}
+    /**
+     * Deprecated. Use hostedTokenizationUrl instead.
+     * <p>
+     * The partial URL as generated by our system. You will need to add the protocol and the relevant subdomain to this URL, before redirecting your customer to this URL. A special 'payment' subdomain will always work so you can always add 'https://payment.' at the beginning of this response value to view your hosted pages.
+     *
+     * @deprecated Deprecated
+     */
+    @Deprecated
+    public String getPartialRedirectUrl() {
+        return partialRedirectUrl;
+    }
 
-	/**
-	 * Deprecated. Use hostedTokenizationUrl instead.
-	 * 
-	 * The partial URL as generated by our system. You will need to add the protocol and the relevant subdomain to this URL, before redirecting your customer to this URL. A special 'payment' subdomain will always work so you can always add 'https://payment.' at the beginning of this response value to view your hosted pages.
-	 */
-	public void setPartialRedirectUrl(String value) {
-		this.partialRedirectUrl = value;
-	}
+    /**
+     * Deprecated. Use hostedTokenizationUrl instead.
+     * <p>
+     * The partial URL as generated by our system. You will need to add the protocol and the relevant subdomain to this URL, before redirecting your customer to this URL. A special 'payment' subdomain will always work so you can always add 'https://payment.' at the beginning of this response value to view your hosted pages.
+     *
+     * @deprecated Deprecated
+     */
+    @Deprecated
+    public void setPartialRedirectUrl(String value) {
+        this.partialRedirectUrl = value;
+    }
 
-	/**
-	 * Deprecated. Use hostedTokenizationUrl instead.
-	 * 
-	 * The partial URL as generated by our system. You will need to add the protocol and the relevant subdomain to this URL, before redirecting your customer to this URL. A special 'payment' subdomain will always work so you can always add 'https://payment.' at the beginning of this response value to view your hosted pages.
-	 */
-	public CreateHostedTokenizationResponse withPartialRedirectUrl(String value) {
-		this.partialRedirectUrl = value;
-		return this;
-	}
+    /**
+     * Deprecated. Use hostedTokenizationUrl instead.
+     * <p>
+     * The partial URL as generated by our system. You will need to add the protocol and the relevant subdomain to this URL, before redirecting your customer to this URL. A special 'payment' subdomain will always work so you can always add 'https://payment.' at the beginning of this response value to view your hosted pages.
+     *
+     * @deprecated Deprecated
+     */
+    @Deprecated
+    public CreateHostedTokenizationResponse withPartialRedirectUrl(String value) {
+        this.partialRedirectUrl = value;
+        return this;
+    }
 }

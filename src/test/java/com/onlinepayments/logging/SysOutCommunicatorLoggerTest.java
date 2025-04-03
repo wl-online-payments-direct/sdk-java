@@ -1,5 +1,8 @@
 package com.onlinepayments.logging;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
@@ -8,79 +11,75 @@ import java.io.UnsupportedEncodingException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class SysOutCommunicatorLoggerTest {
+class SysOutCommunicatorLoggerTest {
 
-	private static final Pattern MESSAGE_PATTERN = Pattern.compile("\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2} (.*)", Pattern.DOTALL);
+    private static final Pattern MESSAGE_PATTERN = Pattern.compile("\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2} (.*)", Pattern.DOTALL);
 
-	private PrintStream originalSysOut;
+    private PrintStream originalSysOut;
 
-	private ByteArrayOutputStream baos;
+    private ByteArrayOutputStream baos;
 
-	@Before
-	public void setup() {
-		originalSysOut = System.out;
+    @BeforeEach
+    void setup() {
+        originalSysOut = System.out;
 
-		baos = new ByteArrayOutputStream();
-		System.setOut(new PrintStream(baos));
-	}
+        baos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(baos));
+    }
 
-	@After
-	public void cleanup() {
-		baos = null;
+    @AfterEach
+    void cleanup() {
+        baos = null;
 
-		System.setOut(originalSysOut);
-	}
+        System.setOut(originalSysOut);
+    }
 
-	@Test
-	public void testLog() throws UnsupportedEncodingException {
+    @Test
+    void testLog() throws UnsupportedEncodingException {
+        SysOutCommunicatorLogger communicatorLogger = SysOutCommunicatorLogger.INSTANCE;
+        communicatorLogger.log("Hello world");
 
-		SysOutCommunicatorLogger communicatorLogger = SysOutCommunicatorLogger.INSTANCE;
-		communicatorLogger.log("Hello world");
+        String content = baos.toString("UTF-8");
 
-		String content = baos.toString("UTF-8");
+        assertMessage(content, "Hello world");
+    }
 
-		assertMessage(content, "Hello world");
-	}
+    @Test
+    void testLogWithException() throws UnsupportedEncodingException {
+        SysOutCommunicatorLogger communicatorLogger = SysOutCommunicatorLogger.INSTANCE;
+        Exception exception = new Exception();
+        communicatorLogger.log("Hello world", exception);
 
-	@Test
-	public void testLogWithException() throws UnsupportedEncodingException {
+        String content = baos.toString("UTF-8");
 
-		SysOutCommunicatorLogger communicatorLogger = SysOutCommunicatorLogger.INSTANCE;
-		Exception exception = new Exception();
-		communicatorLogger.log("Hello world", exception);
+        assertMessage(content, "Hello world", exception);
+    }
 
-		String content = baos.toString("UTF-8");
+    private String toString(Exception exception) {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        exception.printStackTrace(pw);
+        pw.flush();
+        return sw.toString();
+    }
 
-		assertMessage(content, "Hello world", exception);
-	}
+    private void assertMessage(String content, String message) {
+        assertMessage(content, message, null);
+    }
 
-	private String toString(Exception exception) {
-		StringWriter sw = new StringWriter();
-		PrintWriter pw = new PrintWriter(sw);
-		exception.printStackTrace(pw);
-		pw.flush();
-		return sw.toString();
-	}
+    private void assertMessage(String content, String message, Exception exception) {
+        String expected = message + System.getProperty("line.separator");
+        if (exception != null) {
+            expected += toString(exception);
+        }
 
-	private void assertMessage(String content, String message) {
-		assertMessage(content, message, null);
-	}
+        Matcher matcher = MESSAGE_PATTERN.matcher(content);
+        assertTrue(matcher.matches(), "content does not match pattern " + MESSAGE_PATTERN);
 
-	private void assertMessage(String content, String message, Exception exception) {
-
-		String expected = message + System.getProperty("line.separator");
-		if (exception != null) {
-			expected += toString(exception);
-		}
-
-		Matcher matcher = MESSAGE_PATTERN.matcher(content);
-		Assert.assertTrue("content does not match pattern " + MESSAGE_PATTERN, matcher.matches());
-
-		Assert.assertEquals(expected, matcher.group(1));
-	}
+        assertEquals(expected, matcher.group(1));
+    }
 }

@@ -1,132 +1,146 @@
 package com.onlinepayments;
 
-import java.lang.reflect.InvocationTargetException;
+import static com.onlinepayments.FactoryTest.AUTH_ID;
+import static com.onlinepayments.FactoryTest.AUTH_SECRET;
+import static com.onlinepayments.FactoryTest.PROPERTIES_URI;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+
 import java.lang.reflect.Method;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.codec.binary.Base64;
 import org.hamcrest.Matcher;
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
-import com.onlinepayments.defaultimpl.DefaultMarshaller;
+import com.onlinepayments.communication.Connection;
+import com.onlinepayments.communication.PooledConnection;
+import com.onlinepayments.communication.RequestHeader;
+import com.onlinepayments.json.DefaultMarshaller;
 import com.onlinepayments.util.RequestHeaderMatcher;
 
-@RunWith(MockitoJUnitRunner.class)
-public class ClientTest {
+class ClientTest {
 
-	@Mock PooledConnection pooledConnection;
-	@Mock Connection connection;
+    private PooledConnection pooledConnection;
+    private Connection connection;
 
-	@Test
-	@SuppressWarnings("resource")
-	public void testWithClientMetaInfo() {
+    @BeforeEach
+    void initMocks() {
+        pooledConnection = mock(PooledConnection.class);
+        connection = mock(Connection.class);
+    }
 
-		ClientInterface client1 = Factory.createClient(FactoryTest.PROPERTIES_URI, FactoryTest.API_KEY_ID, FactoryTest.SECRET_API_KEY);
-		assertNoClientHeaders(client1);
+    @Test
+    @SuppressWarnings("resource")
+    void testWithClientMetaInfo() {
+        ClientInterface client1 = Factory.createClient(PROPERTIES_URI, AUTH_ID, AUTH_SECRET);
+        assertNoClientHeaders(client1);
 
-		Client client2 = client1.withClientMetaInfo(null);
-		Assert.assertSame(client1, client2);
+        ClientInterface client2 = client1.withClientMetaInfo(null);
+        assertSame(client1, client2);
 
-		String clientMetaInfo = DefaultMarshaller.INSTANCE.marshal(Collections.singletonMap("test", "test"));
-		Client client3 = client1.withClientMetaInfo(clientMetaInfo);
-		Assert.assertNotSame(client1, client3);
-		assertClientHeaders(client3, clientMetaInfo);
+        String clientMetaInfo = DefaultMarshaller.INSTANCE.marshal(Collections.singletonMap("test", "test"));
+        ClientInterface client3 = client1.withClientMetaInfo(clientMetaInfo);
+        assertNotSame(client1, client3);
+        assertClientHeaders(client3, clientMetaInfo);
 
-		Client client4 = client3.withClientMetaInfo(clientMetaInfo);
-		Assert.assertSame(client3, client4);
+        ClientInterface client4 = client3.withClientMetaInfo(clientMetaInfo);
+        assertSame(client3, client4);
 
-		Client client5 = client3.withClientMetaInfo(null);
-		Assert.assertNotSame(client3, client5);
-		assertNoClientHeaders(client5);
+        ClientInterface client5 = client3.withClientMetaInfo(null);
+        assertNotSame(client3, client5);
+        assertNoClientHeaders(client5);
 
-		// nothing can be said about client1 and client5 being the same or not
-	}
+        // nothing can be said about client1 and client5 being the same or not
+    }
 
-	private void assertNoClientHeaders(ClientInterface client) {
-		List<RequestHeader> headers = getHeaders(client);
-		Assert.assertNull(headers);
-	}
+    private void assertNoClientHeaders(ClientInterface client) {
+        List<RequestHeader> headers = getHeaders(client);
+        assertEquals(Collections.emptyList(), headers);
+    }
 
-	private void assertClientHeaders(Client client, String clientMetaInfo) {
-		List<RequestHeader> headers = getHeaders(client);
+    private void assertClientHeaders(ClientInterface client, String clientMetaInfo) {
+        List<RequestHeader> headers = getHeaders(client);
 
-		final Charset charset = Charset.forName("UTF-8");
-		String headerValue = Base64.encodeBase64String(clientMetaInfo.getBytes(charset));
+        String headerValue = Base64.getEncoder().encodeToString(clientMetaInfo.getBytes(StandardCharsets.UTF_8));
 
-		List<Matcher<? super RequestHeader>> matchers = new ArrayList<Matcher<? super RequestHeader>>();
-		matchers.add(new RequestHeaderMatcher("X-GCS-ClientMetaInfo", headerValue));
+        List<Matcher<? super RequestHeader>> matchers = new ArrayList<>();
+        matchers.add(new RequestHeaderMatcher("X-GCS-ClientMetaInfo", headerValue));
 
-		MatcherAssert.assertThat(headers, Matchers.containsInAnyOrder(matchers));
-	}
+        assertThat(headers, containsInAnyOrder(matchers));
+    }
 
-	@SuppressWarnings("unchecked")
-	private List<RequestHeader> getHeaders(ClientInterface client) {
-		// ApiResource.getClientHeaders() is protected, so this test class has no access to it; use reflection to get it
-		try {
-			Method method = ApiResource.class.getDeclaredMethod("getClientHeaders");
-			method.setAccessible(true);
-			return (List<RequestHeader>) method.invoke(client);
-		} catch (NoSuchMethodException e) {
-			throw new RuntimeException(e);
-		} catch (InvocationTargetException e) {
-			throw new RuntimeException(e);
-		} catch (IllegalAccessException e) {
-			throw new RuntimeException(e);
-		}
-	}
+    @SuppressWarnings("unchecked")
+    private List<RequestHeader> getHeaders(ClientInterface client) {
+        // ApiResource.getClientHeaders() is protected, so this test class has no access to it; use reflection to get it
+        return assertDoesNotThrow(() -> {
+            Method method = ApiResource.class.getDeclaredMethod("getClientHeaders");
+            method.setAccessible(true);
+            return (List<RequestHeader>) method.invoke(client);
+        });
+    }
 
-	@Test
-	@SuppressWarnings("resource")
-	public void testCloseIdleConnectionsNotPooled() {
-		CommunicatorBuilder builder = Factory.createCommunicatorBuilder(FactoryTest.PROPERTIES_URI, FactoryTest.API_KEY_ID, FactoryTest.SECRET_API_KEY);
-		Communicator communicator = builder.withConnection(connection).build();
-		ClientInterface client = Factory.createClient(communicator);
-		// with a connection that isn't a PooledConnection, this doesn't throw any exceptions
-		client.closeIdleConnections(5, TimeUnit.SECONDS);
-	}
+    @Nested
+    class CloseIdleConnections {
 
-	@Test
-	@SuppressWarnings("resource")
-	public void testCloseIdleConnectionsPooled() {
-		CommunicatorBuilder builder = Factory.createCommunicatorBuilder(FactoryTest.PROPERTIES_URI, FactoryTest.API_KEY_ID, FactoryTest.SECRET_API_KEY);
-		Communicator communicator = builder.withConnection(pooledConnection).build();
-		ClientInterface client = Factory.createClient(communicator);
-		// with a connection that is a PooledConnection, this gets delegated to pooledConnection
-		client.closeIdleConnections(5, TimeUnit.SECONDS);
+        @Test
+        @SuppressWarnings("resource")
+        void testNotPooled() {
+            CommunicatorBuilder builder = Factory.createCommunicatorBuilder(PROPERTIES_URI, AUTH_ID, AUTH_SECRET);
+            Communicator communicator = builder.withConnection(connection).build();
+            ClientInterface client = Factory.createClient(communicator);
+            // with a connection that isn't a PooledConnection, this doesn't throw any exceptions
+            assertDoesNotThrow(() -> client.closeIdleConnections(5, TimeUnit.SECONDS));
+        }
 
-		Mockito.verify(pooledConnection).closeIdleConnections(5, TimeUnit.SECONDS);
-	}
+        @Test
+        @SuppressWarnings("resource")
+        void testPooled() {
+            CommunicatorBuilder builder = Factory.createCommunicatorBuilder(PROPERTIES_URI, AUTH_ID, AUTH_SECRET);
+            Communicator communicator = builder.withConnection(pooledConnection).build();
+            ClientInterface client = Factory.createClient(communicator);
+            // with a connection that is a PooledConnection, this gets delegated to pooledConnection
+            client.closeIdleConnections(5, TimeUnit.SECONDS);
 
-	@Test
-	@SuppressWarnings("resource")
-	public void testCloseExpiredConnectionsNotPooled() {
-		CommunicatorBuilder builder = Factory.createCommunicatorBuilder(FactoryTest.PROPERTIES_URI, FactoryTest.API_KEY_ID, FactoryTest.SECRET_API_KEY);
-		Communicator communicator = builder.withConnection(connection).build();
-		ClientInterface client = Factory.createClient(communicator);
-		// with a connection that isn't a PooledConnection, this doesn't throw any exceptions
-		client.closeExpiredConnections();
-	}
+            verify(pooledConnection).closeIdleConnections(5, TimeUnit.SECONDS);
+        }
+    }
 
-	@Test
-	@SuppressWarnings("resource")
-	public void testCloseExpiredConnectionsPooled() {
-		CommunicatorBuilder builder = Factory.createCommunicatorBuilder(FactoryTest.PROPERTIES_URI, FactoryTest.API_KEY_ID, FactoryTest.SECRET_API_KEY);
-		Communicator communicator = builder.withConnection(pooledConnection).build();
-		ClientInterface client = Factory.createClient(communicator);
-		// with a connection that is a PooledConnection, this gets delegated to pooledConnection
-		client.closeExpiredConnections();
+    @Nested
+    class CloseExpiredConnections {
 
-		Mockito.verify(pooledConnection).closeExpiredConnections();
-	}
+        @Test
+        @SuppressWarnings("resource")
+        void testNotPooled() {
+            CommunicatorBuilder builder = Factory.createCommunicatorBuilder(PROPERTIES_URI, AUTH_ID, AUTH_SECRET);
+            Communicator communicator = builder.withConnection(connection).build();
+            ClientInterface client = Factory.createClient(communicator);
+            // with a connection that isn't a PooledConnection, this doesn't throw any exceptions
+            assertDoesNotThrow(client::closeExpiredConnections);
+        }
+
+        @Test
+        @SuppressWarnings("resource")
+        void testPooled() {
+            CommunicatorBuilder builder = Factory.createCommunicatorBuilder(PROPERTIES_URI, AUTH_ID, AUTH_SECRET);
+            Communicator communicator = builder.withConnection(pooledConnection).build();
+            ClientInterface client = Factory.createClient(communicator);
+            // with a connection that is a PooledConnection, this gets delegated to pooledConnection
+            client.closeExpiredConnections();
+
+            verify(pooledConnection).closeExpiredConnections();
+        }
+    }
 }

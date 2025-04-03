@@ -1,5 +1,9 @@
 package com.onlinepayments.logging;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Handler;
@@ -7,69 +11,70 @@ import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class JdkCommunicatorLoggerTest {
+class JdkCommunicatorLoggerTest {
 
-	@Test
-	public void testLog() {
+    @Test
+    void testLog() {
 
-		Logger logger = Logger.getLogger(getClass().getName());
-		TestHandler handler = new TestHandler();
-		logger.addHandler(handler);
+        Logger logger = Logger.getLogger(getClass().getName());
+        TestHandler handler = new TestHandler();
+        logger.addHandler(handler);
 
-		JdkCommunicatorLogger communicatorLogger = new JdkCommunicatorLogger(logger, Level.INFO, Level.WARNING);
-		communicatorLogger.log("Hello world");
+        JdkCommunicatorLogger communicatorLogger = new JdkCommunicatorLogger(logger, Level.INFO, Level.WARNING);
+        communicatorLogger.log("Hello world");
 
-		Assert.assertEquals(1, handler.records.size());
+        assertEquals(1, handler.records.size());
 
-		LogRecord record = handler.records.get(0);
+        LogRecord record = handler.records.get(0);
 
-		Assert.assertEquals("Hello world", record.getMessage());
-		Assert.assertEquals(Level.INFO, record.getLevel());
-		Assert.assertEquals(getClass().getName(), record.getLoggerName());
-		Assert.assertEquals(communicatorLogger.getClass().getName(), record.getSourceClassName());
-		Assert.assertEquals("log", record.getSourceMethodName());
-		Assert.assertNull(record.getThrown());
-	}
+        assertEquals("Hello world", record.getMessage());
+        assertEquals(Level.INFO, record.getLevel());
+        assertEquals(getClass().getName(), record.getLoggerName());
+        assertEquals(communicatorLogger.getClass().getName(), record.getSourceClassName());
+        assertEquals("log", record.getSourceMethodName());
+        assertNull(record.getThrown());
+    }
 
-	@Test
-	public void testLogWithException() {
+    @Test
+    void testLogWithException() {
 
-		Logger logger = Logger.getLogger(getClass().getName());
-		TestHandler handler = new TestHandler();
-		logger.addHandler(handler);
+        Logger logger = Logger.getLogger(getClass().getName());
+        TestHandler handler = new TestHandler();
+        logger.addHandler(handler);
 
-		JdkCommunicatorLogger communicatorLogger = new JdkCommunicatorLogger(logger, Level.INFO, Level.WARNING);
-		Exception exception = new Exception();
-		communicatorLogger.log("Goodbye world", exception);
+        JdkCommunicatorLogger communicatorLogger = new JdkCommunicatorLogger(logger, Level.INFO, Level.WARNING);
+        Exception exception = new Exception();
+        communicatorLogger.log("Hello world", exception);
 
-		Assert.assertEquals(1, handler.records.size());
+        assertEquals(1, handler.records.size());
 
-		LogRecord record = handler.records.get(0);
+        LogRecord record = handler.records.get(0);
 
-		Assert.assertEquals("Goodbye world", record.getMessage());
-		Assert.assertEquals(Level.WARNING, record.getLevel());
-		Assert.assertEquals(getClass().getName(), record.getLoggerName());
-		Assert.assertEquals(communicatorLogger.getClass().getName(), record.getSourceClassName());
-		Assert.assertEquals("log", record.getSourceMethodName());
-		Assert.assertSame(exception, record.getThrown());
-	}
+        assertEquals("Hello world", record.getMessage());
+        assertEquals(Level.WARNING, record.getLevel());
+        assertEquals(getClass().getName(), record.getLoggerName());
+        assertEquals(communicatorLogger.getClass().getName(), record.getSourceClassName());
+        assertEquals("log", record.getSourceMethodName());
+        assertSame(exception, record.getThrown());
+    }
 
-	private static final class TestHandler extends Handler {
+    private static final class TestHandler extends Handler {
 
-		private final List<LogRecord> records = new ArrayList<LogRecord>();
+        private final List<LogRecord> records = new ArrayList<>();
 
-		@Override
-		public void publish(LogRecord record) {
-			records.add(record);
-		}
+        @Override
+        public void publish(LogRecord record) {
+            records.add(record);
+        }
 
-		@Override
-		public void flush() {}
+        @Override
+        public void flush() {
+        }
 
-		@Override
-		public void close() throws SecurityException {}
-	}
+        @Override
+        public void close() {
+        }
+    }
 }

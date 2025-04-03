@@ -1,5 +1,7 @@
 package com.onlinepayments;
 
+import java.time.ZonedDateTime;
+
 /**
  * A call context can be used to send extra information with a request, and to receive extra information from a response.
  * <p>
@@ -7,44 +9,60 @@ package com.onlinepayments;
  */
 public class CallContext {
 
-	private String idempotenceKey;
+    private String idempotenceKey;
 
-	private Long idempotenceRequestTimestamp;
+    private Long idempotenceRequestTimestamp;
 
-	/**
-	 * @return The idempotence key.
-	 */
-	public String getIdempotenceKey() {
-		return idempotenceKey;
-	}
+    private ZonedDateTime idempotenceResponseDateTime;
 
-	/**
-	 * Sets the idempotence key to use for the next request for which this call context is used.
-	 *
-	 * @param idempotenceKey The idempotence key
-	 * @return This call context object.
-	 */
-	public CallContext withIdempotenceKey(String idempotenceKey) {
-		this.idempotenceKey = idempotenceKey;
-		return this;
-	}
+    /**
+     * @return The idempotence key.
+     */
+    public String getIdempotenceKey() {
+        return idempotenceKey;
+    }
 
-	/**
-	 * @return The idempotence request timestamp from the response to the last request for which this call context was used,
-	 *             or {@code null} if no idempotence request timestamp was present.
-	 */
-	public Long getIdempotenceRequestTimestamp() {
-		return idempotenceRequestTimestamp;
-	}
+    /**
+     * Sets the idempotence key to use for the next request for which this call context is used.
+     *
+     * @return This call context object.
+     */
+    public CallContext withIdempotenceKey(String idempotenceKey) {
+        this.idempotenceKey = idempotenceKey;
+        return this;
+    }
 
-	/**
-	 * Sets the idempotence request timestamp.
-	 * This method should only be called by {@link Communicator} objects based on the response to the request for which this
-	 * call context was used.
-	 *
-	 * @param idempotenceRequestTimestamp The idempotence request timestamp
-	 */
-	public void setIdempotenceRequestTimestamp(Long idempotenceRequestTimestamp) {
-		this.idempotenceRequestTimestamp = idempotenceRequestTimestamp;
-	}
+    /**
+     * @return The idempotence request timestamp from the response to the last request for which this call context was used,
+     *             or {@code null} if no idempotence request timestamp was present.
+     */
+    public Long getIdempotenceRequestTimestamp() {
+        return idempotenceRequestTimestamp;
+    }
+
+    /**
+     * Sets the idempotence request timestamp.
+     * This method should only be called by {@link Communicator} objects based on the response to the request for which this
+     * call context was used.
+     */
+    public void setIdempotenceRequestTimestamp(Long idempotenceRequestTimestamp) {
+        this.idempotenceRequestTimestamp = idempotenceRequestTimestamp;
+    }
+
+    /**
+     * @return The idempotence response date/time from the response to the last request for which this call context was used,
+     *             or {@code null} if no idempotence response date/time was present.
+     */
+    public ZonedDateTime getIdempotenceResponseDateTime() {
+        return idempotenceResponseDateTime;
+    }
+
+    /**
+     * Sets the idempotence response date/time.
+     * This method should only be called by {@link Communicator} objects based on the response to the request for which this
+     * call context was used.
+     */
+    public void setIdempotenceResponseDateTime(ZonedDateTime idempotenceResponseDateTime) {
+        this.idempotenceResponseDateTime = idempotenceResponseDateTime;
+    }
 }

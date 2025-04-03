@@ -5,16 +5,15 @@ package com.onlinepayments.logging;
  */
 public interface LoggingCapable {
 
-	/**
-	 * Turns on logging using the given communicator logger.
-	 *
-	 * @param communicatorLogger {@link CommunicatorLogger}
-	 * @throws IllegalArgumentException If the given communicator logger is {@code null}.
-	 */
-	void enableLogging(CommunicatorLogger communicatorLogger);
+    /**
+     * Turns on logging using the given communicator logger.
+     *
+     * @throws IllegalArgumentException If the given communicator logger is {@code null}.
+     */
+    void enableLogging(CommunicatorLogger communicatorLogger);
 
-	/**
-	 * Turns off logging.
-	 */
-	void disableLogging();
+    /**
+     * Turns off logging.
+     */
+    void disableLogging();
 }

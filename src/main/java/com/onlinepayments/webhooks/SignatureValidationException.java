@@ -6,15 +6,15 @@ package com.onlinepayments.webhooks;
 @SuppressWarnings("serial")
 public class SignatureValidationException extends RuntimeException {
 
-	public SignatureValidationException(String message) {
-		super(message);
-	}
+    public SignatureValidationException(String message) {
+        super(message);
+    }
 
-	public SignatureValidationException(Throwable cause) {
-		super(cause);
-	}
+    public SignatureValidationException(Throwable cause) {
+        super(cause);
+    }
 
-	public SignatureValidationException(String message, Throwable cause) {
-		super(message, cause);
-	}
+    public SignatureValidationException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

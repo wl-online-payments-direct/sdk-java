@@ -1,331 +1,413 @@
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
+
 package com.onlinepayments.domain;
 
-/**
- * Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
- */
 public class RedirectPaymentMethodSpecificInput {
 
-	private String paymentOption = null;
+    private String paymentOption;
 
-	private RedirectPaymentProduct3203SpecificInput paymentProduct3203SpecificInput = null;
+    private RedirectPaymentProduct3203SpecificInput paymentProduct3203SpecificInput;
 
-	private RedirectPaymentProduct3306SpecificInput paymentProduct3306SpecificInput = null;
+    private RedirectPaymentProduct3302SpecificInput paymentProduct3302SpecificInput;
 
-	private RedirectPaymentProduct5001SpecificInput paymentProduct5001SpecificInput = null;
+    private RedirectPaymentProduct3306SpecificInput paymentProduct3306SpecificInput;
 
-	private RedirectPaymentProduct5406SpecificInput paymentProduct5406SpecificInput = null;
+    private RedirectPaymentProduct5001SpecificInput paymentProduct5001SpecificInput;
 
-	private RedirectPaymentProduct5408SpecificInput paymentProduct5408SpecificInput = null;
+    private RedirectPaymentProduct5300SpecificInput paymentProduct5300SpecificInput;
 
-	private RedirectPaymentProduct809SpecificInput paymentProduct809SpecificInput = null;
+    private RedirectPaymentProduct5406SpecificInput paymentProduct5406SpecificInput;
 
-	private RedirectPaymentProduct840SpecificInput paymentProduct840SpecificInput = null;
+    private RedirectPaymentProduct5408SpecificInput paymentProduct5408SpecificInput;
 
-	private Integer paymentProductId = null;
+    private RedirectPaymentProduct5410SpecificInput paymentProduct5410SpecificInput;
 
-	private RedirectionData redirectionData = null;
+    private RedirectPaymentProduct809SpecificInput paymentProduct809SpecificInput;
 
-	private Boolean requiresApproval = null;
+    private RedirectPaymentProduct840SpecificInput paymentProduct840SpecificInput;
 
-	private String token = null;
+    private Integer paymentProductId;
 
-	private Boolean tokenize = null;
+    private RedirectionData redirectionData;
 
-	/**
-	 * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
-	 */
-	public String getPaymentOption() {
-		return paymentOption;
-	}
+    private Boolean requiresApproval;
 
-	/**
-	 * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
-	 */
-	public void setPaymentOption(String value) {
-		this.paymentOption = value;
-	}
+    private String token;
 
-	/**
-	 * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
-	 */
-	public RedirectPaymentMethodSpecificInput withPaymentOption(String value) {
-		this.paymentOption = value;
-		return this;
-	}
+    private Boolean tokenize;
 
-	/**
-	 * Object containing specific input for PostFinancePay payments (Payment product ID 3203).
-	 */
-	public RedirectPaymentProduct3203SpecificInput getPaymentProduct3203SpecificInput() {
-		return paymentProduct3203SpecificInput;
-	}
+    /**
+     * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
+     */
+    public String getPaymentOption() {
+        return paymentOption;
+    }
 
-	/**
-	 * Object containing specific input for PostFinancePay payments (Payment product ID 3203).
-	 */
-	public void setPaymentProduct3203SpecificInput(RedirectPaymentProduct3203SpecificInput value) {
-		this.paymentProduct3203SpecificInput = value;
-	}
+    /**
+     * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
+     */
+    public void setPaymentOption(String value) {
+        this.paymentOption = value;
+    }
 
-	/**
-	 * Object containing specific input for PostFinancePay payments (Payment product ID 3203).
-	 */
-	public RedirectPaymentMethodSpecificInput withPaymentProduct3203SpecificInput(RedirectPaymentProduct3203SpecificInput value) {
-		this.paymentProduct3203SpecificInput = value;
-		return this;
-	}
+    /**
+     * The specific payment option for the payment. To be used as a complement of the more generic paymentProductId (oney, banquecasino, cofidis), which allows to define a variation of the selected paymentProductId (ex: facilypay3x, banquecasino4x, cofidis3x-sansfrais, ...). List of modalities included in the payment product page.
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentOption(String value) {
+        this.paymentOption = value;
+        return this;
+    }
 
-	/**
-	 * Object containing specific input required for Klarna payments (Payment product ID 3306)
-	 */
-	public RedirectPaymentProduct3306SpecificInput getPaymentProduct3306SpecificInput() {
-		return paymentProduct3306SpecificInput;
-	}
+    /**
+     * Object containing specific input for PostFinancePay payments (Payment product ID 3203).
+     */
+    public RedirectPaymentProduct3203SpecificInput getPaymentProduct3203SpecificInput() {
+        return paymentProduct3203SpecificInput;
+    }
 
-	/**
-	 * Object containing specific input required for Klarna payments (Payment product ID 3306)
-	 */
-	public void setPaymentProduct3306SpecificInput(RedirectPaymentProduct3306SpecificInput value) {
-		this.paymentProduct3306SpecificInput = value;
-	}
+    /**
+     * Object containing specific input for PostFinancePay payments (Payment product ID 3203).
+     */
+    public void setPaymentProduct3203SpecificInput(RedirectPaymentProduct3203SpecificInput value) {
+        this.paymentProduct3203SpecificInput = value;
+    }
 
-	/**
-	 * Object containing specific input required for Klarna payments (Payment product ID 3306)
-	 */
-	public RedirectPaymentMethodSpecificInput withPaymentProduct3306SpecificInput(RedirectPaymentProduct3306SpecificInput value) {
-		this.paymentProduct3306SpecificInput = value;
-		return this;
-	}
+    /**
+     * Object containing specific input for PostFinancePay payments (Payment product ID 3203).
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct3203SpecificInput(RedirectPaymentProduct3203SpecificInput value) {
+        this.paymentProduct3203SpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * Object containing specific input required for Bizum payments
-	 */
-	public RedirectPaymentProduct5001SpecificInput getPaymentProduct5001SpecificInput() {
-		return paymentProduct5001SpecificInput;
-	}
+    /**
+     * Object containing specific input required for Klarna PayLater payment (Payment product ID 3302)
+     */
+    public RedirectPaymentProduct3302SpecificInput getPaymentProduct3302SpecificInput() {
+        return paymentProduct3302SpecificInput;
+    }
 
-	/**
-	 * Object containing specific input required for Bizum payments
-	 */
-	public void setPaymentProduct5001SpecificInput(RedirectPaymentProduct5001SpecificInput value) {
-		this.paymentProduct5001SpecificInput = value;
-	}
+    /**
+     * Object containing specific input required for Klarna PayLater payment (Payment product ID 3302)
+     */
+    public void setPaymentProduct3302SpecificInput(RedirectPaymentProduct3302SpecificInput value) {
+        this.paymentProduct3302SpecificInput = value;
+    }
 
-	/**
-	 * Object containing specific input required for Bizum payments
-	 */
-	public RedirectPaymentMethodSpecificInput withPaymentProduct5001SpecificInput(RedirectPaymentProduct5001SpecificInput value) {
-		this.paymentProduct5001SpecificInput = value;
-		return this;
-	}
+    /**
+     * Object containing specific input required for Klarna PayLater payment (Payment product ID 3302)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct3302SpecificInput(RedirectPaymentProduct3302SpecificInput value) {
+        this.paymentProduct3302SpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * Object containing specific input for EPS payments (Payment product ID 5406)
-	 */
-	public RedirectPaymentProduct5406SpecificInput getPaymentProduct5406SpecificInput() {
-		return paymentProduct5406SpecificInput;
-	}
+    /**
+     * Object containing specific input required for Klarna payments (Payment product ID 3306)
+     */
+    public RedirectPaymentProduct3306SpecificInput getPaymentProduct3306SpecificInput() {
+        return paymentProduct3306SpecificInput;
+    }
 
-	/**
-	 * Object containing specific input for EPS payments (Payment product ID 5406)
-	 */
-	public void setPaymentProduct5406SpecificInput(RedirectPaymentProduct5406SpecificInput value) {
-		this.paymentProduct5406SpecificInput = value;
-	}
+    /**
+     * Object containing specific input required for Klarna payments (Payment product ID 3306)
+     */
+    public void setPaymentProduct3306SpecificInput(RedirectPaymentProduct3306SpecificInput value) {
+        this.paymentProduct3306SpecificInput = value;
+    }
 
-	/**
-	 * Object containing specific input for EPS payments (Payment product ID 5406)
-	 */
-	public RedirectPaymentMethodSpecificInput withPaymentProduct5406SpecificInput(RedirectPaymentProduct5406SpecificInput value) {
-		this.paymentProduct5406SpecificInput = value;
-		return this;
-	}
+    /**
+     * Object containing specific input required for Klarna payments (Payment product ID 3306)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct3306SpecificInput(RedirectPaymentProduct3306SpecificInput value) {
+        this.paymentProduct3306SpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * Object containing specific input for Account to Account payments (Payment product ID 5408)
-	 */
-	public RedirectPaymentProduct5408SpecificInput getPaymentProduct5408SpecificInput() {
-		return paymentProduct5408SpecificInput;
-	}
+    /**
+     * Object containing specific input required for Bizum payments
+     */
+    public RedirectPaymentProduct5001SpecificInput getPaymentProduct5001SpecificInput() {
+        return paymentProduct5001SpecificInput;
+    }
 
-	/**
-	 * Object containing specific input for Account to Account payments (Payment product ID 5408)
-	 */
-	public void setPaymentProduct5408SpecificInput(RedirectPaymentProduct5408SpecificInput value) {
-		this.paymentProduct5408SpecificInput = value;
-	}
+    /**
+     * Object containing specific input required for Bizum payments
+     */
+    public void setPaymentProduct5001SpecificInput(RedirectPaymentProduct5001SpecificInput value) {
+        this.paymentProduct5001SpecificInput = value;
+    }
 
-	/**
-	 * Object containing specific input for Account to Account payments (Payment product ID 5408)
-	 */
-	public RedirectPaymentMethodSpecificInput withPaymentProduct5408SpecificInput(RedirectPaymentProduct5408SpecificInput value) {
-		this.paymentProduct5408SpecificInput = value;
-		return this;
-	}
+    /**
+     * Object containing specific input required for Bizum payments
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct5001SpecificInput(RedirectPaymentProduct5001SpecificInput value) {
+        this.paymentProduct5001SpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * Object containing specific input required for iDeal payments (Payment product ID 809)
-	 */
-	public RedirectPaymentProduct809SpecificInput getPaymentProduct809SpecificInput() {
-		return paymentProduct809SpecificInput;
-	}
+    /**
+     * Pledg (payment product 5300) specific details
+     */
+    public RedirectPaymentProduct5300SpecificInput getPaymentProduct5300SpecificInput() {
+        return paymentProduct5300SpecificInput;
+    }
 
-	/**
-	 * Object containing specific input required for iDeal payments (Payment product ID 809)
-	 */
-	public void setPaymentProduct809SpecificInput(RedirectPaymentProduct809SpecificInput value) {
-		this.paymentProduct809SpecificInput = value;
-	}
+    /**
+     * Pledg (payment product 5300) specific details
+     */
+    public void setPaymentProduct5300SpecificInput(RedirectPaymentProduct5300SpecificInput value) {
+        this.paymentProduct5300SpecificInput = value;
+    }
 
-	/**
-	 * Object containing specific input required for iDeal payments (Payment product ID 809)
-	 */
-	public RedirectPaymentMethodSpecificInput withPaymentProduct809SpecificInput(RedirectPaymentProduct809SpecificInput value) {
-		this.paymentProduct809SpecificInput = value;
-		return this;
-	}
+    /**
+     * Pledg (payment product 5300) specific details
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct5300SpecificInput(RedirectPaymentProduct5300SpecificInput value) {
+        this.paymentProduct5300SpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * Object containing specific input required for PayPal payments (Payment product ID 840)
-	 */
-	public RedirectPaymentProduct840SpecificInput getPaymentProduct840SpecificInput() {
-		return paymentProduct840SpecificInput;
-	}
+    /**
+     * Object containing specific input for EPS payments (Payment product ID 5406)
+     */
+    public RedirectPaymentProduct5406SpecificInput getPaymentProduct5406SpecificInput() {
+        return paymentProduct5406SpecificInput;
+    }
 
-	/**
-	 * Object containing specific input required for PayPal payments (Payment product ID 840)
-	 */
-	public void setPaymentProduct840SpecificInput(RedirectPaymentProduct840SpecificInput value) {
-		this.paymentProduct840SpecificInput = value;
-	}
+    /**
+     * Object containing specific input for EPS payments (Payment product ID 5406)
+     */
+    public void setPaymentProduct5406SpecificInput(RedirectPaymentProduct5406SpecificInput value) {
+        this.paymentProduct5406SpecificInput = value;
+    }
 
-	/**
-	 * Object containing specific input required for PayPal payments (Payment product ID 840)
-	 */
-	public RedirectPaymentMethodSpecificInput withPaymentProduct840SpecificInput(RedirectPaymentProduct840SpecificInput value) {
-		this.paymentProduct840SpecificInput = value;
-		return this;
-	}
+    /**
+     * Object containing specific input for EPS payments (Payment product ID 5406)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct5406SpecificInput(RedirectPaymentProduct5406SpecificInput value) {
+        this.paymentProduct5406SpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * Payment product identifier - Please see Products documentation for a full overview of possible values.
-	 */
-	public Integer getPaymentProductId() {
-		return paymentProductId;
-	}
+    /**
+     * Object containing specific input for Account to Account payments (Payment product ID 5408)
+     */
+    public RedirectPaymentProduct5408SpecificInput getPaymentProduct5408SpecificInput() {
+        return paymentProduct5408SpecificInput;
+    }
 
-	/**
-	 * Payment product identifier - Please see Products documentation for a full overview of possible values.
-	 */
-	public void setPaymentProductId(Integer value) {
-		this.paymentProductId = value;
-	}
+    /**
+     * Object containing specific input for Account to Account payments (Payment product ID 5408)
+     */
+    public void setPaymentProduct5408SpecificInput(RedirectPaymentProduct5408SpecificInput value) {
+        this.paymentProduct5408SpecificInput = value;
+    }
 
-	/**
-	 * Payment product identifier - Please see Products documentation for a full overview of possible values.
-	 */
-	public RedirectPaymentMethodSpecificInput withPaymentProductId(Integer value) {
-		this.paymentProductId = value;
-		return this;
-	}
+    /**
+     * Object containing specific input for Account to Account payments (Payment product ID 5408)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct5408SpecificInput(RedirectPaymentProduct5408SpecificInput value) {
+        this.paymentProduct5408SpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * Object containing browser specific redirection related data
-	 */
-	public RedirectionData getRedirectionData() {
-		return redirectionData;
-	}
+    /**
+     * iDealin3 (payment product 5410) specific details
+     */
+    public RedirectPaymentProduct5410SpecificInput getPaymentProduct5410SpecificInput() {
+        return paymentProduct5410SpecificInput;
+    }
 
-	/**
-	 * Object containing browser specific redirection related data
-	 */
-	public void setRedirectionData(RedirectionData value) {
-		this.redirectionData = value;
-	}
+    /**
+     * iDealin3 (payment product 5410) specific details
+     */
+    public void setPaymentProduct5410SpecificInput(RedirectPaymentProduct5410SpecificInput value) {
+        this.paymentProduct5410SpecificInput = value;
+    }
 
-	/**
-	 * Object containing browser specific redirection related data
-	 */
-	public RedirectPaymentMethodSpecificInput withRedirectionData(RedirectionData value) {
-		this.redirectionData = value;
-		return this;
-	}
+    /**
+     * iDealin3 (payment product 5410) specific details
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct5410SpecificInput(RedirectPaymentProduct5410SpecificInput value) {
+        this.paymentProduct5410SpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * * true = the payment requires approval before the funds will be captured using the Approve payment or Capture payment API
-	 * * false = the payment does not require approval, and the funds will be captured automatically
-	 */
-	public Boolean getRequiresApproval() {
-		return requiresApproval;
-	}
+    /**
+     * Object containing specific input required for iDeal payments (Payment product ID 809)
+     */
+    public RedirectPaymentProduct809SpecificInput getPaymentProduct809SpecificInput() {
+        return paymentProduct809SpecificInput;
+    }
 
-	/**
-	 * * true = the payment requires approval before the funds will be captured using the Approve payment or Capture payment API
-	 * * false = the payment does not require approval, and the funds will be captured automatically
-	 */
-	public void setRequiresApproval(Boolean value) {
-		this.requiresApproval = value;
-	}
+    /**
+     * Object containing specific input required for iDeal payments (Payment product ID 809)
+     */
+    public void setPaymentProduct809SpecificInput(RedirectPaymentProduct809SpecificInput value) {
+        this.paymentProduct809SpecificInput = value;
+    }
 
-	/**
-	 * * true = the payment requires approval before the funds will be captured using the Approve payment or Capture payment API
-	 * * false = the payment does not require approval, and the funds will be captured automatically
-	 */
-	public RedirectPaymentMethodSpecificInput withRequiresApproval(Boolean value) {
-		this.requiresApproval = value;
-		return this;
-	}
+    /**
+     * Object containing specific input required for iDeal payments (Payment product ID 809)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct809SpecificInput(RedirectPaymentProduct809SpecificInput value) {
+        this.paymentProduct809SpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * ID of the token to use to create the payment.
-	 */
-	public String getToken() {
-		return token;
-	}
+    /**
+     * Object containing specific input required for PayPal payments (Payment product ID 840)
+     */
+    public RedirectPaymentProduct840SpecificInput getPaymentProduct840SpecificInput() {
+        return paymentProduct840SpecificInput;
+    }
 
-	/**
-	 * ID of the token to use to create the payment.
-	 */
-	public void setToken(String value) {
-		this.token = value;
-	}
+    /**
+     * Object containing specific input required for PayPal payments (Payment product ID 840)
+     */
+    public void setPaymentProduct840SpecificInput(RedirectPaymentProduct840SpecificInput value) {
+        this.paymentProduct840SpecificInput = value;
+    }
 
-	/**
-	 * ID of the token to use to create the payment.
-	 */
-	public RedirectPaymentMethodSpecificInput withToken(String value) {
-		this.token = value;
-		return this;
-	}
+    /**
+     * Object containing specific input required for PayPal payments (Payment product ID 840)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct840SpecificInput(RedirectPaymentProduct840SpecificInput value) {
+        this.paymentProduct840SpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * Indicates if this transaction should be tokenized
-	 *   * true - Tokenize the transaction.
-	 *   * false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.
-	 */
-	public Boolean getTokenize() {
-		return tokenize;
-	}
+    /**
+     * Payment product identifier - Please see Products documentation for a full overview of possible values.
+     */
+    public Integer getPaymentProductId() {
+        return paymentProductId;
+    }
 
-	/**
-	 * Indicates if this transaction should be tokenized
-	 *   * true - Tokenize the transaction.
-	 *   * false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.
-	 */
-	public void setTokenize(Boolean value) {
-		this.tokenize = value;
-	}
+    /**
+     * Payment product identifier - Please see Products documentation for a full overview of possible values.
+     */
+    public void setPaymentProductId(Integer value) {
+        this.paymentProductId = value;
+    }
 
-	/**
-	 * Indicates if this transaction should be tokenized
-	 *   * true - Tokenize the transaction.
-	 *   * false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.
-	 */
-	public RedirectPaymentMethodSpecificInput withTokenize(Boolean value) {
-		this.tokenize = value;
-		return this;
-	}
+    /**
+     * Payment product identifier - Please see Products documentation for a full overview of possible values.
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProductId(Integer value) {
+        this.paymentProductId = value;
+        return this;
+    }
+
+    /**
+     * Object containing browser specific redirection related data
+     */
+    public RedirectionData getRedirectionData() {
+        return redirectionData;
+    }
+
+    /**
+     * Object containing browser specific redirection related data
+     */
+    public void setRedirectionData(RedirectionData value) {
+        this.redirectionData = value;
+    }
+
+    /**
+     * Object containing browser specific redirection related data
+     */
+    public RedirectPaymentMethodSpecificInput withRedirectionData(RedirectionData value) {
+        this.redirectionData = value;
+        return this;
+    }
+
+    /**
+     * <ul>
+     *   <li>true = the payment requires approval before the funds will be captured using the Approve payment or Capture payment API</li>
+     *   <li>false = the payment does not require approval, and the funds will be captured automatically</li>
+     * </ul>
+     */
+    public Boolean getRequiresApproval() {
+        return requiresApproval;
+    }
+
+    /**
+     * <ul>
+     *   <li>true = the payment requires approval before the funds will be captured using the Approve payment or Capture payment API</li>
+     *   <li>false = the payment does not require approval, and the funds will be captured automatically</li>
+     * </ul>
+     */
+    public void setRequiresApproval(Boolean value) {
+        this.requiresApproval = value;
+    }
+
+    /**
+     * <ul>
+     *   <li>true = the payment requires approval before the funds will be captured using the Approve payment or Capture payment API</li>
+     *   <li>false = the payment does not require approval, and the funds will be captured automatically</li>
+     * </ul>
+     */
+    public RedirectPaymentMethodSpecificInput withRequiresApproval(Boolean value) {
+        this.requiresApproval = value;
+        return this;
+    }
+
+    /**
+     * ID of the token to use to create the payment.
+     */
+    public String getToken() {
+        return token;
+    }
+
+    /**
+     * ID of the token to use to create the payment.
+     */
+    public void setToken(String value) {
+        this.token = value;
+    }
+
+    /**
+     * ID of the token to use to create the payment.
+     */
+    public RedirectPaymentMethodSpecificInput withToken(String value) {
+        this.token = value;
+        return this;
+    }
+
+    /**
+     * Indicates if this transaction should be tokenized
+     * <ul>
+     *   <li>true - Tokenize the transaction.</li>
+     *   <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.</li>
+     * </ul>
+     */
+    public Boolean getTokenize() {
+        return tokenize;
+    }
+
+    /**
+     * Indicates if this transaction should be tokenized
+     * <ul>
+     *   <li>true - Tokenize the transaction.</li>
+     *   <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.</li>
+     * </ul>
+     */
+    public void setTokenize(Boolean value) {
+        this.tokenize = value;
+    }
+
+    /**
+     * Indicates if this transaction should be tokenized
+     * <ul>
+     *   <li>true - Tokenize the transaction.</li>
+     *   <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.</li>
+     * </ul>
+     */
+    public RedirectPaymentMethodSpecificInput withTokenize(Boolean value) {
+        this.tokenize = value;
+        return this;
+    }
 }

@@ -1,156 +1,148 @@
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
+
 package com.onlinepayments.domain;
 
 import java.util.List;
 
 public class CreateHostedCheckoutResponse {
 
-	private String RETURNMAC = null;
+    private String RETURNMAC;
 
-	private String hostedCheckoutId = null;
+    private String hostedCheckoutId;
 
-	private List<String> invalidTokens = null;
+    private List<String> invalidTokens;
 
-	private String merchantReference = null;
+    private String merchantReference;
 
-	private String partialRedirectUrl = null;
+    private String partialRedirectUrl;
 
-	private String redirectUrl = null;
+    private String redirectUrl;
 
-	/**
-	 * When the customer is returned to your site we will append this property and value to the query-string. You should store this data, so you can identify the returning customer.
-	 */
-	public String getRETURNMAC() {
-		return RETURNMAC;
-	}
+    /**
+     * When the customer is returned to your site we will append this property and value to the query-string. You should store this data, so you can identify the returning customer.
+     */
+    public String getRETURNMAC() {
+        return RETURNMAC;
+    }
 
-	/**
-	 * When the customer is returned to your site we will append this property and value to the query-string. You should store this data, so you can identify the returning customer.
-	 */
-	public void setRETURNMAC(String value) {
-		this.RETURNMAC = value;
-	}
+    /**
+     * When the customer is returned to your site we will append this property and value to the query-string. You should store this data, so you can identify the returning customer.
+     */
+    public void setRETURNMAC(String value) {
+        this.RETURNMAC = value;
+    }
 
-	/**
-	 * When the customer is returned to your site we will append this property and value to the query-string. You should store this data, so you can identify the returning customer.
-	 */
-	public CreateHostedCheckoutResponse withRETURNMAC(String value) {
-		this.RETURNMAC = value;
-		return this;
-	}
+    /**
+     * When the customer is returned to your site we will append this property and value to the query-string. You should store this data, so you can identify the returning customer.
+     */
+    public CreateHostedCheckoutResponse withRETURNMAC(String value) {
+        this.RETURNMAC = value;
+        return this;
+    }
 
-	/**
-	 * The ID of the Hosted Checkout Session in which the payment was made.
-	 */
-	public String getHostedCheckoutId() {
-		return hostedCheckoutId;
-	}
+    /**
+     * The ID of the Hosted Checkout Session in which the payment was made.
+     */
+    public String getHostedCheckoutId() {
+        return hostedCheckoutId;
+    }
 
-	/**
-	 * The ID of the Hosted Checkout Session in which the payment was made.
-	 */
-	public void setHostedCheckoutId(String value) {
-		this.hostedCheckoutId = value;
-	}
+    /**
+     * The ID of the Hosted Checkout Session in which the payment was made.
+     */
+    public void setHostedCheckoutId(String value) {
+        this.hostedCheckoutId = value;
+    }
 
-	/**
-	 * The ID of the Hosted Checkout Session in which the payment was made.
-	 */
-	public CreateHostedCheckoutResponse withHostedCheckoutId(String value) {
-		this.hostedCheckoutId = value;
-		return this;
-	}
+    /**
+     * The ID of the Hosted Checkout Session in which the payment was made.
+     */
+    public CreateHostedCheckoutResponse withHostedCheckoutId(String value) {
+        this.hostedCheckoutId = value;
+        return this;
+    }
 
-	/**
-	 * Tokens that are submitted in the request are validated. In case any of the tokens can't be used anymore they are returned in this array. You should most likely remove those tokens from your system.
-	 */
-	public List<String> getInvalidTokens() {
-		return invalidTokens;
-	}
+    public List<String> getInvalidTokens() {
+        return invalidTokens;
+    }
 
-	/**
-	 * Tokens that are submitted in the request are validated. In case any of the tokens can't be used anymore they are returned in this array. You should most likely remove those tokens from your system.
-	 */
-	public void setInvalidTokens(List<String> value) {
-		this.invalidTokens = value;
-	}
+    public void setInvalidTokens(List<String> value) {
+        this.invalidTokens = value;
+    }
 
-	/**
-	 * Tokens that are submitted in the request are validated. In case any of the tokens can't be used anymore they are returned in this array. You should most likely remove those tokens from your system.
-	 */
-	public CreateHostedCheckoutResponse withInvalidTokens(List<String> value) {
-		this.invalidTokens = value;
-		return this;
-	}
+    public CreateHostedCheckoutResponse withInvalidTokens(List<String> value) {
+        this.invalidTokens = value;
+        return this;
+    }
 
-	/**
-	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
-	 * It is highly recommended to provide a single MerchantReference per unique order on your side
-	 */
-	public String getMerchantReference() {
-		return merchantReference;
-	}
+    /**
+     * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+     * It is highly recommended to provide a single MerchantReference per unique order on your side
+     */
+    public String getMerchantReference() {
+        return merchantReference;
+    }
 
-	/**
-	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
-	 * It is highly recommended to provide a single MerchantReference per unique order on your side
-	 */
-	public void setMerchantReference(String value) {
-		this.merchantReference = value;
-	}
+    /**
+     * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+     * It is highly recommended to provide a single MerchantReference per unique order on your side
+     */
+    public void setMerchantReference(String value) {
+        this.merchantReference = value;
+    }
 
-	/**
-	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
-	 * It is highly recommended to provide a single MerchantReference per unique order on your side
-	 */
-	public CreateHostedCheckoutResponse withMerchantReference(String value) {
-		this.merchantReference = value;
-		return this;
-	}
+    /**
+     * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+     * It is highly recommended to provide a single MerchantReference per unique order on your side
+     */
+    public CreateHostedCheckoutResponse withMerchantReference(String value) {
+        this.merchantReference = value;
+        return this;
+    }
 
-	/**
-	 * The partial URL as generated by our system. You will need to add the protocol and the relevant subdomain to this URL, before redirecting your customer to this URL. A special 'payment' subdomain will always work so you can always add 'https://payment.' at the beginning of this response value to view your hosted pages.
-	 */
-	public String getPartialRedirectUrl() {
-		return partialRedirectUrl;
-	}
+    /**
+     * The partial URL as generated by our system. You will need to add the protocol and the relevant subdomain to this URL, before redirecting your customer to this URL. A special 'payment' subdomain will always work so you can always add 'https://payment.' at the beginning of this response value to view your hosted pages.
+     */
+    public String getPartialRedirectUrl() {
+        return partialRedirectUrl;
+    }
 
-	/**
-	 * The partial URL as generated by our system. You will need to add the protocol and the relevant subdomain to this URL, before redirecting your customer to this URL. A special 'payment' subdomain will always work so you can always add 'https://payment.' at the beginning of this response value to view your hosted pages.
-	 */
-	public void setPartialRedirectUrl(String value) {
-		this.partialRedirectUrl = value;
-	}
+    /**
+     * The partial URL as generated by our system. You will need to add the protocol and the relevant subdomain to this URL, before redirecting your customer to this URL. A special 'payment' subdomain will always work so you can always add 'https://payment.' at the beginning of this response value to view your hosted pages.
+     */
+    public void setPartialRedirectUrl(String value) {
+        this.partialRedirectUrl = value;
+    }
 
-	/**
-	 * The partial URL as generated by our system. You will need to add the protocol and the relevant subdomain to this URL, before redirecting your customer to this URL. A special 'payment' subdomain will always work so you can always add 'https://payment.' at the beginning of this response value to view your hosted pages.
-	 */
-	public CreateHostedCheckoutResponse withPartialRedirectUrl(String value) {
-		this.partialRedirectUrl = value;
-		return this;
-	}
+    /**
+     * The partial URL as generated by our system. You will need to add the protocol and the relevant subdomain to this URL, before redirecting your customer to this URL. A special 'payment' subdomain will always work so you can always add 'https://payment.' at the beginning of this response value to view your hosted pages.
+     */
+    public CreateHostedCheckoutResponse withPartialRedirectUrl(String value) {
+        this.partialRedirectUrl = value;
+        return this;
+    }
 
-	/**
-	 * The full hosted checkout URL as generated by our system. Use this URL to redirect your customer to the hosted checkout page.
-	 */
-	public String getRedirectUrl() {
-		return redirectUrl;
-	}
+    /**
+     * The full hosted checkout URL as generated by our system. Use this URL to redirect your customer to the hosted checkout page.
+     */
+    public String getRedirectUrl() {
+        return redirectUrl;
+    }
 
-	/**
-	 * The full hosted checkout URL as generated by our system. Use this URL to redirect your customer to the hosted checkout page.
-	 */
-	public void setRedirectUrl(String value) {
-		this.redirectUrl = value;
-	}
+    /**
+     * The full hosted checkout URL as generated by our system. Use this URL to redirect your customer to the hosted checkout page.
+     */
+    public void setRedirectUrl(String value) {
+        this.redirectUrl = value;
+    }
 
-	/**
-	 * The full hosted checkout URL as generated by our system. Use this URL to redirect your customer to the hosted checkout page.
-	 */
-	public CreateHostedCheckoutResponse withRedirectUrl(String value) {
-		this.redirectUrl = value;
-		return this;
-	}
+    /**
+     * The full hosted checkout URL as generated by our system. Use this URL to redirect your customer to the hosted checkout page.
+     */
+    public CreateHostedCheckoutResponse withRedirectUrl(String value) {
+        this.redirectUrl = value;
+        return this;
+    }
 }

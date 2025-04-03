@@ -1,0 +1,10 @@
+\QIncoming response (requestId='\E([-a-zA-Z0-9]+)\Q', \E\d+\Q ms):
+  status-code:  '201'
+  headers:      'Content-Type="application/json", Dummy="", Location="http://localhost/v1/created/000000123410000595980000100001", Date="\E[^"]+\Q"\E[^']*\Q'
+  content-type: 'application/json'
+  body:         '{
+    "payment": {
+        "id": "000000123410000595980000100001",
+        "status": "PENDING_APPROVAL"
+    }
+}'\E

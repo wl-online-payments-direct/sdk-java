@@ -1,19 +1,19 @@
 {
-	"sepaDirectDebit": {
-		"mandate": {
-			"bankAccountIban": {
-				"iban": "*18"
-			},
-			"debtor": {
-				"surname": "*5"
-			},
-			"isRecurring": false
-		},
-		"customer": {
-			"billingAddress": {
-				"countryCode": "BE"
-			}
-		}
-	},
-	"paymentProductId": 770
+    "sepaDirectDebit": {
+        "mandate": {
+            "bankAccountIban": {
+                "iban": "**************4567"
+            },
+            "debtor": {
+                "surname": "Jones"
+            },
+            "isRecurring": false
+        },
+        "customer": {
+            "billingAddress": {
+                "countryCode": "NL"
+            }
+        }
+    },
+    "paymentProductId": 770
 }

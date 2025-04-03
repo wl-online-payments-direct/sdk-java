@@ -9,32 +9,33 @@ import java.util.Date;
  */
 public final class SysOutCommunicatorLogger implements CommunicatorLogger {
 
-	public static final SysOutCommunicatorLogger INSTANCE = new SysOutCommunicatorLogger();
+    public static final SysOutCommunicatorLogger INSTANCE = new SysOutCommunicatorLogger();
 
-	private SysOutCommunicatorLogger() {}
+    private SysOutCommunicatorLogger() {
+    }
 
-	@Override
-	public void log(String message) {
-		// System.out can be changed using System.setOut; make sure the same object is used for locking and printing
-		final PrintStream sysOut = System.out;
-		synchronized (sysOut) {
-			sysOut.println(getDatePrefix() + message);
-		}
-	}
+    @Override
+    public void log(String message) {
+        // System.out can be changed using System.setOut; make sure the same object is used for locking and printing
+        final PrintStream sysOut = System.out;
+        synchronized (sysOut) {
+            printMessage(sysOut, message);
+        }
+    }
 
-	@Override
-	public void log(String message, Throwable thrown) {
-		// System.out can be changed using System.setOut; make sure the same object is used for locking and printing
-		final PrintStream sysOut = System.out;
-		synchronized (sysOut) {
-			sysOut.println(getDatePrefix() + message);
-			if (thrown != null) {
-				thrown.printStackTrace(sysOut);
-			}
-		}
-	}
+    @Override
+    public void log(String message, Throwable thrown) {
+        // System.out can be changed using System.setOut; make sure the same object is used for locking and printing
+        final PrintStream sysOut = System.out;
+        synchronized (sysOut) {
+            printMessage(sysOut, message);
+            if (thrown != null) {
+                thrown.printStackTrace(sysOut);
+            }
+        }
+    }
 
-	private String getDatePrefix() {
-		return String.format("%1$tY-%1$tm-%1$tdT%1$tH:%1$tM:%1$tS ", new Date());
-	}
+    private static void printMessage(PrintStream sysOut, String message) {
+        sysOut.printf("%1$tY-%1$tm-%1$tdT%1$tH:%1$tM:%1$tS %2$s%n", new Date(), message);
+    }
 }

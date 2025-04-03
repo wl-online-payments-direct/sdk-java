@@ -1,51 +1,49 @@
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
+
 package com.onlinepayments.domain;
 
 import java.util.List;
 
-/**
- * An array of values and displayNames that should be used to populate the list object in the GUI
- */
 public class ValueMappingElement {
 
-	private List<PaymentProductFieldDisplayElement> displayElements = null;
+    private List<PaymentProductFieldDisplayElement> displayElements;
 
-	private String value = null;
+    private String value;
 
-	public List<PaymentProductFieldDisplayElement> getDisplayElements() {
-		return displayElements;
-	}
+    public List<PaymentProductFieldDisplayElement> getDisplayElements() {
+        return displayElements;
+    }
 
-	public void setDisplayElements(List<PaymentProductFieldDisplayElement> value) {
-		this.displayElements = value;
-	}
+    public void setDisplayElements(List<PaymentProductFieldDisplayElement> value) {
+        this.displayElements = value;
+    }
 
-	public ValueMappingElement withDisplayElements(List<PaymentProductFieldDisplayElement> value) {
-		this.displayElements = value;
-		return this;
-	}
+    public ValueMappingElement withDisplayElements(List<PaymentProductFieldDisplayElement> value) {
+        this.displayElements = value;
+        return this;
+    }
 
-	/**
-	 * Value corresponding to the key
-	 */
-	public String getValue() {
-		return value;
-	}
+    /**
+     * Value corresponding to the key
+     */
+    public String getValue() {
+        return value;
+    }
 
-	/**
-	 * Value corresponding to the key
-	 */
-	public void setValue(String value) {
-		this.value = value;
-	}
+    /**
+     * Value corresponding to the key
+     */
+    public void setValue(String value) {
+        this.value = value;
+    }
 
-	/**
-	 * Value corresponding to the key
-	 */
-	public ValueMappingElement withValue(String value) {
-		this.value = value;
-		return this;
-	}
+    /**
+     * Value corresponding to the key
+     */
+    public ValueMappingElement withValue(String value) {
+        this.value = value;
+        return this;
+    }
 }

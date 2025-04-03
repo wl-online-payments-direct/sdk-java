@@ -1,37 +1,35 @@
 package com.onlinepayments.it;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import com.onlinepayments.Client;
+import com.onlinepayments.ClientInterface;
 import com.onlinepayments.domain.PaymentProductGroup;
 import com.onlinepayments.merchant.productgroups.GetProductGroupParams;
 
 public class PaymentProductGroupsTest extends ItTest {
 
-	/**
-	 * Smoke test for product groups service.
-	 */
-	@Test
-	public void test() throws URISyntaxException, IOException {
+    /**
+     * Smoke test for product groups service.
+     */
+    @Test
+    public void test() throws URISyntaxException, IOException {
 
-		GetProductGroupParams params = new GetProductGroupParams()
-				.withCountryCode("NL")
-				.withCurrencyCode("EUR");
+        GetProductGroupParams params = new GetProductGroupParams()
+                .withCountryCode("NL")
+                .withCurrencyCode("EUR");
 
-		Client client = getClient();
-		try {
-			PaymentProductGroup response = client.merchant(MERCHANT_ID).productGroups().getProductGroup("cards", params);
+        try (ClientInterface client = getClient()) {
+            PaymentProductGroup response = client.merchant(getMerchantId()).productGroups().getProductGroup("cards", params);
 
-			Assert.assertNotNull(response);
-			Assert.assertNotNull(response.getId());
-			Assert.assertEquals("cards", response.getId().toLowerCase());
-
-		} finally {
-			client.close();
-		}
-	}
+            assertNotNull(response);
+            assertNotNull(response.getId());
+            assertEquals("cards", response.getId().toLowerCase());
+        }
+    }
 }

@@ -1,107 +1,104 @@
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
+
 package com.onlinepayments.domain;
 
-/**
- * Multibanco (payment product 5500) specific details
- */
 public class PaymentProduct5500SpecificOutput {
 
-	private String paymentEndDate = null;
+    private String entityId;
 
-	private String paymentReference = null;
+    private String paymentEndDate;
 
-	private String paymentStartDate = null;
+    private String paymentReference;
 
-	private String entityId = null;
+    private String paymentStartDate;
 
-	/**
-	 * The end date of the payment validity
-	 */
-	public String getPaymentEndDate() {
-		return paymentEndDate;
-	}
+    /**
+     * The reference to be used during Multibanco payment for reconciliation matter
+     */
+    public String getEntityId() {
+        return entityId;
+    }
 
-	/**
-	 * The end date of the payment validity
-	 */
-	public void setPaymentEndDate(String value) {
-		this.paymentEndDate = value;
-	}
+    /**
+     * The reference to be used during Multibanco payment for reconciliation matter
+     */
+    public void setEntityId(String value) {
+        this.entityId = value;
+    }
 
-	/**
-	 * The end date of the payment validity
-	 */
-	public PaymentProduct5500SpecificOutput withPaymentEndDate(String value) {
-		this.paymentEndDate = value;
-		return this;
-	}
+    /**
+     * The reference to be used during Multibanco payment for reconciliation matter
+     */
+    public PaymentProduct5500SpecificOutput withEntityId(String value) {
+        this.entityId = value;
+        return this;
+    }
 
-	/**
-	 * The reference to be used within the Multibanco network to confirm the payment
-	 */
-	public String getPaymentReference() {
-		return paymentReference;
-	}
+    /**
+     * The end date of the payment validity
+     */
+    public String getPaymentEndDate() {
+        return paymentEndDate;
+    }
 
-	/**
-	 * The reference to be used within the Multibanco network to confirm the payment
-	 */
-	public void setPaymentReference(String value) {
-		this.paymentReference = value;
-	}
+    /**
+     * The end date of the payment validity
+     */
+    public void setPaymentEndDate(String value) {
+        this.paymentEndDate = value;
+    }
 
-	/**
-	 * The reference to be used within the Multibanco network to confirm the payment
-	 */
-	public PaymentProduct5500SpecificOutput withPaymentReference(String value) {
-		this.paymentReference = value;
-		return this;
-	}
+    /**
+     * The end date of the payment validity
+     */
+    public PaymentProduct5500SpecificOutput withPaymentEndDate(String value) {
+        this.paymentEndDate = value;
+        return this;
+    }
 
-	/**
-	 * The start date of the payment validity
-	 */
-	public String getPaymentStartDate() {
-		return paymentStartDate;
-	}
+    /**
+     * The reference to be used within the Multibanco network to confirm the payment
+     */
+    public String getPaymentReference() {
+        return paymentReference;
+    }
 
-	/**
-	 * The start date of the payment validity
-	 */
-	public void setPaymentStartDate(String value) {
-		this.paymentStartDate = value;
-	}
+    /**
+     * The reference to be used within the Multibanco network to confirm the payment
+     */
+    public void setPaymentReference(String value) {
+        this.paymentReference = value;
+    }
 
-	/**
-	 * The start date of the payment validity
-	 */
-	public PaymentProduct5500SpecificOutput withPaymentStartDate(String value) {
-		this.paymentStartDate = value;
-		return this;
-	}
+    /**
+     * The reference to be used within the Multibanco network to confirm the payment
+     */
+    public PaymentProduct5500SpecificOutput withPaymentReference(String value) {
+        this.paymentReference = value;
+        return this;
+    }
 
-	/**
-	 * Gets the entity ID.
-	 */
-	public String getEntityId() {
-		return entityId;
-	}
+    /**
+     * The start date of the payment validity
+     */
+    public String getPaymentStartDate() {
+        return paymentStartDate;
+    }
 
-	/**
-	 * Sets the entity ID.
-	 */
-	public void setEntityId(String value) {
-		this.entityId = value;
-	}
+    /**
+     * The start date of the payment validity
+     */
+    public void setPaymentStartDate(String value) {
+        this.paymentStartDate = value;
+    }
 
-	/**
-	 * Sets the entity ID. Method to enable chaining.
-	 */
-	public PaymentProduct5500SpecificOutput withEntityId(String value) {
-		this.entityId = value;
-
-		return this;
-	}
+    /**
+     * The start date of the payment validity
+     */
+    public PaymentProduct5500SpecificOutput withPaymentStartDate(String value) {
+        this.paymentStartDate = value;
+        return this;
+    }
 }

@@ -2,87 +2,78 @@ package com.onlinepayments;
 
 import java.net.URI;
 
-import com.onlinepayments.defaultimpl.DefaultCommunicator;
+import com.onlinepayments.authentication.Authenticator;
+import com.onlinepayments.communication.Connection;
+import com.onlinepayments.communication.MetadataProvider;
+import com.onlinepayments.json.Marshaller;
 
 /**
  * Builder for a {@link Communicator} object.
  */
 public class CommunicatorBuilder {
 
-	private URI apiEndpoint;
-	private Connection connection;
-	private MetaDataProvider metaDataProvider;
-	private Authenticator authenticator;
-	private Marshaller marshaller;
+    private URI apiEndpoint;
 
-	/**
-	 * Sets the Online Payments platform API endpoint URI to use.
-	 *
-	 * @param apiEndpoint The API Endpoint URI to be used
-	 * @return The CommunicatorBuilder instance
-	 */
-	public CommunicatorBuilder withAPIEndpoint(URI apiEndpoint) {
-		this.apiEndpoint = apiEndpoint;
-		return this;
-	}
+    private Connection connection;
 
-	/**
-	 * Sets the {@link Connection} to use.
-	 *
-	 * @param connection The Connection to be used
-	 * @return The CommunicatorBuilder instance
-	 */
-	public CommunicatorBuilder withConnection(Connection connection) {
-		this.connection = connection;
-		return this;
-	}
+    private MetadataProvider metadataProvider;
 
-	/**
-	 * Sets the {@link Authenticator} to use.
-	 *
-	 * @param authenticator The Authenticator to be used
-	 * @return The CommunicatorBuilder instance
-	 */
-	public CommunicatorBuilder withAuthenticator(Authenticator authenticator) {
-		this.authenticator = authenticator;
-		return this;
-	}
+    private Authenticator authenticator;
 
-	/**
-	 * Sets the {@link MetaDataProvider} to use.
-	 *
-	 * @param metaDataProvider The MetaDataProvider to be used
-	 * @return The CommunicatorBuilder instance
-	 */
-	public CommunicatorBuilder withMetaDataProvider(MetaDataProvider metaDataProvider) {
-		this.metaDataProvider = metaDataProvider;
-		return this;
-	}
+    private Marshaller marshaller;
 
-	/**
-	 * Sets the {@link Marshaller} to use.
-	 *
-	 * @param marshaller The Marshaller to be used
-	 * @return The CommunicatorBuilder instance
-	 */
-	public CommunicatorBuilder withMarshaller(Marshaller marshaller) {
-		this.marshaller = marshaller;
-		return this;
-	}
+    /**
+     * Sets the Online Payments platform API endpoint URI to use.
+     */
+    public CommunicatorBuilder withAPIEndpoint(URI apiEndpoint) {
+        this.apiEndpoint = apiEndpoint;
+        return this;
+    }
 
-	/**
-	 * Creates a fully initialized {@link Communicator} object.
-	 *
-	 * @return A new instance of Communicator object
-	 * @throws IllegalArgumentException if not all required components are set
-	 */
-	public Communicator build() {
-		return new DefaultCommunicator(
-				apiEndpoint,
-				connection,
-				authenticator,
-				metaDataProvider,
-				marshaller
-		);
-	}
+    /**
+     * Sets the {@link Connection} to use.
+     */
+    public CommunicatorBuilder withConnection(Connection connection) {
+        this.connection = connection;
+        return this;
+    }
+
+    /**
+     * Sets the {@link Authenticator} to use.
+     */
+    public CommunicatorBuilder withAuthenticator(Authenticator authenticator) {
+        this.authenticator = authenticator;
+        return this;
+    }
+
+    /**
+     * Sets the {@link MetadataProvider} to use.
+     */
+    public CommunicatorBuilder withMetadataProvider(MetadataProvider metadataProvider) {
+        this.metadataProvider = metadataProvider;
+        return this;
+    }
+
+    /**
+     * Sets the {@link Marshaller} to use.
+     */
+    public CommunicatorBuilder withMarshaller(Marshaller marshaller) {
+        this.marshaller = marshaller;
+        return this;
+    }
+
+    /**
+     * Creates a fully initialized {@link Communicator} object.
+     *
+     * @throws IllegalArgumentException if not all required components are set
+     */
+    public Communicator build() {
+        return new DefaultCommunicator(
+                apiEndpoint,
+                connection,
+                authenticator,
+                metadataProvider,
+                marshaller
+        );
+    }
 }

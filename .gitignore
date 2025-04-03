@@ -2,5 +2,6 @@
 /.settings
 /.classpath
 /.project
+/.checkstyle
 /.idea
 onlinepayments-sdk-java.iml

@@ -1,61 +1,65 @@
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
+
 package com.onlinepayments.domain;
 
-/**
- * Object containing data restrictions that apply to this field, like minimum and/or maximum length
- */
 public class PaymentProductFieldDataRestrictions {
 
-	private Boolean isRequired = null;
+    private Boolean isRequired;
 
-	private PaymentProductFieldValidators validators = null;
+    private PaymentProductFieldValidators validators;
 
-	/**
-	 * * true - Indicates that this field is required
-	 * * false - Indicates that this field is optional
-	 */
-	public Boolean getIsRequired() {
-		return isRequired;
-	}
+    /**
+     * <ul>
+     *   <li>true - Indicates that this field is required</li>
+     *   <li>false - Indicates that this field is optional</li>
+     * </ul>
+     */
+    public Boolean getIsRequired() {
+        return isRequired;
+    }
 
-	/**
-	 * * true - Indicates that this field is required
-	 * * false - Indicates that this field is optional
-	 */
-	public void setIsRequired(Boolean value) {
-		this.isRequired = value;
-	}
+    /**
+     * <ul>
+     *   <li>true - Indicates that this field is required</li>
+     *   <li>false - Indicates that this field is optional</li>
+     * </ul>
+     */
+    public void setIsRequired(Boolean value) {
+        this.isRequired = value;
+    }
 
-	/**
-	 * * true - Indicates that this field is required
-	 * * false - Indicates that this field is optional
-	 */
-	public PaymentProductFieldDataRestrictions withIsRequired(Boolean value) {
-		this.isRequired = value;
-		return this;
-	}
+    /**
+     * <ul>
+     *   <li>true - Indicates that this field is required</li>
+     *   <li>false - Indicates that this field is optional</li>
+     * </ul>
+     */
+    public PaymentProductFieldDataRestrictions withIsRequired(Boolean value) {
+        this.isRequired = value;
+        return this;
+    }
 
-	/**
-	 * Object containing the details of the validations on the field
-	 */
-	public PaymentProductFieldValidators getValidators() {
-		return validators;
-	}
+    /**
+     * Object containing the details of the validations on the field
+     */
+    public PaymentProductFieldValidators getValidators() {
+        return validators;
+    }
 
-	/**
-	 * Object containing the details of the validations on the field
-	 */
-	public void setValidators(PaymentProductFieldValidators value) {
-		this.validators = value;
-	}
+    /**
+     * Object containing the details of the validations on the field
+     */
+    public void setValidators(PaymentProductFieldValidators value) {
+        this.validators = value;
+    }
 
-	/**
-	 * Object containing the details of the validations on the field
-	 */
-	public PaymentProductFieldDataRestrictions withValidators(PaymentProductFieldValidators value) {
-		this.validators = value;
-		return this;
-	}
+    /**
+     * Object containing the details of the validations on the field
+     */
+    public PaymentProductFieldDataRestrictions withValidators(PaymentProductFieldValidators value) {
+        this.validators = value;
+        return this;
+    }
 }

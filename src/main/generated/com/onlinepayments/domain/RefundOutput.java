@@ -1,181 +1,203 @@
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
+
 package com.onlinepayments.domain;
 
-/**
- * Object containing refund details
- */
 public class RefundOutput {
 
-	private AmountOfMoney amountOfMoney = null;
+    private AmountOfMoney amountOfMoney;
 
-	private Long amountPaid = null;
+    private Long amountPaid;
 
-	private RefundCardMethodSpecificOutput cardRefundMethodSpecificOutput = null;
+    private RefundCardMethodSpecificOutput cardRefundMethodSpecificOutput;
 
-	private RefundEWalletMethodSpecificOutput eWalletRefundMethodSpecificOutput = null;
+    private RefundEWalletMethodSpecificOutput eWalletRefundMethodSpecificOutput;
 
-	private String merchantParameters = null;
+    private String merchantParameters;
 
-	private RefundMobileMethodSpecificOutput mobileRefundMethodSpecificOutput = null;
+    private RefundMobileMethodSpecificOutput mobileRefundMethodSpecificOutput;
 
-	private String paymentMethod = null;
+    private OperationPaymentReferences operationReferences;
 
-	private RefundRedirectMethodSpecificOutput redirectRefundMethodSpecificOutput = null;
+    private String paymentMethod;
 
-	private PaymentReferences references = null;
+    private RefundRedirectMethodSpecificOutput redirectRefundMethodSpecificOutput;
 
-	/**
-	 * Object containing amount and ISO currency code attributes
-	 */
-	public AmountOfMoney getAmountOfMoney() {
-		return amountOfMoney;
-	}
+    private PaymentReferences references;
 
-	/**
-	 * Object containing amount and ISO currency code attributes
-	 */
-	public void setAmountOfMoney(AmountOfMoney value) {
-		this.amountOfMoney = value;
-	}
+    /**
+     * Object containing amount and ISO currency code attributes
+     */
+    public AmountOfMoney getAmountOfMoney() {
+        return amountOfMoney;
+    }
 
-	/**
-	 * Object containing amount and ISO currency code attributes
-	 */
-	public RefundOutput withAmountOfMoney(AmountOfMoney value) {
-		this.amountOfMoney = value;
-		return this;
-	}
+    /**
+     * Object containing amount and ISO currency code attributes
+     */
+    public void setAmountOfMoney(AmountOfMoney value) {
+        this.amountOfMoney = value;
+    }
 
-	public Long getAmountPaid() {
-		return amountPaid;
-	}
+    /**
+     * Object containing amount and ISO currency code attributes
+     */
+    public RefundOutput withAmountOfMoney(AmountOfMoney value) {
+        this.amountOfMoney = value;
+        return this;
+    }
 
-	public void setAmountPaid(Long value) {
-		this.amountPaid = value;
-	}
+    public Long getAmountPaid() {
+        return amountPaid;
+    }
 
-	public RefundOutput withAmountPaid(Long value) {
-		this.amountPaid = value;
-		return this;
-	}
+    public void setAmountPaid(Long value) {
+        this.amountPaid = value;
+    }
 
-	public RefundCardMethodSpecificOutput getCardRefundMethodSpecificOutput() {
-		return cardRefundMethodSpecificOutput;
-	}
+    public RefundOutput withAmountPaid(Long value) {
+        this.amountPaid = value;
+        return this;
+    }
 
-	public void setCardRefundMethodSpecificOutput(RefundCardMethodSpecificOutput value) {
-		this.cardRefundMethodSpecificOutput = value;
-	}
+    public RefundCardMethodSpecificOutput getCardRefundMethodSpecificOutput() {
+        return cardRefundMethodSpecificOutput;
+    }
 
-	public RefundOutput withCardRefundMethodSpecificOutput(RefundCardMethodSpecificOutput value) {
-		this.cardRefundMethodSpecificOutput = value;
-		return this;
-	}
+    public void setCardRefundMethodSpecificOutput(RefundCardMethodSpecificOutput value) {
+        this.cardRefundMethodSpecificOutput = value;
+    }
 
-	public RefundEWalletMethodSpecificOutput getEWalletRefundMethodSpecificOutput() {
-		return eWalletRefundMethodSpecificOutput;
-	}
+    public RefundOutput withCardRefundMethodSpecificOutput(RefundCardMethodSpecificOutput value) {
+        this.cardRefundMethodSpecificOutput = value;
+        return this;
+    }
 
-	public void setEWalletRefundMethodSpecificOutput(RefundEWalletMethodSpecificOutput value) {
-		this.eWalletRefundMethodSpecificOutput = value;
-	}
+    public RefundEWalletMethodSpecificOutput getEWalletRefundMethodSpecificOutput() {
+        return eWalletRefundMethodSpecificOutput;
+    }
 
-	public RefundOutput withEWalletRefundMethodSpecificOutput(RefundEWalletMethodSpecificOutput value) {
-		this.eWalletRefundMethodSpecificOutput = value;
-		return this;
-	}
+    public void setEWalletRefundMethodSpecificOutput(RefundEWalletMethodSpecificOutput value) {
+        this.eWalletRefundMethodSpecificOutput = value;
+    }
 
-	/**
-	 * It allows you to store additional parameters for the transaction in the format you prefer (e.g.-&gt; key-value query string, JSON, etc.) These parameters are then echoed back to you in API GET calls and Webhook notifications. This field must not contain any personal data.
-	 */
-	public String getMerchantParameters() {
-		return merchantParameters;
-	}
+    public RefundOutput withEWalletRefundMethodSpecificOutput(RefundEWalletMethodSpecificOutput value) {
+        this.eWalletRefundMethodSpecificOutput = value;
+        return this;
+    }
 
-	/**
-	 * It allows you to store additional parameters for the transaction in the format you prefer (e.g.-&gt; key-value query string, JSON, etc.) These parameters are then echoed back to you in API GET calls and Webhook notifications. This field must not contain any personal data.
-	 */
-	public void setMerchantParameters(String value) {
-		this.merchantParameters = value;
-	}
+    /**
+     * It allows you to store additional parameters for the transaction in the format you prefer (e.g.-&gt; key-value query string, JSON, etc.) These parameters are then echoed back to you in API GET calls and Webhook notifications. This field must not contain any personal data.
+     */
+    public String getMerchantParameters() {
+        return merchantParameters;
+    }
 
-	/**
-	 * It allows you to store additional parameters for the transaction in the format you prefer (e.g.-&gt; key-value query string, JSON, etc.) These parameters are then echoed back to you in API GET calls and Webhook notifications. This field must not contain any personal data.
-	 */
-	public RefundOutput withMerchantParameters(String value) {
-		this.merchantParameters = value;
-		return this;
-	}
+    /**
+     * It allows you to store additional parameters for the transaction in the format you prefer (e.g.-&gt; key-value query string, JSON, etc.) These parameters are then echoed back to you in API GET calls and Webhook notifications. This field must not contain any personal data.
+     */
+    public void setMerchantParameters(String value) {
+        this.merchantParameters = value;
+    }
 
-	public RefundMobileMethodSpecificOutput getMobileRefundMethodSpecificOutput() {
-		return mobileRefundMethodSpecificOutput;
-	}
+    /**
+     * It allows you to store additional parameters for the transaction in the format you prefer (e.g.-&gt; key-value query string, JSON, etc.) These parameters are then echoed back to you in API GET calls and Webhook notifications. This field must not contain any personal data.
+     */
+    public RefundOutput withMerchantParameters(String value) {
+        this.merchantParameters = value;
+        return this;
+    }
 
-	public void setMobileRefundMethodSpecificOutput(RefundMobileMethodSpecificOutput value) {
-		this.mobileRefundMethodSpecificOutput = value;
-	}
+    public RefundMobileMethodSpecificOutput getMobileRefundMethodSpecificOutput() {
+        return mobileRefundMethodSpecificOutput;
+    }
 
-	public RefundOutput withMobileRefundMethodSpecificOutput(RefundMobileMethodSpecificOutput value) {
-		this.mobileRefundMethodSpecificOutput = value;
-		return this;
-	}
+    public void setMobileRefundMethodSpecificOutput(RefundMobileMethodSpecificOutput value) {
+        this.mobileRefundMethodSpecificOutput = value;
+    }
 
-	/**
-	 * Payment method identifier used by the our payment engine.
-	 */
-	public String getPaymentMethod() {
-		return paymentMethod;
-	}
+    public RefundOutput withMobileRefundMethodSpecificOutput(RefundMobileMethodSpecificOutput value) {
+        this.mobileRefundMethodSpecificOutput = value;
+        return this;
+    }
 
-	/**
-	 * Payment method identifier used by the our payment engine.
-	 */
-	public void setPaymentMethod(String value) {
-		this.paymentMethod = value;
-	}
+    /**
+     * Object that holds all reference properties that are linked to this transaction
+     */
+    public OperationPaymentReferences getOperationReferences() {
+        return operationReferences;
+    }
 
-	/**
-	 * Payment method identifier used by the our payment engine.
-	 */
-	public RefundOutput withPaymentMethod(String value) {
-		this.paymentMethod = value;
-		return this;
-	}
+    /**
+     * Object that holds all reference properties that are linked to this transaction
+     */
+    public void setOperationReferences(OperationPaymentReferences value) {
+        this.operationReferences = value;
+    }
 
-	public RefundRedirectMethodSpecificOutput getRedirectRefundMethodSpecificOutput() {
-		return redirectRefundMethodSpecificOutput;
-	}
+    /**
+     * Object that holds all reference properties that are linked to this transaction
+     */
+    public RefundOutput withOperationReferences(OperationPaymentReferences value) {
+        this.operationReferences = value;
+        return this;
+    }
 
-	public void setRedirectRefundMethodSpecificOutput(RefundRedirectMethodSpecificOutput value) {
-		this.redirectRefundMethodSpecificOutput = value;
-	}
+    /**
+     * Payment method identifier used by the our payment engine.
+     */
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
 
-	public RefundOutput withRedirectRefundMethodSpecificOutput(RefundRedirectMethodSpecificOutput value) {
-		this.redirectRefundMethodSpecificOutput = value;
-		return this;
-	}
+    /**
+     * Payment method identifier used by the our payment engine.
+     */
+    public void setPaymentMethod(String value) {
+        this.paymentMethod = value;
+    }
 
-	/**
-	 * Object that holds all reference properties that are linked to this transaction
-	 */
-	public PaymentReferences getReferences() {
-		return references;
-	}
+    /**
+     * Payment method identifier used by the our payment engine.
+     */
+    public RefundOutput withPaymentMethod(String value) {
+        this.paymentMethod = value;
+        return this;
+    }
 
-	/**
-	 * Object that holds all reference properties that are linked to this transaction
-	 */
-	public void setReferences(PaymentReferences value) {
-		this.references = value;
-	}
+    public RefundRedirectMethodSpecificOutput getRedirectRefundMethodSpecificOutput() {
+        return redirectRefundMethodSpecificOutput;
+    }
 
-	/**
-	 * Object that holds all reference properties that are linked to this transaction
-	 */
-	public RefundOutput withReferences(PaymentReferences value) {
-		this.references = value;
-		return this;
-	}
+    public void setRedirectRefundMethodSpecificOutput(RefundRedirectMethodSpecificOutput value) {
+        this.redirectRefundMethodSpecificOutput = value;
+    }
+
+    public RefundOutput withRedirectRefundMethodSpecificOutput(RefundRedirectMethodSpecificOutput value) {
+        this.redirectRefundMethodSpecificOutput = value;
+        return this;
+    }
+
+    /**
+     * Object that holds all reference properties that are linked to this transaction. <b>Deprecated for capture/refund</b>: Use operationReferences instead.
+     */
+    public PaymentReferences getReferences() {
+        return references;
+    }
+
+    /**
+     * Object that holds all reference properties that are linked to this transaction. <b>Deprecated for capture/refund</b>: Use operationReferences instead.
+     */
+    public void setReferences(PaymentReferences value) {
+        this.references = value;
+    }
+
+    /**
+     * Object that holds all reference properties that are linked to this transaction. <b>Deprecated for capture/refund</b>: Use operationReferences instead.
+     */
+    public RefundOutput withReferences(PaymentReferences value) {
+        this.references = value;
+        return this;
+    }
 }

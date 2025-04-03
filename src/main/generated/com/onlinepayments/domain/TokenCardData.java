@@ -1,22 +1,62 @@
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
+
 package com.onlinepayments.domain;
 
 public class TokenCardData {
 
-	private CardWithoutCvv cardWithoutCvv = null;
+    private CardWithoutCvv cardWithoutCvv;
 
-	public CardWithoutCvv getCardWithoutCvv() {
-		return cardWithoutCvv;
-	}
+    private String cobrandSelectionIndicator;
 
-	public void setCardWithoutCvv(CardWithoutCvv value) {
-		this.cardWithoutCvv = value;
-	}
+    public CardWithoutCvv getCardWithoutCvv() {
+        return cardWithoutCvv;
+    }
 
-	public TokenCardData withCardWithoutCvv(CardWithoutCvv value) {
-		this.cardWithoutCvv = value;
-		return this;
-	}
+    public void setCardWithoutCvv(CardWithoutCvv value) {
+        this.cardWithoutCvv = value;
+    }
+
+    public TokenCardData withCardWithoutCvv(CardWithoutCvv value) {
+        this.cardWithoutCvv = value;
+        return this;
+    }
+
+    /**
+     * For cobranded cards, this field indicates the brand selection method:
+     * <ul>
+     *   <li>default - The holder implicitly accepted the default brand.</li>
+     *   <li>alternative - The holder explicitly selected an alternative brand.</li>
+     *   <li>notApplicable - The card is not cobranded.</li>
+     * </ul>
+     */
+    public String getCobrandSelectionIndicator() {
+        return cobrandSelectionIndicator;
+    }
+
+    /**
+     * For cobranded cards, this field indicates the brand selection method:
+     * <ul>
+     *   <li>default - The holder implicitly accepted the default brand.</li>
+     *   <li>alternative - The holder explicitly selected an alternative brand.</li>
+     *   <li>notApplicable - The card is not cobranded.</li>
+     * </ul>
+     */
+    public void setCobrandSelectionIndicator(String value) {
+        this.cobrandSelectionIndicator = value;
+    }
+
+    /**
+     * For cobranded cards, this field indicates the brand selection method:
+     * <ul>
+     *   <li>default - The holder implicitly accepted the default brand.</li>
+     *   <li>alternative - The holder explicitly selected an alternative brand.</li>
+     *   <li>notApplicable - The card is not cobranded.</li>
+     * </ul>
+     */
+    public TokenCardData withCobrandSelectionIndicator(String value) {
+        this.cobrandSelectionIndicator = value;
+        return this;
+    }
 }

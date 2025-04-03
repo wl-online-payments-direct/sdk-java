@@ -1,0 +1,6 @@
+\QOutgoing request (requestId='\E([-a-zA-Z0-9]+)\Q'):
+  method:       'POST'
+  uri:          '/v1/created'
+  headers:      'Content-Type="application/json", X-GCS-ServerMetaInfo="\E[^"]*\Q", Date="\E[^"]+\Q", Authorization="********"\E[^']*\Q'
+  content-type: 'application/json; charset=UTF-8'
+  body:         '{"card":{"cvv":"***","cardNumber":"************3456","expiryDate":"**20"}}'\E

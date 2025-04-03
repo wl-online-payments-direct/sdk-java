@@ -2,93 +2,93 @@ package com.onlinepayments.domain;
 
 public class WebhooksEvent {
 
-	private String apiVersion;
+    private String apiVersion;
 
-	private String id;
+    private String id;
 
-	private String created;
+    private String created;
 
-	private String merchantId;
+    private String merchantId;
 
-	private String type;
+    private String type;
 
-	private PaymentResponse payment;
+    private PaymentResponse payment;
 
-	private RefundResponse refund;
+    private PayoutResponse payout;
 
-	private PayoutResponse payout;
+    private RefundResponse refund;
 
-	private TokenResponse token;
+    private TokenResponse token;
 
-	public String getApiVersion() {
-		return apiVersion;
-	}
+    public String getApiVersion() {
+        return apiVersion;
+    }
 
-	public void setApiVersion(String apiVersion) {
-		this.apiVersion = apiVersion;
-	}
+    public void setApiVersion(String apiVersion) {
+        this.apiVersion = apiVersion;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getCreated() {
-		return created;
-	}
+    public String getCreated() {
+        return created;
+    }
 
-	public void setCreated(String created) {
-		this.created = created;
-	}
+    public void setCreated(String created) {
+        this.created = created;
+    }
 
-	public String getMerchantId() {
-		return merchantId;
-	}
+    public String getMerchantId() {
+        return merchantId;
+    }
 
-	public void setMerchantId(String merchantId) {
-		this.merchantId = merchantId;
-	}
+    public void setMerchantId(String merchantId) {
+        this.merchantId = merchantId;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public PaymentResponse getPayment() {
-		return payment;
-	}
+    public PaymentResponse getPayment() {
+        return payment;
+    }
 
-	public void setPayment(PaymentResponse payment) {
-		this.payment = payment;
-	}
+    public void setPayment(PaymentResponse payment) {
+        this.payment = payment;
+    }
 
-	public RefundResponse getRefund() {
-		return refund;
-	}
+    public PayoutResponse getPayout() {
+        return payout;
+    }
 
-	public void setRefund(RefundResponse refund) {
-		this.refund = refund;
-	}
+    public void setPayout(PayoutResponse payout) {
+        this.payout = payout;
+    }
 
-	public PayoutResponse getPayout() {
-		return payout;
-	}
+    public RefundResponse getRefund() {
+        return refund;
+    }
 
-	public void setPayout(PayoutResponse payout) {
-		this.payout = payout;
-	}
+    public void setRefund(RefundResponse refund) {
+        this.refund = refund;
+    }
 
-	public TokenResponse getToken() {
-		return token;
-	}
+    public TokenResponse getToken() {
+        return token;
+    }
 
-	public void setToken(TokenResponse token) {
-		this.token = token;
-	}
+    public void setToken(TokenResponse token) {
+        this.token = token;
+    }
 }

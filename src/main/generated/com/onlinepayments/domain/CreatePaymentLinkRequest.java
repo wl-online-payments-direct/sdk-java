@@ -1,343 +1,394 @@
 /*
- * This class was auto-generated.
+ * This file was automatically generated.
  */
+
 package com.onlinepayments.domain;
 
-/**
- * An object containing the Create PaymentLink request.
- */
+import java.time.ZonedDateTime;
+
 public class CreatePaymentLinkRequest {
 
-	private CardPaymentMethodSpecificInputBase cardPaymentMethodSpecificInput = null;
+    private CardPaymentMethodSpecificInputBase cardPaymentMethodSpecificInput;
 
-	private String description = null;
+    private String description;
 
-	private String expirationDate = null;
+    private ZonedDateTime expirationDate;
 
-	private FraudFields fraudFields = null;
+    private Feedbacks feedbacks;
 
-	private HostedCheckoutSpecificInput hostedCheckoutSpecificInput = null;
+    private FraudFields fraudFields;
 
-	private MobilePaymentMethodHostedCheckoutSpecificInput mobilePaymentMethodSpecificInput = null;
+    private HostedCheckoutSpecificInput hostedCheckoutSpecificInput;
 
-	private Order order = null;
+    private MobilePaymentMethodHostedCheckoutSpecificInput mobilePaymentMethodSpecificInput;
 
-	private PaymentLinkOrderInput paymentLinkOrder = null;
+    private Order order;
 
-	private PaymentLinkSpecificInput paymentLinkSpecificInput = null;
+    private PaymentLinkOrderInput paymentLinkOrder;
 
-	private String recipientName = null;
+    private PaymentLinkSpecificInput paymentLinkSpecificInput;
 
-	private RedirectPaymentMethodSpecificInput redirectPaymentMethodSpecificInput = null;
+    private String recipientName;
 
-	private SepaDirectDebitPaymentMethodSpecificInputBase sepaDirectDebitPaymentMethodSpecificInput = null;
+    private RedirectPaymentMethodSpecificInput redirectPaymentMethodSpecificInput;
 
-	/**
-	 * Object containing the specific input details for card payments
-	 */
-	public CardPaymentMethodSpecificInputBase getCardPaymentMethodSpecificInput() {
-		return cardPaymentMethodSpecificInput;
-	}
+    private SepaDirectDebitPaymentMethodSpecificInputBase sepaDirectDebitPaymentMethodSpecificInput;
 
-	/**
-	 * Object containing the specific input details for card payments
-	 */
-	public void setCardPaymentMethodSpecificInput(CardPaymentMethodSpecificInputBase value) {
-		this.cardPaymentMethodSpecificInput = value;
-	}
+    /**
+     * Object containing the specific input details for card payments
+     */
+    public CardPaymentMethodSpecificInputBase getCardPaymentMethodSpecificInput() {
+        return cardPaymentMethodSpecificInput;
+    }
 
-	/**
-	 * Object containing the specific input details for card payments
-	 */
-	public CreatePaymentLinkRequest withCardPaymentMethodSpecificInput(CardPaymentMethodSpecificInputBase value) {
-		this.cardPaymentMethodSpecificInput = value;
-		return this;
-	}
+    /**
+     * Object containing the specific input details for card payments
+     */
+    public void setCardPaymentMethodSpecificInput(CardPaymentMethodSpecificInputBase value) {
+        this.cardPaymentMethodSpecificInput = value;
+    }
 
-	/**
-	 * A note related to the created payment link.
-	 * 
-	 * Deprecated: Use `paymentLinkSpecificInput/description` instead.
-	 */
-	public String getDescription() {
-		return description;
-	}
+    /**
+     * Object containing the specific input details for card payments
+     */
+    public CreatePaymentLinkRequest withCardPaymentMethodSpecificInput(CardPaymentMethodSpecificInputBase value) {
+        this.cardPaymentMethodSpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * A note related to the created payment link.
-	 * 
-	 * Deprecated: Use `paymentLinkSpecificInput/description` instead.
-	 */
-	public void setDescription(String value) {
-		this.description = value;
-	}
+    /**
+     * A note related to the created payment link.
+     * <p>
+     * Deprecated: Use {@code paymentLinkSpecificInput/description} instead.
+     *
+     * @deprecated A note related to the created payment link.  Use paymentLinkSpecificInput/description instead.
+     */
+    @Deprecated
+    public String getDescription() {
+        return description;
+    }
 
-	/**
-	 * A note related to the created payment link.
-	 * 
-	 * Deprecated: Use `paymentLinkSpecificInput/description` instead.
-	 */
-	public CreatePaymentLinkRequest withDescription(String value) {
-		this.description = value;
-		return this;
-	}
+    /**
+     * A note related to the created payment link.
+     * <p>
+     * Deprecated: Use {@code paymentLinkSpecificInput/description} instead.
+     *
+     * @deprecated A note related to the created payment link.  Use paymentLinkSpecificInput/description instead.
+     */
+    @Deprecated
+    public void setDescription(String value) {
+        this.description = value;
+    }
 
-	/**
-	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.
-	 * 
-	 * Deprecated: Use `paymentLinkSpecificInput/expirationDate` instead.
-	 */
-	public String getExpirationDate() {
-		return expirationDate;
-	}
+    /**
+     * A note related to the created payment link.
+     * <p>
+     * Deprecated: Use {@code paymentLinkSpecificInput/description} instead.
+     *
+     * @deprecated A note related to the created payment link.  Use paymentLinkSpecificInput/description instead.
+     */
+    @Deprecated
+    public CreatePaymentLinkRequest withDescription(String value) {
+        this.description = value;
+        return this;
+    }
 
-	/**
-	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.
-	 * 
-	 * Deprecated: Use `paymentLinkSpecificInput/expirationDate` instead.
-	 */
-	public void setExpirationDate(String value) {
-		this.expirationDate = value;
-	}
+    /**
+     * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.
+     * <p>
+     * Deprecated: Use {@code paymentLinkSpecificInput/expirationDate} instead.
+     *
+     * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
+     */
+    @Deprecated
+    public ZonedDateTime getExpirationDate() {
+        return expirationDate;
+    }
 
-	/**
-	 * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.
-	 * 
-	 * Deprecated: Use `paymentLinkSpecificInput/expirationDate` instead.
-	 */
-	public CreatePaymentLinkRequest withExpirationDate(String value) {
-		this.expirationDate = value;
-		return this;
-	}
+    /**
+     * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.
+     * <p>
+     * Deprecated: Use {@code paymentLinkSpecificInput/expirationDate} instead.
+     *
+     * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
+     */
+    @Deprecated
+    public void setExpirationDate(ZonedDateTime value) {
+        this.expirationDate = value;
+    }
 
-	/**
-	 * Object containing additional data that will be used to assess the risk of fraud
-	 */
-	public FraudFields getFraudFields() {
-		return fraudFields;
-	}
+    /**
+     * The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.
+     * <p>
+     * Deprecated: Use {@code paymentLinkSpecificInput/expirationDate} instead.
+     *
+     * @deprecated The date after which the payment link will not be usable to complete the payment. The date sent cannot be more than 6 months in the future or a past date. It must also contain the UTC offset.  Use paymentLinkSpecificInput/expirationDate instead.
+     */
+    @Deprecated
+    public CreatePaymentLinkRequest withExpirationDate(ZonedDateTime value) {
+        this.expirationDate = value;
+        return this;
+    }
 
-	/**
-	 * Object containing additional data that will be used to assess the risk of fraud
-	 */
-	public void setFraudFields(FraudFields value) {
-		this.fraudFields = value;
-	}
+    /**
+     * This section will contain feedback Urls to provide feedback on the payment.
+     */
+    public Feedbacks getFeedbacks() {
+        return feedbacks;
+    }
 
-	/**
-	 * Object containing additional data that will be used to assess the risk of fraud
-	 */
-	public CreatePaymentLinkRequest withFraudFields(FraudFields value) {
-		this.fraudFields = value;
-		return this;
-	}
+    /**
+     * This section will contain feedback Urls to provide feedback on the payment.
+     */
+    public void setFeedbacks(Feedbacks value) {
+        this.feedbacks = value;
+    }
 
-	/**
-	 * Object containing hosted checkout specific data
-	 */
-	public HostedCheckoutSpecificInput getHostedCheckoutSpecificInput() {
-		return hostedCheckoutSpecificInput;
-	}
+    /**
+     * This section will contain feedback Urls to provide feedback on the payment.
+     */
+    public CreatePaymentLinkRequest withFeedbacks(Feedbacks value) {
+        this.feedbacks = value;
+        return this;
+    }
 
-	/**
-	 * Object containing hosted checkout specific data
-	 */
-	public void setHostedCheckoutSpecificInput(HostedCheckoutSpecificInput value) {
-		this.hostedCheckoutSpecificInput = value;
-	}
+    /**
+     * Object containing additional data that will be used to assess the risk of fraud
+     */
+    public FraudFields getFraudFields() {
+        return fraudFields;
+    }
 
-	/**
-	 * Object containing hosted checkout specific data
-	 */
-	public CreatePaymentLinkRequest withHostedCheckoutSpecificInput(HostedCheckoutSpecificInput value) {
-		this.hostedCheckoutSpecificInput = value;
-		return this;
-	}
+    /**
+     * Object containing additional data that will be used to assess the risk of fraud
+     */
+    public void setFraudFields(FraudFields value) {
+        this.fraudFields = value;
+    }
 
-	/**
-	 * Object containing the specific input details for mobile payments
-	 */
-	public MobilePaymentMethodHostedCheckoutSpecificInput getMobilePaymentMethodSpecificInput() {
-		return mobilePaymentMethodSpecificInput;
-	}
+    /**
+     * Object containing additional data that will be used to assess the risk of fraud
+     */
+    public CreatePaymentLinkRequest withFraudFields(FraudFields value) {
+        this.fraudFields = value;
+        return this;
+    }
 
-	/**
-	 * Object containing the specific input details for mobile payments
-	 */
-	public void setMobilePaymentMethodSpecificInput(MobilePaymentMethodHostedCheckoutSpecificInput value) {
-		this.mobilePaymentMethodSpecificInput = value;
-	}
+    /**
+     * Object containing hosted checkout specific data
+     */
+    public HostedCheckoutSpecificInput getHostedCheckoutSpecificInput() {
+        return hostedCheckoutSpecificInput;
+    }
 
-	/**
-	 * Object containing the specific input details for mobile payments
-	 */
-	public CreatePaymentLinkRequest withMobilePaymentMethodSpecificInput(MobilePaymentMethodHostedCheckoutSpecificInput value) {
-		this.mobilePaymentMethodSpecificInput = value;
-		return this;
-	}
+    /**
+     * Object containing hosted checkout specific data
+     */
+    public void setHostedCheckoutSpecificInput(HostedCheckoutSpecificInput value) {
+        this.hostedCheckoutSpecificInput = value;
+    }
 
-	/**
-	 * Order object containing order related data 
-	 *  Please note that this object is required to be able to submit the amount.
-	 */
-	public Order getOrder() {
-		return order;
-	}
+    /**
+     * Object containing hosted checkout specific data
+     */
+    public CreatePaymentLinkRequest withHostedCheckoutSpecificInput(HostedCheckoutSpecificInput value) {
+        this.hostedCheckoutSpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * Order object containing order related data 
-	 *  Please note that this object is required to be able to submit the amount.
-	 */
-	public void setOrder(Order value) {
-		this.order = value;
-	}
+    /**
+     * Object containing the specific input details for mobile payments
+     */
+    public MobilePaymentMethodHostedCheckoutSpecificInput getMobilePaymentMethodSpecificInput() {
+        return mobilePaymentMethodSpecificInput;
+    }
 
-	/**
-	 * Order object containing order related data 
-	 *  Please note that this object is required to be able to submit the amount.
-	 */
-	public CreatePaymentLinkRequest withOrder(Order value) {
-		this.order = value;
-		return this;
-	}
+    /**
+     * Object containing the specific input details for mobile payments
+     */
+    public void setMobilePaymentMethodSpecificInput(MobilePaymentMethodHostedCheckoutSpecificInput value) {
+        this.mobilePaymentMethodSpecificInput = value;
+    }
 
-	/**
-	 * An object containing the details of the related payment input.
-	 * 
-	 * Deprecated: All properties in `paymentLinkOrder` are deprecated.  
-	 * Use corresponding values as noted below:  
-	 * | Property | Replacement |
-	 * | - | - |
-	 * | merchantReference | `order/references/merchantReference` |  
-	 * | amount | `order/amountOfMoney` |  
-	 * | surchargeSpecificInput | `order/surchargeSpecificInput` |
-	 */
-	public PaymentLinkOrderInput getPaymentLinkOrder() {
-		return paymentLinkOrder;
-	}
+    /**
+     * Object containing the specific input details for mobile payments
+     */
+    public CreatePaymentLinkRequest withMobilePaymentMethodSpecificInput(MobilePaymentMethodHostedCheckoutSpecificInput value) {
+        this.mobilePaymentMethodSpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * An object containing the details of the related payment input.
-	 * 
-	 * Deprecated: All properties in `paymentLinkOrder` are deprecated.  
-	 * Use corresponding values as noted below:  
-	 * | Property | Replacement |
-	 * | - | - |
-	 * | merchantReference | `order/references/merchantReference` |  
-	 * | amount | `order/amountOfMoney` |  
-	 * | surchargeSpecificInput | `order/surchargeSpecificInput` |
-	 */
-	public void setPaymentLinkOrder(PaymentLinkOrderInput value) {
-		this.paymentLinkOrder = value;
-	}
+    /**
+     * Order object containing order related data
+     * Please note that this object is required to be able to submit the amount.
+     */
+    public Order getOrder() {
+        return order;
+    }
 
-	/**
-	 * An object containing the details of the related payment input.
-	 * 
-	 * Deprecated: All properties in `paymentLinkOrder` are deprecated.  
-	 * Use corresponding values as noted below:  
-	 * | Property | Replacement |
-	 * | - | - |
-	 * | merchantReference | `order/references/merchantReference` |  
-	 * | amount | `order/amountOfMoney` |  
-	 * | surchargeSpecificInput | `order/surchargeSpecificInput` |
-	 */
-	public CreatePaymentLinkRequest withPaymentLinkOrder(PaymentLinkOrderInput value) {
-		this.paymentLinkOrder = value;
-		return this;
-	}
+    /**
+     * Order object containing order related data
+     * Please note that this object is required to be able to submit the amount.
+     */
+    public void setOrder(Order value) {
+        this.order = value;
+    }
 
-	/**
-	 * An object containing details specific to payment link creation
-	 */
-	public PaymentLinkSpecificInput getPaymentLinkSpecificInput() {
-		return paymentLinkSpecificInput;
-	}
+    /**
+     * Order object containing order related data
+     * Please note that this object is required to be able to submit the amount.
+     */
+    public CreatePaymentLinkRequest withOrder(Order value) {
+        this.order = value;
+        return this;
+    }
 
-	/**
-	 * An object containing details specific to payment link creation
-	 */
-	public void setPaymentLinkSpecificInput(PaymentLinkSpecificInput value) {
-		this.paymentLinkSpecificInput = value;
-	}
+    /**
+     * An object containing the details of the related payment input.
+     * <p>
+     * Deprecated: All properties in {@code paymentLinkOrder} are deprecated.
+     * Use corresponding values as noted below:
+     * | Property | Replacement |
+     * | - | - |
+     * | merchantReference | {@code references/merchantReference} |
+     * | amount | {@code order/amountOfMoney} |
+     * | surchargeSpecificInput | {@code order/surchargeSpecificInput} |
+     */
+    public PaymentLinkOrderInput getPaymentLinkOrder() {
+        return paymentLinkOrder;
+    }
 
-	/**
-	 * An object containing details specific to payment link creation
-	 */
-	public CreatePaymentLinkRequest withPaymentLinkSpecificInput(PaymentLinkSpecificInput value) {
-		this.paymentLinkSpecificInput = value;
-		return this;
-	}
+    /**
+     * An object containing the details of the related payment input.
+     * <p>
+     * Deprecated: All properties in {@code paymentLinkOrder} are deprecated.
+     * Use corresponding values as noted below:
+     * | Property | Replacement |
+     * | - | - |
+     * | merchantReference | {@code references/merchantReference} |
+     * | amount | {@code order/amountOfMoney} |
+     * | surchargeSpecificInput | {@code order/surchargeSpecificInput} |
+     */
+    public void setPaymentLinkOrder(PaymentLinkOrderInput value) {
+        this.paymentLinkOrder = value;
+    }
 
-	/**
-	 * The payment link recipient name.
-	 * 
-	 * Deprecated: Use `paymentLinkSpecificInput/recipientName` instead.
-	 */
-	public String getRecipientName() {
-		return recipientName;
-	}
+    /**
+     * An object containing the details of the related payment input.
+     * <p>
+     * Deprecated: All properties in {@code paymentLinkOrder} are deprecated.
+     * Use corresponding values as noted below:
+     * | Property | Replacement |
+     * | - | - |
+     * | merchantReference | {@code references/merchantReference} |
+     * | amount | {@code order/amountOfMoney} |
+     * | surchargeSpecificInput | {@code order/surchargeSpecificInput} |
+     */
+    public CreatePaymentLinkRequest withPaymentLinkOrder(PaymentLinkOrderInput value) {
+        this.paymentLinkOrder = value;
+        return this;
+    }
 
-	/**
-	 * The payment link recipient name.
-	 * 
-	 * Deprecated: Use `paymentLinkSpecificInput/recipientName` instead.
-	 */
-	public void setRecipientName(String value) {
-		this.recipientName = value;
-	}
+    /**
+     * An object containing details specific to payment link creation
+     */
+    public PaymentLinkSpecificInput getPaymentLinkSpecificInput() {
+        return paymentLinkSpecificInput;
+    }
 
-	/**
-	 * The payment link recipient name.
-	 * 
-	 * Deprecated: Use `paymentLinkSpecificInput/recipientName` instead.
-	 */
-	public CreatePaymentLinkRequest withRecipientName(String value) {
-		this.recipientName = value;
-		return this;
-	}
+    /**
+     * An object containing details specific to payment link creation
+     */
+    public void setPaymentLinkSpecificInput(PaymentLinkSpecificInput value) {
+        this.paymentLinkSpecificInput = value;
+    }
 
-	/**
-	 * Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
-	 */
-	public RedirectPaymentMethodSpecificInput getRedirectPaymentMethodSpecificInput() {
-		return redirectPaymentMethodSpecificInput;
-	}
+    /**
+     * An object containing details specific to payment link creation
+     */
+    public CreatePaymentLinkRequest withPaymentLinkSpecificInput(PaymentLinkSpecificInput value) {
+        this.paymentLinkSpecificInput = value;
+        return this;
+    }
 
-	/**
-	 * Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
-	 */
-	public void setRedirectPaymentMethodSpecificInput(RedirectPaymentMethodSpecificInput value) {
-		this.redirectPaymentMethodSpecificInput = value;
-	}
+    /**
+     * The payment link recipient name.
+     * <p>
+     * Deprecated: Use {@code paymentLinkSpecificInput/recipientName} instead.
+     *
+     * @deprecated The payment link recipient name.  Use paymentLinkSpecificInput/recipientName instead.
+     */
+    @Deprecated
+    public String getRecipientName() {
+        return recipientName;
+    }
 
-	/**
-	 * Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
-	 */
-	public CreatePaymentLinkRequest withRedirectPaymentMethodSpecificInput(RedirectPaymentMethodSpecificInput value) {
-		this.redirectPaymentMethodSpecificInput = value;
-		return this;
-	}
+    /**
+     * The payment link recipient name.
+     * <p>
+     * Deprecated: Use {@code paymentLinkSpecificInput/recipientName} instead.
+     *
+     * @deprecated The payment link recipient name.  Use paymentLinkSpecificInput/recipientName instead.
+     */
+    @Deprecated
+    public void setRecipientName(String value) {
+        this.recipientName = value;
+    }
 
-	/**
-	 * Object containing the specific input details for SEPA direct debit payments
-	 */
-	public SepaDirectDebitPaymentMethodSpecificInputBase getSepaDirectDebitPaymentMethodSpecificInput() {
-		return sepaDirectDebitPaymentMethodSpecificInput;
-	}
+    /**
+     * The payment link recipient name.
+     * <p>
+     * Deprecated: Use {@code paymentLinkSpecificInput/recipientName} instead.
+     *
+     * @deprecated The payment link recipient name.  Use paymentLinkSpecificInput/recipientName instead.
+     */
+    @Deprecated
+    public CreatePaymentLinkRequest withRecipientName(String value) {
+        this.recipientName = value;
+        return this;
+    }
 
-	/**
-	 * Object containing the specific input details for SEPA direct debit payments
-	 */
-	public void setSepaDirectDebitPaymentMethodSpecificInput(SepaDirectDebitPaymentMethodSpecificInputBase value) {
-		this.sepaDirectDebitPaymentMethodSpecificInput = value;
-	}
+    /**
+     * Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
+     */
+    public RedirectPaymentMethodSpecificInput getRedirectPaymentMethodSpecificInput() {
+        return redirectPaymentMethodSpecificInput;
+    }
 
-	/**
-	 * Object containing the specific input details for SEPA direct debit payments
-	 */
-	public CreatePaymentLinkRequest withSepaDirectDebitPaymentMethodSpecificInput(SepaDirectDebitPaymentMethodSpecificInputBase value) {
-		this.sepaDirectDebitPaymentMethodSpecificInput = value;
-		return this;
-	}
+    /**
+     * Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
+     */
+    public void setRedirectPaymentMethodSpecificInput(RedirectPaymentMethodSpecificInput value) {
+        this.redirectPaymentMethodSpecificInput = value;
+    }
+
+    /**
+     * Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
+     */
+    public CreatePaymentLinkRequest withRedirectPaymentMethodSpecificInput(RedirectPaymentMethodSpecificInput value) {
+        this.redirectPaymentMethodSpecificInput = value;
+        return this;
+    }
+
+    /**
+     * Object containing the specific input details for SEPA direct debit payments
+     */
+    public SepaDirectDebitPaymentMethodSpecificInputBase getSepaDirectDebitPaymentMethodSpecificInput() {
+        return sepaDirectDebitPaymentMethodSpecificInput;
+    }
+
+    /**
+     * Object containing the specific input details for SEPA direct debit payments
+     */
+    public void setSepaDirectDebitPaymentMethodSpecificInput(SepaDirectDebitPaymentMethodSpecificInputBase value) {
+        this.sepaDirectDebitPaymentMethodSpecificInput = value;
+    }
+
+    /**
+     * Object containing the specific input details for SEPA direct debit payments
+     */
+    public CreatePaymentLinkRequest withSepaDirectDebitPaymentMethodSpecificInput(SepaDirectDebitPaymentMethodSpecificInputBase value) {
+        this.sepaDirectDebitPaymentMethodSpecificInput = value;
+        return this;
+    }
 }
