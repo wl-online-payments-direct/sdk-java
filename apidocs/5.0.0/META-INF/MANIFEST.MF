@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Created-By: Maven Javadoc Plugin 3.6.3
+Build-Jdk-Spec: 17
+Built-By: Online Payments
+Implementation-Title: onlinepayments-sdk-java
+Implementation-Vendor: Online Payments Direct
+Implementation-Version: 5.0.0
+Specification-Title: onlinepayments-sdk-java
+Specification-Vendor: Online Payments Direct
+Specification-Version: 5.0.0
+
