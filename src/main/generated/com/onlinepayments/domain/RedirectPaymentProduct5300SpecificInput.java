@@ -4,8 +4,6 @@
 
 package com.onlinepayments.domain;
 
-import java.time.LocalDate;
-
 public class RedirectPaymentProduct5300SpecificInput {
 
     private String birthCity;
@@ -18,7 +16,7 @@ public class RedirectPaymentProduct5300SpecificInput {
 
     private String loyaltyCardNumber;
 
-    private LocalDate secondInstallmentPaymentDate;
+    private String secondInstallmentPaymentDate;
 
     private Integer sessionDuration;
 
@@ -135,21 +133,21 @@ public class RedirectPaymentProduct5300SpecificInput {
     /**
      * The date of the second installment (YYYYMMDD)
      */
-    public LocalDate getSecondInstallmentPaymentDate() {
+    public String getSecondInstallmentPaymentDate() {
         return secondInstallmentPaymentDate;
     }
 
     /**
      * The date of the second installment (YYYYMMDD)
      */
-    public void setSecondInstallmentPaymentDate(LocalDate value) {
+    public void setSecondInstallmentPaymentDate(String value) {
         this.secondInstallmentPaymentDate = value;
     }
 
     /**
      * The date of the second installment (YYYYMMDD)
      */
-    public RedirectPaymentProduct5300SpecificInput withSecondInstallmentPaymentDate(LocalDate value) {
+    public RedirectPaymentProduct5300SpecificInput withSecondInstallmentPaymentDate(String value) {
         this.secondInstallmentPaymentDate = value;
         return this;
     }

@@ -11,6 +11,8 @@ public class PaymentLinkResponse {
 
     private ZonedDateTime expirationDate;
 
+    private Boolean isReusableLink;
+
     private String paymentId;
 
     private List<PaymentLinkEvent> paymentLinkEvents;
@@ -44,6 +46,28 @@ public class PaymentLinkResponse {
      */
     public PaymentLinkResponse withExpirationDate(ZonedDateTime value) {
         this.expirationDate = value;
+        return this;
+    }
+
+    /**
+     * Indicates if the payment link can be used multiple times. The default value for this property is false
+     */
+    public Boolean getIsReusableLink() {
+        return isReusableLink;
+    }
+
+    /**
+     * Indicates if the payment link can be used multiple times. The default value for this property is false
+     */
+    public void setIsReusableLink(Boolean value) {
+        this.isReusableLink = value;
+    }
+
+    /**
+     * Indicates if the payment link can be used multiple times. The default value for this property is false
+     */
+    public PaymentLinkResponse withIsReusableLink(Boolean value) {
+        this.isReusableLink = value;
         return this;
     }
 

@@ -179,8 +179,8 @@ public class Customer {
      *   <li>Brazil - Consumer (CPF) with a length of 11 digits</li>
      *   <li>Brazil - Company (CNPJ) with a length of 14 digits</li>
      *   <li>Denmark - Consumer (CPR-nummer or personnummer) with a length of 10 digits</li>
-     *   <li>Finland - Consumer (Finnish: henkilÃ¶tunnus (abbreviated as HETU), Swedish: personbeteckning) with a length of 11 characters</li>
-     *   <li>Norway - Consumer (fÃ¸dselsnummer) with a length of 11 digits</li>
+     *   <li>Finland - Consumer (Finnish: henkilötunnus (abbreviated as HETU), Swedish: personbeteckning) with a length of 11 characters</li>
+     *   <li>Norway - Consumer (fødselsnummer) with a length of 11 digits</li>
      *   <li>Sweden - Consumer (personnummer) with a length of 10 or 12 digits</li>
      * </ul>
      */
@@ -194,8 +194,8 @@ public class Customer {
      *   <li>Brazil - Consumer (CPF) with a length of 11 digits</li>
      *   <li>Brazil - Company (CNPJ) with a length of 14 digits</li>
      *   <li>Denmark - Consumer (CPR-nummer or personnummer) with a length of 10 digits</li>
-     *   <li>Finland - Consumer (Finnish: henkilÃ¶tunnus (abbreviated as HETU), Swedish: personbeteckning) with a length of 11 characters</li>
-     *   <li>Norway - Consumer (fÃ¸dselsnummer) with a length of 11 digits</li>
+     *   <li>Finland - Consumer (Finnish: henkilötunnus (abbreviated as HETU), Swedish: personbeteckning) with a length of 11 characters</li>
+     *   <li>Norway - Consumer (fødselsnummer) with a length of 11 digits</li>
      *   <li>Sweden - Consumer (personnummer) with a length of 10 or 12 digits</li>
      * </ul>
      */
@@ -209,8 +209,8 @@ public class Customer {
      *   <li>Brazil - Consumer (CPF) with a length of 11 digits</li>
      *   <li>Brazil - Company (CNPJ) with a length of 14 digits</li>
      *   <li>Denmark - Consumer (CPR-nummer or personnummer) with a length of 10 digits</li>
-     *   <li>Finland - Consumer (Finnish: henkilÃ¶tunnus (abbreviated as HETU), Swedish: personbeteckning) with a length of 11 characters</li>
-     *   <li>Norway - Consumer (fÃ¸dselsnummer) with a length of 11 digits</li>
+     *   <li>Finland - Consumer (Finnish: henkilötunnus (abbreviated as HETU), Swedish: personbeteckning) with a length of 11 characters</li>
+     *   <li>Norway - Consumer (fødselsnummer) with a length of 11 digits</li>
      *   <li>Sweden - Consumer (personnummer) with a length of 10 or 12 digits</li>
      * </ul>
      */

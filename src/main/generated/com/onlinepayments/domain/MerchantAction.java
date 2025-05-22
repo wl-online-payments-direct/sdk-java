@@ -14,6 +14,8 @@ public class MerchantAction {
 
     private ShowFormData showFormData;
 
+    private ShowInstructionsData showInstructionsData;
+
     /**
      * Action merchants needs to take in the online payment process. Possible values are:
      * <ul>
@@ -123,6 +125,28 @@ public class MerchantAction {
      */
     public MerchantAction withShowFormData(ShowFormData value) {
         this.showFormData = value;
+        return this;
+    }
+
+    /**
+     * Object returned for the SHOW_INSTRUCTIONS actionType.
+     */
+    public ShowInstructionsData getShowInstructionsData() {
+        return showInstructionsData;
+    }
+
+    /**
+     * Object returned for the SHOW_INSTRUCTIONS actionType.
+     */
+    public void setShowInstructionsData(ShowInstructionsData value) {
+        this.showInstructionsData = value;
+    }
+
+    /**
+     * Object returned for the SHOW_INSTRUCTIONS actionType.
+     */
+    public MerchantAction withShowInstructionsData(ShowInstructionsData value) {
+        this.showInstructionsData = value;
         return this;
     }
 }

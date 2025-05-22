@@ -16,7 +16,7 @@ public class CardFraudResults {
      * Result of the Address Verification Service checks. Possible values are:
      * <ul>
      *   <li>A - Address (Street) matches, Zip does not</li>
-     *   <li>B - Street address match for international transactionsâ€”Postal code not verified due to incompatible formats</li>
+     *   <li>B - Street address match for international transactions—Postal code not verified due to incompatible formats</li>
      *   <li>C - Street address and postal code not verified for international transaction due to incompatible formats</li>
      *   <li>D - Street address and postal code match for international transaction, cardholder name is incorrect</li>
      *   <li>E - AVS error</li>
@@ -29,7 +29,7 @@ public class CardFraudResults {
      *   <li>M - Cardholder name, street address, and postal code match for international transaction</li>
      *   <li>N - No Match on Address (Street) or Zip</li>
      *   <li>O - Cardholder name and address match (Amex)</li>
-     *   <li>P - Postal codes match for international transactionâ€”Street address not verified due to incompatible formats</li>
+     *   <li>P - Postal codes match for international transaction—Street address not verified due to incompatible formats</li>
      *   <li>Q - Billing address matches, cardholder is incorrect (Amex)</li>
      *   <li>R - Retry, System unavailable or Timed out</li>
      *   <li>S - Service not supported by issuer</li>
@@ -49,7 +49,7 @@ public class CardFraudResults {
      * Result of the Address Verification Service checks. Possible values are:
      * <ul>
      *   <li>A - Address (Street) matches, Zip does not</li>
-     *   <li>B - Street address match for international transactionsâ€”Postal code not verified due to incompatible formats</li>
+     *   <li>B - Street address match for international transactions—Postal code not verified due to incompatible formats</li>
      *   <li>C - Street address and postal code not verified for international transaction due to incompatible formats</li>
      *   <li>D - Street address and postal code match for international transaction, cardholder name is incorrect</li>
      *   <li>E - AVS error</li>
@@ -62,7 +62,7 @@ public class CardFraudResults {
      *   <li>M - Cardholder name, street address, and postal code match for international transaction</li>
      *   <li>N - No Match on Address (Street) or Zip</li>
      *   <li>O - Cardholder name and address match (Amex)</li>
-     *   <li>P - Postal codes match for international transactionâ€”Street address not verified due to incompatible formats</li>
+     *   <li>P - Postal codes match for international transaction—Street address not verified due to incompatible formats</li>
      *   <li>Q - Billing address matches, cardholder is incorrect (Amex)</li>
      *   <li>R - Retry, System unavailable or Timed out</li>
      *   <li>S - Service not supported by issuer</li>
@@ -82,7 +82,7 @@ public class CardFraudResults {
      * Result of the Address Verification Service checks. Possible values are:
      * <ul>
      *   <li>A - Address (Street) matches, Zip does not</li>
-     *   <li>B - Street address match for international transactionsâ€”Postal code not verified due to incompatible formats</li>
+     *   <li>B - Street address match for international transactions—Postal code not verified due to incompatible formats</li>
      *   <li>C - Street address and postal code not verified for international transaction due to incompatible formats</li>
      *   <li>D - Street address and postal code match for international transaction, cardholder name is incorrect</li>
      *   <li>E - AVS error</li>
@@ -95,7 +95,7 @@ public class CardFraudResults {
      *   <li>M - Cardholder name, street address, and postal code match for international transaction</li>
      *   <li>N - No Match on Address (Street) or Zip</li>
      *   <li>O - Cardholder name and address match (Amex)</li>
-     *   <li>P - Postal codes match for international transactionâ€”Street address not verified due to incompatible formats</li>
+     *   <li>P - Postal codes match for international transaction—Street address not verified due to incompatible formats</li>
      *   <li>Q - Billing address matches, cardholder is incorrect (Amex)</li>
      *   <li>R - Retry, System unavailable or Timed out</li>
      *   <li>S - Service not supported by issuer</li>

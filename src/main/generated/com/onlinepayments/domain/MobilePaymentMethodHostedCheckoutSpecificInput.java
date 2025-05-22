@@ -58,21 +58,21 @@ public class MobilePaymentMethodHostedCheckoutSpecificInput {
     }
 
     /**
-     * Object containing information specific to Apple Pay. Required for payments with product 302.
+     * Object containing information specific to Apple Pay.
      */
     public MobilePaymentProduct302SpecificInput getPaymentProduct302SpecificInput() {
         return paymentProduct302SpecificInput;
     }
 
     /**
-     * Object containing information specific to Apple Pay. Required for payments with product 302.
+     * Object containing information specific to Apple Pay.
      */
     public void setPaymentProduct302SpecificInput(MobilePaymentProduct302SpecificInput value) {
         this.paymentProduct302SpecificInput = value;
     }
 
     /**
-     * Object containing information specific to Apple Pay. Required for payments with product 302.
+     * Object containing information specific to Apple Pay.
      */
     public MobilePaymentMethodHostedCheckoutSpecificInput withPaymentProduct302SpecificInput(MobilePaymentProduct302SpecificInput value) {
         this.paymentProduct302SpecificInput = value;

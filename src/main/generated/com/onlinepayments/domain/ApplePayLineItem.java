@@ -21,21 +21,21 @@ public class ApplePayLineItem {
     private String recurringPaymentStartDate;
 
     /**
-     * A required value thatâ€™s the monetary amount of the line item.
+     * A required value that’s the monetary amount of the line item.
      */
     public String getAmount() {
         return amount;
     }
 
     /**
-     * A required value thatâ€™s the monetary amount of the line item.
+     * A required value that’s the monetary amount of the line item.
      */
     public void setAmount(String value) {
         this.amount = value;
     }
 
     /**
-     * A required value thatâ€™s the monetary amount of the line item.
+     * A required value that’s the monetary amount of the line item.
      */
     public ApplePayLineItem withAmount(String value) {
         this.amount = value;
@@ -43,21 +43,21 @@ public class ApplePayLineItem {
     }
 
     /**
-     * A required value thatâ€™s a short, localized description of the line item.
+     * A required value that’s a short, localized description of the line item.
      */
     public String getLabel() {
         return label;
     }
 
     /**
-     * A required value thatâ€™s a short, localized description of the line item.
+     * A required value that’s a short, localized description of the line item.
      */
     public void setLabel(String value) {
         this.label = value;
     }
 
     /**
-     * A required value thatâ€™s a short, localized description of the line item.
+     * A required value that’s a short, localized description of the line item.
      */
     public ApplePayLineItem withLabel(String value) {
         this.label = value;
@@ -131,21 +131,21 @@ public class ApplePayLineItem {
     }
 
     /**
-     * The amount of time â€” in calendar units, such as day, month, or year â€” that represents a fraction of the total payment interval.
+     * The amount of time — in calendar units, such as day, month, or year — that represents a fraction of the total payment interval.
      */
     public String getRecurringPaymentIntervalUnit() {
         return recurringPaymentIntervalUnit;
     }
 
     /**
-     * The amount of time â€” in calendar units, such as day, month, or year â€” that represents a fraction of the total payment interval.
+     * The amount of time — in calendar units, such as day, month, or year — that represents a fraction of the total payment interval.
      */
     public void setRecurringPaymentIntervalUnit(String value) {
         this.recurringPaymentIntervalUnit = value;
     }
 
     /**
-     * The amount of time â€” in calendar units, such as day, month, or year â€” that represents a fraction of the total payment interval.
+     * The amount of time — in calendar units, such as day, month, or year — that represents a fraction of the total payment interval.
      */
     public ApplePayLineItem withRecurringPaymentIntervalUnit(String value) {
         this.recurringPaymentIntervalUnit = value;

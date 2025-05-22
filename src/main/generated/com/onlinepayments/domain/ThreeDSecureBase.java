@@ -96,12 +96,12 @@ public class ThreeDSecureBase {
      *   <li>no-challenge-requested - you prefer the cardholder not to be challenged</li>
      *   <li>challenge-requested - you prefer the customer to be challenged</li>
      *   <li>challenge-required - you require the customer to be challenged</li>
-     *   <li>no-challenge-requested-risk-analysis-performed â€“ letting the issuer know that you have already assessed the transaction with fraud prevention tool</li>
-     *   <li>no-challenge-requested-data-share-only â€“ sharing data only with the DS</li>
-     *   <li>no-challenge-requested-consumer-authentication-performed â€“ authentication already happened at your side â€“ when login in to your website</li>
-     *   <li>no-challenge-requested-use-whitelist-exemption â€“ cardholder has whitelisted you at with the issuer</li>
-     *   <li>challenge-requested-whitelist-prompt-requested â€“ cardholder is trying to whitelist you</li>
-     *   <li>request-scoring-without-connecting-to-acs â€“ sending information to CB DS for a fraud scoring</li>
+     *   <li>no-challenge-requested-risk-analysis-performed – letting the issuer know that you have already assessed the transaction with fraud prevention tool</li>
+     *   <li>no-challenge-requested-data-share-only – sharing data only with the DS</li>
+     *   <li>no-challenge-requested-consumer-authentication-performed – authentication already happened at your side – when login in to your website</li>
+     *   <li>no-challenge-requested-use-whitelist-exemption – cardholder has whitelisted you at with the issuer</li>
+     *   <li>challenge-requested-whitelist-prompt-requested – cardholder is trying to whitelist you</li>
+     *   <li>request-scoring-without-connecting-to-acs – sending information to CB DS for a fraud scoring</li>
      * </ul>
      */
     public String getChallengeIndicator() {
@@ -115,12 +115,12 @@ public class ThreeDSecureBase {
      *   <li>no-challenge-requested - you prefer the cardholder not to be challenged</li>
      *   <li>challenge-requested - you prefer the customer to be challenged</li>
      *   <li>challenge-required - you require the customer to be challenged</li>
-     *   <li>no-challenge-requested-risk-analysis-performed â€“ letting the issuer know that you have already assessed the transaction with fraud prevention tool</li>
-     *   <li>no-challenge-requested-data-share-only â€“ sharing data only with the DS</li>
-     *   <li>no-challenge-requested-consumer-authentication-performed â€“ authentication already happened at your side â€“ when login in to your website</li>
-     *   <li>no-challenge-requested-use-whitelist-exemption â€“ cardholder has whitelisted you at with the issuer</li>
-     *   <li>challenge-requested-whitelist-prompt-requested â€“ cardholder is trying to whitelist you</li>
-     *   <li>request-scoring-without-connecting-to-acs â€“ sending information to CB DS for a fraud scoring</li>
+     *   <li>no-challenge-requested-risk-analysis-performed – letting the issuer know that you have already assessed the transaction with fraud prevention tool</li>
+     *   <li>no-challenge-requested-data-share-only – sharing data only with the DS</li>
+     *   <li>no-challenge-requested-consumer-authentication-performed – authentication already happened at your side – when login in to your website</li>
+     *   <li>no-challenge-requested-use-whitelist-exemption – cardholder has whitelisted you at with the issuer</li>
+     *   <li>challenge-requested-whitelist-prompt-requested – cardholder is trying to whitelist you</li>
+     *   <li>request-scoring-without-connecting-to-acs – sending information to CB DS for a fraud scoring</li>
      * </ul>
      */
     public void setChallengeIndicator(String value) {
@@ -134,12 +134,12 @@ public class ThreeDSecureBase {
      *   <li>no-challenge-requested - you prefer the cardholder not to be challenged</li>
      *   <li>challenge-requested - you prefer the customer to be challenged</li>
      *   <li>challenge-required - you require the customer to be challenged</li>
-     *   <li>no-challenge-requested-risk-analysis-performed â€“ letting the issuer know that you have already assessed the transaction with fraud prevention tool</li>
-     *   <li>no-challenge-requested-data-share-only â€“ sharing data only with the DS</li>
-     *   <li>no-challenge-requested-consumer-authentication-performed â€“ authentication already happened at your side â€“ when login in to your website</li>
-     *   <li>no-challenge-requested-use-whitelist-exemption â€“ cardholder has whitelisted you at with the issuer</li>
-     *   <li>challenge-requested-whitelist-prompt-requested â€“ cardholder is trying to whitelist you</li>
-     *   <li>request-scoring-without-connecting-to-acs â€“ sending information to CB DS for a fraud scoring</li>
+     *   <li>no-challenge-requested-risk-analysis-performed – letting the issuer know that you have already assessed the transaction with fraud prevention tool</li>
+     *   <li>no-challenge-requested-data-share-only – sharing data only with the DS</li>
+     *   <li>no-challenge-requested-consumer-authentication-performed – authentication already happened at your side – when login in to your website</li>
+     *   <li>no-challenge-requested-use-whitelist-exemption – cardholder has whitelisted you at with the issuer</li>
+     *   <li>challenge-requested-whitelist-prompt-requested – cardholder is trying to whitelist you</li>
+     *   <li>request-scoring-without-connecting-to-acs – sending information to CB DS for a fraud scoring</li>
      * </ul>
      */
     public ThreeDSecureBase withChallengeIndicator(String value) {

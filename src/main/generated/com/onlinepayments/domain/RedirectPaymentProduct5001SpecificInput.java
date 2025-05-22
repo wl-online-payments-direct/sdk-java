@@ -6,7 +6,43 @@ package com.onlinepayments.domain;
 
 public class RedirectPaymentProduct5001SpecificInput {
 
+    private String exemptionRequest;
+
     private String subsequentType;
+
+    /**
+     * In PSD2, the ExemptionRequest field is used by merchants requesting an exemption when not using authentication on a transaction, in order to keep the conversion up. This field indicates the reason for the authentication exemption request. Allowed values:
+     * <ul>
+     *   <li>low-value - The transaction amount is below the 30€, with a maximum of 5 transactions or €100 accumulated per customer.</li>
+     *   <li>transaction-risk-analysis - The transaction has been assessed as low risk by the merchant's fraud prevention system.</li>
+     * </ul>
+     */
+    public String getExemptionRequest() {
+        return exemptionRequest;
+    }
+
+    /**
+     * In PSD2, the ExemptionRequest field is used by merchants requesting an exemption when not using authentication on a transaction, in order to keep the conversion up. This field indicates the reason for the authentication exemption request. Allowed values:
+     * <ul>
+     *   <li>low-value - The transaction amount is below the 30€, with a maximum of 5 transactions or €100 accumulated per customer.</li>
+     *   <li>transaction-risk-analysis - The transaction has been assessed as low risk by the merchant's fraud prevention system.</li>
+     * </ul>
+     */
+    public void setExemptionRequest(String value) {
+        this.exemptionRequest = value;
+    }
+
+    /**
+     * In PSD2, the ExemptionRequest field is used by merchants requesting an exemption when not using authentication on a transaction, in order to keep the conversion up. This field indicates the reason for the authentication exemption request. Allowed values:
+     * <ul>
+     *   <li>low-value - The transaction amount is below the 30€, with a maximum of 5 transactions or €100 accumulated per customer.</li>
+     *   <li>transaction-risk-analysis - The transaction has been assessed as low risk by the merchant's fraud prevention system.</li>
+     * </ul>
+     */
+    public RedirectPaymentProduct5001SpecificInput withExemptionRequest(String value) {
+        this.exemptionRequest = value;
+        return this;
+    }
 
     /**
      * Determines the type of the subsequent that will be used. Allowed values:

@@ -20,6 +20,8 @@ public class CreatePaymentLinkRequest {
 
     private HostedCheckoutSpecificInput hostedCheckoutSpecificInput;
 
+    private Boolean isReusableLink;
+
     private MobilePaymentMethodHostedCheckoutSpecificInput mobilePaymentMethodSpecificInput;
 
     private Order order;
@@ -197,6 +199,28 @@ public class CreatePaymentLinkRequest {
     }
 
     /**
+     * Indicates if the payment link can be used multiple times. The default value for this property is false
+     */
+    public Boolean getIsReusableLink() {
+        return isReusableLink;
+    }
+
+    /**
+     * Indicates if the payment link can be used multiple times. The default value for this property is false
+     */
+    public void setIsReusableLink(Boolean value) {
+        this.isReusableLink = value;
+    }
+
+    /**
+     * Indicates if the payment link can be used multiple times. The default value for this property is false
+     */
+    public CreatePaymentLinkRequest withIsReusableLink(Boolean value) {
+        this.isReusableLink = value;
+        return this;
+    }
+
+    /**
      * Object containing the specific input details for mobile payments
      */
     public MobilePaymentMethodHostedCheckoutSpecificInput getMobilePaymentMethodSpecificInput() {
@@ -246,12 +270,12 @@ public class CreatePaymentLinkRequest {
     /**
      * An object containing the details of the related payment input.
      * <p>
-     * Deprecated: All properties in {@code paymentLinkOrder} are deprecated.
-     * Use corresponding values as noted below:
+     * Deprecated: All properties in {@code paymentLinkOrder} are deprecated.<br>
+     * Use corresponding values as noted below:<br>
      * | Property | Replacement |
      * | - | - |
-     * | merchantReference | {@code references/merchantReference} |
-     * | amount | {@code order/amountOfMoney} |
+     * | merchantReference | {@code references/merchantReference} |<br>
+     * | amount | {@code order/amountOfMoney} |<br>
      * | surchargeSpecificInput | {@code order/surchargeSpecificInput} |
      */
     public PaymentLinkOrderInput getPaymentLinkOrder() {
@@ -261,12 +285,12 @@ public class CreatePaymentLinkRequest {
     /**
      * An object containing the details of the related payment input.
      * <p>
-     * Deprecated: All properties in {@code paymentLinkOrder} are deprecated.
-     * Use corresponding values as noted below:
+     * Deprecated: All properties in {@code paymentLinkOrder} are deprecated.<br>
+     * Use corresponding values as noted below:<br>
      * | Property | Replacement |
      * | - | - |
-     * | merchantReference | {@code references/merchantReference} |
-     * | amount | {@code order/amountOfMoney} |
+     * | merchantReference | {@code references/merchantReference} |<br>
+     * | amount | {@code order/amountOfMoney} |<br>
      * | surchargeSpecificInput | {@code order/surchargeSpecificInput} |
      */
     public void setPaymentLinkOrder(PaymentLinkOrderInput value) {
@@ -276,12 +300,12 @@ public class CreatePaymentLinkRequest {
     /**
      * An object containing the details of the related payment input.
      * <p>
-     * Deprecated: All properties in {@code paymentLinkOrder} are deprecated.
-     * Use corresponding values as noted below:
+     * Deprecated: All properties in {@code paymentLinkOrder} are deprecated.<br>
+     * Use corresponding values as noted below:<br>
      * | Property | Replacement |
      * | - | - |
-     * | merchantReference | {@code references/merchantReference} |
-     * | amount | {@code order/amountOfMoney} |
+     * | merchantReference | {@code references/merchantReference} |<br>
+     * | amount | {@code order/amountOfMoney} |<br>
      * | surchargeSpecificInput | {@code order/surchargeSpecificInput} |
      */
     public CreatePaymentLinkRequest withPaymentLinkOrder(PaymentLinkOrderInput value) {

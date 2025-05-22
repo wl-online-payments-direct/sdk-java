@@ -10,6 +10,8 @@ public class RedirectPaymentMethodSpecificInput {
 
     private RedirectPaymentProduct3203SpecificInput paymentProduct3203SpecificInput;
 
+    private RedirectPaymentProduct3204SpecificInput paymentProduct3204SpecificInput;
+
     private RedirectPaymentProduct3302SpecificInput paymentProduct3302SpecificInput;
 
     private RedirectPaymentProduct3306SpecificInput paymentProduct3306SpecificInput;
@@ -17,6 +19,10 @@ public class RedirectPaymentMethodSpecificInput {
     private RedirectPaymentProduct5001SpecificInput paymentProduct5001SpecificInput;
 
     private RedirectPaymentProduct5300SpecificInput paymentProduct5300SpecificInput;
+
+    private RedirectPaymentProduct5402SpecificInput paymentProduct5402SpecificInput;
+
+    private RedirectPaymentProduct5403SpecificInput paymentProduct5403SpecificInput;
 
     private RedirectPaymentProduct5406SpecificInput paymentProduct5406SpecificInput;
 
@@ -79,6 +85,28 @@ public class RedirectPaymentMethodSpecificInput {
      */
     public RedirectPaymentMethodSpecificInput withPaymentProduct3203SpecificInput(RedirectPaymentProduct3203SpecificInput value) {
         this.paymentProduct3203SpecificInput = value;
+        return this;
+    }
+
+    /**
+     * BLIK (payment product 3204) specific details
+     */
+    public RedirectPaymentProduct3204SpecificInput getPaymentProduct3204SpecificInput() {
+        return paymentProduct3204SpecificInput;
+    }
+
+    /**
+     * BLIK (payment product 3204) specific details
+     */
+    public void setPaymentProduct3204SpecificInput(RedirectPaymentProduct3204SpecificInput value) {
+        this.paymentProduct3204SpecificInput = value;
+    }
+
+    /**
+     * BLIK (payment product 3204) specific details
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct3204SpecificInput(RedirectPaymentProduct3204SpecificInput value) {
+        this.paymentProduct3204SpecificInput = value;
         return this;
     }
 
@@ -171,6 +199,50 @@ public class RedirectPaymentMethodSpecificInput {
     }
 
     /**
+     * Object containing specific input required for E-Voucher payments (Payment product ID 5402)
+     */
+    public RedirectPaymentProduct5402SpecificInput getPaymentProduct5402SpecificInput() {
+        return paymentProduct5402SpecificInput;
+    }
+
+    /**
+     * Object containing specific input required for E-Voucher payments (Payment product ID 5402)
+     */
+    public void setPaymentProduct5402SpecificInput(RedirectPaymentProduct5402SpecificInput value) {
+        this.paymentProduct5402SpecificInput = value;
+    }
+
+    /**
+     * Object containing specific input required for E-Voucher payments (Payment product ID 5402)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct5402SpecificInput(RedirectPaymentProduct5402SpecificInput value) {
+        this.paymentProduct5402SpecificInput = value;
+        return this;
+    }
+
+    /**
+     * Object containing specific input required for Chèque-Vacances Connect payments (Payment product ID 5403)
+     */
+    public RedirectPaymentProduct5403SpecificInput getPaymentProduct5403SpecificInput() {
+        return paymentProduct5403SpecificInput;
+    }
+
+    /**
+     * Object containing specific input required for Chèque-Vacances Connect payments (Payment product ID 5403)
+     */
+    public void setPaymentProduct5403SpecificInput(RedirectPaymentProduct5403SpecificInput value) {
+        this.paymentProduct5403SpecificInput = value;
+    }
+
+    /**
+     * Object containing specific input required for Chèque-Vacances Connect payments (Payment product ID 5403)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct5403SpecificInput(RedirectPaymentProduct5403SpecificInput value) {
+        this.paymentProduct5403SpecificInput = value;
+        return this;
+    }
+
+    /**
      * Object containing specific input for EPS payments (Payment product ID 5406)
      */
     public RedirectPaymentProduct5406SpecificInput getPaymentProduct5406SpecificInput() {
@@ -237,21 +309,21 @@ public class RedirectPaymentMethodSpecificInput {
     }
 
     /**
-     * Object containing specific input required for iDeal payments (Payment product ID 809)
+     * Deprecated, this is no longer used.
      */
     public RedirectPaymentProduct809SpecificInput getPaymentProduct809SpecificInput() {
         return paymentProduct809SpecificInput;
     }
 
     /**
-     * Object containing specific input required for iDeal payments (Payment product ID 809)
+     * Deprecated, this is no longer used.
      */
     public void setPaymentProduct809SpecificInput(RedirectPaymentProduct809SpecificInput value) {
         this.paymentProduct809SpecificInput = value;
     }
 
     /**
-     * Object containing specific input required for iDeal payments (Payment product ID 809)
+     * Deprecated, this is no longer used.
      */
     public RedirectPaymentMethodSpecificInput withPaymentProduct809SpecificInput(RedirectPaymentProduct809SpecificInput value) {
         this.paymentProduct809SpecificInput = value;

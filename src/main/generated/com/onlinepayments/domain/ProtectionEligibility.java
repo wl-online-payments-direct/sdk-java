@@ -14,7 +14,7 @@ public class ProtectionEligibility {
      * <ul>
      *   <li>Eligible - Merchant is protected by PayPal's Seller Protection Policy for Unauthorized Payment and Item Not Received</li>
      *   <li>PartiallyEligible - Merchant is protected by PayPal's Seller Protection Policy for Item Not Received</li>
-     *   <li>Ineligible â€” Merchant is not protected under the Seller Protection Policy</li>
+     *   <li>Ineligible — Merchant is not protected under the Seller Protection Policy</li>
      * </ul>
      */
     public String getEligibility() {
@@ -25,7 +25,7 @@ public class ProtectionEligibility {
      * <ul>
      *   <li>Eligible - Merchant is protected by PayPal's Seller Protection Policy for Unauthorized Payment and Item Not Received</li>
      *   <li>PartiallyEligible - Merchant is protected by PayPal's Seller Protection Policy for Item Not Received</li>
-     *   <li>Ineligible â€” Merchant is not protected under the Seller Protection Policy</li>
+     *   <li>Ineligible — Merchant is not protected under the Seller Protection Policy</li>
      * </ul>
      */
     public void setEligibility(String value) {
@@ -36,7 +36,7 @@ public class ProtectionEligibility {
      * <ul>
      *   <li>Eligible - Merchant is protected by PayPal's Seller Protection Policy for Unauthorized Payment and Item Not Received</li>
      *   <li>PartiallyEligible - Merchant is protected by PayPal's Seller Protection Policy for Item Not Received</li>
-     *   <li>Ineligible â€” Merchant is not protected under the Seller Protection Policy</li>
+     *   <li>Ineligible — Merchant is not protected under the Seller Protection Policy</li>
      * </ul>
      */
     public ProtectionEligibility withEligibility(String value) {

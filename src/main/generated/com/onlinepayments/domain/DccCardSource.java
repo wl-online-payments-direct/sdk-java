@@ -28,21 +28,24 @@ public class DccCardSource {
     }
 
     /**
-     * Data that was encrypted client-side that contains all customer-entered data elements, such as card data.
+     * Data that was encrypted client side containing all customer entered data elements like card data.
+     * Note: Because this data can only be submitted once to our system and contains encrypted card data you should not store it. As the data was captured within the context of a client session you also need to submit it to us before the session has expired.
      */
     public String getEncryptedCustomerInput() {
         return encryptedCustomerInput;
     }
 
     /**
-     * Data that was encrypted client-side that contains all customer-entered data elements, such as card data.
+     * Data that was encrypted client side containing all customer entered data elements like card data.
+     * Note: Because this data can only be submitted once to our system and contains encrypted card data you should not store it. As the data was captured within the context of a client session you also need to submit it to us before the session has expired.
      */
     public void setEncryptedCustomerInput(String value) {
         this.encryptedCustomerInput = value;
     }
 
     /**
-     * Data that was encrypted client-side that contains all customer-entered data elements, such as card data.
+     * Data that was encrypted client side containing all customer entered data elements like card data.
+     * Note: Because this data can only be submitted once to our system and contains encrypted card data you should not store it. As the data was captured within the context of a client session you also need to submit it to us before the session has expired.
      */
     public DccCardSource withEncryptedCustomerInput(String value) {
         this.encryptedCustomerInput = value;

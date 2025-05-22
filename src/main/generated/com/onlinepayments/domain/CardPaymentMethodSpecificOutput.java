@@ -32,6 +32,8 @@ public class CardPaymentMethodSpecificOutput {
 
     private Integer paymentProductId;
 
+    private ReattemptInstructions reattemptInstructions;
+
     private String schemeReferenceData;
 
     private ThreeDSecureResults threeDSecureResults;
@@ -303,6 +305,28 @@ public class CardPaymentMethodSpecificOutput {
      */
     public CardPaymentMethodSpecificOutput withPaymentProductId(Integer value) {
         this.paymentProductId = value;
+        return this;
+    }
+
+    /**
+     * Instructions for reattempting a declined authorization. Provided only in case of declined authorization, for those acquirers that may respond with explicit instructions regarding potential reattempt processing.
+     */
+    public ReattemptInstructions getReattemptInstructions() {
+        return reattemptInstructions;
+    }
+
+    /**
+     * Instructions for reattempting a declined authorization. Provided only in case of declined authorization, for those acquirers that may respond with explicit instructions regarding potential reattempt processing.
+     */
+    public void setReattemptInstructions(ReattemptInstructions value) {
+        this.reattemptInstructions = value;
+    }
+
+    /**
+     * Instructions for reattempting a declined authorization. Provided only in case of declined authorization, for those acquirers that may respond with explicit instructions regarding potential reattempt processing.
+     */
+    public CardPaymentMethodSpecificOutput withReattemptInstructions(ReattemptInstructions value) {
+        this.reattemptInstructions = value;
         return this;
     }
 
