@@ -30,6 +30,7 @@ public class RedirectPaymentMethodSpecificInput {
 
     private RedirectPaymentProduct5410SpecificInput paymentProduct5410SpecificInput;
 
+    @SuppressWarnings("deprecation")
     private RedirectPaymentProduct809SpecificInput paymentProduct809SpecificInput;
 
     private RedirectPaymentProduct840SpecificInput paymentProduct840SpecificInput;

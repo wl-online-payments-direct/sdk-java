@@ -154,21 +154,21 @@ public class ThreeDSecure {
     }
 
     /**
-     * Determines whether the call is coming from an application or from a browser * AppBased - Call is coming from an application.  * Browser - Call is coming from a browser
+     * Determines whether the call is coming from an application or from a browser * AppBased - Call is coming from an application. * Browser - Call is coming from a browser
      */
     public String getDeviceChannel() {
         return deviceChannel;
     }
 
     /**
-     * Determines whether the call is coming from an application or from a browser * AppBased - Call is coming from an application.  * Browser - Call is coming from a browser
+     * Determines whether the call is coming from an application or from a browser * AppBased - Call is coming from an application. * Browser - Call is coming from a browser
      */
     public void setDeviceChannel(String value) {
         this.deviceChannel = value;
     }
 
     /**
-     * Determines whether the call is coming from an application or from a browser * AppBased - Call is coming from an application.  * Browser - Call is coming from a browser
+     * Determines whether the call is coming from an application or from a browser * AppBased - Call is coming from an application. * Browser - Call is coming from a browser
      */
     public ThreeDSecure withDeviceChannel(String value) {
         this.deviceChannel = value;

@@ -10,6 +10,8 @@ public class PaymentReferences {
 
     private String merchantReference;
 
+    private String operationGroupReference;
+
     /**
      * It allows you to store additional parameters for the transaction in the format you prefer (e.g.-&gt; key-value query string, JSON, etc.) These parameters are then echoed back to you in API GET calls and Webhook notifications. This field must not contain any personal data.
      */
@@ -54,6 +56,28 @@ public class PaymentReferences {
      */
     public PaymentReferences withMerchantReference(String value) {
         this.merchantReference = value;
+        return this;
+    }
+
+    /**
+     * An identifier for a group of transactions. This reference helps to link multiple related transactions together, facilitating easier reconciliation and tracking.
+     */
+    public String getOperationGroupReference() {
+        return operationGroupReference;
+    }
+
+    /**
+     * An identifier for a group of transactions. This reference helps to link multiple related transactions together, facilitating easier reconciliation and tracking.
+     */
+    public void setOperationGroupReference(String value) {
+        this.operationGroupReference = value;
+    }
+
+    /**
+     * An identifier for a group of transactions. This reference helps to link multiple related transactions together, facilitating easier reconciliation and tracking.
+     */
+    public PaymentReferences withOperationGroupReference(String value) {
+        this.operationGroupReference = value;
         return this;
     }
 }

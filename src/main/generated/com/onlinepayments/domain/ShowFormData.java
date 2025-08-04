@@ -8,6 +8,8 @@ public class ShowFormData {
 
     private PaymentProduct3012 paymentProduct3012;
 
+    private PaymentProduct5001 paymentProduct5001;
+
     private PaymentProduct5404 paymentProduct5404;
 
     private PaymentProduct5407 paymentProduct5407;
@@ -31,6 +33,28 @@ public class ShowFormData {
      */
     public ShowFormData withPaymentProduct3012(PaymentProduct3012 value) {
         this.paymentProduct3012 = value;
+        return this;
+    }
+
+    /**
+     * Contains the third party data for payment product 5001 (Bizum)
+     */
+    public PaymentProduct5001 getPaymentProduct5001() {
+        return paymentProduct5001;
+    }
+
+    /**
+     * Contains the third party data for payment product 5001 (Bizum)
+     */
+    public void setPaymentProduct5001(PaymentProduct5001 value) {
+        this.paymentProduct5001 = value;
+    }
+
+    /**
+     * Contains the third party data for payment product 5001 (Bizum)
+     */
+    public ShowFormData withPaymentProduct5001(PaymentProduct5001 value) {
+        this.paymentProduct5001 = value;
         return this;
     }
 

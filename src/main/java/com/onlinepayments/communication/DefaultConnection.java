@@ -111,11 +111,13 @@ public class DefaultConnection implements PooledConnection {
     /**
      * Creates a new connection with the given timeouts, the default number of maximum connections, no proxy and the default HTTPS protocols.
      *
+     * @see CommunicatorConfiguration#DEFAULT_CONNECTION_REQUEST_TIMEOUT
      * @see CommunicatorConfiguration#DEFAULT_MAX_CONNECTIONS
      * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
      */
-    public DefaultConnection(int connectTimeout, int socketTimeout) {
+    public DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout) {
         this(
+                connectionRequestTimeout,
                 connectTimeout,
                 socketTimeout,
                 CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS,
@@ -127,6 +129,7 @@ public class DefaultConnection implements PooledConnection {
 
     protected DefaultConnection(DefaultConnectionBuilder builder) {
         this(
+                builder.connectionRequestTimeout,
                 builder.connectTimeout,
                 builder.socketTimeout,
                 builder.maxConnections,
@@ -136,13 +139,13 @@ public class DefaultConnection implements PooledConnection {
         );
     }
 
-    private DefaultConnection(int connectTimeout, int socketTimeout, int maxConnections, boolean connectionReuse,
+    private DefaultConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout, int maxConnections, boolean connectionReuse,
             ProxyConfiguration proxyConfiguration, SSLConnectionSocketFactory sslConnectionSocketFactory) {
 
         if (sslConnectionSocketFactory == null) {
             throw new IllegalArgumentException("sslConnectionSocketFactory is required");
         }
-        requestConfig = createRequestConfig(connectTimeout, socketTimeout);
+        requestConfig = createRequestConfig(connectionRequestTimeout, connectTimeout, socketTimeout);
         connectionManager = createHttpClientConnectionManager(maxConnections, sslConnectionSocketFactory);
         httpClient = createHttpClient(proxyConfiguration, connectionReuse);
     }
@@ -156,8 +159,9 @@ public class DefaultConnection implements PooledConnection {
         return new SSLConnectionSocketFactory(sslContext, supportedProtocols.toArray(new String[0]), null, hostnameVerifier);
     }
 
-    private static RequestConfig createRequestConfig(int connectTimeout, int socketTimeout) {
+    private static RequestConfig createRequestConfig(int connectionRequestTimeout, int connectTimeout, int socketTimeout) {
         return RequestConfig.custom()
+                .setConnectionRequestTimeout(connectionRequestTimeout)
                 .setSocketTimeout(socketTimeout)
                 .setConnectTimeout(connectTimeout)
                 .build();

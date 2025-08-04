@@ -4,6 +4,10 @@
 
 package com.onlinepayments.domain;
 
+/**
+ * @deprecated Deprecated, this is no longer used.
+ */
+@Deprecated
 public class RedirectPaymentProduct809SpecificInput {
 
     private String issuerId;

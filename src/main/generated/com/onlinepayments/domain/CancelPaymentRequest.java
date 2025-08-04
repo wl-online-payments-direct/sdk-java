@@ -10,6 +10,8 @@ public class CancelPaymentRequest {
 
     private Boolean isFinal;
 
+    private OperationPaymentReferences operationReferences;
+
     /**
      * Object containing amount and ISO currency code attributes
      */
@@ -51,6 +53,28 @@ public class CancelPaymentRequest {
      */
     public CancelPaymentRequest withIsFinal(Boolean value) {
         this.isFinal = value;
+        return this;
+    }
+
+    /**
+     * Object that holds all reference properties that are linked to this transaction
+     */
+    public OperationPaymentReferences getOperationReferences() {
+        return operationReferences;
+    }
+
+    /**
+     * Object that holds all reference properties that are linked to this transaction
+     */
+    public void setOperationReferences(OperationPaymentReferences value) {
+        this.operationReferences = value;
+    }
+
+    /**
+     * Object that holds all reference properties that are linked to this transaction
+     */
+    public CancelPaymentRequest withOperationReferences(OperationPaymentReferences value) {
+        this.operationReferences = value;
         return this;
     }
 }

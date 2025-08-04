@@ -8,6 +8,8 @@ public class PaymentProduct840SpecificOutput {
 
     private Address billingAddress;
 
+    private AddressPersonal billingPersonalAddress;
+
     private PaymentProduct840CustomerAccount customerAccount;
 
     private Address customerAddress;
@@ -33,6 +35,28 @@ public class PaymentProduct840SpecificOutput {
      */
     public PaymentProduct840SpecificOutput withBillingAddress(Address value) {
         this.billingAddress = value;
+        return this;
+    }
+
+    /**
+     * Object containing address information
+     */
+    public AddressPersonal getBillingPersonalAddress() {
+        return billingPersonalAddress;
+    }
+
+    /**
+     * Object containing address information
+     */
+    public void setBillingPersonalAddress(AddressPersonal value) {
+        this.billingPersonalAddress = value;
+    }
+
+    /**
+     * Object containing address information
+     */
+    public PaymentProduct840SpecificOutput withBillingPersonalAddress(AddressPersonal value) {
+        this.billingPersonalAddress = value;
         return this;
     }
 

@@ -12,7 +12,7 @@ public class AccountOnFile {
 
     private AccountOnFileDisplayHints displayHints;
 
-    private Integer id;
+    private String id;
 
     private Integer paymentProductId;
 
@@ -51,15 +51,24 @@ public class AccountOnFile {
         return this;
     }
 
-    public Integer getId() {
+    /**
+     * ID of the token
+     */
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer value) {
+    /**
+     * ID of the token
+     */
+    public void setId(String value) {
         this.id = value;
     }
 
-    public AccountOnFile withId(Integer value) {
+    /**
+     * ID of the token
+     */
+    public AccountOnFile withId(String value) {
         this.id = value;
         return this;
     }

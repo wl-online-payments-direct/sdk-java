@@ -59,7 +59,7 @@ public final class Factory {
 
         return new CommunicatorBuilder()
                 .withAPIEndpoint(configuration.getApiEndpoint())
-                .withConnection(new DefaultConnectionBuilder(configuration.getConnectTimeout(), configuration.getSocketTimeout())
+                .withConnection(new DefaultConnectionBuilder(configuration.getConnectionRequestTimeout(), configuration.getConnectTimeout(), configuration.getSocketTimeout())
                         .withMaxConnections(configuration.getMaxConnections())
                         .withConnectionReuse(configuration.isConnectionReuse())
                         .withProxyConfiguration(configuration.getProxyConfiguration())

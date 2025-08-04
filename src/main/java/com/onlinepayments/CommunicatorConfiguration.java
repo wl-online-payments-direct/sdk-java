@@ -21,12 +21,16 @@ public class CommunicatorConfiguration {
     /** The default number of maximum connections. */
     public static final int DEFAULT_MAX_CONNECTIONS = 10;
 
+    public static final int DEFAULT_CONNECTION_REQUEST_TIMEOUT = 5000;
+
     /** The default HTTPS protocols. */
     public static final Set<String> DEFAULT_HTTPS_PROTOCOLS = Collections.unmodifiableSet(new LinkedHashSet<>(Arrays.asList("TLSv1.1", "TLSv1.2")));
 
     private static final Pattern COMMA_SEPARATOR_PATTERN = Pattern.compile("\\s*,\\s*");
 
     private URI apiEndpoint;
+
+    private int connectionRequestTimeout;
 
     private int connectTimeout;
 
@@ -57,6 +61,7 @@ public class CommunicatorConfiguration {
         if (properties != null) {
             apiEndpoint       = getApiEndpoint(properties);
             authorizationType = AuthorizationType.valueOf(properties.getProperty("onlinePayments.api.authorizationType"));
+            connectionRequestTimeout = getProperty(properties, "onlinePayments.api.connectionRequestTimeout", DEFAULT_CONNECTION_REQUEST_TIMEOUT);
             connectTimeout    = Integer.parseInt(properties.getProperty("onlinePayments.api.connectTimeout"));
             socketTimeout     = Integer.parseInt(properties.getProperty("onlinePayments.api.socketTimeout"));
             maxConnections    = getProperty(properties, "onlinePayments.api.maxConnections", DEFAULT_MAX_CONNECTIONS);
@@ -185,6 +190,19 @@ public class CommunicatorConfiguration {
 
     public CommunicatorConfiguration withAuthorizationType(AuthorizationType authorizationType) {
         setAuthorizationType(authorizationType);
+        return this;
+    }
+
+    public int getConnectionRequestTimeout() {
+        return connectionRequestTimeout;
+    }
+
+    public void setConnectionRequestTimeout(int connectionRequestTimeout) {
+        this.connectionRequestTimeout = connectionRequestTimeout;
+    }
+
+    public CommunicatorConfiguration withConnectionRequestTimeout(int connectionRequestTimeout) {
+        setConnectionRequestTimeout(connectionRequestTimeout);
         return this;
     }
 

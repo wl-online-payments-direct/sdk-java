@@ -12,6 +12,8 @@ public class RefundRequest {
 
     private OperationPaymentReferences operationReferences;
 
+    private String reason;
+
     private PaymentReferences references;
 
     /**
@@ -77,6 +79,28 @@ public class RefundRequest {
      */
     public RefundRequest withOperationReferences(OperationPaymentReferences value) {
         this.operationReferences = value;
+        return this;
+    }
+
+    /**
+     * The reason for the refund. This will be available in our portal and reports for your information only. It will NOT appear in the consumer bank statement or yours.§
+     */
+    public String getReason() {
+        return reason;
+    }
+
+    /**
+     * The reason for the refund. This will be available in our portal and reports for your information only. It will NOT appear in the consumer bank statement or yours.§
+     */
+    public void setReason(String value) {
+        this.reason = value;
+    }
+
+    /**
+     * The reason for the refund. This will be available in our portal and reports for your information only. It will NOT appear in the consumer bank statement or yours.§
+     */
+    public RefundRequest withReason(String value) {
+        this.reason = value;
         return this;
     }
 

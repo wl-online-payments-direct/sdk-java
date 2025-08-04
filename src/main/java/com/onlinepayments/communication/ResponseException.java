@@ -61,7 +61,7 @@ public class ResponseException extends RuntimeException {
         if (statusCode > 0) {
             sb.append("; statusCode=").append(statusCode);
         }
-        if (body != null && body.length() > 0) {
+        if (body != null && !body.isEmpty()) {
             sb.append("; responseBody='").append(body).append("'");
         }
         return sb.toString();

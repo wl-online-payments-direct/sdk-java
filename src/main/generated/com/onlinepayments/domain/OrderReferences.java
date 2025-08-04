@@ -12,6 +12,8 @@ public class OrderReferences {
 
     private String merchantReference;
 
+    private String operationGroupReference;
+
     /**
      * Descriptive text that is used towards to customer, either during an online checkout at a third party and/or on the statement of the customer. For card transactions this is usually referred to as a Soft Descriptor. The maximum allowed length varies per card acquirer:
      * <ul>
@@ -177,6 +179,28 @@ public class OrderReferences {
      */
     public OrderReferences withMerchantReference(String value) {
         this.merchantReference = value;
+        return this;
+    }
+
+    /**
+     * An identifier for a group of transactions. This reference helps to link multiple related transactions together, facilitating easier reconciliation and tracking.
+     */
+    public String getOperationGroupReference() {
+        return operationGroupReference;
+    }
+
+    /**
+     * An identifier for a group of transactions. This reference helps to link multiple related transactions together, facilitating easier reconciliation and tracking.
+     */
+    public void setOperationGroupReference(String value) {
+        this.operationGroupReference = value;
+    }
+
+    /**
+     * An identifier for a group of transactions. This reference helps to link multiple related transactions together, facilitating easier reconciliation and tracking.
+     */
+    public OrderReferences withOperationGroupReference(String value) {
+        this.operationGroupReference = value;
         return this;
     }
 }

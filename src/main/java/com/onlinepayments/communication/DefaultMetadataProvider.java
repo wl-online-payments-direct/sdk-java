@@ -19,7 +19,7 @@ import com.onlinepayments.json.DefaultMarshaller;
  */
 public class DefaultMetadataProvider implements MetadataProvider {
 
-    private static final String SDK_VERSION = "5.1.0";
+    private static final String SDK_VERSION = "6.0.0";
 
     private static final String SERVER_META_INFO_HEADER = "X-GCS-ServerMetaInfo";
     static final Set<String> PROHIBITED_HEADERS;
@@ -110,7 +110,7 @@ public class DefaultMetadataProvider implements MetadataProvider {
 
     /**
      * @return The server related headers containing the metadata to be associated with the request (if any).
-     *         This will always contain at least an automatically generated header {@code X-GCS-ServerMetaInfo}.
+     * This will always contain at least an automatically generated header {@code X-GCS-ServerMetaInfo}.
      */
     public final Collection<RequestHeader> getServerMetadataHeaders() {
         return metadataHeaders;

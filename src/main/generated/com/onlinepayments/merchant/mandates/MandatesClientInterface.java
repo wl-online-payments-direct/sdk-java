@@ -14,6 +14,7 @@ import com.onlinepayments.ValidationException;
 import com.onlinepayments.domain.CreateMandateRequest;
 import com.onlinepayments.domain.CreateMandateResponse;
 import com.onlinepayments.domain.GetMandateResponse;
+import com.onlinepayments.domain.RevokeMandateRequest;
 
 /**
  * Mandates client. Thread-safe.
@@ -160,6 +161,7 @@ public interface MandatesClientInterface {
      * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/revoke - Revoke mandate
      *
      * @param uniqueMandateReference String
+     * @param body RevokeMandateRequest
      * @return GetMandateResponse
      * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
      * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -170,12 +172,13 @@ public interface MandatesClientInterface {
      *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
      * @throws ApiException if the payment platform returned any other error
      */
-    GetMandateResponse revokeMandate(String uniqueMandateReference);
+    GetMandateResponse revokeMandate(String uniqueMandateReference, RevokeMandateRequest body);
 
     /**
      * Resource /v2/{merchantId}/mandates/{uniqueMandateReference}/revoke - Revoke mandate
      *
      * @param uniqueMandateReference String
+     * @param body RevokeMandateRequest
      * @param context CallContext
      * @return GetMandateResponse
      * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -188,5 +191,5 @@ public interface MandatesClientInterface {
      *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
      * @throws ApiException if the payment platform returned any other error
      */
-    GetMandateResponse revokeMandate(String uniqueMandateReference, CallContext context);
+    GetMandateResponse revokeMandate(String uniqueMandateReference, RevokeMandateRequest body, CallContext context);
 }

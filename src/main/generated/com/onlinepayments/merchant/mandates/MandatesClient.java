@@ -15,6 +15,7 @@ import com.onlinepayments.domain.CreateMandateRequest;
 import com.onlinepayments.domain.CreateMandateResponse;
 import com.onlinepayments.domain.ErrorResponse;
 import com.onlinepayments.domain.GetMandateResponse;
+import com.onlinepayments.domain.RevokeMandateRequest;
 
 /**
  * Mandates client. Thread-safe.
@@ -134,13 +135,13 @@ public class MandatesClient extends ApiResource implements MandatesClientInterfa
 
     /** {@inheritDoc} */
     @Override
-    public GetMandateResponse revokeMandate(String uniqueMandateReference) {
-        return revokeMandate(uniqueMandateReference, null);
+    public GetMandateResponse revokeMandate(String uniqueMandateReference, RevokeMandateRequest body) {
+        return revokeMandate(uniqueMandateReference, body, null);
     }
 
     /** {@inheritDoc} */
     @Override
-    public GetMandateResponse revokeMandate(String uniqueMandateReference, CallContext context) {
+    public GetMandateResponse revokeMandate(String uniqueMandateReference, RevokeMandateRequest body, CallContext context) {
         Map<String, String> pathContext = new TreeMap<>();
         pathContext.put("uniqueMandateReference", uniqueMandateReference);
         String uri = instantiateUri("/v2/{merchantId}/mandates/{uniqueMandateReference}/revoke", pathContext);
@@ -149,7 +150,7 @@ public class MandatesClient extends ApiResource implements MandatesClientInterfa
                     uri,
                     getClientHeaders(),
                     null,
-                    null,
+                    body,
                     GetMandateResponse.class,
                     context);
         } catch (ResponseException e) {

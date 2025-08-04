@@ -32,7 +32,7 @@ public final class BodyObfuscator {
     private static Pattern buildPropertyPattern(Set<String> propertyNames) {
         if (propertyNames.isEmpty()) {
             // no matches possible
-            return Pattern.compile("$^");
+            return Pattern.compile("(?!.*)");
         }
 
         Iterator<String> iterator = propertyNames.iterator();
@@ -133,38 +133,38 @@ public final class BodyObfuscator {
      */
     public static Builder custom() {
         return new Builder()
-                .obfuscateAll("additionalInfo")
-                .obfuscateAll("cardholderName")
-                .obfuscateAll("dateOfBirth")
-                .obfuscateAll("emailAddress")
-                .obfuscateAll("faxNumber")
-                .obfuscateAll("firstName")
-                .obfuscateAll("houseNumber")
-                .obfuscateAll("mobilePhoneNumber")
-                .obfuscateAll("passengerName")
-                .obfuscateAll("phoneNumber")
-                .obfuscateAll("street")
-                .obfuscateAll("workPhoneNumber")
-                .obfuscateAll("zip")
-                .obfuscateAllButLast(4, "cardNumber")
-                .obfuscateAllButLast(2, "expiryDate")
-                .obfuscateAll("cvv")
-                .obfuscateAllButLast(4, "iban")
-                .obfuscateAllButLast(4, "accountNumber")
-                .obfuscateAllButLast(4, "reformattedAccountNumber")
-                .obfuscateAllButFirst(6, "bin")
-                // key-value pairs can contain any value, like credit card numbers or other private data; mask all values
-                .obfuscateAll("value")
-                .obfuscateWithFixedLength(8, "keyId")
-                .obfuscateWithFixedLength(8, "secretKey")
-                .obfuscateWithFixedLength(8, "publicKey")
-                .obfuscateWithFixedLength(8, "userAuthenticationToken")
-                // encrypted payload is a base64 string that contains an encrypted value; to make decrypting even harder, just mask the entire thing
-                .obfuscateWithFixedLength(8, "encryptedPayload")
-                // decrypted payload is a simple base64 string that may contain credit card numbers or other private data; just mask the entire thing
-                .obfuscateWithFixedLength(8, "decryptedPayload")
-                // encrypted customer input is similar to encrypted payload
-                .obfuscateWithFixedLength(8, "encryptedCustomerInput");
+            .obfuscateAll("additionalInfo")
+            .obfuscateAll("cardholderName")
+            .obfuscateAll("dateOfBirth")
+            .obfuscateAll("emailAddress")
+            .obfuscateAll("faxNumber")
+            .obfuscateAll("firstName")
+            .obfuscateAll("houseNumber")
+            .obfuscateAll("mobilePhoneNumber")
+            .obfuscateAll("passengerName")
+            .obfuscateAll("phoneNumber")
+            .obfuscateAll("street")
+            .obfuscateAll("workPhoneNumber")
+            .obfuscateAll("zip")
+            .obfuscateAllButLast(4, "cardNumber")
+            .obfuscateAllButLast(2, "expiryDate")
+            .obfuscateAll("cvv")
+            .obfuscateAllButLast(4, "iban")
+            .obfuscateAllButLast(4, "accountNumber")
+            .obfuscateAllButLast(4, "reformattedAccountNumber")
+            .obfuscateAllButFirst(6, "bin")
+            // key-value pairs can contain any value, like credit card numbers or other private data; mask all values
+            .obfuscateAll("value")
+            .obfuscateWithFixedLength(8, "keyId")
+            .obfuscateWithFixedLength(8, "secretKey")
+            .obfuscateWithFixedLength(8, "publicKey")
+            .obfuscateWithFixedLength(8, "userAuthenticationToken")
+            // encrypted payload is a base64 string that contains an encrypted value; to make decrypting even harder, just mask the entire thing
+            .obfuscateWithFixedLength(8, "encryptedPayload")
+            // decrypted payload is a simple base64 string that may contain credit card numbers or other private data; just mask the entire thing
+            .obfuscateWithFixedLength(8, "decryptedPayload")
+            // encrypted customer input is similar to encrypted payload
+            .obfuscateWithFixedLength(8, "encryptedCustomerInput");
     }
 
     /**

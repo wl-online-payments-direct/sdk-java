@@ -78,6 +78,7 @@ import com.onlinepayments.util.ResponseHeaderMatcher;
 
 class DefaultConnectionTest {
 
+    private static final int CONNECTION_REQUEST_TIMEOUT = 10000;
     private static final int CONNECT_TIMEOUT = 10000;
     private static final int SOCKET_TIMEOUT  = 20000;
     private static final int MAX_CONNECTIONS = 100;
@@ -88,7 +89,7 @@ class DefaultConnectionTest {
         @Test
         @SuppressWarnings("resource")
         void testConstructWithoutBuilder() {
-            DefaultConnection connection = new DefaultConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT);
+            DefaultConnection connection = new DefaultConnection(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
             assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
             assertMaxConnections(connection, CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, null);
             assertConnectionReuse(connection, true);
@@ -101,7 +102,7 @@ class DefaultConnectionTest {
         void testConstructWithProxyWithoutAuthentication() {
             ProxyConfiguration proxyConfiguration = new ProxyConfiguration(URI.create("http://test-proxy"));
 
-            DefaultConnection connection = new DefaultConnectionBuilder(CONNECT_TIMEOUT, SOCKET_TIMEOUT)
+            DefaultConnection connection = new DefaultConnectionBuilder(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT)
                     .withProxyConfiguration(proxyConfiguration)
                     .build();
             assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
@@ -116,7 +117,7 @@ class DefaultConnectionTest {
         void testConstructWithProxyWithAuthentication() {
             ProxyConfiguration proxyConfiguration = new ProxyConfiguration(URI.create("http://test-proxy"), "test-username", "test-password");
 
-            DefaultConnection connection = new DefaultConnectionBuilder(CONNECT_TIMEOUT, SOCKET_TIMEOUT)
+            DefaultConnection connection = new DefaultConnectionBuilder(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT)
                     .withProxyConfiguration(proxyConfiguration)
                     .build();
             assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
@@ -129,7 +130,7 @@ class DefaultConnectionTest {
         @Test
         @SuppressWarnings("resource")
         void testConstructWithMaxConnectionsWithoutProxy() {
-            DefaultConnection connection = new DefaultConnectionBuilder(CONNECT_TIMEOUT, SOCKET_TIMEOUT)
+            DefaultConnection connection = new DefaultConnectionBuilder(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT)
                     .withMaxConnections(MAX_CONNECTIONS)
                     .build();
             assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
@@ -144,7 +145,7 @@ class DefaultConnectionTest {
         void testConstructWithMaxConnectionsWithProxy() {
             ProxyConfiguration proxyConfiguration = new ProxyConfiguration(URI.create("http://test-proxy"));
 
-            DefaultConnection connection = new DefaultConnectionBuilder(CONNECT_TIMEOUT, SOCKET_TIMEOUT)
+            DefaultConnection connection = new DefaultConnectionBuilder(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT)
                     .withMaxConnections(MAX_CONNECTIONS)
                     .withProxyConfiguration(proxyConfiguration)
                     .build();
@@ -160,7 +161,7 @@ class DefaultConnectionTest {
         void testConstructWithHttpsProtocols() {
             Set<String> httpsProtocols = new HashSet<>(Arrays.asList("TLSv1", "TLSv1.1", "TLSv1.2"));
 
-            DefaultConnection connection = new DefaultConnectionBuilder(CONNECT_TIMEOUT, SOCKET_TIMEOUT)
+            DefaultConnection connection = new DefaultConnectionBuilder(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT)
                     .withMaxConnections(MAX_CONNECTIONS)
                     .withHttpsProtocols(httpsProtocols)
                     .build();
@@ -176,7 +177,7 @@ class DefaultConnectionTest {
         void testConstructWithZeroHttpsProtocols() {
             Set<String> httpsProtocols = Collections.emptySet();
 
-            DefaultConnection connection = new DefaultConnectionBuilder(CONNECT_TIMEOUT, SOCKET_TIMEOUT)
+            DefaultConnection connection = new DefaultConnectionBuilder(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT)
                     .withMaxConnections(MAX_CONNECTIONS)
                     .withHttpsProtocols(httpsProtocols)
                     .build();
@@ -192,7 +193,7 @@ class DefaultConnectionTest {
         void testConstructWithNullHttpsProtocols() {
             Set<String> httpsProtocols = null;
 
-            DefaultConnection connection = new DefaultConnectionBuilder(CONNECT_TIMEOUT, SOCKET_TIMEOUT)
+            DefaultConnection connection = new DefaultConnectionBuilder(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT)
                     .withMaxConnections(MAX_CONNECTIONS)
                     .withHttpsProtocols(httpsProtocols)
                     .build();
@@ -206,7 +207,7 @@ class DefaultConnectionTest {
         @Test
         @SuppressWarnings("resource")
         void testConstructWithMinimalBuilder() {
-            DefaultConnection connection = new DefaultConnectionBuilder(CONNECT_TIMEOUT, SOCKET_TIMEOUT)
+            DefaultConnection connection = new DefaultConnectionBuilder(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT)
                     .build();
             assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
             assertMaxConnections(connection, CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, null);
@@ -221,7 +222,7 @@ class DefaultConnectionTest {
             ProxyConfiguration proxyConfiguration = new ProxyConfiguration(URI.create("http://test-proxy"));
             Set<String> httpsProtocols = new HashSet<>(Arrays.asList("TLSv1", "TLSv1.1", "TLSv1.2"));
 
-            DefaultConnection connection = new DefaultConnectionBuilder(CONNECT_TIMEOUT, SOCKET_TIMEOUT)
+            DefaultConnection connection = new DefaultConnectionBuilder(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT)
                     .withMaxConnections(MAX_CONNECTIONS)
                     .withConnectionReuse(false)
                     .withProxyConfiguration(proxyConfiguration)
@@ -714,7 +715,7 @@ class DefaultConnectionTest {
 
             setupRequestHandler(delayedAnswer(setHtmlResponse("notFound.html", 404), 100));
 
-            try (Communicator communicator = createCommunicator(host, 1000, 10)) {
+            try (Communicator communicator = createCommunicator(host, 1000, 1000, 10)) {
                 communicator.enableLogging(logger);
 
                 assertThrows(CommunicationException.class, () -> communicator.get("v1/get", null, null, Map.class, null));
@@ -807,7 +808,7 @@ class DefaultConnectionTest {
 
             TestLogger logger = new TestLogger();
 
-            try (Communicator communicator = createCommunicator(host, 1000, 100)) {
+            try (Communicator communicator = createCommunicator(host, 1000, 1000, 100)) {
                 setupRequestHandler(enableLogging(delayedAnswer(setHtmlResponse("notFound.html", 404), 200), communicator, logger));
 
                 assertThrows(CommunicationException.class, () -> communicator.get("v1/get", null, null, Map.class, null));
@@ -1036,22 +1037,22 @@ class DefaultConnectionTest {
         }
 
         private Connection createConnection() {
-            return createConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT);
+            return createConnection(CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
         }
 
-        private Connection createConnection(int connectTimeout, int socketTimeout) {
-            return new DefaultConnection(connectTimeout, socketTimeout);
+        private Connection createConnection(int connectionRequestTimeout, int connectTimeout, int socketTimeout) {
+            return new DefaultConnection(connectionRequestTimeout, connectTimeout, socketTimeout);
         }
 
         private Communicator createCommunicator(HttpHost host) throws URISyntaxException {
-            return createCommunicator(host, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
+            return createCommunicator(host, CONNECTION_REQUEST_TIMEOUT, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
         }
 
         @SuppressWarnings("resource")
-        private Communicator createCommunicator(HttpHost host, int connectTimeout, int socketTimeout) throws URISyntaxException {
+        private Communicator createCommunicator(HttpHost host, int connectionRequestTimeout, int connectTimeout, int socketTimeout) throws URISyntaxException {
             URI uri = toURI(host, null);
 
-            Connection connection = new DefaultConnection(connectTimeout, socketTimeout);
+            Connection connection = new DefaultConnection(connectionRequestTimeout, connectTimeout, socketTimeout);
             Authenticator authenticator = (httpMethod, resourceUri, requestHeaders) -> "ignored";
             MetadataProvider metadataProvider = new DefaultMetadataProvider("OnlinePayments");
             return Factory.createCommunicator(uri, connection, authenticator, metadataProvider);

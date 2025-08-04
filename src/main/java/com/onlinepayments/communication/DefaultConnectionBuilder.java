@@ -15,14 +15,16 @@ public class DefaultConnectionBuilder {
 
     final int connectTimeout;
     final int socketTimeout;
+    final int connectionRequestTimeout;
     int maxConnections;
     boolean connectionReuse;
     ProxyConfiguration proxyConfiguration;
     SSLConnectionSocketFactory sslConnectionSocketFactory;
 
-    public DefaultConnectionBuilder(int connectTimeout, int socketTimeout) {
+    public DefaultConnectionBuilder(int connectionRequestTimeout, int connectTimeout, int socketTimeout) {
         this.connectTimeout = connectTimeout;
         this.socketTimeout = socketTimeout;
+        this.connectionRequestTimeout = connectionRequestTimeout;
 
         maxConnections = CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS;
         sslConnectionSocketFactory = DefaultConnection.createSSLConnectionSocketFactory(CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS);

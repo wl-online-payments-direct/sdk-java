@@ -74,21 +74,30 @@ public class GetProductGroupParams implements ParamRequest {
 
     /**
      * Deprecated: This field has no effect.
+     *
+     * @deprecated This field has no effect.
      */
+    @Deprecated
     public String getLocale() {
         return locale;
     }
 
     /**
      * Deprecated: This field has no effect.
+     *
+     * @deprecated This field has no effect.
      */
+    @Deprecated
     public void setLocale(String value) {
         this.locale = value;
     }
 
     /**
      * Deprecated: This field has no effect.
+     *
+     * @deprecated This field has no effect.
      */
+    @Deprecated
     public GetProductGroupParams withLocale(String value) {
         this.locale = value;
         return this;

@@ -12,6 +12,8 @@ public class RedirectPaymentMethodSpecificOutput {
 
     private FraudResults fraudResults;
 
+    private PaymentProduct3204SpecificOutput paymentMethod3204SpecificOutput;
+
     private String paymentOption;
 
     private PaymentProduct3203SpecificOutput paymentProduct3203SpecificOutput;
@@ -91,6 +93,28 @@ public class RedirectPaymentMethodSpecificOutput {
      */
     public RedirectPaymentMethodSpecificOutput withFraudResults(FraudResults value) {
         this.fraudResults = value;
+        return this;
+    }
+
+    /**
+     * BLIK (payment product 3204) specific details
+     */
+    public PaymentProduct3204SpecificOutput getPaymentMethod3204SpecificOutput() {
+        return paymentMethod3204SpecificOutput;
+    }
+
+    /**
+     * BLIK (payment product 3204) specific details
+     */
+    public void setPaymentMethod3204SpecificOutput(PaymentProduct3204SpecificOutput value) {
+        this.paymentMethod3204SpecificOutput = value;
+    }
+
+    /**
+     * BLIK (payment product 3204) specific details
+     */
+    public RedirectPaymentMethodSpecificOutput withPaymentMethod3204SpecificOutput(PaymentProduct3204SpecificOutput value) {
+        this.paymentMethod3204SpecificOutput = value;
         return this;
     }
 

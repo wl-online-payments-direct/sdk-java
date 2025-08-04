@@ -26,6 +26,8 @@ public class CardPaymentMethodSpecificInput {
 
     private MultiplePaymentInformation multiplePaymentInformation;
 
+    private NetworkTokenData networkTokenData;
+
     private PaymentProduct130SpecificInput paymentProduct130SpecificInput;
 
     private PaymentProduct3012SpecificInput paymentProduct3012SpecificInput;
@@ -345,6 +347,28 @@ public class CardPaymentMethodSpecificInput {
      */
     public CardPaymentMethodSpecificInput withMultiplePaymentInformation(MultiplePaymentInformation value) {
         this.multiplePaymentInformation = value;
+        return this;
+    }
+
+    /**
+     * Object containing network token details
+     */
+    public NetworkTokenData getNetworkTokenData() {
+        return networkTokenData;
+    }
+
+    /**
+     * Object containing network token details
+     */
+    public void setNetworkTokenData(NetworkTokenData value) {
+        this.networkTokenData = value;
+    }
+
+    /**
+     * Object containing network token details
+     */
+    public CardPaymentMethodSpecificInput withNetworkTokenData(NetworkTokenData value) {
+        this.networkTokenData = value;
         return this;
     }
 

@@ -14,6 +14,8 @@ public class CardPaymentMethodSpecificOutput {
 
     private CardEssentials card;
 
+    private ClickToPay clickToPay;
+
     private CurrencyConversion currencyConversion;
 
     private ExternalTokenLinked externalTokenLinked;
@@ -125,6 +127,28 @@ public class CardPaymentMethodSpecificOutput {
      */
     public CardPaymentMethodSpecificOutput withCard(CardEssentials value) {
         this.card = value;
+        return this;
+    }
+
+    /**
+     * Information about whether the payment is made using Click to Pay
+     */
+    public ClickToPay getClickToPay() {
+        return clickToPay;
+    }
+
+    /**
+     * Information about whether the payment is made using Click to Pay
+     */
+    public void setClickToPay(ClickToPay value) {
+        this.clickToPay = value;
+    }
+
+    /**
+     * Information about whether the payment is made using Click to Pay
+     */
+    public CardPaymentMethodSpecificOutput withClickToPay(ClickToPay value) {
+        this.clickToPay = value;
         return this;
     }
 
