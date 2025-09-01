@@ -6,9 +6,33 @@ package com.onlinepayments.domain;
 
 public class TokenCardData {
 
+    private CardBinDetails cardBinDetails;
+
     private CardWithoutCvv cardWithoutCvv;
 
     private String cobrandSelectionIndicator;
+
+    /**
+     * Card BIN details
+     */
+    public CardBinDetails getCardBinDetails() {
+        return cardBinDetails;
+    }
+
+    /**
+     * Card BIN details
+     */
+    public void setCardBinDetails(CardBinDetails value) {
+        this.cardBinDetails = value;
+    }
+
+    /**
+     * Card BIN details
+     */
+    public TokenCardData withCardBinDetails(CardBinDetails value) {
+        this.cardBinDetails = value;
+        return this;
+    }
 
     public CardWithoutCvv getCardWithoutCvv() {
         return cardWithoutCvv;

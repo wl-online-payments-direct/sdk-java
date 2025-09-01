@@ -6,17 +6,13 @@ package com.onlinepayments.domain;
 
 import java.time.LocalDate;
 
-public class CardEssentials {
-
-    private String bin;
+public class CardBinDetails {
 
     private Boolean cardCorporateIndicator;
 
     private LocalDate cardEffectiveDate;
 
     private Boolean cardEffectiveDateIndicator;
-
-    private String cardNumber;
 
     private String cardPanType;
 
@@ -31,8 +27,6 @@ public class CardEssentials {
     private String cardType;
 
     private String countryCode;
-
-    private String expiryDate;
 
     private String issuerCode;
 
@@ -51,28 +45,6 @@ public class CardEssentials {
     private Boolean virtualCardIndicator;
 
     /**
-     * The first digits of the credit card number from left to right with a minimum of 6 digits.
-     */
-    public String getBin() {
-        return bin;
-    }
-
-    /**
-     * The first digits of the credit card number from left to right with a minimum of 6 digits.
-     */
-    public void setBin(String value) {
-        this.bin = value;
-    }
-
-    /**
-     * The first digits of the credit card number from left to right with a minimum of 6 digits.
-     */
-    public CardEssentials withBin(String value) {
-        this.bin = value;
-        return this;
-    }
-
-    /**
      * Indicates whether the card is an Enterprise / Commercial card or not
      */
     public Boolean getCardCorporateIndicator() {
@@ -89,7 +61,7 @@ public class CardEssentials {
     /**
      * Indicates whether the card is an Enterprise / Commercial card or not
      */
-    public CardEssentials withCardCorporateIndicator(Boolean value) {
+    public CardBinDetails withCardCorporateIndicator(Boolean value) {
         this.cardCorporateIndicator = value;
         return this;
     }
@@ -111,7 +83,7 @@ public class CardEssentials {
     /**
      * The card effective date (YYYY-MM-DD)
      */
-    public CardEssentials withCardEffectiveDate(LocalDate value) {
+    public CardBinDetails withCardEffectiveDate(LocalDate value) {
         this.cardEffectiveDate = value;
         return this;
     }
@@ -133,30 +105,8 @@ public class CardEssentials {
     /**
      * Indicator of existence of a card effective date
      */
-    public CardEssentials withCardEffectiveDateIndicator(Boolean value) {
+    public CardBinDetails withCardEffectiveDateIndicator(Boolean value) {
         this.cardEffectiveDateIndicator = value;
-        return this;
-    }
-
-    /**
-     * The masked credit/debit card number
-     */
-    public String getCardNumber() {
-        return cardNumber;
-    }
-
-    /**
-     * The masked credit/debit card number
-     */
-    public void setCardNumber(String value) {
-        this.cardNumber = value;
-    }
-
-    /**
-     * The masked credit/debit card number
-     */
-    public CardEssentials withCardNumber(String value) {
-        this.cardNumber = value;
         return this;
     }
 
@@ -189,7 +139,7 @@ public class CardEssentials {
      *   <li>{@code pan} Real PAN</li>
      * </ul>
      */
-    public CardEssentials withCardPanType(String value) {
+    public CardBinDetails withCardPanType(String value) {
         this.cardPanType = value;
         return this;
     }
@@ -211,7 +161,7 @@ public class CardEssentials {
     /**
      * Product code of the card
      */
-    public CardEssentials withCardProductCode(String value) {
+    public CardBinDetails withCardProductCode(String value) {
         this.cardProductCode = value;
         return this;
     }
@@ -233,7 +183,7 @@ public class CardEssentials {
     /**
      * Product name of the card
      */
-    public CardEssentials withCardProductName(String value) {
+    public CardBinDetails withCardProductName(String value) {
         this.cardProductName = value;
         return this;
     }
@@ -273,7 +223,7 @@ public class CardEssentials {
      *   <li>{@code prepaid} Prepaid card</li>
      * </ul>
      */
-    public CardEssentials withCardProductUsageLabel(String value) {
+    public CardBinDetails withCardProductUsageLabel(String value) {
         this.cardProductUsageLabel = value;
         return this;
     }
@@ -337,7 +287,7 @@ public class CardEssentials {
      *   <li>{@code Visa} Visa scheme</li>
      * </ul>
      */
-    public CardEssentials withCardScheme(String value) {
+    public CardBinDetails withCardScheme(String value) {
         this.cardScheme = value;
         return this;
     }
@@ -374,7 +324,7 @@ public class CardEssentials {
      *   <li>Prepaid</li>
      * </ul>
      */
-    public CardEssentials withCardType(String value) {
+    public CardBinDetails withCardType(String value) {
         this.cardType = value;
         return this;
     }
@@ -396,33 +346,8 @@ public class CardEssentials {
     /**
      * ISO 3166-1 alpha-2 country code
      */
-    public CardEssentials withCountryCode(String value) {
+    public CardBinDetails withCountryCode(String value) {
         this.countryCode = value;
-        return this;
-    }
-
-    /**
-     * Expiry date of the card
-     * Format: MMYY
-     */
-    public String getExpiryDate() {
-        return expiryDate;
-    }
-
-    /**
-     * Expiry date of the card
-     * Format: MMYY
-     */
-    public void setExpiryDate(String value) {
-        this.expiryDate = value;
-    }
-
-    /**
-     * Expiry date of the card
-     * Format: MMYY
-     */
-    public CardEssentials withExpiryDate(String value) {
-        this.expiryDate = value;
         return this;
     }
 
@@ -443,7 +368,7 @@ public class CardEssentials {
     /**
      * Issuer code of the card
      */
-    public CardEssentials withIssuerCode(String value) {
+    public CardBinDetails withIssuerCode(String value) {
         this.issuerCode = value;
         return this;
     }
@@ -465,7 +390,7 @@ public class CardEssentials {
     /**
      * Issuer name of the card
      */
-    public CardEssentials withIssuerName(String value) {
+    public CardBinDetails withIssuerName(String value) {
         this.issuerName = value;
         return this;
     }
@@ -535,7 +460,7 @@ public class CardEssentials {
      *   <li>{@code e} Africa and Middle East</li>
      * </ul>
      */
-    public CardEssentials withIssuerRegionCode(String value) {
+    public CardBinDetails withIssuerRegionCode(String value) {
         this.issuerRegionCode = value;
         return this;
     }
@@ -557,7 +482,7 @@ public class CardEssentials {
     /**
      * ISO 3166-1 alpha-2 country code in which the card has been issued
      */
-    public CardEssentials withIssuingCountryCode(String value) {
+    public CardBinDetails withIssuingCountryCode(String value) {
         this.issuingCountryCode = value;
         return this;
     }
@@ -579,7 +504,7 @@ public class CardEssentials {
     /**
      * Maximum length of the PAN
      */
-    public CardEssentials withPanLengthMax(Integer value) {
+    public CardBinDetails withPanLengthMax(Integer value) {
         this.panLengthMax = value;
         return this;
     }
@@ -601,7 +526,7 @@ public class CardEssentials {
     /**
      * Minimal length of the PAN
      */
-    public CardEssentials withPanLengthMin(Integer value) {
+    public CardBinDetails withPanLengthMin(Integer value) {
         this.panLengthMin = value;
         return this;
     }
@@ -623,7 +548,7 @@ public class CardEssentials {
     /**
      * Indicates whether the PAN is controlled with Lühn Key algorithm
      */
-    public CardEssentials withPanLuhnCheck(Boolean value) {
+    public CardBinDetails withPanLuhnCheck(Boolean value) {
         this.panLuhnCheck = value;
         return this;
     }
@@ -645,7 +570,7 @@ public class CardEssentials {
     /**
      * Indicates whether the card is a virtual card
      */
-    public CardEssentials withVirtualCardIndicator(Boolean value) {
+    public CardBinDetails withVirtualCardIndicator(Boolean value) {
         this.virtualCardIndicator = value;
         return this;
     }

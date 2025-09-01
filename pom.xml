@@ -5,7 +5,7 @@
 
     <groupId>com.worldline-solutions</groupId>
     <artifactId>onlinepayments-sdk-java</artifactId>
-    <version>6.0.0</version>
+    <version>6.1.0</version>
     <packaging>jar</packaging>
 
     <name>onlinepayments-sdk-java</name>
@@ -388,17 +388,6 @@
         <profile>
             <id>release</id>
 
-            <distributionManagement>
-                <repository>
-                    <id>ossrh</id>
-                    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-                <snapshotRepository>
-                    <id>ossrh</id>
-                    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-                </snapshotRepository>
-            </distributionManagement>
-
             <build>
                 <plugins>
                     <plugin>
@@ -421,16 +410,17 @@
                             </execution>
                         </executions>
                     </plugin>
-
                     <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.13</version>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.7.0</version>
                         <extensions>true</extensions>
                         <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <publishingServerId>central</publishingServerId>
+                            <centralSnapshotsUrl>https://central.sonatype.com/repository/maven-snapshots/</centralSnapshotsUrl>
+                            <deploymentName>${project.artifactId}-${project.version}</deploymentName>
+                            <autoPublish>true</autoPublish>
+                            <waitUntil>published</waitUntil>
                         </configuration>
                     </plugin>
                 </plugins>

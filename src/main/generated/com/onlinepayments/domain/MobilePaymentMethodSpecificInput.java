@@ -14,6 +14,8 @@ public class MobilePaymentMethodSpecificInput {
 
     private String ephemeralKey;
 
+    private MobilePaymentProduct302SpecificInput paymentProduct302SpecificInput;
+
     private MobilePaymentProduct320SpecificInput paymentProduct320SpecificInput;
 
     private Integer paymentProductId;
@@ -140,6 +142,28 @@ public class MobilePaymentMethodSpecificInput {
      */
     public MobilePaymentMethodSpecificInput withEphemeralKey(String value) {
         this.ephemeralKey = value;
+        return this;
+    }
+
+    /**
+     * Object containing information specific to Apple Pay.
+     */
+    public MobilePaymentProduct302SpecificInput getPaymentProduct302SpecificInput() {
+        return paymentProduct302SpecificInput;
+    }
+
+    /**
+     * Object containing information specific to Apple Pay.
+     */
+    public void setPaymentProduct302SpecificInput(MobilePaymentProduct302SpecificInput value) {
+        this.paymentProduct302SpecificInput = value;
+    }
+
+    /**
+     * Object containing information specific to Apple Pay.
+     */
+    public MobilePaymentMethodSpecificInput withPaymentProduct302SpecificInput(MobilePaymentProduct302SpecificInput value) {
+        this.paymentProduct302SpecificInput = value;
         return this;
     }
 

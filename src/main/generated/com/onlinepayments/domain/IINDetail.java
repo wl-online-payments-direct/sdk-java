@@ -18,6 +18,8 @@ public class IINDetail {
 
     private String cardProductCode;
 
+    private String cardProductName;
+
     private String cardProductUsageLabel;
 
     private String cardScheme;
@@ -32,6 +34,8 @@ public class IINDetail {
 
     private String issuerName;
 
+    private String issuerRegionCode;
+
     private String issuingCountryCode;
 
     private Integer panLengthMax;
@@ -41,6 +45,8 @@ public class IINDetail {
     private Boolean panLuhnCheck;
 
     private Integer paymentProductId;
+
+    private Boolean virtualCardIndicator;
 
     /**
      * Indicates whether the card is an Enterprise / Commercial card or not
@@ -161,6 +167,28 @@ public class IINDetail {
      */
     public IINDetail withCardProductCode(String value) {
         this.cardProductCode = value;
+        return this;
+    }
+
+    /**
+     * Product name of the card
+     */
+    public String getCardProductName() {
+        return cardProductName;
+    }
+
+    /**
+     * Product name of the card
+     */
+    public void setCardProductName(String value) {
+        this.cardProductName = value;
+    }
+
+    /**
+     * Product name of the card
+     */
+    public IINDetail withCardProductName(String value) {
+        this.cardProductName = value;
         return this;
     }
 
@@ -406,6 +434,76 @@ public class IINDetail {
     }
 
     /**
+     * Region code of the card issuer
+     * <ul>
+     *   <li>{@code 1} USA: California, Hawaii, Nevada</li>
+     *   <li>{@code 2} USA: West except California, Hawaii, Nevada</li>
+     *   <li>{@code 3} USA: Central North</li>
+     *   <li>{@code 4} USA: Central South</li>
+     *   <li>{@code 5} USA: Great Lakes states</li>
+     *   <li>{@code 6} USA: South East</li>
+     *   <li>{@code 7} USA: Extreme North East</li>
+     *   <li>{@code 8} USA: North East</li>
+     *   <li>{@code 9} USA: Florida and Georgia</li>
+     *   <li>{@code a} Canada</li>
+     *   <li>{@code b} South America</li>
+     *   <li>{@code c} Oceania and Asia</li>
+     *   <li>{@code d} Europe</li>
+     *   <li>{@code e} Africa and Middle East</li>
+     * </ul>
+     */
+    public String getIssuerRegionCode() {
+        return issuerRegionCode;
+    }
+
+    /**
+     * Region code of the card issuer
+     * <ul>
+     *   <li>{@code 1} USA: California, Hawaii, Nevada</li>
+     *   <li>{@code 2} USA: West except California, Hawaii, Nevada</li>
+     *   <li>{@code 3} USA: Central North</li>
+     *   <li>{@code 4} USA: Central South</li>
+     *   <li>{@code 5} USA: Great Lakes states</li>
+     *   <li>{@code 6} USA: South East</li>
+     *   <li>{@code 7} USA: Extreme North East</li>
+     *   <li>{@code 8} USA: North East</li>
+     *   <li>{@code 9} USA: Florida and Georgia</li>
+     *   <li>{@code a} Canada</li>
+     *   <li>{@code b} South America</li>
+     *   <li>{@code c} Oceania and Asia</li>
+     *   <li>{@code d} Europe</li>
+     *   <li>{@code e} Africa and Middle East</li>
+     * </ul>
+     */
+    public void setIssuerRegionCode(String value) {
+        this.issuerRegionCode = value;
+    }
+
+    /**
+     * Region code of the card issuer
+     * <ul>
+     *   <li>{@code 1} USA: California, Hawaii, Nevada</li>
+     *   <li>{@code 2} USA: West except California, Hawaii, Nevada</li>
+     *   <li>{@code 3} USA: Central North</li>
+     *   <li>{@code 4} USA: Central South</li>
+     *   <li>{@code 5} USA: Great Lakes states</li>
+     *   <li>{@code 6} USA: South East</li>
+     *   <li>{@code 7} USA: Extreme North East</li>
+     *   <li>{@code 8} USA: North East</li>
+     *   <li>{@code 9} USA: Florida and Georgia</li>
+     *   <li>{@code a} Canada</li>
+     *   <li>{@code b} South America</li>
+     *   <li>{@code c} Oceania and Asia</li>
+     *   <li>{@code d} Europe</li>
+     *   <li>{@code e} Africa and Middle East</li>
+     * </ul>
+     */
+    public IINDetail withIssuerRegionCode(String value) {
+        this.issuerRegionCode = value;
+        return this;
+    }
+
+    /**
      * ISO 3166-1 alpha-2 country code in which the card has been issued
      */
     public String getIssuingCountryCode() {
@@ -512,6 +610,28 @@ public class IINDetail {
      */
     public IINDetail withPaymentProductId(Integer value) {
         this.paymentProductId = value;
+        return this;
+    }
+
+    /**
+     * Indicates whether the card is a virtual card
+     */
+    public Boolean getVirtualCardIndicator() {
+        return virtualCardIndicator;
+    }
+
+    /**
+     * Indicates whether the card is a virtual card
+     */
+    public void setVirtualCardIndicator(Boolean value) {
+        this.virtualCardIndicator = value;
+    }
+
+    /**
+     * Indicates whether the card is a virtual card
+     */
+    public IINDetail withVirtualCardIndicator(Boolean value) {
+        this.virtualCardIndicator = value;
         return this;
     }
 }
