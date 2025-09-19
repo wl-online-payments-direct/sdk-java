@@ -36,12 +36,12 @@ public final class HeaderObfuscator {
      */
     public static Builder custom() {
         return new Builder()
-                .obfuscateWithFixedLength(8, "X-GCS-Authentication-Token")
-                .obfuscateWithFixedLength(8, "X-GCS-CallerPassword")
-                .obfuscateWithFixedLength(8, "Authorization")
-                .obfuscateWithFixedLength(8, "WWW-Authenticate")
-                .obfuscateWithFixedLength(8, "Proxy-Authenticate")
-                .obfuscateWithFixedLength(8, "Proxy-Authorization");
+            .obfuscateWithFixedLength(8, "X-GCS-Authentication-Token")
+            .obfuscateWithFixedLength(8, "X-GCS-CallerPassword")
+            .obfuscateWithFixedLength(8, "Authorization")
+            .obfuscateWithFixedLength(8, "WWW-Authenticate")
+            .obfuscateWithFixedLength(8, "Proxy-Authenticate")
+            .obfuscateWithFixedLength(8, "Proxy-Authorization");
     }
 
     /**

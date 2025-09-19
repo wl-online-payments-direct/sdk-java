@@ -19,7 +19,7 @@ import com.onlinepayments.json.DefaultMarshaller;
  */
 public class DefaultMetadataProvider implements MetadataProvider {
 
-    private static final String SDK_VERSION = "6.1.0";
+    private static final String SDK_VERSION = "6.2.0";
 
     private static final String SERVER_META_INFO_HEADER = "X-GCS-ServerMetaInfo";
     static final Set<String> PROHIBITED_HEADERS;

@@ -10,6 +10,8 @@ public class RefundRequest {
 
     private String captureId;
 
+    private OmnichannelRefundSpecificInput omnichannelRefundSpecificInput;
+
     private OperationPaymentReferences operationReferences;
 
     private String reason;
@@ -57,6 +59,28 @@ public class RefundRequest {
      */
     public RefundRequest withCaptureId(String value) {
         this.captureId = value;
+        return this;
+    }
+
+    /**
+     * Object containing the additional refund details for an Omnichannel merchant
+     */
+    public OmnichannelRefundSpecificInput getOmnichannelRefundSpecificInput() {
+        return omnichannelRefundSpecificInput;
+    }
+
+    /**
+     * Object containing the additional refund details for an Omnichannel merchant
+     */
+    public void setOmnichannelRefundSpecificInput(OmnichannelRefundSpecificInput value) {
+        this.omnichannelRefundSpecificInput = value;
+    }
+
+    /**
+     * Object containing the additional refund details for an Omnichannel merchant
+     */
+    public RefundRequest withOmnichannelRefundSpecificInput(OmnichannelRefundSpecificInput value) {
+        this.omnichannelRefundSpecificInput = value;
         return this;
     }
 
