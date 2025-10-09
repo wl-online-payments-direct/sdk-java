@@ -18,6 +18,7 @@ import com.onlinepayments.merchant.products.ProductsClientInterface;
 import com.onlinepayments.merchant.refunds.RefundsClientInterface;
 import com.onlinepayments.merchant.services.ServicesClientInterface;
 import com.onlinepayments.merchant.sessions.SessionsClientInterface;
+import com.onlinepayments.merchant.subsequent.SubsequentClientInterface;
 import com.onlinepayments.merchant.tokens.TokensClientInterface;
 import com.onlinepayments.merchant.webhooks.WebhooksClientInterface;
 
@@ -67,6 +68,13 @@ public interface MerchantClientInterface {
      * @return CompleteClientInterface
      */
     CompleteClientInterface complete();
+
+    /**
+     * Resource /v2/{merchantId}/payments/{paymentId}/subsequent
+     *
+     * @return SubsequentClientInterface
+     */
+    SubsequentClientInterface subsequent();
 
     /**
      * Resource /v2/{merchantId}/productgroups

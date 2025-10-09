@@ -14,6 +14,7 @@ import com.onlinepayments.communication.ResponseException;
 import com.onlinepayments.domain.CreatePaymentLinkRequest;
 import com.onlinepayments.domain.ErrorResponse;
 import com.onlinepayments.domain.PaymentLinkResponse;
+import com.onlinepayments.domain.PaymentLinksResponse;
 
 /**
  * PaymentLinks client. Thread-safe.
@@ -24,6 +25,30 @@ public class PaymentLinksClient extends ApiResource implements PaymentLinksClien
 
     public PaymentLinksClient(ApiResource parent, Map<String, String> pathContext) {
         super(parent, pathContext);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public PaymentLinksResponse getPaymentLinksInBulk(GetPaymentLinksInBulkParams query) {
+        return getPaymentLinksInBulk(query, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public PaymentLinksResponse getPaymentLinksInBulk(GetPaymentLinksInBulkParams query, CallContext context) {
+        String uri = instantiateUri("/v2/{merchantId}/paymentlinks", null);
+        try {
+            return communicator.get(
+                    uri,
+                    getClientHeaders(),
+                    query,
+                    PaymentLinksResponse.class,
+                    context);
+        } catch (ResponseException e) {
+            final Class<?> errorType = ErrorResponse.class;
+            final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+            throw EXCEPTION_FACTORY.createException(e.getStatusCode(), e.getBody(), errorObject, context);
+        }
     }
 
     /** {@inheritDoc} */

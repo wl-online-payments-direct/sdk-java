@@ -50,21 +50,21 @@ public class PaymentErrorResponse {
     }
 
     /**
-     * Object that contains details on the created payment in case one has been created.
+     * This object contains details about the created payment if one has been generated.
      */
     public CreatePaymentResponse getPaymentResult() {
         return paymentResult;
     }
 
     /**
-     * Object that contains details on the created payment in case one has been created.
+     * This object contains details about the created payment if one has been generated.
      */
     public void setPaymentResult(CreatePaymentResponse value) {
         this.paymentResult = value;
     }
 
     /**
-     * Object that contains details on the created payment in case one has been created.
+     * This object contains details about the created payment if one has been generated.
      */
     public PaymentErrorResponse withPaymentResult(CreatePaymentResponse value) {
         this.paymentResult = value;

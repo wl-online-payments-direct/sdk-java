@@ -206,21 +206,21 @@ public class CreatePayoutRequest {
     }
 
     /**
-     * Object containing the additional payout details for a Omnichannel merchants
+     * Object containing the additional payout details for an Omnichannel merchant
      */
     public OmnichannelPayoutSpecificInput getOmnichannelPayoutSpecificInput() {
         return omnichannelPayoutSpecificInput;
     }
 
     /**
-     * Object containing the additional payout details for a Omnichannel merchants
+     * Object containing the additional payout details for an Omnichannel merchant
      */
     public void setOmnichannelPayoutSpecificInput(OmnichannelPayoutSpecificInput value) {
         this.omnichannelPayoutSpecificInput = value;
     }
 
     /**
-     * Object containing the additional payout details for a Omnichannel merchants
+     * Object containing the additional payout details for an Omnichannel merchant
      */
     public CreatePayoutRequest withOmnichannelPayoutSpecificInput(OmnichannelPayoutSpecificInput value) {
         this.omnichannelPayoutSpecificInput = value;

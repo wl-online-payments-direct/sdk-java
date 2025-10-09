@@ -32,6 +32,8 @@ public class CardPaymentMethodSpecificInput {
 
     private PaymentProduct3012SpecificInput paymentProduct3012SpecificInput;
 
+    private PaymentProduct3013SpecificInput paymentProduct3013SpecificInput;
+
     private PaymentProduct3208SpecificInput paymentProduct3208SpecificInput;
 
     private PaymentProduct3209SpecificInput paymentProduct3209SpecificInput;
@@ -413,6 +415,28 @@ public class CardPaymentMethodSpecificInput {
      */
     public CardPaymentMethodSpecificInput withPaymentProduct3012SpecificInput(PaymentProduct3012SpecificInput value) {
         this.paymentProduct3012SpecificInput = value;
+        return this;
+    }
+
+    /**
+     * An object containing specific input required for VISA purchasing authorization.
+     */
+    public PaymentProduct3013SpecificInput getPaymentProduct3013SpecificInput() {
+        return paymentProduct3013SpecificInput;
+    }
+
+    /**
+     * An object containing specific input required for VISA purchasing authorization.
+     */
+    public void setPaymentProduct3013SpecificInput(PaymentProduct3013SpecificInput value) {
+        this.paymentProduct3013SpecificInput = value;
+    }
+
+    /**
+     * An object containing specific input required for VISA purchasing authorization.
+     */
+    public CardPaymentMethodSpecificInput withPaymentProduct3013SpecificInput(PaymentProduct3013SpecificInput value) {
+        this.paymentProduct3013SpecificInput = value;
         return this;
     }
 

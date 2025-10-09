@@ -87,7 +87,7 @@ public interface TokensClientInterface {
     void deleteToken(String tokenId, CallContext context);
 
     /**
-     * Resource /v2/{merchantId}/tokens - Create token
+     * Resource /v2/{merchantId}/tokens - Please create a token.
      *
      * @param body CreateTokenRequest
      * @return CreatedTokenResponse
@@ -103,7 +103,7 @@ public interface TokensClientInterface {
     CreatedTokenResponse createToken(CreateTokenRequest body);
 
     /**
-     * Resource /v2/{merchantId}/tokens - Create token
+     * Resource /v2/{merchantId}/tokens - Please create a token.
      *
      * @param body CreateTokenRequest
      * @param context CallContext

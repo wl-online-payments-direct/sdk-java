@@ -39,21 +39,21 @@ public class PaymentResponse {
     }
 
     /**
-     * Our unique payment transaction identifier
+     * This is our unique payment transaction identifier.
      */
     public String getId() {
         return id;
     }
 
     /**
-     * Our unique payment transaction identifier
+     * This is our unique payment transaction identifier.
      */
     public void setId(String value) {
         this.id = value;
     }
 
     /**
-     * Our unique payment transaction identifier
+     * This is our unique payment transaction identifier.
      */
     public PaymentResponse withId(String value) {
         this.id = value;
@@ -105,21 +105,21 @@ public class PaymentResponse {
     }
 
     /**
-     * This object has the numeric representation of the current payment status, timestamp of last status change and performable action on the current payment resource. In case of failed payments and negative scenarios, detailed error information is listed.
+     * This object has the numeric representation of the current payment status, the timestamp of the last status change, and the performable action on the current payment resource. In case of failed payments and negative scenarios, detailed error information is listed.
      */
     public PaymentStatusOutput getStatusOutput() {
         return statusOutput;
     }
 
     /**
-     * This object has the numeric representation of the current payment status, timestamp of last status change and performable action on the current payment resource. In case of failed payments and negative scenarios, detailed error information is listed.
+     * This object has the numeric representation of the current payment status, the timestamp of the last status change, and the performable action on the current payment resource. In case of failed payments and negative scenarios, detailed error information is listed.
      */
     public void setStatusOutput(PaymentStatusOutput value) {
         this.statusOutput = value;
     }
 
     /**
-     * This object has the numeric representation of the current payment status, timestamp of last status change and performable action on the current payment resource. In case of failed payments and negative scenarios, detailed error information is listed.
+     * This object has the numeric representation of the current payment status, the timestamp of the last status change, and the performable action on the current payment resource. In case of failed payments and negative scenarios, detailed error information is listed.
      */
     public PaymentResponse withStatusOutput(PaymentStatusOutput value) {
         this.statusOutput = value;

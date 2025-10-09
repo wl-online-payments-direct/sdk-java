@@ -244,24 +244,24 @@ public class CreatePaymentLinkRequest {
     }
 
     /**
-     * Order object containing order related data
-     * Please note that this object is required to be able to submit the amount.
+     * The order object contains order-related data;
+     * Please note that this object is required to submit the amount.
      */
     public Order getOrder() {
         return order;
     }
 
     /**
-     * Order object containing order related data
-     * Please note that this object is required to be able to submit the amount.
+     * The order object contains order-related data;
+     * Please note that this object is required to submit the amount.
      */
     public void setOrder(Order value) {
         this.order = value;
     }
 
     /**
-     * Order object containing order related data
-     * Please note that this object is required to be able to submit the amount.
+     * The order object contains order-related data;
+     * Please note that this object is required to submit the amount.
      */
     public CreatePaymentLinkRequest withOrder(Order value) {
         this.order = value;

@@ -203,36 +203,42 @@ public class CreateMandateWithReturnUrl {
     }
 
     /**
-     * Specifies whether the mandate is tick box, unsigned or signed by SMS. Possible values are:
+     * Specifies whether the mandate is unsigned, signed by SMS or tick box. Possible values are:
      * <ul>
      *   <li>UNSIGNED</li>
      *   <li>SMS</li>
-     *   <li>TICK_BOX - This option is only available for Equens Worldline</li>
+     *   <li>TICK_BOX</li>
      * </ul>
+     * <p>
+     * Refer to the support page to determine the applicable signature types.
      */
     public String getSignatureType() {
         return signatureType;
     }
 
     /**
-     * Specifies whether the mandate is tick box, unsigned or signed by SMS. Possible values are:
+     * Specifies whether the mandate is unsigned, signed by SMS or tick box. Possible values are:
      * <ul>
      *   <li>UNSIGNED</li>
      *   <li>SMS</li>
-     *   <li>TICK_BOX - This option is only available for Equens Worldline</li>
+     *   <li>TICK_BOX</li>
      * </ul>
+     * <p>
+     * Refer to the support page to determine the applicable signature types.
      */
     public void setSignatureType(String value) {
         this.signatureType = value;
     }
 
     /**
-     * Specifies whether the mandate is tick box, unsigned or signed by SMS. Possible values are:
+     * Specifies whether the mandate is unsigned, signed by SMS or tick box. Possible values are:
      * <ul>
      *   <li>UNSIGNED</li>
      *   <li>SMS</li>
-     *   <li>TICK_BOX - This option is only available for Equens Worldline</li>
+     *   <li>TICK_BOX</li>
      * </ul>
+     * <p>
+     * Refer to the support page to determine the applicable signature types.
      */
     public CreateMandateWithReturnUrl withSignatureType(String value) {
         this.signatureType = value;

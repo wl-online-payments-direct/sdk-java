@@ -37,21 +37,21 @@ public class CaptureResponse {
     }
 
     /**
-     * Our unique payment transaction identifier
+     * This is our unique payment transaction identifier.
      */
     public String getId() {
         return id;
     }
 
     /**
-     * Our unique payment transaction identifier
+     * This is our unique payment transaction identifier.
      */
     public void setId(String value) {
         this.id = value;
     }
 
     /**
-     * Our unique payment transaction identifier
+     * This is our unique payment transaction identifier.
      */
     public CaptureResponse withId(String value) {
         this.id = value;

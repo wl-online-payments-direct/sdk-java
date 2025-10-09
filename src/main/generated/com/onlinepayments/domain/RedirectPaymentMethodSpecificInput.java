@@ -30,6 +30,8 @@ public class RedirectPaymentMethodSpecificInput {
 
     private RedirectPaymentProduct5410SpecificInput paymentProduct5410SpecificInput;
 
+    private RedirectPaymentProduct5412SpecificInput paymentProduct5412SpecificInput;
+
     @SuppressWarnings("deprecation")
     private RedirectPaymentProduct809SpecificInput paymentProduct809SpecificInput;
 
@@ -306,6 +308,28 @@ public class RedirectPaymentMethodSpecificInput {
      */
     public RedirectPaymentMethodSpecificInput withPaymentProduct5410SpecificInput(RedirectPaymentProduct5410SpecificInput value) {
         this.paymentProduct5410SpecificInput = value;
+        return this;
+    }
+
+    /**
+     * Object containing specific input required for ChÃ¨que-Vacances Connect payments via ANCV (Payment product ID 5412)
+     */
+    public RedirectPaymentProduct5412SpecificInput getPaymentProduct5412SpecificInput() {
+        return paymentProduct5412SpecificInput;
+    }
+
+    /**
+     * Object containing specific input required for ChÃ¨que-Vacances Connect payments via ANCV (Payment product ID 5412)
+     */
+    public void setPaymentProduct5412SpecificInput(RedirectPaymentProduct5412SpecificInput value) {
+        this.paymentProduct5412SpecificInput = value;
+    }
+
+    /**
+     * Object containing specific input required for ChÃ¨que-Vacances Connect payments via ANCV (Payment product ID 5412)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct5412SpecificInput(RedirectPaymentProduct5412SpecificInput value) {
+        this.paymentProduct5412SpecificInput = value;
         return this;
     }
 

@@ -13,24 +13,24 @@ public class SubsequentPaymentRequest {
     private SubsequentCardPaymentMethodSpecificInput subsequentcardPaymentMethodSpecificInput;
 
     /**
-     * Order object containing order related data
-     * Please note that this object is required to be able to submit the amount.
+     * The order object contains order-related data;
+     * Please note that this object is required to submit the amount.
      */
     public Order getOrder() {
         return order;
     }
 
     /**
-     * Order object containing order related data
-     * Please note that this object is required to be able to submit the amount.
+     * The order object contains order-related data;
+     * Please note that this object is required to submit the amount.
      */
     public void setOrder(Order value) {
         this.order = value;
     }
 
     /**
-     * Order object containing order related data
-     * Please note that this object is required to be able to submit the amount.
+     * The order object contains order-related data;
+     * Please note that this object is required to submit the amount.
      */
     public SubsequentPaymentRequest withOrder(Order value) {
         this.order = value;
@@ -38,21 +38,21 @@ public class SubsequentPaymentRequest {
     }
 
     /**
-     * specific data required for Bizum subsequent payment
+     * Specific data is required for Bizum subsequent payment.
      */
     public SubsequentPaymentProduct5001SpecificInput getSubsequentPaymentProduct5001SpecificInput() {
         return subsequentPaymentProduct5001SpecificInput;
     }
 
     /**
-     * specific data required for Bizum subsequent payment
+     * Specific data is required for Bizum subsequent payment.
      */
     public void setSubsequentPaymentProduct5001SpecificInput(SubsequentPaymentProduct5001SpecificInput value) {
         this.subsequentPaymentProduct5001SpecificInput = value;
     }
 
     /**
-     * specific data required for Bizum subsequent payment
+     * Specific data is required for Bizum subsequent payment.
      */
     public SubsequentPaymentRequest withSubsequentPaymentProduct5001SpecificInput(SubsequentPaymentProduct5001SpecificInput value) {
         this.subsequentPaymentProduct5001SpecificInput = value;

@@ -238,14 +238,14 @@ public class ThreeDSecure {
     }
 
     /**
-     * Merchant fraud rate in the EEA (all EEA card fraud divided by all EEA card volumes) calculated as per PSD2 RTS. Mastercard will not calculate or validate the merchant fraud score
-     * Values accepted :
+     * The merchant fraud rate in the EEA is calculated as the total EEA card fraud divided by all EEA card volumes, as per PSD2 RTS. Mastercard will not calculate or validate the merchant fraud score.
+     * Accepted values are:
      * <ul>
-     *   <li>1 - represents fraud rate less than or equal to 1 basis point [bp], which is 0.01%</li>
-     *   <li>2 - represents fraud rate between 1 bp + - and 6 bps</li>
-     *   <li>3 - represents fraud rate between 6 bps + - and 13 bps</li>
-     *   <li>4 - represents fraud rate between 13 bps + - and 25 bps</li>
-     *   <li>5 - represents fraud rate greater than 25 bps</li>
+     *   <li>1 - represents a fraud rate less than or equal to 1 basis point (bp), which is 0.01%.</li>
+     *   <li>2 - represents a fraud rate between 1 bp and 6 bps.</li>
+     *   <li>3 - represents a fraud rate between 6 bps and 13 bps.</li>
+     *   <li>4 - represents a fraud rate between 13 bps and 25 bps.</li>
+     *   <li>5 - represents a fraud rate greater than 25 bps.</li>
      * </ul>
      */
     public Integer getMerchantFraudRate() {
@@ -253,14 +253,14 @@ public class ThreeDSecure {
     }
 
     /**
-     * Merchant fraud rate in the EEA (all EEA card fraud divided by all EEA card volumes) calculated as per PSD2 RTS. Mastercard will not calculate or validate the merchant fraud score
-     * Values accepted :
+     * The merchant fraud rate in the EEA is calculated as the total EEA card fraud divided by all EEA card volumes, as per PSD2 RTS. Mastercard will not calculate or validate the merchant fraud score.
+     * Accepted values are:
      * <ul>
-     *   <li>1 - represents fraud rate less than or equal to 1 basis point [bp], which is 0.01%</li>
-     *   <li>2 - represents fraud rate between 1 bp + - and 6 bps</li>
-     *   <li>3 - represents fraud rate between 6 bps + - and 13 bps</li>
-     *   <li>4 - represents fraud rate between 13 bps + - and 25 bps</li>
-     *   <li>5 - represents fraud rate greater than 25 bps</li>
+     *   <li>1 - represents a fraud rate less than or equal to 1 basis point (bp), which is 0.01%.</li>
+     *   <li>2 - represents a fraud rate between 1 bp and 6 bps.</li>
+     *   <li>3 - represents a fraud rate between 6 bps and 13 bps.</li>
+     *   <li>4 - represents a fraud rate between 13 bps and 25 bps.</li>
+     *   <li>5 - represents a fraud rate greater than 25 bps.</li>
      * </ul>
      */
     public void setMerchantFraudRate(Integer value) {
@@ -268,14 +268,14 @@ public class ThreeDSecure {
     }
 
     /**
-     * Merchant fraud rate in the EEA (all EEA card fraud divided by all EEA card volumes) calculated as per PSD2 RTS. Mastercard will not calculate or validate the merchant fraud score
-     * Values accepted :
+     * The merchant fraud rate in the EEA is calculated as the total EEA card fraud divided by all EEA card volumes, as per PSD2 RTS. Mastercard will not calculate or validate the merchant fraud score.
+     * Accepted values are:
      * <ul>
-     *   <li>1 - represents fraud rate less than or equal to 1 basis point [bp], which is 0.01%</li>
-     *   <li>2 - represents fraud rate between 1 bp + - and 6 bps</li>
-     *   <li>3 - represents fraud rate between 6 bps + - and 13 bps</li>
-     *   <li>4 - represents fraud rate between 13 bps + - and 25 bps</li>
-     *   <li>5 - represents fraud rate greater than 25 bps</li>
+     *   <li>1 - represents a fraud rate less than or equal to 1 basis point (bp), which is 0.01%.</li>
+     *   <li>2 - represents a fraud rate between 1 bp and 6 bps.</li>
+     *   <li>3 - represents a fraud rate between 6 bps and 13 bps.</li>
+     *   <li>4 - represents a fraud rate between 13 bps and 25 bps.</li>
+     *   <li>5 - represents a fraud rate greater than 25 bps.</li>
      * </ul>
      */
     public ThreeDSecure withMerchantFraudRate(Integer value) {
@@ -328,27 +328,21 @@ public class ThreeDSecure {
     }
 
     /**
-     * Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies Logically this field should only be set to yes if the
-     * acquirer exemption field is blank. A merchant cannot claim both acquirer exemption and  secure payment. However, the DS will not validate
-     * the conditions in the extension. DS will pass data as presented.
+     * Indicates that dedicated payment processes and procedures were used. A potential secure corporate payment exemption applies. Logically, this field should only be set to 'yes' if the acquirer exemption field is blank. A merchant cannot claim both acquirer exemption and secure payment. However, the DS will not validate the conditions in the extension; DS will pass data as presented.
      */
     public Boolean getSecureCorporatePayment() {
         return secureCorporatePayment;
     }
 
     /**
-     * Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies Logically this field should only be set to yes if the
-     * acquirer exemption field is blank. A merchant cannot claim both acquirer exemption and  secure payment. However, the DS will not validate
-     * the conditions in the extension. DS will pass data as presented.
+     * Indicates that dedicated payment processes and procedures were used. A potential secure corporate payment exemption applies. Logically, this field should only be set to 'yes' if the acquirer exemption field is blank. A merchant cannot claim both acquirer exemption and secure payment. However, the DS will not validate the conditions in the extension; DS will pass data as presented.
      */
     public void setSecureCorporatePayment(Boolean value) {
         this.secureCorporatePayment = value;
     }
 
     /**
-     * Indicates dedicated payment processes and procedures were used, potential secure corporate payment exemption applies Logically this field should only be set to yes if the
-     * acquirer exemption field is blank. A merchant cannot claim both acquirer exemption and  secure payment. However, the DS will not validate
-     * the conditions in the extension. DS will pass data as presented.
+     * Indicates that dedicated payment processes and procedures were used. A potential secure corporate payment exemption applies. Logically, this field should only be set to 'yes' if the acquirer exemption field is blank. A merchant cannot claim both acquirer exemption and secure payment. However, the DS will not validate the conditions in the extension; DS will pass data as presented.
      */
     public ThreeDSecure withSecureCorporatePayment(Boolean value) {
         this.secureCorporatePayment = value;

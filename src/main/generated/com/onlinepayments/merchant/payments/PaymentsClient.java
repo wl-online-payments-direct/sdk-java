@@ -24,8 +24,6 @@ import com.onlinepayments.domain.PaymentResponse;
 import com.onlinepayments.domain.RefundErrorResponse;
 import com.onlinepayments.domain.RefundRequest;
 import com.onlinepayments.domain.RefundResponse;
-import com.onlinepayments.domain.SubsequentPaymentRequest;
-import com.onlinepayments.domain.SubsequentPaymentResponse;
 
 /**
  * Payments client. Thread-safe.
@@ -191,33 +189,6 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
                     context);
         } catch (ResponseException e) {
             final Class<?> errorType = RefundErrorResponse.class;
-            final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
-            throw EXCEPTION_FACTORY.createException(e.getStatusCode(), e.getBody(), errorObject, context);
-        }
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public SubsequentPaymentResponse subsequentPayment(String paymentId, SubsequentPaymentRequest body) {
-        return subsequentPayment(paymentId, body, null);
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public SubsequentPaymentResponse subsequentPayment(String paymentId, SubsequentPaymentRequest body, CallContext context) {
-        Map<String, String> pathContext = new TreeMap<>();
-        pathContext.put("paymentId", paymentId);
-        String uri = instantiateUri("/v2/{merchantId}/payments/{paymentId}/subsequent", pathContext);
-        try {
-            return communicator.post(
-                    uri,
-                    getClientHeaders(),
-                    null,
-                    body,
-                    SubsequentPaymentResponse.class,
-                    context);
-        } catch (ResponseException e) {
-            final Class<?> errorType = PaymentErrorResponse.class;
             final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
             throw EXCEPTION_FACTORY.createException(e.getStatusCode(), e.getBody(), errorObject, context);
         }

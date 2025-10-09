@@ -22,22 +22,24 @@ public class Order {
 
     private SurchargeSpecificInput surchargeSpecificInput;
 
+    private Long totalTaxAmount;
+
     /**
-     * Object containing additional input on the order
+     * This object contains additional input on the order.
      */
     public AdditionalOrderInput getAdditionalInput() {
         return additionalInput;
     }
 
     /**
-     * Object containing additional input on the order
+     * This object contains additional input on the order.
      */
     public void setAdditionalInput(AdditionalOrderInput value) {
         this.additionalInput = value;
     }
 
     /**
-     * Object containing additional input on the order
+     * This object contains additional input on the order.
      */
     public Order withAdditionalInput(AdditionalOrderInput value) {
         this.additionalInput = value;
@@ -195,6 +197,28 @@ public class Order {
      */
     public Order withSurchargeSpecificInput(SurchargeSpecificInput value) {
         this.surchargeSpecificInput = value;
+        return this;
+    }
+
+    /**
+     * tax amount, in minor currency units of the order. Omit if not applicable or not known. This amount is assumed to be included in the order.AmountOfMoney for the payment. There is no validation on this field, outside the fact the amount should be lower than the total payment amount.
+     */
+    public Long getTotalTaxAmount() {
+        return totalTaxAmount;
+    }
+
+    /**
+     * tax amount, in minor currency units of the order. Omit if not applicable or not known. This amount is assumed to be included in the order.AmountOfMoney for the payment. There is no validation on this field, outside the fact the amount should be lower than the total payment amount.
+     */
+    public void setTotalTaxAmount(Long value) {
+        this.totalTaxAmount = value;
+    }
+
+    /**
+     * tax amount, in minor currency units of the order. Omit if not applicable or not known. This amount is assumed to be included in the order.AmountOfMoney for the payment. There is no validation on this field, outside the fact the amount should be lower than the total payment amount.
+     */
+    public Order withTotalTaxAmount(Long value) {
+        this.totalTaxAmount = value;
         return this;
     }
 }

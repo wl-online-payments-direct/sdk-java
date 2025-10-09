@@ -15,24 +15,21 @@ public class Card {
     private String expiryDate;
 
     /**
-     * The complete credit/debit card number (also know as the PAN)
-     * The card number is always obfuscated in any of our responses
+     * The complete credit/debit card number (also known as the PAN) is always obfuscated in any of our responses.
      */
     public String getCardNumber() {
         return cardNumber;
     }
 
     /**
-     * The complete credit/debit card number (also know as the PAN)
-     * The card number is always obfuscated in any of our responses
+     * The complete credit/debit card number (also known as the PAN) is always obfuscated in any of our responses.
      */
     public void setCardNumber(String value) {
         this.cardNumber = value;
     }
 
     /**
-     * The complete credit/debit card number (also know as the PAN)
-     * The card number is always obfuscated in any of our responses
+     * The complete credit/debit card number (also known as the PAN) is always obfuscated in any of our responses.
      */
     public Card withCardNumber(String value) {
         this.cardNumber = value;

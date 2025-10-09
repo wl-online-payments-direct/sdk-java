@@ -80,21 +80,21 @@ public class PaymentStatusOutput {
     }
 
     /**
-     * Flag indicating if the payment can be refunded
+     * This is a flag indicating whether the payment can be refunded.
      */
     public Boolean getIsRefundable() {
         return isRefundable;
     }
 
     /**
-     * Flag indicating if the payment can be refunded
+     * This is a flag indicating whether the payment can be refunded.
      */
     public void setIsRefundable(Boolean value) {
         this.isRefundable = value;
     }
 
     /**
-     * Flag indicating if the payment can be refunded
+     * This is a flag indicating whether the payment can be refunded.
      */
     public PaymentStatusOutput withIsRefundable(Boolean value) {
         this.isRefundable = value;

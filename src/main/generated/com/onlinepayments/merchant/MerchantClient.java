@@ -21,6 +21,7 @@ import com.onlinepayments.merchant.products.ProductsClient;
 import com.onlinepayments.merchant.refunds.RefundsClient;
 import com.onlinepayments.merchant.services.ServicesClient;
 import com.onlinepayments.merchant.sessions.SessionsClient;
+import com.onlinepayments.merchant.subsequent.SubsequentClient;
 import com.onlinepayments.merchant.tokens.TokensClient;
 import com.onlinepayments.merchant.webhooks.WebhooksClient;
 
@@ -67,6 +68,12 @@ public class MerchantClient extends ApiResource implements MerchantClientInterfa
     @Override
     public CompleteClient complete() {
         return new CompleteClient(this, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public SubsequentClient subsequent() {
+        return new SubsequentClient(this, null);
     }
 
     /** {@inheritDoc} */

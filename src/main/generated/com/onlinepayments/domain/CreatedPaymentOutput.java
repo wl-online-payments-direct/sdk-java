@@ -11,21 +11,21 @@ public class CreatedPaymentOutput {
     private String paymentStatusCategory;
 
     /**
-     * Object that holds the payment related properties
+     * This object holds the properties related to the payment.
      */
     public PaymentResponse getPayment() {
         return payment;
     }
 
     /**
-     * Object that holds the payment related properties
+     * This object holds the properties related to the payment.
      */
     public void setPayment(PaymentResponse value) {
         this.payment = value;
     }
 
     /**
-     * Object that holds the payment related properties
+     * This object holds the properties related to the payment.
      */
     public CreatedPaymentOutput withPayment(PaymentResponse value) {
         this.payment = value;

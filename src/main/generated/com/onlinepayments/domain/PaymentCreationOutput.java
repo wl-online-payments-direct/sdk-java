@@ -93,21 +93,21 @@ public class PaymentCreationOutput {
     }
 
     /**
-     * Indicates if tokenization was successful or not. If this value is false, then the token and isNewToken properties will not be set.
+     * Indicates if tokenization was successful or not. If this value is false, then the token and the isNewToken property will not be set.
      */
     public Boolean getTokenizationSucceeded() {
         return tokenizationSucceeded;
     }
 
     /**
-     * Indicates if tokenization was successful or not. If this value is false, then the token and isNewToken properties will not be set.
+     * Indicates if tokenization was successful or not. If this value is false, then the token and the isNewToken property will not be set.
      */
     public void setTokenizationSucceeded(Boolean value) {
         this.tokenizationSucceeded = value;
     }
 
     /**
-     * Indicates if tokenization was successful or not. If this value is false, then the token and isNewToken properties will not be set.
+     * Indicates if tokenization was successful or not. If this value is false, then the token and the isNewToken property will not be set.
      */
     public PaymentCreationOutput withTokenizationSucceeded(Boolean value) {
         this.tokenizationSucceeded = value;

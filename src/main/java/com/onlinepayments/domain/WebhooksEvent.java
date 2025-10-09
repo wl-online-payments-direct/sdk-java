@@ -12,6 +12,8 @@ public class WebhooksEvent {
 
     private String type;
 
+    private PaymentLinkResponse paymentlink;
+
     private PaymentResponse payment;
 
     private PayoutResponse payout;
@@ -58,6 +60,14 @@ public class WebhooksEvent {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public PaymentLinkResponse getPaymentlink() {
+        return paymentlink;
+    }
+
+    public void setPaymentlink(PaymentLinkResponse paymentlink) {
+        this.paymentlink = paymentlink;
     }
 
     public PaymentResponse getPayment() {
