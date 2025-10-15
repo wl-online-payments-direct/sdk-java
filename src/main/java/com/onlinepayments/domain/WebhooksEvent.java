@@ -1,3 +1,4 @@
+
 package com.onlinepayments.domain;
 
 public class WebhooksEvent {
@@ -12,7 +13,7 @@ public class WebhooksEvent {
 
     private String type;
 
-    private PaymentLinkResponse paymentlink;
+    private PaymentLinkResponse paymentLink;
 
     private PaymentResponse payment;
 
@@ -62,12 +63,12 @@ public class WebhooksEvent {
         this.type = type;
     }
 
-    public PaymentLinkResponse getPaymentlink() {
-        return paymentlink;
+    public PaymentLinkResponse getPaymentLink() {
+        return paymentLink;
     }
 
-    public void setPaymentlink(PaymentLinkResponse paymentlink) {
-        this.paymentlink = paymentlink;
+    public void setPaymentLink(PaymentLinkResponse paymentLink) {
+        this.paymentLink = paymentLink;
     }
 
     public PaymentResponse getPayment() {
