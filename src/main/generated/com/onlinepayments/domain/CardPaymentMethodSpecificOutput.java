@@ -16,6 +16,8 @@ public class CardPaymentMethodSpecificOutput {
 
     private ClickToPay clickToPay;
 
+    private String cobrandSelectionIndicator;
+
     private CurrencyConversion currencyConversion;
 
     private ExternalTokenLinked externalTokenLinked;
@@ -23,6 +25,8 @@ public class CardPaymentMethodSpecificOutput {
     private CardFraudResults fraudResults;
 
     private String initialSchemeTransactionId;
+
+    private NetworkTokenEssentials networkTokenData;
 
     private String paymentAccountReference;
 
@@ -152,6 +156,43 @@ public class CardPaymentMethodSpecificOutput {
         return this;
     }
 
+    /**
+     * For cobranded cards, this field indicates the brand selection method:
+     * <ul>
+     *   <li>default - The holder implicitly accepted the default brand.</li>
+     *   <li>alternative - The holder explicitly selected an alternative brand.</li>
+     *   <li>notApplicable - The card is not cobranded.</li>
+     * </ul>
+     */
+    public String getCobrandSelectionIndicator() {
+        return cobrandSelectionIndicator;
+    }
+
+    /**
+     * For cobranded cards, this field indicates the brand selection method:
+     * <ul>
+     *   <li>default - The holder implicitly accepted the default brand.</li>
+     *   <li>alternative - The holder explicitly selected an alternative brand.</li>
+     *   <li>notApplicable - The card is not cobranded.</li>
+     * </ul>
+     */
+    public void setCobrandSelectionIndicator(String value) {
+        this.cobrandSelectionIndicator = value;
+    }
+
+    /**
+     * For cobranded cards, this field indicates the brand selection method:
+     * <ul>
+     *   <li>default - The holder implicitly accepted the default brand.</li>
+     *   <li>alternative - The holder explicitly selected an alternative brand.</li>
+     *   <li>notApplicable - The card is not cobranded.</li>
+     * </ul>
+     */
+    public CardPaymentMethodSpecificOutput withCobrandSelectionIndicator(String value) {
+        this.cobrandSelectionIndicator = value;
+        return this;
+    }
+
     public CurrencyConversion getCurrencyConversion() {
         return currencyConversion;
     }
@@ -219,6 +260,28 @@ public class CardPaymentMethodSpecificOutput {
      */
     public CardPaymentMethodSpecificOutput withInitialSchemeTransactionId(String value) {
         this.initialSchemeTransactionId = value;
+        return this;
+    }
+
+    /**
+     * Object containing network token details
+     */
+    public NetworkTokenEssentials getNetworkTokenData() {
+        return networkTokenData;
+    }
+
+    /**
+     * Object containing network token details
+     */
+    public void setNetworkTokenData(NetworkTokenEssentials value) {
+        this.networkTokenData = value;
+    }
+
+    /**
+     * Object containing network token details
+     */
+    public CardPaymentMethodSpecificOutput withNetworkTokenData(NetworkTokenEssentials value) {
+        this.networkTokenData = value;
         return this;
     }
 

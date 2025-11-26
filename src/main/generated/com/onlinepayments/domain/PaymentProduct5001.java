@@ -4,6 +4,10 @@
 
 package com.onlinepayments.domain;
 
+/**
+ * @deprecated Deprecated by pendingAuthentication. Contains the third party data for payment product 5001 (Bizum)
+ */
+@Deprecated
 public class PaymentProduct5001 {
 
     private String message;

@@ -158,7 +158,7 @@ public class GetPaymentProductsParams implements ParamRequest {
      *   <li>translations - Do not return any label texts associated with the payment products</li>
      *   <li>productsWithoutFields - Do not return products that require any additional data to be captured</li>
      *   <li>productsWithoutInstructions - Do not return products that show instructions</li>
-     *   <li>productsWithRedirects - Do not return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden</li>
+     *   <li>productsWithRedirects - Do not return products that require a redirect to a third party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden</li>
      * </ul>
      */
     public List<String> getHide() {
@@ -173,7 +173,7 @@ public class GetPaymentProductsParams implements ParamRequest {
      *   <li>translations - Do not return any label texts associated with the payment products</li>
      *   <li>productsWithoutFields - Do not return products that require any additional data to be captured</li>
      *   <li>productsWithoutInstructions - Do not return products that show instructions</li>
-     *   <li>productsWithRedirects - Do not return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden</li>
+     *   <li>productsWithRedirects - Do not return products that require a redirect to a third party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden</li>
      * </ul>
      */
     public void setHide(List<String> value) {
@@ -188,7 +188,7 @@ public class GetPaymentProductsParams implements ParamRequest {
      *   <li>translations - Do not return any label texts associated with the payment products</li>
      *   <li>productsWithoutFields - Do not return products that require any additional data to be captured</li>
      *   <li>productsWithoutInstructions - Do not return products that show instructions</li>
-     *   <li>productsWithRedirects - Do not return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden</li>
+     *   <li>productsWithRedirects - Do not return products that require a redirect to a third party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden</li>
      * </ul>
      */
     public GetPaymentProductsParams withHide(List<String> value) {
@@ -204,7 +204,7 @@ public class GetPaymentProductsParams implements ParamRequest {
      *   <li>translations - Do not return any label texts associated with the payment products</li>
      *   <li>productsWithoutFields - Do not return products that require any additional data to be captured</li>
      *   <li>productsWithoutInstructions - Do not return products that show instructions</li>
-     *   <li>productsWithRedirects - Do not return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden</li>
+     *   <li>productsWithRedirects - Do not return products that require a redirect to a third party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden</li>
      * </ul>
      */
     public void addHide(String value) {

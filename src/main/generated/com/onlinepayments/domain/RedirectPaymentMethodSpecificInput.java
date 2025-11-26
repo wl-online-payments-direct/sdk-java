@@ -224,21 +224,21 @@ public class RedirectPaymentMethodSpecificInput {
     }
 
     /**
-     * Object containing specific input required for Chèque-Vacances Connect payments (Payment product ID 5403)
+     * Object containing specific input required for Chèque-Vacances Connect payments via Limonetik (Payment product ID 5403)
      */
     public RedirectPaymentProduct5403SpecificInput getPaymentProduct5403SpecificInput() {
         return paymentProduct5403SpecificInput;
     }
 
     /**
-     * Object containing specific input required for Chèque-Vacances Connect payments (Payment product ID 5403)
+     * Object containing specific input required for Chèque-Vacances Connect payments via Limonetik (Payment product ID 5403)
      */
     public void setPaymentProduct5403SpecificInput(RedirectPaymentProduct5403SpecificInput value) {
         this.paymentProduct5403SpecificInput = value;
     }
 
     /**
-     * Object containing specific input required for Chèque-Vacances Connect payments (Payment product ID 5403)
+     * Object containing specific input required for Chèque-Vacances Connect payments via Limonetik (Payment product ID 5403)
      */
     public RedirectPaymentMethodSpecificInput withPaymentProduct5403SpecificInput(RedirectPaymentProduct5403SpecificInput value) {
         this.paymentProduct5403SpecificInput = value;
@@ -312,21 +312,21 @@ public class RedirectPaymentMethodSpecificInput {
     }
 
     /**
-     * Object containing specific input required for ChÃ¨que-Vacances Connect payments via ANCV (Payment product ID 5412)
+     * Object containing specific input required for Chèque-Vacances Connect payments via ANCV (Payment product ID 5412)
      */
     public RedirectPaymentProduct5412SpecificInput getPaymentProduct5412SpecificInput() {
         return paymentProduct5412SpecificInput;
     }
 
     /**
-     * Object containing specific input required for ChÃ¨que-Vacances Connect payments via ANCV (Payment product ID 5412)
+     * Object containing specific input required for Chèque-Vacances Connect payments via ANCV (Payment product ID 5412)
      */
     public void setPaymentProduct5412SpecificInput(RedirectPaymentProduct5412SpecificInput value) {
         this.paymentProduct5412SpecificInput = value;
     }
 
     /**
-     * Object containing specific input required for ChÃ¨que-Vacances Connect payments via ANCV (Payment product ID 5412)
+     * Object containing specific input required for Chèque-Vacances Connect payments via ANCV (Payment product ID 5412)
      */
     public RedirectPaymentMethodSpecificInput withPaymentProduct5412SpecificInput(RedirectPaymentProduct5412SpecificInput value) {
         this.paymentProduct5412SpecificInput = value;

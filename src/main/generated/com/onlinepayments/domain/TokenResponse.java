@@ -16,6 +16,8 @@ public class TokenResponse {
 
     private Boolean isTemporary;
 
+    private NetworkTokenLinked networkTokenLinked;
+
     private Integer paymentProductId;
 
     /**
@@ -116,6 +118,28 @@ public class TokenResponse {
      */
     public TokenResponse withIsTemporary(Boolean value) {
         this.isTemporary = value;
+        return this;
+    }
+
+    /**
+     * Represents a linked network token
+     */
+    public NetworkTokenLinked getNetworkTokenLinked() {
+        return networkTokenLinked;
+    }
+
+    /**
+     * Represents a linked network token
+     */
+    public void setNetworkTokenLinked(NetworkTokenLinked value) {
+        this.networkTokenLinked = value;
+    }
+
+    /**
+     * Represents a linked network token
+     */
+    public TokenResponse withNetworkTokenLinked(NetworkTokenLinked value) {
+        this.networkTokenLinked = value;
         return this;
     }
 

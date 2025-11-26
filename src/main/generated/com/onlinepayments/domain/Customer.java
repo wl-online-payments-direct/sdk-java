@@ -220,21 +220,21 @@ public class Customer {
     }
 
     /**
-     * The locale that the customer should be addressed in (for 3rd parties). Note that some 3rd party providers only support the languageCode part of the locale, in those cases we will only use part of the locale provided.
+     * The locale that the customer should be addressed in (for 3rd parties). Note that some third party providers only support the languageCode part of the locale, in those cases we will only use part of the locale provided.
      */
     public String getLocale() {
         return locale;
     }
 
     /**
-     * The locale that the customer should be addressed in (for 3rd parties). Note that some 3rd party providers only support the languageCode part of the locale, in those cases we will only use part of the locale provided.
+     * The locale that the customer should be addressed in (for 3rd parties). Note that some third party providers only support the languageCode part of the locale, in those cases we will only use part of the locale provided.
      */
     public void setLocale(String value) {
         this.locale = value;
     }
 
     /**
-     * The locale that the customer should be addressed in (for 3rd parties). Note that some 3rd party providers only support the languageCode part of the locale, in those cases we will only use part of the locale provided.
+     * The locale that the customer should be addressed in (for 3rd parties). Note that some third party providers only support the languageCode part of the locale, in those cases we will only use part of the locale provided.
      */
     public Customer withLocale(String value) {
         this.locale = value;

@@ -10,6 +10,8 @@ public class HostedCheckoutSpecificInput {
 
     private CardPaymentMethodSpecificInputForHostedCheckout cardPaymentMethodSpecificInput;
 
+    private Boolean isNewUnscheduledCardOnFileSeries;
+
     private Boolean isRecurring;
 
     private String locale;
@@ -67,6 +69,37 @@ public class HostedCheckoutSpecificInput {
      */
     public HostedCheckoutSpecificInput withCardPaymentMethodSpecificInput(CardPaymentMethodSpecificInputForHostedCheckout value) {
         this.cardPaymentMethodSpecificInput = value;
+        return this;
+    }
+
+    /**
+     * <ul>
+     *   <li>true - A new unscheduled credentials on file series will be started. You will be able to use the paymentID of this transaction to initiate subsequent merchant initiated transactions. In the EU, the current transaction should be authenticated.</li>
+     *   <li>false - Default. No new card on file series created.</li>
+     * </ul>
+     */
+    public Boolean getIsNewUnscheduledCardOnFileSeries() {
+        return isNewUnscheduledCardOnFileSeries;
+    }
+
+    /**
+     * <ul>
+     *   <li>true - A new unscheduled credentials on file series will be started. You will be able to use the paymentID of this transaction to initiate subsequent merchant initiated transactions. In the EU, the current transaction should be authenticated.</li>
+     *   <li>false - Default. No new card on file series created.</li>
+     * </ul>
+     */
+    public void setIsNewUnscheduledCardOnFileSeries(Boolean value) {
+        this.isNewUnscheduledCardOnFileSeries = value;
+    }
+
+    /**
+     * <ul>
+     *   <li>true - A new unscheduled credentials on file series will be started. You will be able to use the paymentID of this transaction to initiate subsequent merchant initiated transactions. In the EU, the current transaction should be authenticated.</li>
+     *   <li>false - Default. No new card on file series created.</li>
+     * </ul>
+     */
+    public HostedCheckoutSpecificInput withIsNewUnscheduledCardOnFileSeries(Boolean value) {
+        this.isNewUnscheduledCardOnFileSeries = value;
         return this;
     }
 
@@ -252,21 +285,21 @@ public class HostedCheckoutSpecificInput {
     }
 
     /**
-     * It is possible to upload multiple templates of your payment pages using the Merchant Portal. You can force the use of a custom template by specifying it in the variant field. This allows you to test out the effect of certain changes to your payment pages in a controlled manner. Please note that you need to specify the filename of the template or customization.
+     * You can force the use of a custom template by specifying it in the variant field. This allows you to test out the effect of certain changes to your payment pages in a controlled manner. Please note that you need to specify the filename of the template or customization.
      */
     public String getVariant() {
         return variant;
     }
 
     /**
-     * It is possible to upload multiple templates of your payment pages using the Merchant Portal. You can force the use of a custom template by specifying it in the variant field. This allows you to test out the effect of certain changes to your payment pages in a controlled manner. Please note that you need to specify the filename of the template or customization.
+     * You can force the use of a custom template by specifying it in the variant field. This allows you to test out the effect of certain changes to your payment pages in a controlled manner. Please note that you need to specify the filename of the template or customization.
      */
     public void setVariant(String value) {
         this.variant = value;
     }
 
     /**
-     * It is possible to upload multiple templates of your payment pages using the Merchant Portal. You can force the use of a custom template by specifying it in the variant field. This allows you to test out the effect of certain changes to your payment pages in a controlled manner. Please note that you need to specify the filename of the template or customization.
+     * You can force the use of a custom template by specifying it in the variant field. This allows you to test out the effect of certain changes to your payment pages in a controlled manner. Please note that you need to specify the filename of the template or customization.
      */
     public HostedCheckoutSpecificInput withVariant(String value) {
         this.variant = value;
