@@ -16,6 +16,8 @@ public class GPayThreeDSecure {
 
     private Boolean skipAuthentication;
 
+    private Boolean skipSoftDecline;
+
     /**
      * Dimensions of the challenge window that potentially will be displayed to the customer. The challenge content is formatted to appropriately render in this window to provide the best possible user experience. Preconfigured sizes are width x height in pixels of the window displayed in the customer browser window. Possible values are
      * <ul>
@@ -213,6 +215,43 @@ public class GPayThreeDSecure {
      */
     public GPayThreeDSecure withSkipAuthentication(Boolean value) {
         this.skipAuthentication = value;
+        return this;
+    }
+
+    /**
+     * <ul>
+     *   <li>true = Soft Decline retry mechanism will be skipped for this transaction. The transaction will result in &quot;Authorization Declined&quot; status. This setting should be used when skipAuthentication is set to true and the merchant does not want to use Soft Decline retry mechanism.</li>
+     *   <li>false = Soft Decline retry mechanism will not be skipped for this transaction.</li>
+     * </ul>
+     * <p>
+     * Note: skipSoftDecline defaults to false if empty. This is only possible if your account in our system is setup for 3D Secure authentication and if your configuration in our system allows you to override it per transaction.
+     */
+    public Boolean getSkipSoftDecline() {
+        return skipSoftDecline;
+    }
+
+    /**
+     * <ul>
+     *   <li>true = Soft Decline retry mechanism will be skipped for this transaction. The transaction will result in &quot;Authorization Declined&quot; status. This setting should be used when skipAuthentication is set to true and the merchant does not want to use Soft Decline retry mechanism.</li>
+     *   <li>false = Soft Decline retry mechanism will not be skipped for this transaction.</li>
+     * </ul>
+     * <p>
+     * Note: skipSoftDecline defaults to false if empty. This is only possible if your account in our system is setup for 3D Secure authentication and if your configuration in our system allows you to override it per transaction.
+     */
+    public void setSkipSoftDecline(Boolean value) {
+        this.skipSoftDecline = value;
+    }
+
+    /**
+     * <ul>
+     *   <li>true = Soft Decline retry mechanism will be skipped for this transaction. The transaction will result in &quot;Authorization Declined&quot; status. This setting should be used when skipAuthentication is set to true and the merchant does not want to use Soft Decline retry mechanism.</li>
+     *   <li>false = Soft Decline retry mechanism will not be skipped for this transaction.</li>
+     * </ul>
+     * <p>
+     * Note: skipSoftDecline defaults to false if empty. This is only possible if your account in our system is setup for 3D Secure authentication and if your configuration in our system allows you to override it per transaction.
+     */
+    public GPayThreeDSecure withSkipSoftDecline(Boolean value) {
+        this.skipSoftDecline = value;
         return this;
     }
 }

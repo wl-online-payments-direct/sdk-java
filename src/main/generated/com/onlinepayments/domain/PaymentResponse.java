@@ -12,6 +12,8 @@ public class PaymentResponse {
 
     private PaymentOutput paymentOutput;
 
+    private SessionDetails sessionDetails;
+
     private String status;
 
     private PaymentStatusOutput statusOutput;
@@ -79,6 +81,28 @@ public class PaymentResponse {
      */
     public PaymentResponse withPaymentOutput(PaymentOutput value) {
         this.paymentOutput = value;
+        return this;
+    }
+
+    /**
+     * Session context information. This denotes the origin of the payment session, where the session originated from and that session's unique identifier
+     */
+    public SessionDetails getSessionDetails() {
+        return sessionDetails;
+    }
+
+    /**
+     * Session context information. This denotes the origin of the payment session, where the session originated from and that session's unique identifier
+     */
+    public void setSessionDetails(SessionDetails value) {
+        this.sessionDetails = value;
+    }
+
+    /**
+     * Session context information. This denotes the origin of the payment session, where the session originated from and that session's unique identifier
+     */
+    public PaymentResponse withSessionDetails(SessionDetails value) {
+        this.sessionDetails = value;
         return this;
     }
 

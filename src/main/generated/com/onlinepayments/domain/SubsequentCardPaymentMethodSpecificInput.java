@@ -8,6 +8,8 @@ public class SubsequentCardPaymentMethodSpecificInput {
 
     private String authorizationMode;
 
+    private MarketPlace marketPlace;
+
     private Integer paymentNumber;
 
     private String schemeReferenceData;
@@ -58,6 +60,37 @@ public class SubsequentCardPaymentMethodSpecificInput {
      */
     public SubsequentCardPaymentMethodSpecificInput withAuthorizationMode(String value) {
         this.authorizationMode = value;
+        return this;
+    }
+
+    /**
+     * Object containing marketplace-related data for additional information on sub-merchants (retailers) transacting via the marketplace’s platform.
+     * This object is required for platforms onboarding multiple sellers to ensure accurate identification and attribution of each transaction.
+     * The platform must collect and submit the retailer’s country and regional information in accordance with card scheme requirements.
+     * In some cases, Visa may treat specific regions—such as EU member states—as a single country entity for regulatory and reporting purposes.
+     */
+    public MarketPlace getMarketPlace() {
+        return marketPlace;
+    }
+
+    /**
+     * Object containing marketplace-related data for additional information on sub-merchants (retailers) transacting via the marketplace’s platform.
+     * This object is required for platforms onboarding multiple sellers to ensure accurate identification and attribution of each transaction.
+     * The platform must collect and submit the retailer’s country and regional information in accordance with card scheme requirements.
+     * In some cases, Visa may treat specific regions—such as EU member states—as a single country entity for regulatory and reporting purposes.
+     */
+    public void setMarketPlace(MarketPlace value) {
+        this.marketPlace = value;
+    }
+
+    /**
+     * Object containing marketplace-related data for additional information on sub-merchants (retailers) transacting via the marketplace’s platform.
+     * This object is required for platforms onboarding multiple sellers to ensure accurate identification and attribution of each transaction.
+     * The platform must collect and submit the retailer’s country and regional information in accordance with card scheme requirements.
+     * In some cases, Visa may treat specific regions—such as EU member states—as a single country entity for regulatory and reporting purposes.
+     */
+    public SubsequentCardPaymentMethodSpecificInput withMarketPlace(MarketPlace value) {
+        this.marketPlace = value;
         return this;
     }
 

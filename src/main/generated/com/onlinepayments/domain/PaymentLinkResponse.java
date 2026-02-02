@@ -21,6 +21,8 @@ public class PaymentLinkResponse {
 
     private PaymentLinkOrderOutput paymentLinkOrder;
 
+    private String qrCodeBase64;
+
     private String recipientName;
 
     private String redirectionUrl;
@@ -147,6 +149,28 @@ public class PaymentLinkResponse {
      */
     public PaymentLinkResponse withPaymentLinkOrder(PaymentLinkOrderOutput value) {
         this.paymentLinkOrder = value;
+        return this;
+    }
+
+    /**
+     * Base64 encoded QR code image containing the payment link URL. This field is only included in the response when displayQRCode is set to true in the request.
+     */
+    public String getQrCodeBase64() {
+        return qrCodeBase64;
+    }
+
+    /**
+     * Base64 encoded QR code image containing the payment link URL. This field is only included in the response when displayQRCode is set to true in the request.
+     */
+    public void setQrCodeBase64(String value) {
+        this.qrCodeBase64 = value;
+    }
+
+    /**
+     * Base64 encoded QR code image containing the payment link URL. This field is only included in the response when displayQRCode is set to true in the request.
+     */
+    public PaymentLinkResponse withQrCodeBase64(String value) {
+        this.qrCodeBase64 = value;
         return this;
     }
 

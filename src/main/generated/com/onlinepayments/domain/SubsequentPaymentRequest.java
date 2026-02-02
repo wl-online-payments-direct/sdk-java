@@ -6,11 +6,35 @@ package com.onlinepayments.domain;
 
 public class SubsequentPaymentRequest {
 
+    private OmnichannelSubsequentSpecificInput omnichannelSubsequentSpecificInput;
+
     private Order order;
 
     private SubsequentPaymentProduct5001SpecificInput subsequentPaymentProduct5001SpecificInput;
 
     private SubsequentCardPaymentMethodSpecificInput subsequentcardPaymentMethodSpecificInput;
+
+    /**
+     * This object contains additional subsequent details for omnichannel merchants.
+     */
+    public OmnichannelSubsequentSpecificInput getOmnichannelSubsequentSpecificInput() {
+        return omnichannelSubsequentSpecificInput;
+    }
+
+    /**
+     * This object contains additional subsequent details for omnichannel merchants.
+     */
+    public void setOmnichannelSubsequentSpecificInput(OmnichannelSubsequentSpecificInput value) {
+        this.omnichannelSubsequentSpecificInput = value;
+    }
+
+    /**
+     * This object contains additional subsequent details for omnichannel merchants.
+     */
+    public SubsequentPaymentRequest withOmnichannelSubsequentSpecificInput(OmnichannelSubsequentSpecificInput value) {
+        this.omnichannelSubsequentSpecificInput = value;
+        return this;
+    }
 
     /**
      * The order object contains order-related data;

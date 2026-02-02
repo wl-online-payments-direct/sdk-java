@@ -112,14 +112,14 @@ public interface MerchantClientInterface {
     SessionsClientInterface sessions();
 
     /**
-     * Resource /v2/{merchantId}/tokens/{tokenId}
+     * Resource /v2/{merchantId}/tokens
      *
      * @return TokensClientInterface
      */
     TokensClientInterface tokens();
 
     /**
-     * Resource /v2/{merchantId}/payouts/{payoutId}
+     * Resource /v2/{merchantId}/payouts
      *
      * @return PayoutsClientInterface
      */

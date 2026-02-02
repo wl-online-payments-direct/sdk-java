@@ -14,6 +14,8 @@ public class CardPaymentMethodSpecificInputBase {
 
     private String initialSchemeTransactionId;
 
+    private MarketPlace marketPlace;
+
     private MultiplePaymentInformation multiplePaymentInformation;
 
     private PaymentProduct130SpecificInput paymentProduct130SpecificInput;
@@ -159,6 +161,37 @@ public class CardPaymentMethodSpecificInputBase {
      */
     public CardPaymentMethodSpecificInputBase withInitialSchemeTransactionId(String value) {
         this.initialSchemeTransactionId = value;
+        return this;
+    }
+
+    /**
+     * Object containing marketplace-related data for additional information on sub-merchants (retailers) transacting via the marketplace’s platform.
+     * This object is required for platforms onboarding multiple sellers to ensure accurate identification and attribution of each transaction.
+     * The platform must collect and submit the retailer’s country and regional information in accordance with card scheme requirements.
+     * In some cases, Visa may treat specific regions—such as EU member states—as a single country entity for regulatory and reporting purposes.
+     */
+    public MarketPlace getMarketPlace() {
+        return marketPlace;
+    }
+
+    /**
+     * Object containing marketplace-related data for additional information on sub-merchants (retailers) transacting via the marketplace’s platform.
+     * This object is required for platforms onboarding multiple sellers to ensure accurate identification and attribution of each transaction.
+     * The platform must collect and submit the retailer’s country and regional information in accordance with card scheme requirements.
+     * In some cases, Visa may treat specific regions—such as EU member states—as a single country entity for regulatory and reporting purposes.
+     */
+    public void setMarketPlace(MarketPlace value) {
+        this.marketPlace = value;
+    }
+
+    /**
+     * Object containing marketplace-related data for additional information on sub-merchants (retailers) transacting via the marketplace’s platform.
+     * This object is required for platforms onboarding multiple sellers to ensure accurate identification and attribution of each transaction.
+     * The platform must collect and submit the retailer’s country and regional information in accordance with card scheme requirements.
+     * In some cases, Visa may treat specific regions—such as EU member states—as a single country entity for regulatory and reporting purposes.
+     */
+    public CardPaymentMethodSpecificInputBase withMarketPlace(MarketPlace value) {
+        this.marketPlace = value;
         return this;
     }
 
@@ -405,33 +438,21 @@ public class CardPaymentMethodSpecificInputBase {
     }
 
     /**
-     * Indicates if this transaction should be tokenized
-     * <ul>
-     *   <li>true - Tokenize the transaction. Note that a payment on the payment platform that results in a status REDIRECTED cannot be tokenized in this way.</li>
-     *   <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.</li>
-     * </ul>
+     * Indicates if this transaction should be tokenized * true - Tokenize the transaction. * false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments. Note: This property is deprecated for Hosted Checkout integrations. It has been deprecated by hostedCheckoutSpecificInput.cardPaymentMethodSpecificInput.tokenizationMode.
      */
     public Boolean getTokenize() {
         return tokenize;
     }
 
     /**
-     * Indicates if this transaction should be tokenized
-     * <ul>
-     *   <li>true - Tokenize the transaction. Note that a payment on the payment platform that results in a status REDIRECTED cannot be tokenized in this way.</li>
-     *   <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.</li>
-     * </ul>
+     * Indicates if this transaction should be tokenized * true - Tokenize the transaction. * false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments. Note: This property is deprecated for Hosted Checkout integrations. It has been deprecated by hostedCheckoutSpecificInput.cardPaymentMethodSpecificInput.tokenizationMode.
      */
     public void setTokenize(Boolean value) {
         this.tokenize = value;
     }
 
     /**
-     * Indicates if this transaction should be tokenized
-     * <ul>
-     *   <li>true - Tokenize the transaction. Note that a payment on the payment platform that results in a status REDIRECTED cannot be tokenized in this way.</li>
-     *   <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.</li>
-     * </ul>
+     * Indicates if this transaction should be tokenized * true - Tokenize the transaction. * false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments. Note: This property is deprecated for Hosted Checkout integrations. It has been deprecated by hostedCheckoutSpecificInput.cardPaymentMethodSpecificInput.tokenizationMode.
      */
     public CardPaymentMethodSpecificInputBase withTokenize(Boolean value) {
         this.tokenize = value;

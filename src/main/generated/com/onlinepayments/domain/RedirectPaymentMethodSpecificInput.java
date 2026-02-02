@@ -8,6 +8,8 @@ public class RedirectPaymentMethodSpecificInput {
 
     private String paymentOption;
 
+    private RedirectPaymentProduct11SpecificInput paymentProduct11SpecificInput;
+
     private RedirectPaymentProduct3203SpecificInput paymentProduct3203SpecificInput;
 
     private RedirectPaymentProduct3204SpecificInput paymentProduct3204SpecificInput;
@@ -15,6 +17,8 @@ public class RedirectPaymentMethodSpecificInput {
     private RedirectPaymentProduct3302SpecificInput paymentProduct3302SpecificInput;
 
     private RedirectPaymentProduct3306SpecificInput paymentProduct3306SpecificInput;
+
+    private RedirectPaymentProduct3307SpecificInput paymentProduct3307SpecificInput;
 
     private RedirectPaymentProduct5001SpecificInput paymentProduct5001SpecificInput;
 
@@ -66,6 +70,28 @@ public class RedirectPaymentMethodSpecificInput {
      */
     public RedirectPaymentMethodSpecificInput withPaymentOption(String value) {
         this.paymentOption = value;
+        return this;
+    }
+
+    /**
+     * Object contains the inputs required to perform a bank transfer using payment product 11.
+     */
+    public RedirectPaymentProduct11SpecificInput getPaymentProduct11SpecificInput() {
+        return paymentProduct11SpecificInput;
+    }
+
+    /**
+     * Object contains the inputs required to perform a bank transfer using payment product 11.
+     */
+    public void setPaymentProduct11SpecificInput(RedirectPaymentProduct11SpecificInput value) {
+        this.paymentProduct11SpecificInput = value;
+    }
+
+    /**
+     * Object contains the inputs required to perform a bank transfer using payment product 11.
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct11SpecificInput(RedirectPaymentProduct11SpecificInput value) {
+        this.paymentProduct11SpecificInput = value;
         return this;
     }
 
@@ -154,6 +180,28 @@ public class RedirectPaymentMethodSpecificInput {
      */
     public RedirectPaymentMethodSpecificInput withPaymentProduct3306SpecificInput(RedirectPaymentProduct3306SpecificInput value) {
         this.paymentProduct3306SpecificInput = value;
+        return this;
+    }
+
+    /**
+     * Object containing specific input required for Klarna payments (Payment product ID 3307)
+     */
+    public RedirectPaymentProduct3307SpecificInput getPaymentProduct3307SpecificInput() {
+        return paymentProduct3307SpecificInput;
+    }
+
+    /**
+     * Object containing specific input required for Klarna payments (Payment product ID 3307)
+     */
+    public void setPaymentProduct3307SpecificInput(RedirectPaymentProduct3307SpecificInput value) {
+        this.paymentProduct3307SpecificInput = value;
+    }
+
+    /**
+     * Object containing specific input required for Klarna payments (Payment product ID 3307)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct3307SpecificInput(RedirectPaymentProduct3307SpecificInput value) {
+        this.paymentProduct3307SpecificInput = value;
         return this;
     }
 

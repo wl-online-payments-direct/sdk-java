@@ -4,7 +4,7 @@
 
 package com.onlinepayments.domain;
 
-public class CreditCardValidationRulesHostedTokenization {
+public class CreditCardValidationRules {
 
     private Boolean cvvMandatoryForExistingToken;
 
@@ -27,7 +27,7 @@ public class CreditCardValidationRulesHostedTokenization {
     /**
      * Determines whether the Card Verification Value must be provided for existing tokens. This option overrides the payment method configuration for the session.
      */
-    public CreditCardValidationRulesHostedTokenization withCvvMandatoryForExistingToken(Boolean value) {
+    public CreditCardValidationRules withCvvMandatoryForExistingToken(Boolean value) {
         this.cvvMandatoryForExistingToken = value;
         return this;
     }
@@ -49,7 +49,7 @@ public class CreditCardValidationRulesHostedTokenization {
     /**
      * Determines whether the Card Verification Value must be provided for new tokens. This option overrides the payment method configuration for the session.
      */
-    public CreditCardValidationRulesHostedTokenization withCvvMandatoryForNewToken(Boolean value) {
+    public CreditCardValidationRules withCvvMandatoryForNewToken(Boolean value) {
         this.cvvMandatoryForNewToken = value;
         return this;
     }

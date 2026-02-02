@@ -29,6 +29,31 @@ public class TokensClient extends ApiResource implements TokensClientInterface {
 
     /** {@inheritDoc} */
     @Override
+    public CreatedTokenResponse createToken(CreateTokenRequest body) {
+        return createToken(body, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public CreatedTokenResponse createToken(CreateTokenRequest body, CallContext context) {
+        String uri = instantiateUri("/v2/{merchantId}/tokens", null);
+        try {
+            return communicator.post(
+                    uri,
+                    getClientHeaders(),
+                    null,
+                    body,
+                    CreatedTokenResponse.class,
+                    context);
+        } catch (ResponseException e) {
+            final Class<?> errorType = ErrorResponse.class;
+            final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+            throw EXCEPTION_FACTORY.createException(e.getStatusCode(), e.getBody(), errorObject, context);
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
     public TokenResponse getToken(String tokenId) {
         return getToken(tokenId, null);
     }
@@ -71,31 +96,6 @@ public class TokensClient extends ApiResource implements TokensClientInterface {
                     getClientHeaders(),
                     null,
                     void.class,
-                    context);
-        } catch (ResponseException e) {
-            final Class<?> errorType = ErrorResponse.class;
-            final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
-            throw EXCEPTION_FACTORY.createException(e.getStatusCode(), e.getBody(), errorObject, context);
-        }
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public CreatedTokenResponse createToken(CreateTokenRequest body) {
-        return createToken(body, null);
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public CreatedTokenResponse createToken(CreateTokenRequest body, CallContext context) {
-        String uri = instantiateUri("/v2/{merchantId}/tokens", null);
-        try {
-            return communicator.post(
-                    uri,
-                    getClientHeaders(),
-                    null,
-                    body,
-                    CreatedTokenResponse.class,
                     context);
         } catch (ResponseException e) {
             final Class<?> errorType = ErrorResponse.class;

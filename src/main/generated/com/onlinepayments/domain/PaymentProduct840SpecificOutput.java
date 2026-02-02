@@ -14,7 +14,11 @@ public class PaymentProduct840SpecificOutput {
 
     private Address customerAddress;
 
+    private String payPalTransactionId;
+
     private ProtectionEligibility protectionEligibility;
+
+    private AddressPersonal shippingAddress;
 
     /**
      * Object containing billing address details.
@@ -105,6 +109,28 @@ public class PaymentProduct840SpecificOutput {
     }
 
     /**
+     * Id of a transaction given by PayPal
+     */
+    public String getPayPalTransactionId() {
+        return payPalTransactionId;
+    }
+
+    /**
+     * Id of a transaction given by PayPal
+     */
+    public void setPayPalTransactionId(String value) {
+        this.payPalTransactionId = value;
+    }
+
+    /**
+     * Id of a transaction given by PayPal
+     */
+    public PaymentProduct840SpecificOutput withPayPalTransactionId(String value) {
+        this.payPalTransactionId = value;
+        return this;
+    }
+
+    /**
      * Kind of seller protection in force for the PayPal transaction
      */
     public ProtectionEligibility getProtectionEligibility() {
@@ -123,6 +149,28 @@ public class PaymentProduct840SpecificOutput {
      */
     public PaymentProduct840SpecificOutput withProtectionEligibility(ProtectionEligibility value) {
         this.protectionEligibility = value;
+        return this;
+    }
+
+    /**
+     * Object containing address information
+     */
+    public AddressPersonal getShippingAddress() {
+        return shippingAddress;
+    }
+
+    /**
+     * Object containing address information
+     */
+    public void setShippingAddress(AddressPersonal value) {
+        this.shippingAddress = value;
+    }
+
+    /**
+     * Object containing address information
+     */
+    public PaymentProduct840SpecificOutput withShippingAddress(AddressPersonal value) {
+        this.shippingAddress = value;
         return this;
     }
 }

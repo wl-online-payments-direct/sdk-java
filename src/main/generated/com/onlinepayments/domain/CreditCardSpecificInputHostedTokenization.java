@@ -8,19 +8,28 @@ import java.util.List;
 
 public class CreditCardSpecificInputHostedTokenization {
 
-    private CreditCardValidationRulesHostedTokenization ValidationRules;
+    private CreditCardValidationRules ValidationRules;
 
     private List<Integer> paymentProductPreferredOrder;
 
-    public CreditCardValidationRulesHostedTokenization getValidationRules() {
+    /**
+     * Object containing specific validation rules for creditCard.
+     */
+    public CreditCardValidationRules getValidationRules() {
         return ValidationRules;
     }
 
-    public void setValidationRules(CreditCardValidationRulesHostedTokenization value) {
+    /**
+     * Object containing specific validation rules for creditCard.
+     */
+    public void setValidationRules(CreditCardValidationRules value) {
         this.ValidationRules = value;
     }
 
-    public CreditCardSpecificInputHostedTokenization withValidationRules(CreditCardValidationRulesHostedTokenization value) {
+    /**
+     * Object containing specific validation rules for creditCard.
+     */
+    public CreditCardSpecificInputHostedTokenization withValidationRules(CreditCardValidationRules value) {
         this.ValidationRules = value;
         return this;
     }

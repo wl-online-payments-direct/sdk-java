@@ -8,6 +8,8 @@ public class CreatedTokenResponse {
 
     private CardWithoutCvv card;
 
+    private CrmToken crmToken;
+
     private ExternalTokenLinked externalTokenLinked;
 
     private Boolean isNewToken;
@@ -26,6 +28,28 @@ public class CreatedTokenResponse {
 
     public CreatedTokenResponse withCard(CardWithoutCvv value) {
         this.card = value;
+        return this;
+    }
+
+    /**
+     * The CRM (Customer Relationship Management) token group. CRM tokens are available to enhance knowledge of a merchant's customers by attempting to identify the customer.
+     */
+    public CrmToken getCrmToken() {
+        return crmToken;
+    }
+
+    /**
+     * The CRM (Customer Relationship Management) token group. CRM tokens are available to enhance knowledge of a merchant's customers by attempting to identify the customer.
+     */
+    public void setCrmToken(CrmToken value) {
+        this.crmToken = value;
+    }
+
+    /**
+     * The CRM (Customer Relationship Management) token group. CRM tokens are available to enhance knowledge of a merchant's customers by attempting to identify the customer.
+     */
+    public CreatedTokenResponse withCrmToken(CrmToken value) {
+        this.crmToken = value;
         return this;
     }
 

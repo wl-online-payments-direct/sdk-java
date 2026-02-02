@@ -29,6 +29,31 @@ public class PayoutsClient extends ApiResource implements PayoutsClientInterface
 
     /** {@inheritDoc} */
     @Override
+    public PayoutResponse createPayout(CreatePayoutRequest body) {
+        return createPayout(body, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public PayoutResponse createPayout(CreatePayoutRequest body, CallContext context) {
+        String uri = instantiateUri("/v2/{merchantId}/payouts", null);
+        try {
+            return communicator.post(
+                    uri,
+                    getClientHeaders(),
+                    null,
+                    body,
+                    PayoutResponse.class,
+                    context);
+        } catch (ResponseException e) {
+            final Class<?> errorType = PayoutErrorResponse.class;
+            final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+            throw EXCEPTION_FACTORY.createException(e.getStatusCode(), e.getBody(), errorObject, context);
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
     public PayoutResponse getPayout(String payoutId) {
         return getPayout(payoutId, null);
     }
@@ -48,31 +73,6 @@ public class PayoutsClient extends ApiResource implements PayoutsClientInterface
                     context);
         } catch (ResponseException e) {
             final Class<?> errorType = ErrorResponse.class;
-            final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
-            throw EXCEPTION_FACTORY.createException(e.getStatusCode(), e.getBody(), errorObject, context);
-        }
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public PayoutResponse createPayout(CreatePayoutRequest body) {
-        return createPayout(body, null);
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public PayoutResponse createPayout(CreatePayoutRequest body, CallContext context) {
-        String uri = instantiateUri("/v2/{merchantId}/payouts", null);
-        try {
-            return communicator.post(
-                    uri,
-                    getClientHeaders(),
-                    null,
-                    body,
-                    PayoutResponse.class,
-                    context);
-        } catch (ResponseException e) {
-            final Class<?> errorType = PayoutErrorResponse.class;
             final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
             throw EXCEPTION_FACTORY.createException(e.getStatusCode(), e.getBody(), errorObject, context);
         }

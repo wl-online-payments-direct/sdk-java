@@ -330,21 +330,21 @@ public class CardBinDetails {
     }
 
     /**
-     * ISO 3166-1 alpha-2 country code
+     * ISO 3166-1 alpha-2 country code of the card issuer
      */
     public String getCountryCode() {
         return countryCode;
     }
 
     /**
-     * ISO 3166-1 alpha-2 country code
+     * ISO 3166-1 alpha-2 country code of the card issuer
      */
     public void setCountryCode(String value) {
         this.countryCode = value;
     }
 
     /**
-     * ISO 3166-1 alpha-2 country code
+     * ISO 3166-1 alpha-2 country code of the card issuer
      */
     public CardBinDetails withCountryCode(String value) {
         this.countryCode = value;

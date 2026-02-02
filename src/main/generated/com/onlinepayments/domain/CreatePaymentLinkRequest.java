@@ -12,6 +12,8 @@ public class CreatePaymentLinkRequest {
 
     private String description;
 
+    private Boolean displayQRCode;
+
     private ZonedDateTime expirationDate;
 
     private Feedbacks feedbacks;
@@ -93,6 +95,28 @@ public class CreatePaymentLinkRequest {
     @Deprecated
     public CreatePaymentLinkRequest withDescription(String value) {
         this.description = value;
+        return this;
+    }
+
+    /**
+     * Indicates whether to include a QR code in the response. When set to true, the response will contain a Base64 encoded QR code image containing the payment link URL.
+     */
+    public Boolean getDisplayQRCode() {
+        return displayQRCode;
+    }
+
+    /**
+     * Indicates whether to include a QR code in the response. When set to true, the response will contain a Base64 encoded QR code image containing the payment link URL.
+     */
+    public void setDisplayQRCode(Boolean value) {
+        this.displayQRCode = value;
+    }
+
+    /**
+     * Indicates whether to include a QR code in the response. When set to true, the response will contain a Base64 encoded QR code image containing the payment link URL.
+     */
+    public CreatePaymentLinkRequest withDisplayQRCode(Boolean value) {
+        this.displayQRCode = value;
         return this;
     }
 

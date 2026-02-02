@@ -4,11 +4,9 @@
 
 package com.onlinepayments.domain;
 
-public class OmnichannelPayoutSpecificInput {
+public class OmnichannelSubsequentSpecificInput {
 
     private String operatorId;
-
-    private String paymentId;
 
     /**
      * Merchants may optionally include a user identifier to indicate which person within their organization initiated this request, enabling detailed audit trails and transaction accountability.
@@ -30,30 +28,8 @@ public class OmnichannelPayoutSpecificInput {
      * Merchants may optionally include a user identifier to indicate which person within their organization initiated this request, enabling detailed audit trails and transaction accountability.
      * If not provided, the field defaults to the merchant ID.
      */
-    public OmnichannelPayoutSpecificInput withOperatorId(String value) {
+    public OmnichannelSubsequentSpecificInput withOperatorId(String value) {
         this.operatorId = value;
-        return this;
-    }
-
-    /**
-     * The Payment Id of the transaction (either in-store or online), from which you request to make a refund.
-     */
-    public String getPaymentId() {
-        return paymentId;
-    }
-
-    /**
-     * The Payment Id of the transaction (either in-store or online), from which you request to make a refund.
-     */
-    public void setPaymentId(String value) {
-        this.paymentId = value;
-    }
-
-    /**
-     * The Payment Id of the transaction (either in-store or online), from which you request to make a refund.
-     */
-    public OmnichannelPayoutSpecificInput withPaymentId(String value) {
-        this.paymentId = value;
         return this;
     }
 }

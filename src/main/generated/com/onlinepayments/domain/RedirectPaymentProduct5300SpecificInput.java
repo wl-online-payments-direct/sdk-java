@@ -20,6 +20,8 @@ public class RedirectPaymentProduct5300SpecificInput {
 
     private Integer sessionDuration;
 
+    private String title;
+
     /**
      * The city of the address where the customer was born
      */
@@ -171,6 +173,28 @@ public class RedirectPaymentProduct5300SpecificInput {
      */
     public RedirectPaymentProduct5300SpecificInput withSessionDuration(Integer value) {
         this.sessionDuration = value;
+        return this;
+    }
+
+    /**
+     * Descriptive text that is used towards the customer, either during an online checkout at a third party or on the customer's statement.
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * Descriptive text that is used towards the customer, either during an online checkout at a third party or on the customer's statement.
+     */
+    public void setTitle(String value) {
+        this.title = value;
+    }
+
+    /**
+     * Descriptive text that is used towards the customer, either during an online checkout at a third party or on the customer's statement.
+     */
+    public RedirectPaymentProduct5300SpecificInput withTitle(String value) {
+        this.title = value;
         return this;
     }
 }

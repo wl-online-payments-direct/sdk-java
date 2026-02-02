@@ -63,21 +63,21 @@ public class NetworkTokenData {
     }
 
     /**
-     * The Electronic Commerce Indicator you got with the Token Cryptogram.
+     * The Electronic Commerce Indicator linked to the Token Cryptogram that is provided by the token service provider during the generation of the Token Cryptogram.
      */
     public Integer getEci() {
         return eci;
     }
 
     /**
-     * The Electronic Commerce Indicator you got with the Token Cryptogram.
+     * The Electronic Commerce Indicator linked to the Token Cryptogram that is provided by the token service provider during the generation of the Token Cryptogram.
      */
     public void setEci(Integer value) {
         this.eci = value;
     }
 
     /**
-     * The Electronic Commerce Indicator you got with the Token Cryptogram.
+     * The Electronic Commerce Indicator linked to the Token Cryptogram that is provided by the token service provider during the generation of the Token Cryptogram.
      */
     public NetworkTokenData withEci(Integer value) {
         this.eci = value;
@@ -110,21 +110,21 @@ public class NetworkTokenData {
     }
 
     /**
-     * Identifies the Token Requestor when calling the token service provider.
+     * Token Requestor Identifier used with the token service provider during the creation of the Network Token. Depending on the acquirer, this data might be required in the authorization request. We advise you to provide it for all Network Token initiated transactions.
      */
     public String getSchemeTokenRequestorId() {
         return schemeTokenRequestorId;
     }
 
     /**
-     * Identifies the Token Requestor when calling the token service provider.
+     * Token Requestor Identifier used with the token service provider during the creation of the Network Token. Depending on the acquirer, this data might be required in the authorization request. We advise you to provide it for all Network Token initiated transactions.
      */
     public void setSchemeTokenRequestorId(String value) {
         this.schemeTokenRequestorId = value;
     }
 
     /**
-     * Identifies the Token Requestor when calling the token service provider.
+     * Token Requestor Identifier used with the token service provider during the creation of the Network Token. Depending on the acquirer, this data might be required in the authorization request. We advise you to provide it for all Network Token initiated transactions.
      */
     public NetworkTokenData withSchemeTokenRequestorId(String value) {
         this.schemeTokenRequestorId = value;

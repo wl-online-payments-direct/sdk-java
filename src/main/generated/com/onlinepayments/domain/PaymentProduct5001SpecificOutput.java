@@ -17,21 +17,21 @@ public class PaymentProduct5001SpecificOutput {
     private String operationCode;
 
     /**
-     * The account number used for this transaction
+     * The account number is associated with the funding.
      */
     public String getAccountNumber() {
         return accountNumber;
     }
 
     /**
-     * The account number used for this transaction
+     * The account number is associated with the funding.
      */
     public void setAccountNumber(String value) {
         this.accountNumber = value;
     }
 
     /**
-     * The account number used for this transaction
+     * The account number is associated with the funding.
      */
     public PaymentProduct5001SpecificOutput withAccountNumber(String value) {
         this.accountNumber = value;

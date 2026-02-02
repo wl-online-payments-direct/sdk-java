@@ -24,6 +24,8 @@ public class HostedCheckoutSpecificInput {
 
     private Boolean showResultPage;
 
+    private SplitPaymentProductFiltersHostedCheckout splitPaymentProductFilters;
+
     private String tokens;
 
     private String variant;
@@ -259,6 +261,28 @@ public class HostedCheckoutSpecificInput {
      */
     public HostedCheckoutSpecificInput withShowResultPage(Boolean value) {
         this.showResultPage = value;
+        return this;
+    }
+
+    /**
+     * Contains the payment product IDs and payment product groups that will be used to manage the payment products available for the following payments in a split payment. Note that this filter is applied after the paymentProductFilter has been applied. It cannot be used to enable split payments with payment products that were not already allowed by paymentProductFilter.
+     */
+    public SplitPaymentProductFiltersHostedCheckout getSplitPaymentProductFilters() {
+        return splitPaymentProductFilters;
+    }
+
+    /**
+     * Contains the payment product IDs and payment product groups that will be used to manage the payment products available for the following payments in a split payment. Note that this filter is applied after the paymentProductFilter has been applied. It cannot be used to enable split payments with payment products that were not already allowed by paymentProductFilter.
+     */
+    public void setSplitPaymentProductFilters(SplitPaymentProductFiltersHostedCheckout value) {
+        this.splitPaymentProductFilters = value;
+    }
+
+    /**
+     * Contains the payment product IDs and payment product groups that will be used to manage the payment products available for the following payments in a split payment. Note that this filter is applied after the paymentProductFilter has been applied. It cannot be used to enable split payments with payment products that were not already allowed by paymentProductFilter.
+     */
+    public HostedCheckoutSpecificInput withSplitPaymentProductFilters(SplitPaymentProductFiltersHostedCheckout value) {
+        this.splitPaymentProductFilters = value;
         return this;
     }
 
