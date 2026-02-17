@@ -8,8 +8,10 @@ import java.util.Map;
 
 import com.onlinepayments.ApiResource;
 import com.onlinepayments.merchant.captures.CapturesClient;
+import com.onlinepayments.merchant.cofseries.CofSeriesClient;
 import com.onlinepayments.merchant.complete.CompleteClient;
 import com.onlinepayments.merchant.hostedcheckout.HostedCheckoutClient;
+import com.onlinepayments.merchant.hostedfields.HostedFieldsClient;
 import com.onlinepayments.merchant.hostedtokenization.HostedTokenizationClient;
 import com.onlinepayments.merchant.mandates.MandatesClient;
 import com.onlinepayments.merchant.paymentlinks.PaymentLinksClient;
@@ -22,6 +24,7 @@ import com.onlinepayments.merchant.refunds.RefundsClient;
 import com.onlinepayments.merchant.services.ServicesClient;
 import com.onlinepayments.merchant.sessions.SessionsClient;
 import com.onlinepayments.merchant.subsequent.SubsequentClient;
+import com.onlinepayments.merchant.tokenization.TokenizationClient;
 import com.onlinepayments.merchant.tokens.TokensClient;
 import com.onlinepayments.merchant.webhooks.WebhooksClient;
 
@@ -44,6 +47,12 @@ public class MerchantClient extends ApiResource implements MerchantClientInterfa
     @Override
     public HostedTokenizationClient hostedTokenization() {
         return new HostedTokenizationClient(this, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public HostedFieldsClient hostedFields() {
+        return new HostedFieldsClient(this, null);
     }
 
     /** {@inheritDoc} */
@@ -110,6 +119,18 @@ public class MerchantClient extends ApiResource implements MerchantClientInterfa
     @Override
     public TokensClient tokens() {
         return new TokensClient(this, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public CofSeriesClient cofSeries() {
+        return new CofSeriesClient(this, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public TokenizationClient tokenization() {
+        return new TokenizationClient(this, null);
     }
 
     /** {@inheritDoc} */

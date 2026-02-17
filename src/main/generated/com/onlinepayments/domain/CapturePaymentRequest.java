@@ -4,11 +4,15 @@
 
 package com.onlinepayments.domain;
 
+import java.util.List;
+
 public class CapturePaymentRequest {
 
     private Long amount;
 
     private Boolean isFinal;
+
+    private List<LineItemDetail> lineItemDetails;
 
     private OperationPaymentReferences operationReferences;
 
@@ -61,6 +65,28 @@ public class CapturePaymentRequest {
      */
     public CapturePaymentRequest withIsFinal(Boolean value) {
         this.isFinal = value;
+        return this;
+    }
+
+    /**
+     * List of lineItemIds and quantities for capture/refund/cancellation.
+     */
+    public List<LineItemDetail> getLineItemDetails() {
+        return lineItemDetails;
+    }
+
+    /**
+     * List of lineItemIds and quantities for capture/refund/cancellation.
+     */
+    public void setLineItemDetails(List<LineItemDetail> value) {
+        this.lineItemDetails = value;
+    }
+
+    /**
+     * List of lineItemIds and quantities for capture/refund/cancellation.
+     */
+    public CapturePaymentRequest withLineItemDetails(List<LineItemDetail> value) {
+        this.lineItemDetails = value;
         return this;
     }
 

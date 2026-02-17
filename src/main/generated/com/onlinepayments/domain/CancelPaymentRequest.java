@@ -4,11 +4,15 @@
 
 package com.onlinepayments.domain;
 
+import java.util.List;
+
 public class CancelPaymentRequest {
 
     private AmountOfMoney amountOfMoney;
 
     private Boolean isFinal;
+
+    private List<LineItemDetail> lineItemDetails;
 
     private OperationPaymentReferences operationReferences;
 
@@ -53,6 +57,28 @@ public class CancelPaymentRequest {
      */
     public CancelPaymentRequest withIsFinal(Boolean value) {
         this.isFinal = value;
+        return this;
+    }
+
+    /**
+     * List of lineItemIds and quantities for capture/refund/cancellation.
+     */
+    public List<LineItemDetail> getLineItemDetails() {
+        return lineItemDetails;
+    }
+
+    /**
+     * List of lineItemIds and quantities for capture/refund/cancellation.
+     */
+    public void setLineItemDetails(List<LineItemDetail> value) {
+        this.lineItemDetails = value;
+    }
+
+    /**
+     * List of lineItemIds and quantities for capture/refund/cancellation.
+     */
+    public CancelPaymentRequest withLineItemDetails(List<LineItemDetail> value) {
+        this.lineItemDetails = value;
         return this;
     }
 

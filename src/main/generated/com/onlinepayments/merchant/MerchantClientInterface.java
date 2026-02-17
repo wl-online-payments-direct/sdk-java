@@ -5,8 +5,10 @@
 package com.onlinepayments.merchant;
 
 import com.onlinepayments.merchant.captures.CapturesClientInterface;
+import com.onlinepayments.merchant.cofseries.CofSeriesClientInterface;
 import com.onlinepayments.merchant.complete.CompleteClientInterface;
 import com.onlinepayments.merchant.hostedcheckout.HostedCheckoutClientInterface;
+import com.onlinepayments.merchant.hostedfields.HostedFieldsClientInterface;
 import com.onlinepayments.merchant.hostedtokenization.HostedTokenizationClientInterface;
 import com.onlinepayments.merchant.mandates.MandatesClientInterface;
 import com.onlinepayments.merchant.paymentlinks.PaymentLinksClientInterface;
@@ -19,6 +21,7 @@ import com.onlinepayments.merchant.refunds.RefundsClientInterface;
 import com.onlinepayments.merchant.services.ServicesClientInterface;
 import com.onlinepayments.merchant.sessions.SessionsClientInterface;
 import com.onlinepayments.merchant.subsequent.SubsequentClientInterface;
+import com.onlinepayments.merchant.tokenization.TokenizationClientInterface;
 import com.onlinepayments.merchant.tokens.TokensClientInterface;
 import com.onlinepayments.merchant.webhooks.WebhooksClientInterface;
 
@@ -40,6 +43,13 @@ public interface MerchantClientInterface {
      * @return HostedTokenizationClientInterface
      */
     HostedTokenizationClientInterface hostedTokenization();
+
+    /**
+     * Resource /v2/{merchantId}/hostedfields/sessions
+     *
+     * @return HostedFieldsClientInterface
+     */
+    HostedFieldsClientInterface hostedFields();
 
     /**
      * Resource /v2/{merchantId}/payments
@@ -117,6 +127,20 @@ public interface MerchantClientInterface {
      * @return TokensClientInterface
      */
     TokensClientInterface tokens();
+
+    /**
+     * Resource /v2/{merchantId}/tokens/importCofSeries
+     *
+     * @return CofSeriesClientInterface
+     */
+    CofSeriesClientInterface cofSeries();
+
+    /**
+     * Resource /v2/{merchantId}/detokenize/csr
+     *
+     * @return TokenizationClientInterface
+     */
+    TokenizationClientInterface tokenization();
 
     /**
      * Resource /v2/{merchantId}/payouts

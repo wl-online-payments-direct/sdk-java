@@ -13,6 +13,7 @@ public class BankAccountIban {
      * Required for the creation of a Payout
      * Required for Create and Update token.
      * Required for Create mandate and Create payment with mandate calls.
+     * It is optional when the mandate signature type is &quot;AIS&quot;; otherwise, it is mandatory.
      */
     public String getIban() {
         return iban;
@@ -23,6 +24,7 @@ public class BankAccountIban {
      * Required for the creation of a Payout
      * Required for Create and Update token.
      * Required for Create mandate and Create payment with mandate calls.
+     * It is optional when the mandate signature type is &quot;AIS&quot;; otherwise, it is mandatory.
      */
     public void setIban(String value) {
         this.iban = value;
@@ -33,6 +35,7 @@ public class BankAccountIban {
      * Required for the creation of a Payout
      * Required for Create and Update token.
      * Required for Create mandate and Create payment with mandate calls.
+     * It is optional when the mandate signature type is &quot;AIS&quot;; otherwise, it is mandatory.
      */
     public BankAccountIban withIban(String value) {
         this.iban = value;

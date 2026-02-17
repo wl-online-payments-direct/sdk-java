@@ -17,6 +17,8 @@ public class ShowFormData {
 
     private PaymentProduct5407 paymentProduct5407;
 
+    private PaymentProduct840 paymentProduct840;
+
     private PendingAuthentication pendingAuthentication;
 
     /**
@@ -126,6 +128,28 @@ public class ShowFormData {
      */
     public ShowFormData withPaymentProduct5407(PaymentProduct5407 value) {
         this.paymentProduct5407 = value;
+        return this;
+    }
+
+    /**
+     * Contains the third party data for payment product 840 (PayPal)
+     */
+    public PaymentProduct840 getPaymentProduct840() {
+        return paymentProduct840;
+    }
+
+    /**
+     * Contains the third party data for payment product 840 (PayPal)
+     */
+    public void setPaymentProduct840(PaymentProduct840 value) {
+        this.paymentProduct840 = value;
+    }
+
+    /**
+     * Contains the third party data for payment product 840 (PayPal)
+     */
+    public ShowFormData withPaymentProduct840(PaymentProduct840 value) {
+        this.paymentProduct840 = value;
         return this;
     }
 

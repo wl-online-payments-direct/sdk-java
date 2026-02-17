@@ -181,21 +181,21 @@ public class CreateMandateWithReturnUrl {
     }
 
     /**
-     * Return URL to use if the mandate signing requires redirection. Required for S2S Create Payment if and only if the signatureType is &quot;SMS&quot;.
+     * Return URL to use if the mandate signing requires redirection. Required for S2S Create Payment if and only if the signatureType is &quot;SMS&quot; or &quot;AIS&quot;.
      */
     public String getReturnUrl() {
         return returnUrl;
     }
 
     /**
-     * Return URL to use if the mandate signing requires redirection. Required for S2S Create Payment if and only if the signatureType is &quot;SMS&quot;.
+     * Return URL to use if the mandate signing requires redirection. Required for S2S Create Payment if and only if the signatureType is &quot;SMS&quot; or &quot;AIS&quot;.
      */
     public void setReturnUrl(String value) {
         this.returnUrl = value;
     }
 
     /**
-     * Return URL to use if the mandate signing requires redirection. Required for S2S Create Payment if and only if the signatureType is &quot;SMS&quot;.
+     * Return URL to use if the mandate signing requires redirection. Required for S2S Create Payment if and only if the signatureType is &quot;SMS&quot; or &quot;AIS&quot;.
      */
     public CreateMandateWithReturnUrl withReturnUrl(String value) {
         this.returnUrl = value;
@@ -208,6 +208,7 @@ public class CreateMandateWithReturnUrl {
      *   <li>UNSIGNED</li>
      *   <li>SMS</li>
      *   <li>TICK_BOX</li>
+     *   <li>AIS</li>
      * </ul>
      * <p>
      * Refer to the support page to determine the applicable signature types.
@@ -222,6 +223,7 @@ public class CreateMandateWithReturnUrl {
      *   <li>UNSIGNED</li>
      *   <li>SMS</li>
      *   <li>TICK_BOX</li>
+     *   <li>AIS</li>
      * </ul>
      * <p>
      * Refer to the support page to determine the applicable signature types.
@@ -236,6 +238,7 @@ public class CreateMandateWithReturnUrl {
      *   <li>UNSIGNED</li>
      *   <li>SMS</li>
      *   <li>TICK_BOX</li>
+     *   <li>AIS</li>
      * </ul>
      * <p>
      * Refer to the support page to determine the applicable signature types.

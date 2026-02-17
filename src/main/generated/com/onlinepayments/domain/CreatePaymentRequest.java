@@ -20,6 +20,8 @@ public class CreatePaymentRequest {
 
     private MobilePaymentMethodSpecificInput mobilePaymentMethodSpecificInput;
 
+    private OmnichannelPaymentSpecificInput omnichannelPaymentSpecificInput;
+
     private Order order;
 
     private RedirectPaymentMethodSpecificInput redirectPaymentMethodSpecificInput;
@@ -180,6 +182,28 @@ public class CreatePaymentRequest {
      */
     public CreatePaymentRequest withMobilePaymentMethodSpecificInput(MobilePaymentMethodSpecificInput value) {
         this.mobilePaymentMethodSpecificInput = value;
+        return this;
+    }
+
+    /**
+     * This object contains additional payment details for omnichannel merchants.
+     */
+    public OmnichannelPaymentSpecificInput getOmnichannelPaymentSpecificInput() {
+        return omnichannelPaymentSpecificInput;
+    }
+
+    /**
+     * This object contains additional payment details for omnichannel merchants.
+     */
+    public void setOmnichannelPaymentSpecificInput(OmnichannelPaymentSpecificInput value) {
+        this.omnichannelPaymentSpecificInput = value;
+    }
+
+    /**
+     * This object contains additional payment details for omnichannel merchants.
+     */
+    public CreatePaymentRequest withOmnichannelPaymentSpecificInput(OmnichannelPaymentSpecificInput value) {
+        this.omnichannelPaymentSpecificInput = value;
         return this;
     }
 

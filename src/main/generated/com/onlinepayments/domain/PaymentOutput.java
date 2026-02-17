@@ -30,6 +30,8 @@ public class PaymentOutput {
 
     private SepaDirectDebitPaymentMethodSpecificOutput sepaDirectDebitPaymentMethodSpecificOutput;
 
+    private ShoppingCartOutput shoppingCartOutput;
+
     private SurchargeSpecificOutput surchargeSpecificOutput;
 
     /**
@@ -302,6 +304,28 @@ public class PaymentOutput {
      */
     public PaymentOutput withSepaDirectDebitPaymentMethodSpecificOutput(SepaDirectDebitPaymentMethodSpecificOutput value) {
         this.sepaDirectDebitPaymentMethodSpecificOutput = value;
+        return this;
+    }
+
+    /**
+     * The shopping cart details.
+     */
+    public ShoppingCartOutput getShoppingCartOutput() {
+        return shoppingCartOutput;
+    }
+
+    /**
+     * The shopping cart details.
+     */
+    public void setShoppingCartOutput(ShoppingCartOutput value) {
+        this.shoppingCartOutput = value;
+    }
+
+    /**
+     * The shopping cart details.
+     */
+    public PaymentOutput withShoppingCartOutput(ShoppingCartOutput value) {
+        this.shoppingCartOutput = value;
         return this;
     }
 
