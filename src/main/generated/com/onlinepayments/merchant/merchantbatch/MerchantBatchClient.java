@@ -2,48 +2,51 @@
  * This file was automatically generated.
  */
 
-package com.onlinepayments.merchant.tokenization;
+package com.onlinepayments.merchant.merchantbatch;
 
 import java.util.Map;
+import java.util.TreeMap;
 
 import com.onlinepayments.ApiResource;
 import com.onlinepayments.CallContext;
 import com.onlinepayments.ExceptionFactory;
 import com.onlinepayments.communication.ResponseException;
-import com.onlinepayments.domain.CreateCertificateResponse;
-import com.onlinepayments.domain.CsrRequest;
-import com.onlinepayments.domain.DetokenizationResponse;
 import com.onlinepayments.domain.ErrorResponse;
+import com.onlinepayments.domain.GetBatchStatusResponse;
+import com.onlinepayments.domain.SubmitBatchRequestBody;
+import com.onlinepayments.domain.SubmitBatchResponse;
 
 /**
- * Tokenization client. Thread-safe.
+ * MerchantBatch client. Thread-safe.
  */
-public class TokenizationClient extends ApiResource implements TokenizationClientInterface {
+public class MerchantBatchClient extends ApiResource implements MerchantBatchClientInterface {
 
     private static final ExceptionFactory EXCEPTION_FACTORY = new ExceptionFactory();
 
-    public TokenizationClient(ApiResource parent, Map<String, String> pathContext) {
+    public MerchantBatchClient(ApiResource parent, Map<String, String> pathContext) {
         super(parent, pathContext);
     }
 
     /** {@inheritDoc} */
     @Override
-    public CreateCertificateResponse createCertificate(CsrRequest body) {
-        return createCertificate(body, null);
+    public SubmitBatchResponse submitBatch(SubmitBatchRequestBody body) {
+        return submitBatch(body, null);
     }
 
     /** {@inheritDoc} */
     @Override
-    public CreateCertificateResponse createCertificate(CsrRequest body, CallContext context) {
-        String uri = instantiateUri("/v2/{merchantId}/detokenize/csr", null);
+    public SubmitBatchResponse submitBatch(SubmitBatchRequestBody body, CallContext context) {
+        String uri = instantiateUri("/v2/{merchantId}/merchant-batches", null);
         try {
+            context = (context == null) ? new CallContext() : context;
+            context.setGzip(true);
 
             return communicator.post(
                     uri,
                     getClientHeaders(),
                     null,
                     body,
-                    CreateCertificateResponse.class,
+                    SubmitBatchResponse.class,
                     context);
         } catch (ResponseException e) {
             final Class<?> errorType = ErrorResponse.class;
@@ -54,21 +57,24 @@ public class TokenizationClient extends ApiResource implements TokenizationClien
 
     /** {@inheritDoc} */
     @Override
-    public DetokenizationResponse getCardDataByTokens(GetCardDataByTokensParams query) {
-        return getCardDataByTokens(query, null);
+    public void processBatch(String merchantBatchReference) {
+        processBatch(merchantBatchReference, null);
     }
 
     /** {@inheritDoc} */
     @Override
-    public DetokenizationResponse getCardDataByTokens(GetCardDataByTokensParams query, CallContext context) {
-        String uri = instantiateUri("/v2/{merchantId}/detokenize/tokens", null);
+    public void processBatch(String merchantBatchReference, CallContext context) {
+        Map<String, String> pathContext = new TreeMap<>();
+        pathContext.put("merchantBatchReference", merchantBatchReference);
+        String uri = instantiateUri("/v2/{merchantId}/merchant-batches/{merchantBatchReference}/process", pathContext);
         try {
 
-            return communicator.get(
+            communicator.post(
                     uri,
                     getClientHeaders(),
-                    query,
-                    DetokenizationResponse.class,
+                    null,
+                    null,
+                    void.class,
                     context);
         } catch (ResponseException e) {
             final Class<?> errorType = ErrorResponse.class;
@@ -79,21 +85,23 @@ public class TokenizationClient extends ApiResource implements TokenizationClien
 
     /** {@inheritDoc} */
     @Override
-    public DetokenizationResponse getCardDataByPayments(GetCardDataByPaymentsParams query) {
-        return getCardDataByPayments(query, null);
+    public GetBatchStatusResponse getBatchStatus(String merchantBatchReference) {
+        return getBatchStatus(merchantBatchReference, null);
     }
 
     /** {@inheritDoc} */
     @Override
-    public DetokenizationResponse getCardDataByPayments(GetCardDataByPaymentsParams query, CallContext context) {
-        String uri = instantiateUri("/v2/{merchantId}/detokenize/payments", null);
+    public GetBatchStatusResponse getBatchStatus(String merchantBatchReference, CallContext context) {
+        Map<String, String> pathContext = new TreeMap<>();
+        pathContext.put("merchantBatchReference", merchantBatchReference);
+        String uri = instantiateUri("/v2/{merchantId}/merchant-batches/{merchantBatchReference}", pathContext);
         try {
 
             return communicator.get(
                     uri,
                     getClientHeaders(),
-                    query,
-                    DetokenizationResponse.class,
+                    null,
+                    GetBatchStatusResponse.class,
                     context);
         } catch (ResponseException e) {
             final Class<?> errorType = ErrorResponse.class;

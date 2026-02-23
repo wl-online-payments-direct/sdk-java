@@ -39,6 +39,7 @@ public class CompleteClient extends ApiResource implements CompleteClientInterfa
         pathContext.put("paymentId", paymentId);
         String uri = instantiateUri("/v2/{merchantId}/payments/{paymentId}/complete", pathContext);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),

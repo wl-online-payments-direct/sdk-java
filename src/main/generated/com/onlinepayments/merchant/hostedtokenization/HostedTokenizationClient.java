@@ -38,6 +38,7 @@ public class HostedTokenizationClient extends ApiResource implements HostedToken
     public CreateHostedTokenizationResponse createHostedTokenization(CreateHostedTokenizationRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/hostedtokenizations", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -65,6 +66,7 @@ public class HostedTokenizationClient extends ApiResource implements HostedToken
         pathContext.put("hostedTokenizationId", hostedTokenizationId);
         String uri = instantiateUri("/v2/{merchantId}/hostedtokenizations/{hostedTokenizationId}", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),

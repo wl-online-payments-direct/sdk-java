@@ -38,6 +38,7 @@ public class PayoutsClient extends ApiResource implements PayoutsClientInterface
     public PayoutResponse createPayout(CreatePayoutRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/payouts", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -65,6 +66,7 @@ public class PayoutsClient extends ApiResource implements PayoutsClientInterface
         pathContext.put("payoutId", payoutId);
         String uri = instantiateUri("/v2/{merchantId}/payouts/{payoutId}", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),

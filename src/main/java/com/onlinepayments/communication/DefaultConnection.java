@@ -1,5 +1,6 @@
 package com.onlinepayments.communication;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -15,6 +16,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Supplier;
+import java.util.zip.GZIPOutputStream;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -52,6 +54,7 @@ import org.apache.http.conn.socket.ConnectionSocketFactory;
 import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.BufferedHttpEntity;
+import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -256,7 +259,7 @@ public class DefaultConnection implements PooledConnection {
 
     @Override
     public <R> R post(URI uri, List<RequestHeader> requestHeaders, String body, ResponseHandler<R> responseHandler) {
-        HttpEntity requestEntity = createRequestEntity(body);
+        HttpEntity requestEntity = createRequestEntity(body, requestHeaders);
         return post(uri, requestHeaders, requestEntity, responseHandler);
     }
 
@@ -278,7 +281,7 @@ public class DefaultConnection implements PooledConnection {
 
     @Override
     public <R> R put(URI uri, List<RequestHeader> requestHeaders, String body, ResponseHandler<R> responseHandler) {
-        HttpEntity requestEntity = createRequestEntity(body);
+        HttpEntity requestEntity = createRequestEntity(body, requestHeaders);
         return put(uri, requestHeaders, requestEntity, responseHandler);
     }
 
@@ -298,8 +301,31 @@ public class DefaultConnection implements PooledConnection {
         return executeRequest(httpPut, responseHandler);
     }
 
-    private static HttpEntity createRequestEntity(String body) {
-        return body != null ? new JsonEntity(body, CHARSET) : null;
+    private static HttpEntity createRequestEntity(String body, List<RequestHeader> requestHeaders) {
+        if (body == null) {
+            return null;
+        }
+
+        boolean useCompression = requestHeaders.stream().anyMatch(header -> header.getName()
+                .equalsIgnoreCase("Content-Encoding"));
+
+        if (useCompression) {
+            ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+            try (GZIPOutputStream gzip = new GZIPOutputStream(byteStream)) {
+                gzip.write(body.getBytes(CHARSET));
+            } catch (IOException e) {
+                throw new CommunicationException(e);
+            }
+
+            byte[] compressedBytes = byteStream.toByteArray();
+
+            ByteArrayEntity byteArrayEntity = new ByteArrayEntity(compressedBytes, ContentType.APPLICATION_JSON);
+            byteArrayEntity.setContentEncoding("gzip");
+
+            return byteArrayEntity;
+        }
+
+        return new JsonEntity(body, CHARSET);
     }
 
     private static HttpEntity createRequestEntity(MultipartFormDataObject multipart) {

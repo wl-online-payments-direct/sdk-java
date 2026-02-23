@@ -38,6 +38,7 @@ public class CapturesClient extends ApiResource implements CapturesClientInterfa
         pathContext.put("paymentId", paymentId);
         String uri = instantiateUri("/v2/{merchantId}/payments/{paymentId}/captures", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),

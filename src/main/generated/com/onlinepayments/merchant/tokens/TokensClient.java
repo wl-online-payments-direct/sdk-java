@@ -38,6 +38,7 @@ public class TokensClient extends ApiResource implements TokensClientInterface {
     public CreatedTokenResponse createToken(CreateTokenRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/tokens", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -65,6 +66,7 @@ public class TokensClient extends ApiResource implements TokensClientInterface {
         pathContext.put("tokenId", tokenId);
         String uri = instantiateUri("/v2/{merchantId}/tokens/{tokenId}", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),
@@ -91,6 +93,7 @@ public class TokensClient extends ApiResource implements TokensClientInterface {
         pathContext.put("tokenId", tokenId);
         String uri = instantiateUri("/v2/{merchantId}/tokens/{tokenId}", pathContext);
         try {
+
             communicator.delete(
                     uri,
                     getClientHeaders(),

@@ -6,6 +6,8 @@ package com.onlinepayments.domain;
 
 public class CardPaymentMethodSpecificOutput {
 
+    private Acceptance acceptance;
+
     private AcquirerInformation acquirerInformation;
 
     private Long authenticatedAmount;
@@ -45,6 +47,28 @@ public class CardPaymentMethodSpecificOutput {
     private ThreeDSecureResults threeDSecureResults;
 
     private String token;
+
+    /**
+     * This object contains the acceptance information for the card payment authorization.
+     */
+    public Acceptance getAcceptance() {
+        return acceptance;
+    }
+
+    /**
+     * This object contains the acceptance information for the card payment authorization.
+     */
+    public void setAcceptance(Acceptance value) {
+        this.acceptance = value;
+    }
+
+    /**
+     * This object contains the acceptance information for the card payment authorization.
+     */
+    public CardPaymentMethodSpecificOutput withAcceptance(Acceptance value) {
+        this.acceptance = value;
+        return this;
+    }
 
     /**
      * Information about the acquirer used to process the transaction

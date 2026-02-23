@@ -49,6 +49,8 @@ public class DefaultCommunicator implements Communicator {
     private static final String CONTENT_TYPE_HEADER = "Content-Type";
     private static final String CONTENT_TYPE_JSON = "application/json";
     private static final String CONTENT_TYPE_PROBLEM_JSON = "application/problem+json";
+    private static final String CONTENT_ENCODING_HEADER = "Content-Encoding";
+    private static final String CONTENT_ENCODING_GZIP = "gzip";
 
     private static final Charset CHARSET = StandardCharsets.UTF_8;
 
@@ -207,6 +209,10 @@ public class DefaultCommunicator implements Communicator {
             requestJson = marshaller.marshal(requestBody);
         }
 
+        if (requestBody != null && context != null && context.isGzip()) {
+            requestHeaders.add(new RequestHeader(CONTENT_ENCODING_HEADER, CONTENT_ENCODING_GZIP));
+        }
+
         addGenericHeaders("POST", uri, requestHeaders, context);
 
         return connection.post(uri, requestHeaders, requestJson,
@@ -255,6 +261,10 @@ public class DefaultCommunicator implements Communicator {
         if (requestBody != null) {
             requestHeaders.add(new RequestHeader(CONTENT_TYPE_HEADER, CONTENT_TYPE_JSON));
             requestJson = marshaller.marshal(requestBody);
+        }
+
+        if (requestBody != null && context != null && context.isGzip()) {
+            requestHeaders.add(new RequestHeader(CONTENT_ENCODING_HEADER, CONTENT_ENCODING_GZIP));
         }
 
         addGenericHeaders("POST", uri, requestHeaders, context);

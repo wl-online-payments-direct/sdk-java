@@ -38,6 +38,7 @@ public class RefundsClient extends ApiResource implements RefundsClientInterface
         pathContext.put("paymentId", paymentId);
         String uri = instantiateUri("/v2/{merchantId}/payments/{paymentId}/refunds", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),

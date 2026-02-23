@@ -37,6 +37,7 @@ public class ProductGroupsClient extends ApiResource implements ProductGroupsCli
     public GetPaymentProductGroupsResponse getProductGroups(GetProductGroupsParams query, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/productgroups", null);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),
@@ -63,6 +64,7 @@ public class ProductGroupsClient extends ApiResource implements ProductGroupsCli
         pathContext.put("paymentProductGroupId", paymentProductGroupId);
         String uri = instantiateUri("/v2/{merchantId}/productgroups/{paymentProductGroupId}", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),

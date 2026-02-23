@@ -39,6 +39,7 @@ public class SubsequentClient extends ApiResource implements SubsequentClientInt
         pathContext.put("paymentId", paymentId);
         String uri = instantiateUri("/v2/{merchantId}/payments/{paymentId}/subsequent", pathContext);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),

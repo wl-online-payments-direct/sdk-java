@@ -41,6 +41,7 @@ public class ServicesClient extends ApiResource implements ServicesClientInterfa
     public TestConnection testConnection(CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/services/testconnection", null);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),
@@ -65,6 +66,7 @@ public class ServicesClient extends ApiResource implements ServicesClientInterfa
     public GetIINDetailsResponse getIINDetails(GetIINDetailsRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/services/getIINdetails", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -90,6 +92,7 @@ public class ServicesClient extends ApiResource implements ServicesClientInterfa
     public CurrencyConversionResponse getDccRateInquiry(CurrencyConversionRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/services/dccrate", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -115,6 +118,7 @@ public class ServicesClient extends ApiResource implements ServicesClientInterfa
     public CalculateSurchargeResponse surchargeCalculation(CalculateSurchargeRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/services/surchargecalculation", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),

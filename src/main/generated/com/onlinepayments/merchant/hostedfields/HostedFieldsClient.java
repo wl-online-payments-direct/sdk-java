@@ -36,6 +36,7 @@ public class HostedFieldsClient extends ApiResource implements HostedFieldsClien
     public CreateHostedFieldsSessionResponse createHostedFieldsSession(CreateHostedFieldsSessionRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/hostedfields/sessions", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),

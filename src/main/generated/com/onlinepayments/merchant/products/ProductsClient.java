@@ -39,6 +39,7 @@ public class ProductsClient extends ApiResource implements ProductsClientInterfa
     public GetPaymentProductsResponse getPaymentProducts(GetPaymentProductsParams query, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/products", null);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),
@@ -65,6 +66,7 @@ public class ProductsClient extends ApiResource implements ProductsClientInterfa
         pathContext.put("paymentProductId", paymentProductId.toString());
         String uri = instantiateUri("/v2/{merchantId}/products/{paymentProductId}", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),
@@ -91,6 +93,7 @@ public class ProductsClient extends ApiResource implements ProductsClientInterfa
         pathContext.put("paymentProductId", paymentProductId.toString());
         String uri = instantiateUri("/v2/{merchantId}/products/{paymentProductId}/networks", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),
@@ -117,6 +120,7 @@ public class ProductsClient extends ApiResource implements ProductsClientInterfa
         pathContext.put("paymentProductId", paymentProductId.toString());
         String uri = instantiateUri("/v2/{merchantId}/products/{paymentProductId}/directory", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),

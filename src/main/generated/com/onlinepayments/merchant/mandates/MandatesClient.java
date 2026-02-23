@@ -39,6 +39,7 @@ public class MandatesClient extends ApiResource implements MandatesClientInterfa
     public CreateMandateResponse createMandate(CreateMandateRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/mandates", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -66,6 +67,7 @@ public class MandatesClient extends ApiResource implements MandatesClientInterfa
         pathContext.put("uniqueMandateReference", uniqueMandateReference);
         String uri = instantiateUri("/v2/{merchantId}/mandates/{uniqueMandateReference}", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),
@@ -92,6 +94,7 @@ public class MandatesClient extends ApiResource implements MandatesClientInterfa
         pathContext.put("uniqueMandateReference", uniqueMandateReference);
         String uri = instantiateUri("/v2/{merchantId}/mandates/{uniqueMandateReference}/block", pathContext);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -119,6 +122,7 @@ public class MandatesClient extends ApiResource implements MandatesClientInterfa
         pathContext.put("uniqueMandateReference", uniqueMandateReference);
         String uri = instantiateUri("/v2/{merchantId}/mandates/{uniqueMandateReference}/unblock", pathContext);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -146,6 +150,7 @@ public class MandatesClient extends ApiResource implements MandatesClientInterfa
         pathContext.put("uniqueMandateReference", uniqueMandateReference);
         String uri = instantiateUri("/v2/{merchantId}/mandates/{uniqueMandateReference}/revoke", pathContext);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),

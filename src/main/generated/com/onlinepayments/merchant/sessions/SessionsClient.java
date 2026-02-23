@@ -36,6 +36,7 @@ public class SessionsClient extends ApiResource implements SessionsClientInterfa
     public SessionResponse createSession(SessionRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/sessions", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),

@@ -14,6 +14,7 @@ import com.onlinepayments.merchant.hostedcheckout.HostedCheckoutClient;
 import com.onlinepayments.merchant.hostedfields.HostedFieldsClient;
 import com.onlinepayments.merchant.hostedtokenization.HostedTokenizationClient;
 import com.onlinepayments.merchant.mandates.MandatesClient;
+import com.onlinepayments.merchant.merchantbatch.MerchantBatchClient;
 import com.onlinepayments.merchant.paymentlinks.PaymentLinksClient;
 import com.onlinepayments.merchant.payments.PaymentsClient;
 import com.onlinepayments.merchant.payouts.PayoutsClient;
@@ -155,5 +156,11 @@ public class MerchantClient extends ApiResource implements MerchantClientInterfa
     @Override
     public PaymentLinksClient paymentLinks() {
         return new PaymentLinksClient(this, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public MerchantBatchClient merchantBatch() {
+        return new MerchantBatchClient(this, null);
     }
 }

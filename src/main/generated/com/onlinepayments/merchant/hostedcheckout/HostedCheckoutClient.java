@@ -38,6 +38,7 @@ public class HostedCheckoutClient extends ApiResource implements HostedCheckoutC
     public CreateHostedCheckoutResponse createHostedCheckout(CreateHostedCheckoutRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/hostedcheckouts", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -65,6 +66,7 @@ public class HostedCheckoutClient extends ApiResource implements HostedCheckoutC
         pathContext.put("hostedCheckoutId", hostedCheckoutId);
         String uri = instantiateUri("/v2/{merchantId}/hostedcheckouts/{hostedCheckoutId}", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),

@@ -36,6 +36,7 @@ public class CofSeriesClient extends ApiResource implements CofSeriesClientInter
     public ImportCofSeriesResponse importCofSeries(ImportCofSeriesRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/tokens/importCofSeries", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),

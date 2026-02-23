@@ -47,6 +47,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
     public CreatePaymentResponse createPayment(CreatePaymentRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/payments", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -74,6 +75,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
         pathContext.put("paymentId", paymentId);
         String uri = instantiateUri("/v2/{merchantId}/payments/{paymentId}", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),
@@ -100,6 +102,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
         pathContext.put("paymentId", paymentId);
         String uri = instantiateUri("/v2/{merchantId}/payments/{paymentId}/details", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),
@@ -126,6 +129,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
         pathContext.put("paymentId", paymentId);
         String uri = instantiateUri("/v2/{merchantId}/payments/{paymentId}/cancel", pathContext);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -153,6 +157,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
         pathContext.put("paymentId", paymentId);
         String uri = instantiateUri("/v2/{merchantId}/payments/{paymentId}/capture", pathContext);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -180,6 +185,7 @@ public class PaymentsClient extends ApiResource implements PaymentsClientInterfa
         pathContext.put("paymentId", paymentId);
         String uri = instantiateUri("/v2/{merchantId}/payments/{paymentId}/refund", pathContext);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),

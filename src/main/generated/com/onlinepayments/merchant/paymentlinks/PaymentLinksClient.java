@@ -37,6 +37,7 @@ public class PaymentLinksClient extends ApiResource implements PaymentLinksClien
     public PaymentLinkResponse createPaymentLink(CreatePaymentLinkRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/paymentlinks", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -64,6 +65,7 @@ public class PaymentLinksClient extends ApiResource implements PaymentLinksClien
         pathContext.put("paymentLinkId", paymentLinkId);
         String uri = instantiateUri("/v2/{merchantId}/paymentlinks/{paymentLinkId}", pathContext);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),
@@ -90,6 +92,7 @@ public class PaymentLinksClient extends ApiResource implements PaymentLinksClien
         pathContext.put("paymentLinkId", paymentLinkId);
         String uri = instantiateUri("/v2/{merchantId}/paymentlinks/{paymentLinkId}/cancel", pathContext);
         try {
+
             communicator.post(
                     uri,
                     getClientHeaders(),

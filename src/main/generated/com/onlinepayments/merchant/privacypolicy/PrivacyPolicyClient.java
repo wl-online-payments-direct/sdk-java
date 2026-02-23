@@ -35,6 +35,7 @@ public class PrivacyPolicyClient extends ApiResource implements PrivacyPolicyCli
     public GetPrivacyPolicyResponse getPrivacyPolicy(GetPrivacyPolicyParams query, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/services/privacypolicy", null);
         try {
+
             return communicator.get(
                     uri,
                     getClientHeaders(),

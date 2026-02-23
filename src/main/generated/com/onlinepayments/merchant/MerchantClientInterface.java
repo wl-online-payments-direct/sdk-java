@@ -11,6 +11,7 @@ import com.onlinepayments.merchant.hostedcheckout.HostedCheckoutClientInterface;
 import com.onlinepayments.merchant.hostedfields.HostedFieldsClientInterface;
 import com.onlinepayments.merchant.hostedtokenization.HostedTokenizationClientInterface;
 import com.onlinepayments.merchant.mandates.MandatesClientInterface;
+import com.onlinepayments.merchant.merchantbatch.MerchantBatchClientInterface;
 import com.onlinepayments.merchant.paymentlinks.PaymentLinksClientInterface;
 import com.onlinepayments.merchant.payments.PaymentsClientInterface;
 import com.onlinepayments.merchant.payouts.PayoutsClientInterface;
@@ -169,4 +170,11 @@ public interface MerchantClientInterface {
      * @return PaymentLinksClientInterface
      */
     PaymentLinksClientInterface paymentLinks();
+
+    /**
+     * Resource /v2/{merchantId}/merchant-batches
+     *
+     * @return MerchantBatchClientInterface
+     */
+    MerchantBatchClientInterface merchantBatch();
 }

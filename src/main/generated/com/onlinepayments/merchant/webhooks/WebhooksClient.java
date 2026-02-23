@@ -37,6 +37,7 @@ public class WebhooksClient extends ApiResource implements WebhooksClientInterfa
     public ValidateCredentialsResponse validateWebhookCredentials(ValidateCredentialsRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/webhooks/validateCredentials", null);
         try {
+
             return communicator.post(
                     uri,
                     getClientHeaders(),
@@ -62,6 +63,7 @@ public class WebhooksClient extends ApiResource implements WebhooksClientInterfa
     public void sendTestWebhook(SendTestRequest body, CallContext context) {
         String uri = instantiateUri("/v2/{merchantId}/webhooks/sendtest", null);
         try {
+
             communicator.post(
                     uri,
                     getClientHeaders(),

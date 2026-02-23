@@ -15,6 +15,8 @@ public class CallContext {
 
     private ZonedDateTime idempotenceResponseDateTime;
 
+    private boolean gzip;
+
     /**
      * @return The idempotence key.
      */
@@ -64,5 +66,19 @@ public class CallContext {
      */
     public void setIdempotenceResponseDateTime(ZonedDateTime idempotenceResponseDateTime) {
         this.idempotenceResponseDateTime = idempotenceResponseDateTime;
+    }
+
+    /**
+     * @return The indicator whether the GZip action should be preformed on the request.
+     */
+    public boolean isGzip() {
+        return gzip;
+    }
+
+    /**
+     * Sets the GZip indicator that will indicate whether the GZip action should be preformed on the request.
+     */
+    public void setGzip(boolean gzip) {
+        this.gzip = gzip;
     }
 }

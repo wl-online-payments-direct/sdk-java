@@ -4,6 +4,8 @@
 
 package com.onlinepayments.domain;
 
+import java.time.ZonedDateTime;
+
 public class PaymentOutput {
 
     private AmountOfMoney acquiredAmount;
@@ -33,6 +35,8 @@ public class PaymentOutput {
     private ShoppingCartOutput shoppingCartOutput;
 
     private SurchargeSpecificOutput surchargeSpecificOutput;
+
+    private ZonedDateTime transactionDate;
 
     /**
      * Object containing amount and ISO currency code attributes
@@ -348,6 +352,28 @@ public class PaymentOutput {
      */
     public PaymentOutput withSurchargeSpecificOutput(SurchargeSpecificOutput value) {
         this.surchargeSpecificOutput = value;
+        return this;
+    }
+
+    /**
+     * It is the server-side processing date and time of the transaction.
+     */
+    public ZonedDateTime getTransactionDate() {
+        return transactionDate;
+    }
+
+    /**
+     * It is the server-side processing date and time of the transaction.
+     */
+    public void setTransactionDate(ZonedDateTime value) {
+        this.transactionDate = value;
+    }
+
+    /**
+     * It is the server-side processing date and time of the transaction.
+     */
+    public PaymentOutput withTransactionDate(ZonedDateTime value) {
+        this.transactionDate = value;
         return this;
     }
 }
