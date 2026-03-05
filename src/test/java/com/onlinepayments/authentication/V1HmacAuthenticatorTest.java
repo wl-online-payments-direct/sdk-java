@@ -39,13 +39,13 @@ class V1HmacAuthenticatorTest {
         httpHeaders.add(new RequestHeader("X-GCS-ClientMetaInfo", "{\"aap\",\"noot\"}"));
         httpHeaders.add(new RequestHeader("User-Agent",           "Apache-HttpClient/4.3.4 (java 1.5)"));
         httpHeaders.add(new RequestHeader("Date",                   "Mon, 07 Jul 2014 12:12:40 GMT"));
-        String dataToSign = authenticator.toDataToSign("POST", URI.create("http://localhost:8080/v2/1/services%20bla/testconnection?aap=noot&mies=geen%20noot"), httpHeaders);
+        String dataToSign = authenticator.toDataToSign("POST", URI.create("http://localhost:8080/v2/services%20bla/testconnection?aap=noot&mies=geen%20noot"), httpHeaders);
 
         String expectedStart = "POST\n" + "application/json\n";
-        String expectedEnd = "x-gcs-clientmetainfo:{\"aap\",\"noot\"}\n" + "x-gcs-servermetainfo:{\"platformIdentifier\":\"Windows 7/6.1 Java/1.7 (Oracle Corporation; Java HotSpot(TM) 64-Bit Server VM; 1.7.0_45)\",\"sdkIdentifier\":\"1.0\"}\n" + "/v2/1/services%20bla/testconnection?aap=noot&mies=geen noot\n";
+        String expectedEnd = "x-gcs-clientmetainfo:{\"aap\",\"noot\"}\n" + "x-gcs-servermetainfo:{\"platformIdentifier\":\"Windows 7/6.1 Java/1.7 (Oracle Corporation; Java HotSpot(TM) 64-Bit Server VM; 1.7.0_45)\",\"sdkIdentifier\":\"1.0\"}\n" + "/v2/services bla/testconnection?aap=noot&mies=geen noot\n";
 
         String actualStart = dataToSign.substring(0, 22);
-        String actualEnd = dataToSign.substring(52, 305);
+        String actualEnd = dataToSign.substring(52, 301);
 
         assertEquals(expectedStart, actualStart);
         assertEquals(expectedEnd, actualEnd);
@@ -73,5 +73,26 @@ class V1HmacAuthenticatorTest {
         String authenticationSignature = authenticator.createAuthenticationSignature(dataToSign);
 
         assertEquals("vCos01y77soPNJOW6kDCm4Bu5b2darAZ09PP7Wa+jRA=", authenticationSignature);
+    }
+
+    @Test
+    public void testWithSpecificCharactersMerchant() {
+        V1HmacAuthenticator authenticator = new V1HmacAuthenticator("apiKeyId", "secretApiKey");
+        List<RequestHeader> httpHeaders = new ArrayList<RequestHeader>();
+        httpHeaders.add(new RequestHeader("X-GCS-ServerMetaInfo", "{\"platformIdentifier\":\"Windows 7/6.1 Java/1.7 (Oracle Corporation; Java HotSpot(TM) 64-Bit Server VM; 1.7.0_45)\",\"sdkIdentifier\":\"1.0\"}"));
+        httpHeaders.add(new RequestHeader("Content-Type",           "application/json"));
+        httpHeaders.add(new RequestHeader("X-GCS-ClientMetaInfo", "{\"aap\",\"noot\"}"));
+        httpHeaders.add(new RequestHeader("User-Agent",           "Apache-HttpClient/4.3.4 (java 1.5)"));
+        httpHeaders.add(new RequestHeader("Date",                   "Mon, 07 Jul 2014 12:12:40 GMT"));
+        String dataToSign = authenticator.toDataToSign("POST", URI.create("http://localhost:8080/v2/spécificCharacterMerchant/testconnection?aap=noot&mies=geen%20noot"), httpHeaders);
+
+        String expectedStart = "POST\n" + "application/json\n";
+        String expectedEnd = "x-gcs-clientmetainfo:{\"aap\",\"noot\"}\n" + "x-gcs-servermetainfo:{\"platformIdentifier\":\"Windows 7/6.1 Java/1.7 (Oracle Corporation; Java HotSpot(TM) 64-Bit Server VM; 1.7.0_45)\",\"sdkIdentifier\":\"1.0\"}\n" + "/v2/spécificCharacterMerchant/testconnection?aap=noot&mies=geen noot\n";
+
+        String actualStart = dataToSign.substring(0, 22);
+        String actualEnd = dataToSign.substring(52, 314);
+
+        assertEquals(expectedStart, actualStart);
+        assertEquals(expectedEnd, actualEnd);
     }
 }

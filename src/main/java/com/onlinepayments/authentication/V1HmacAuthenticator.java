@@ -151,11 +151,11 @@ public class V1HmacAuthenticator implements Authenticator {
     }
 
     /**
-     * Returns the encoded URI path without the HTTP method and including all
+     * Returns the URI path without the HTTP method and including all
      * decoded query parameters.
      */
     private String toCanonicalizedResource(URI resourceUri) {
-        String rawPath = resourceUri.getRawPath();
+        String rawPath = resourceUri.getPath();
         if (resourceUri.getQuery() == null) {
             return rawPath;
         }

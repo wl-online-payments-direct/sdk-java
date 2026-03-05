@@ -13,6 +13,8 @@ public class WebhooksEvent {
 
     private String type;
 
+    private GetBatchStatusResponse directBatch;
+
     private PaymentLinkResponse paymentLink;
 
     private PaymentResponse payment;
@@ -61,6 +63,14 @@ public class WebhooksEvent {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public GetBatchStatusResponse getDirectBatch() {
+        return directBatch;
+    }
+
+    public void setDirectBatch(GetBatchStatusResponse directBatch) {
+        this.directBatch = directBatch;
     }
 
     public PaymentLinkResponse getPaymentLink() {
