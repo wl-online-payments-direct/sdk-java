@@ -4,13 +4,39 @@
 
 package com.onlinepayments.domain;
 
+import java.util.List;
+
 public class CreateHostedFieldsSessionResponse {
+
+    private List<String> invalidTokens;
 
     private String sdkSri;
 
     private String sdkUrl;
 
     private SessionData sessionData;
+
+    /**
+     * This is a list of tokens that failed validation.
+     */
+    public List<String> getInvalidTokens() {
+        return invalidTokens;
+    }
+
+    /**
+     * This is a list of tokens that failed validation.
+     */
+    public void setInvalidTokens(List<String> value) {
+        this.invalidTokens = value;
+    }
+
+    /**
+     * This is a list of tokens that failed validation.
+     */
+    public CreateHostedFieldsSessionResponse withInvalidTokens(List<String> value) {
+        this.invalidTokens = value;
+        return this;
+    }
 
     /**
      * This is the cryptographic hash used for Subresource Integrity validation.

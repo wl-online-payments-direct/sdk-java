@@ -10,6 +10,12 @@ public class RedirectPaymentMethodSpecificInput {
 
     private RedirectPaymentProduct11SpecificInput paymentProduct11SpecificInput;
 
+    private RedirectPaymentProduct3103SpecificInput paymentProduct3103SpecificInput;
+
+    private RedirectPaymentProduct3112SpecificInput paymentProduct3112SpecificInput;
+
+    private RedirectPaymentProduct3116SpecificInput paymentProduct3116SpecificInput;
+
     private RedirectPaymentProduct3203SpecificInput paymentProduct3203SpecificInput;
 
     private RedirectPaymentProduct3204SpecificInput paymentProduct3204SpecificInput;
@@ -35,6 +41,8 @@ public class RedirectPaymentMethodSpecificInput {
     private RedirectPaymentProduct5410SpecificInput paymentProduct5410SpecificInput;
 
     private RedirectPaymentProduct5412SpecificInput paymentProduct5412SpecificInput;
+
+    private RedirectPaymentProduct5601SpecificInput paymentProduct5601SpecificInput;
 
     @SuppressWarnings("deprecation")
     private RedirectPaymentProduct809SpecificInput paymentProduct809SpecificInput;
@@ -92,6 +100,72 @@ public class RedirectPaymentMethodSpecificInput {
      */
     public RedirectPaymentMethodSpecificInput withPaymentProduct11SpecificInput(RedirectPaymentProduct11SpecificInput value) {
         this.paymentProduct11SpecificInput = value;
+        return this;
+    }
+
+    /**
+     * Object containing specific input for CadoCarte payments (Payment product ID 3103)
+     */
+    public RedirectPaymentProduct3103SpecificInput getPaymentProduct3103SpecificInput() {
+        return paymentProduct3103SpecificInput;
+    }
+
+    /**
+     * Object containing specific input for CadoCarte payments (Payment product ID 3103)
+     */
+    public void setPaymentProduct3103SpecificInput(RedirectPaymentProduct3103SpecificInput value) {
+        this.paymentProduct3103SpecificInput = value;
+    }
+
+    /**
+     * Object containing specific input for CadoCarte payments (Payment product ID 3103)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct3103SpecificInput(RedirectPaymentProduct3103SpecificInput value) {
+        this.paymentProduct3103SpecificInput = value;
+        return this;
+    }
+
+    /**
+     * Object containing specific input required for Illicado payments (Payment product ID 3112)
+     */
+    public RedirectPaymentProduct3112SpecificInput getPaymentProduct3112SpecificInput() {
+        return paymentProduct3112SpecificInput;
+    }
+
+    /**
+     * Object containing specific input required for Illicado payments (Payment product ID 3112)
+     */
+    public void setPaymentProduct3112SpecificInput(RedirectPaymentProduct3112SpecificInput value) {
+        this.paymentProduct3112SpecificInput = value;
+    }
+
+    /**
+     * Object containing specific input required for Illicado payments (Payment product ID 3112)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct3112SpecificInput(RedirectPaymentProduct3112SpecificInput value) {
+        this.paymentProduct3112SpecificInput = value;
+        return this;
+    }
+
+    /**
+     * Object containing specific input for SpiritOfCadeau payments (Payment product ID 3116)
+     */
+    public RedirectPaymentProduct3116SpecificInput getPaymentProduct3116SpecificInput() {
+        return paymentProduct3116SpecificInput;
+    }
+
+    /**
+     * Object containing specific input for SpiritOfCadeau payments (Payment product ID 3116)
+     */
+    public void setPaymentProduct3116SpecificInput(RedirectPaymentProduct3116SpecificInput value) {
+        this.paymentProduct3116SpecificInput = value;
+    }
+
+    /**
+     * Object containing specific input for SpiritOfCadeau payments (Payment product ID 3116)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct3116SpecificInput(RedirectPaymentProduct3116SpecificInput value) {
+        this.paymentProduct3116SpecificInput = value;
         return this;
     }
 
@@ -378,6 +452,28 @@ public class RedirectPaymentMethodSpecificInput {
      */
     public RedirectPaymentMethodSpecificInput withPaymentProduct5412SpecificInput(RedirectPaymentProduct5412SpecificInput value) {
         this.paymentProduct5412SpecificInput = value;
+        return this;
+    }
+
+    /**
+     * Object containing specific input for Cadhoc payments (Payment product ID 5601)
+     */
+    public RedirectPaymentProduct5601SpecificInput getPaymentProduct5601SpecificInput() {
+        return paymentProduct5601SpecificInput;
+    }
+
+    /**
+     * Object containing specific input for Cadhoc payments (Payment product ID 5601)
+     */
+    public void setPaymentProduct5601SpecificInput(RedirectPaymentProduct5601SpecificInput value) {
+        this.paymentProduct5601SpecificInput = value;
+    }
+
+    /**
+     * Object containing specific input for Cadhoc payments (Payment product ID 5601)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct5601SpecificInput(RedirectPaymentProduct5601SpecificInput value) {
+        this.paymentProduct5601SpecificInput = value;
         return this;
     }
 
