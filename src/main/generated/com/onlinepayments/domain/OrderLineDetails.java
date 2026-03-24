@@ -25,21 +25,36 @@ public class OrderLineDetails {
     private String unit;
 
     /**
-     * Discount on the line item, with the last two digits implied as decimal places
+     * Amount in the smallest currency unit, i.e.:
+     * <ul>
+     *   <li>EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34</li>
+     *   <li>KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234</li>
+     *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
+     * </ul>
      */
     public Long getDiscountAmount() {
         return discountAmount;
     }
 
     /**
-     * Discount on the line item, with the last two digits implied as decimal places
+     * Amount in the smallest currency unit, i.e.:
+     * <ul>
+     *   <li>EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34</li>
+     *   <li>KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234</li>
+     *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
+     * </ul>
      */
     public void setDiscountAmount(Long value) {
         this.discountAmount = value;
     }
 
     /**
-     * Discount on the line item, with the last two digits implied as decimal places
+     * Amount in the smallest currency unit, i.e.:
+     * <ul>
+     *   <li>EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34</li>
+     *   <li>KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234</li>
+     *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
+     * </ul>
      */
     public OrderLineDetails withDiscountAmount(Long value) {
         this.discountAmount = value;
@@ -182,21 +197,36 @@ public class OrderLineDetails {
     }
 
     /**
-     * Tax on the line item, with the last two digits implied as decimal places
+     * Amount in the smallest currency unit, i.e.:
+     * <ul>
+     *   <li>EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34</li>
+     *   <li>KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234</li>
+     *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
+     * </ul>
      */
     public Long getTaxAmount() {
         return taxAmount;
     }
 
     /**
-     * Tax on the line item, with the last two digits implied as decimal places
+     * Amount in the smallest currency unit, i.e.:
+     * <ul>
+     *   <li>EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34</li>
+     *   <li>KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234</li>
+     *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
+     * </ul>
      */
     public void setTaxAmount(Long value) {
         this.taxAmount = value;
     }
 
     /**
-     * Tax on the line item, with the last two digits implied as decimal places
+     * Amount in the smallest currency unit, i.e.:
+     * <ul>
+     *   <li>EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34</li>
+     *   <li>KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234</li>
+     *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
+     * </ul>
      */
     public OrderLineDetails withTaxAmount(Long value) {
         this.taxAmount = value;

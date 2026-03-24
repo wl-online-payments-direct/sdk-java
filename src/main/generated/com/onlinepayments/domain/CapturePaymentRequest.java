@@ -18,6 +18,8 @@ public class CapturePaymentRequest {
 
     private PaymentReferences references;
 
+    private ShippingDetail shipping;
+
     /**
      * Here you can specify the amount that you want to capture (specified in cents, where single digit currencies are presumed to have 2 digits). The amount can be lower than the amount that was authorized, but not higher.
      * If left empty, the full amount will be captured and the request will be final.
@@ -131,6 +133,28 @@ public class CapturePaymentRequest {
      */
     public CapturePaymentRequest withReferences(PaymentReferences value) {
         this.references = value;
+        return this;
+    }
+
+    /**
+     * Object containing the details of the shipping of the order
+     */
+    public ShippingDetail getShipping() {
+        return shipping;
+    }
+
+    /**
+     * Object containing the details of the shipping of the order
+     */
+    public void setShipping(ShippingDetail value) {
+        this.shipping = value;
+    }
+
+    /**
+     * Object containing the details of the shipping of the order
+     */
+    public CapturePaymentRequest withShipping(ShippingDetail value) {
+        this.shipping = value;
         return this;
     }
 }

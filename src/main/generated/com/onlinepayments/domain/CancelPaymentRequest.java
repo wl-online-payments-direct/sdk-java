@@ -16,6 +16,8 @@ public class CancelPaymentRequest {
 
     private OperationPaymentReferences operationReferences;
 
+    private ShippingDetail shipping;
+
     /**
      * Object containing amount and ISO currency code attributes
      */
@@ -101,6 +103,28 @@ public class CancelPaymentRequest {
      */
     public CancelPaymentRequest withOperationReferences(OperationPaymentReferences value) {
         this.operationReferences = value;
+        return this;
+    }
+
+    /**
+     * Object containing the details of the shipping of the order
+     */
+    public ShippingDetail getShipping() {
+        return shipping;
+    }
+
+    /**
+     * Object containing the details of the shipping of the order
+     */
+    public void setShipping(ShippingDetail value) {
+        this.shipping = value;
+    }
+
+    /**
+     * Object containing the details of the shipping of the order
+     */
+    public CancelPaymentRequest withShipping(ShippingDetail value) {
+        this.shipping = value;
         return this;
     }
 }

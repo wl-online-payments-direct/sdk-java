@@ -12,6 +12,8 @@ public class RefundRequest {
 
     private String captureId;
 
+    private Boolean isFinal;
+
     private List<LineItemDetail> lineItemDetails;
 
     private OmnichannelRefundSpecificInput omnichannelRefundSpecificInput;
@@ -65,6 +67,28 @@ public class RefundRequest {
      */
     public RefundRequest withCaptureId(String value) {
         this.captureId = value;
+        return this;
+    }
+
+    /**
+     * This property indicates whether this will be the final operation. The default value for this property is false.
+     */
+    public Boolean getIsFinal() {
+        return isFinal;
+    }
+
+    /**
+     * This property indicates whether this will be the final operation. The default value for this property is false.
+     */
+    public void setIsFinal(Boolean value) {
+        this.isFinal = value;
+    }
+
+    /**
+     * This property indicates whether this will be the final operation. The default value for this property is false.
+     */
+    public RefundRequest withIsFinal(Boolean value) {
+        this.isFinal = value;
         return this;
     }
 

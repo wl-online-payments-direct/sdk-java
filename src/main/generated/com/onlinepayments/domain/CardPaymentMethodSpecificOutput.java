@@ -20,6 +20,8 @@ public class CardPaymentMethodSpecificOutput {
 
     private String cobrandSelectionIndicator;
 
+    private CrmToken crmToken;
+
     private CurrencyConversion currencyConversion;
 
     private ExternalTokenLinked externalTokenLinked;
@@ -214,6 +216,28 @@ public class CardPaymentMethodSpecificOutput {
      */
     public CardPaymentMethodSpecificOutput withCobrandSelectionIndicator(String value) {
         this.cobrandSelectionIndicator = value;
+        return this;
+    }
+
+    /**
+     * The CRM (Customer Relationship Management) token group. CRM tokens are available to enhance knowledge of a merchant's customers by attempting to identify the customer.
+     */
+    public CrmToken getCrmToken() {
+        return crmToken;
+    }
+
+    /**
+     * The CRM (Customer Relationship Management) token group. CRM tokens are available to enhance knowledge of a merchant's customers by attempting to identify the customer.
+     */
+    public void setCrmToken(CrmToken value) {
+        this.crmToken = value;
+    }
+
+    /**
+     * The CRM (Customer Relationship Management) token group. CRM tokens are available to enhance knowledge of a merchant's customers by attempting to identify the customer.
+     */
+    public CardPaymentMethodSpecificOutput withCrmToken(CrmToken value) {
+        this.crmToken = value;
         return this;
     }
 

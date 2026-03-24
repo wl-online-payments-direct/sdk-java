@@ -4,15 +4,11 @@
 
 package com.onlinepayments.domain;
 
-public class LineItemDetail {
+public class ShippingDetail {
 
-    private Long discountAmount;
+    private Long shippingCost;
 
-    private String lineItemId;
-
-    private Long quantity;
-
-    private Long taxAmount;
+    private Long shippingCostTax;
 
     /**
      * Amount in the smallest currency unit, i.e.:
@@ -22,20 +18,8 @@ public class LineItemDetail {
      *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
      * </ul>
      */
-    public Long getDiscountAmount() {
-        return discountAmount;
-    }
-
-    /**
-     * Amount in the smallest currency unit, i.e.:
-     * <ul>
-     *   <li>EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34</li>
-     *   <li>KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234</li>
-     *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
-     * </ul>
-     */
-    public void setDiscountAmount(Long value) {
-        this.discountAmount = value;
+    public Long getShippingCost() {
+        return shippingCost;
     }
 
     /**
@@ -46,52 +30,20 @@ public class LineItemDetail {
      *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
      * </ul>
      */
-    public LineItemDetail withDiscountAmount(Long value) {
-        this.discountAmount = value;
-        return this;
+    public void setShippingCost(Long value) {
+        this.shippingCost = value;
     }
 
     /**
-     * The unique ID for each line item.
+     * Amount in the smallest currency unit, i.e.:
+     * <ul>
+     *   <li>EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34</li>
+     *   <li>KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234</li>
+     *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
+     * </ul>
      */
-    public String getLineItemId() {
-        return lineItemId;
-    }
-
-    /**
-     * The unique ID for each line item.
-     */
-    public void setLineItemId(String value) {
-        this.lineItemId = value;
-    }
-
-    /**
-     * The unique ID for each line item.
-     */
-    public LineItemDetail withLineItemId(String value) {
-        this.lineItemId = value;
-        return this;
-    }
-
-    /**
-     * Quantity of the units being purchased, should be greater than zero Note: Must not be all spaces or all zeros
-     */
-    public Long getQuantity() {
-        return quantity;
-    }
-
-    /**
-     * Quantity of the units being purchased, should be greater than zero Note: Must not be all spaces or all zeros
-     */
-    public void setQuantity(Long value) {
-        this.quantity = value;
-    }
-
-    /**
-     * Quantity of the units being purchased, should be greater than zero Note: Must not be all spaces or all zeros
-     */
-    public LineItemDetail withQuantity(Long value) {
-        this.quantity = value;
+    public ShippingDetail withShippingCost(Long value) {
+        this.shippingCost = value;
         return this;
     }
 
@@ -103,8 +55,8 @@ public class LineItemDetail {
      *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
      * </ul>
      */
-    public Long getTaxAmount() {
-        return taxAmount;
+    public Long getShippingCostTax() {
+        return shippingCostTax;
     }
 
     /**
@@ -115,8 +67,8 @@ public class LineItemDetail {
      *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
      * </ul>
      */
-    public void setTaxAmount(Long value) {
-        this.taxAmount = value;
+    public void setShippingCostTax(Long value) {
+        this.shippingCostTax = value;
     }
 
     /**
@@ -127,8 +79,8 @@ public class LineItemDetail {
      *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
      * </ul>
      */
-    public LineItemDetail withTaxAmount(Long value) {
-        this.taxAmount = value;
+    public ShippingDetail withShippingCostTax(Long value) {
+        this.shippingCostTax = value;
         return this;
     }
 }
