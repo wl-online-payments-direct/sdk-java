@@ -3,10 +3,12 @@ package com.onlinepayments.json;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeParseException;
 
 import org.junit.jupiter.api.Test;
 
@@ -55,6 +57,46 @@ class DefaultMarshallerTest {
 
         assertEquals(ZonedDateTime.of(2023, 12, 31, 13, 24, 59, 123_000_000, ZoneOffset.of("Z")), object.getDateTime());
         assertEquals(0, object.getDateTime().getOffset().getTotalSeconds());
+    }
+
+    @Test
+    void testUnmarshalZonedDateTimeWithValidOffset() {
+
+        String fullTimezone = "\"2026-03-26T12:34:56+01:00\"";
+        ZonedDateTime expectedFullTimezone = ZonedDateTime.parse("2026-03-26T12:34:56+01:00");
+        ZonedDateTime parsedFullTimezone = DefaultMarshaller.INSTANCE.unmarshal(fullTimezone, ZonedDateTime.class);
+
+        assertEquals(expectedFullTimezone.toInstant(), parsedFullTimezone.toInstant(),
+                "Parsed date does not match expected value");
+        assertEquals(expectedFullTimezone.getOffset(), parsedFullTimezone.getOffset(),
+                "Offset does not match expected value");
+        assertEquals(fullTimezone, DefaultMarshaller.INSTANCE.marshal(parsedFullTimezone),
+                "Marshaled JSON does not match expected value");
+
+        String shortTimezone = "\"2026-03-26T12:34:56+01\"";
+        ZonedDateTime expectedShortTimezone = ZonedDateTime.parse("2026-03-26T12:34:56+01:00");
+        ZonedDateTime parsedShortTimezone = DefaultMarshaller.INSTANCE.unmarshal(shortTimezone, ZonedDateTime.class);
+
+        assertEquals(expectedShortTimezone.toInstant(), parsedShortTimezone.toInstant(),
+                "Parsed date does not match expected value");
+        assertEquals(expectedShortTimezone.getOffset(), parsedShortTimezone.getOffset(),
+                "Offset does not match expected value");
+        assertEquals("\"2026-03-26T12:34:56+01:00\"", DefaultMarshaller.INSTANCE.marshal(parsedShortTimezone),
+                "Marshaled JSON does not match expected value");
+    }
+
+    @Test
+    void testUnmarshalZonedDateTimeWithInvalidOffset() {
+
+        String withoutOffset = "\"2026-03-10T11:14:15\"";
+        assertThrows(DateTimeParseException.class,
+                () -> DefaultMarshaller.INSTANCE.unmarshal(withoutOffset, ZonedDateTime.class),
+                "Expected error for date without offset.");
+
+        String justDate = "\"2026-03-10\"";
+        assertThrows(DateTimeParseException.class,
+                () -> DefaultMarshaller.INSTANCE.unmarshal(justDate, ZonedDateTime.class),
+                "Expected error for invalid date with just date.");
     }
 
     static class BasicObject {

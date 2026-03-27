@@ -1,5 +1,7 @@
 package com.onlinepayments.json;
 
+import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -8,7 +10,11 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -74,6 +80,21 @@ public class DefaultMarshaller implements Marshaller {
 
     private static final class ZonedDateTimeAdapter extends TypeAdapter<ZonedDateTime> {
 
+        public static final DateTimeFormatter ISO_DATE_TIME_SHORT_OFFSET;
+
+        static {
+            ISO_DATE_TIME_SHORT_OFFSET = new DateTimeFormatterBuilder()
+                .parseCaseInsensitive()
+                .append(ISO_LOCAL_DATE_TIME)
+                .appendOffset("+HH", "Z")
+                .toFormatter();
+        }
+
+        private static final List<DateTimeFormatter> FORMATTERS = Arrays.asList(
+                DateTimeFormatter.ISO_OFFSET_DATE_TIME,
+                ISO_DATE_TIME_SHORT_OFFSET
+        );
+
         @Override
         @SuppressWarnings("resource")
         public void write(JsonWriter out, ZonedDateTime value) throws IOException {
@@ -82,7 +103,17 @@ public class DefaultMarshaller implements Marshaller {
 
         @Override
         public ZonedDateTime read(JsonReader in) throws IOException {
-            return ZonedDateTime.parse(in.nextString(), DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+            String value = in.nextString();
+
+            for (DateTimeFormatter formatter : FORMATTERS) {
+                try {
+                    return ZonedDateTime.parse(value, formatter);
+                } catch (DateTimeParseException ignored) {
+                    // try next formatter
+                }
+            }
+
+            throw new DateTimeParseException("Unable to parse date", value, 0);
         }
     }
 }
