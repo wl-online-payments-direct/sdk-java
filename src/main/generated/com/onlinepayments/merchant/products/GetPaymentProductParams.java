@@ -28,6 +28,8 @@ public class GetPaymentProductParams implements ParamRequest {
 
     private List<String> hide;
 
+    private String operationType;
+
     /**
      * ISO 3166-1 alpha-2 country code of the transaction
      */
@@ -214,6 +216,46 @@ public class GetPaymentProductParams implements ParamRequest {
         this.hide.add(value);
     }
 
+    /**
+     * This allows you to filter payment products based on the operation type. Allowed values:
+     * <ul>
+     *   <li>Authorization - The payment creation results in an authorization that is ready for capture. Final authorizations can't be reversed and need to be captured for the full amount within 7 days.</li>
+     *   <li>Pre-authorization - The payment creation results in a pre-authorization that is ready for capture. Pre-authortizations can be reversed and can be captured within 30 days. The capture amount can be lower than the authorized amount.</li>
+     *   <li>Sale - The payment creation results in an authorization that is already captured at the moment of approval.</li>
+     *   <li>Payout - Payout service enables seamless direct money transfers to a chosen bank account.</li>
+     * </ul>
+     */
+    public String getOperationType() {
+        return operationType;
+    }
+
+    /**
+     * This allows you to filter payment products based on the operation type. Allowed values:
+     * <ul>
+     *   <li>Authorization - The payment creation results in an authorization that is ready for capture. Final authorizations can't be reversed and need to be captured for the full amount within 7 days.</li>
+     *   <li>Pre-authorization - The payment creation results in a pre-authorization that is ready for capture. Pre-authortizations can be reversed and can be captured within 30 days. The capture amount can be lower than the authorized amount.</li>
+     *   <li>Sale - The payment creation results in an authorization that is already captured at the moment of approval.</li>
+     *   <li>Payout - Payout service enables seamless direct money transfers to a chosen bank account.</li>
+     * </ul>
+     */
+    public void setOperationType(String value) {
+        this.operationType = value;
+    }
+
+    /**
+     * This allows you to filter payment products based on the operation type. Allowed values:
+     * <ul>
+     *   <li>Authorization - The payment creation results in an authorization that is ready for capture. Final authorizations can't be reversed and need to be captured for the full amount within 7 days.</li>
+     *   <li>Pre-authorization - The payment creation results in a pre-authorization that is ready for capture. Pre-authortizations can be reversed and can be captured within 30 days. The capture amount can be lower than the authorized amount.</li>
+     *   <li>Sale - The payment creation results in an authorization that is already captured at the moment of approval.</li>
+     *   <li>Payout - Payout service enables seamless direct money transfers to a chosen bank account.</li>
+     * </ul>
+     */
+    public GetPaymentProductParams withOperationType(String value) {
+        this.operationType = value;
+        return this;
+    }
+
     @Override
     public List<RequestParam> toRequestParameters() {
         List<RequestParam> result = new ArrayList<>();
@@ -238,6 +280,9 @@ public class GetPaymentProductParams implements ParamRequest {
                     result.add(new RequestParam("hide", hideElement));
                 }
             }
+        }
+        if (operationType != null) {
+            result.add(new RequestParam("operationType", operationType));
         }
         return result;
     }

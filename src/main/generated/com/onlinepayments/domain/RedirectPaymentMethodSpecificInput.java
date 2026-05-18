@@ -30,11 +30,15 @@ public class RedirectPaymentMethodSpecificInput {
 
     private RedirectPaymentProduct5300SpecificInput paymentProduct5300SpecificInput;
 
+    private RedirectPaymentProduct5301SpecificInput paymentProduct5301SpecificInput;
+
     private RedirectPaymentProduct5402SpecificInput paymentProduct5402SpecificInput;
 
     private RedirectPaymentProduct5403SpecificInput paymentProduct5403SpecificInput;
 
     private RedirectPaymentProduct5406SpecificInput paymentProduct5406SpecificInput;
+
+    private RedirectPaymentProduct5407SpecificInput paymentProduct5407SpecificInput;
 
     private RedirectPaymentProduct5408SpecificInput paymentProduct5408SpecificInput;
 
@@ -324,6 +328,28 @@ public class RedirectPaymentMethodSpecificInput {
     }
 
     /**
+     * PAYONE Buy Now, Pay Later (payment product 5301) specific details
+     */
+    public RedirectPaymentProduct5301SpecificInput getPaymentProduct5301SpecificInput() {
+        return paymentProduct5301SpecificInput;
+    }
+
+    /**
+     * PAYONE Buy Now, Pay Later (payment product 5301) specific details
+     */
+    public void setPaymentProduct5301SpecificInput(RedirectPaymentProduct5301SpecificInput value) {
+        this.paymentProduct5301SpecificInput = value;
+    }
+
+    /**
+     * PAYONE Buy Now, Pay Later (payment product 5301) specific details
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct5301SpecificInput(RedirectPaymentProduct5301SpecificInput value) {
+        this.paymentProduct5301SpecificInput = value;
+        return this;
+    }
+
+    /**
      * Object containing specific input required for E-Voucher payments (Payment product ID 5402)
      */
     public RedirectPaymentProduct5402SpecificInput getPaymentProduct5402SpecificInput() {
@@ -386,6 +412,28 @@ public class RedirectPaymentMethodSpecificInput {
      */
     public RedirectPaymentMethodSpecificInput withPaymentProduct5406SpecificInput(RedirectPaymentProduct5406SpecificInput value) {
         this.paymentProduct5406SpecificInput = value;
+        return this;
+    }
+
+    /**
+     * TWINT (payment product 5407) specific details
+     */
+    public RedirectPaymentProduct5407SpecificInput getPaymentProduct5407SpecificInput() {
+        return paymentProduct5407SpecificInput;
+    }
+
+    /**
+     * TWINT (payment product 5407) specific details
+     */
+    public void setPaymentProduct5407SpecificInput(RedirectPaymentProduct5407SpecificInput value) {
+        this.paymentProduct5407SpecificInput = value;
+    }
+
+    /**
+     * TWINT (payment product 5407) specific details
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct5407SpecificInput(RedirectPaymentProduct5407SpecificInput value) {
+        this.paymentProduct5407SpecificInput = value;
         return this;
     }
 

@@ -4,6 +4,8 @@
 
 package com.onlinepayments.domain;
 
+import java.time.ZonedDateTime;
+
 public class RedirectPaymentProduct5300SpecificInput {
 
     private String birthCity;
@@ -21,6 +23,8 @@ public class RedirectPaymentProduct5300SpecificInput {
     private Integer sessionDuration;
 
     private String title;
+
+    private ZonedDateTime transactionExpirationDateTime;
 
     /**
      * The city of the address where the customer was born
@@ -195,6 +199,28 @@ public class RedirectPaymentProduct5300SpecificInput {
      */
     public RedirectPaymentProduct5300SpecificInput withTitle(String value) {
         this.title = value;
+        return this;
+    }
+
+    /**
+     * The date and time after which the transaction will expire in UTC (format YYYY-MM-DDTHH:mm:ssZ)
+     */
+    public ZonedDateTime getTransactionExpirationDateTime() {
+        return transactionExpirationDateTime;
+    }
+
+    /**
+     * The date and time after which the transaction will expire in UTC (format YYYY-MM-DDTHH:mm:ssZ)
+     */
+    public void setTransactionExpirationDateTime(ZonedDateTime value) {
+        this.transactionExpirationDateTime = value;
+    }
+
+    /**
+     * The date and time after which the transaction will expire in UTC (format YYYY-MM-DDTHH:mm:ssZ)
+     */
+    public RedirectPaymentProduct5300SpecificInput withTransactionExpirationDateTime(ZonedDateTime value) {
+        this.transactionExpirationDateTime = value;
         return this;
     }
 }

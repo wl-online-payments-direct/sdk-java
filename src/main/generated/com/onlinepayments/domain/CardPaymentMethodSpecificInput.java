@@ -10,6 +10,8 @@ public class CardPaymentMethodSpecificInput {
 
     private String authorizationMode;
 
+    private AutoCapture autoCapture;
+
     private Card card;
 
     private String cardOnFileRecurringExpiration;
@@ -133,6 +135,28 @@ public class CardPaymentMethodSpecificInput {
      */
     public CardPaymentMethodSpecificInput withAuthorizationMode(String value) {
         this.authorizationMode = value;
+        return this;
+    }
+
+    /**
+     * Object containing the auto capture configuration for the payment.
+     */
+    public AutoCapture getAutoCapture() {
+        return autoCapture;
+    }
+
+    /**
+     * Object containing the auto capture configuration for the payment.
+     */
+    public void setAutoCapture(AutoCapture value) {
+        this.autoCapture = value;
+    }
+
+    /**
+     * Object containing the auto capture configuration for the payment.
+     */
+    public CardPaymentMethodSpecificInput withAutoCapture(AutoCapture value) {
+        this.autoCapture = value;
         return this;
     }
 

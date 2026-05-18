@@ -12,8 +12,6 @@ public class LineItemDetail {
 
     private Long quantity;
 
-    private Long taxAmount;
-
     /**
      * Amount in the smallest currency unit, i.e.:
      * <ul>
@@ -92,43 +90,6 @@ public class LineItemDetail {
      */
     public LineItemDetail withQuantity(Long value) {
         this.quantity = value;
-        return this;
-    }
-
-    /**
-     * Amount in the smallest currency unit, i.e.:
-     * <ul>
-     *   <li>EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34</li>
-     *   <li>KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234</li>
-     *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
-     * </ul>
-     */
-    public Long getTaxAmount() {
-        return taxAmount;
-    }
-
-    /**
-     * Amount in the smallest currency unit, i.e.:
-     * <ul>
-     *   <li>EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34</li>
-     *   <li>KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234</li>
-     *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
-     * </ul>
-     */
-    public void setTaxAmount(Long value) {
-        this.taxAmount = value;
-    }
-
-    /**
-     * Amount in the smallest currency unit, i.e.:
-     * <ul>
-     *   <li>EUR is a 2-decimals currency, the value 1234 will result in EUR 12.34</li>
-     *   <li>KWD is a 3-decimals currency, the value 1234 will result in KWD 1.234</li>
-     *   <li>JPY is a zero-decimal currency, the value 1234 will result in JPY 1234</li>
-     * </ul>
-     */
-    public LineItemDetail withTaxAmount(Long value) {
-        this.taxAmount = value;
         return this;
     }
 }

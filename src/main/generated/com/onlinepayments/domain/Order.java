@@ -4,6 +4,8 @@
 
 package com.onlinepayments.domain;
 
+import java.math.BigDecimal;
+
 public class Order {
 
     private AdditionalOrderInput additionalInput;
@@ -21,6 +23,8 @@ public class Order {
     private ShoppingCart shoppingCart;
 
     private SurchargeSpecificInput surchargeSpecificInput;
+
+    private BigDecimal taxPercentage;
 
     private Long totalTaxAmount;
 
@@ -201,21 +205,43 @@ public class Order {
     }
 
     /**
-     * tax amount, in minor currency units of the order. Omit if not applicable or not known. This amount is assumed to be included in the order.AmountOfMoney for the payment. There is no validation on this field, outside the fact the amount should be lower than the total payment amount.
+     * tax percentage, in hundredths of a percent. For example, for a tax percentage of 21%, this field should be set to 2100. Omit if not applicable or not known.
+     */
+    public BigDecimal getTaxPercentage() {
+        return taxPercentage;
+    }
+
+    /**
+     * tax percentage, in hundredths of a percent. For example, for a tax percentage of 21%, this field should be set to 2100. Omit if not applicable or not known.
+     */
+    public void setTaxPercentage(BigDecimal value) {
+        this.taxPercentage = value;
+    }
+
+    /**
+     * tax percentage, in hundredths of a percent. For example, for a tax percentage of 21%, this field should be set to 2100. Omit if not applicable or not known.
+     */
+    public Order withTaxPercentage(BigDecimal value) {
+        this.taxPercentage = value;
+        return this;
+    }
+
+    /**
+     * Tax amount, in minor currency units of the order. Omit if not applicable or not known. This amount is assumed to be included in the order.AmountOfMoney for the payment. There is no validation on this field, outside the fact the amount should be lower than the total payment amount.
      */
     public Long getTotalTaxAmount() {
         return totalTaxAmount;
     }
 
     /**
-     * tax amount, in minor currency units of the order. Omit if not applicable or not known. This amount is assumed to be included in the order.AmountOfMoney for the payment. There is no validation on this field, outside the fact the amount should be lower than the total payment amount.
+     * Tax amount, in minor currency units of the order. Omit if not applicable or not known. This amount is assumed to be included in the order.AmountOfMoney for the payment. There is no validation on this field, outside the fact the amount should be lower than the total payment amount.
      */
     public void setTotalTaxAmount(Long value) {
         this.totalTaxAmount = value;
     }
 
     /**
-     * tax amount, in minor currency units of the order. Omit if not applicable or not known. This amount is assumed to be included in the order.AmountOfMoney for the payment. There is no validation on this field, outside the fact the amount should be lower than the total payment amount.
+     * Tax amount, in minor currency units of the order. Omit if not applicable or not known. This amount is assumed to be included in the order.AmountOfMoney for the payment. There is no validation on this field, outside the fact the amount should be lower than the total payment amount.
      */
     public Order withTotalTaxAmount(Long value) {
         this.totalTaxAmount = value;

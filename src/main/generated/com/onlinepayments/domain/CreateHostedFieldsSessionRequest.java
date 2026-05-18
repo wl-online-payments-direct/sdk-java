@@ -4,9 +4,13 @@
 
 package com.onlinepayments.domain;
 
+import java.util.List;
+
 public class CreateHostedFieldsSessionRequest {
 
     private String locale;
+
+    private List<String> tokens;
 
     /**
      * Locale used in the GUI towards the consumer.
@@ -27,6 +31,19 @@ public class CreateHostedFieldsSessionRequest {
      */
     public CreateHostedFieldsSessionRequest withLocale(String value) {
         this.locale = value;
+        return this;
+    }
+
+    public List<String> getTokens() {
+        return tokens;
+    }
+
+    public void setTokens(List<String> value) {
+        this.tokens = value;
+    }
+
+    public CreateHostedFieldsSessionRequest withTokens(List<String> value) {
+        this.tokens = value;
         return this;
     }
 }

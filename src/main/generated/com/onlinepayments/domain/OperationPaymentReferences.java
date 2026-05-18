@@ -10,6 +10,8 @@ public class OperationPaymentReferences {
 
     private String operationGroupReference;
 
+    private String structuredCreditorReference;
+
     /**
      * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
      * It is highly recommended to provide a single MerchantReference per unique order on your side
@@ -54,6 +56,28 @@ public class OperationPaymentReferences {
      */
     public OperationPaymentReferences withOperationGroupReference(String value) {
         this.operationGroupReference = value;
+        return this;
+    }
+
+    /**
+     * Creditor Reference to use where applicable for invoicing related to the transaction, in accordance with ISO 11649. Might require merchant specific setup to enable and is subject to agreement with the acquirer.
+     */
+    public String getStructuredCreditorReference() {
+        return structuredCreditorReference;
+    }
+
+    /**
+     * Creditor Reference to use where applicable for invoicing related to the transaction, in accordance with ISO 11649. Might require merchant specific setup to enable and is subject to agreement with the acquirer.
+     */
+    public void setStructuredCreditorReference(String value) {
+        this.structuredCreditorReference = value;
+    }
+
+    /**
+     * Creditor Reference to use where applicable for invoicing related to the transaction, in accordance with ISO 11649. Might require merchant specific setup to enable and is subject to agreement with the acquirer.
+     */
+    public OperationPaymentReferences withStructuredCreditorReference(String value) {
+        this.structuredCreditorReference = value;
         return this;
     }
 }

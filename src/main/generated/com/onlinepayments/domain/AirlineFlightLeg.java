@@ -32,6 +32,8 @@ public class AirlineFlightLeg {
 
     private Integer fee;
 
+    private String flightCode;
+
     private String flightNumber;
 
     private Integer legFare;
@@ -386,6 +388,31 @@ public class AirlineFlightLeg {
      */
     public AirlineFlightLeg withFee(Integer value) {
         this.fee = value;
+        return this;
+    }
+
+    /**
+     * The flight number of the current leg.
+     * This field is used by the following payment products: 840
+     */
+    public String getFlightCode() {
+        return flightCode;
+    }
+
+    /**
+     * The flight number of the current leg.
+     * This field is used by the following payment products: 840
+     */
+    public void setFlightCode(String value) {
+        this.flightCode = value;
+    }
+
+    /**
+     * The flight number of the current leg.
+     * This field is used by the following payment products: 840
+     */
+    public AirlineFlightLeg withFlightCode(String value) {
+        this.flightCode = value;
         return this;
     }
 

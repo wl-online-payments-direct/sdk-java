@@ -37,6 +37,10 @@ public class GetIINDetailsResponse {
 
     private String issuerName;
 
+    private String issuerPrincipalMemberCode;
+
+    private String issuerPrincipalMemberName;
+
     private String issuerRegionCode;
 
     private String issuingCountryCode;
@@ -455,6 +459,50 @@ public class GetIINDetailsResponse {
      */
     public GetIINDetailsResponse withIssuerName(String value) {
         this.issuerName = value;
+        return this;
+    }
+
+    /**
+     * Code that identifies the principal member within an issuer group
+     */
+    public String getIssuerPrincipalMemberCode() {
+        return issuerPrincipalMemberCode;
+    }
+
+    /**
+     * Code that identifies the principal member within an issuer group
+     */
+    public void setIssuerPrincipalMemberCode(String value) {
+        this.issuerPrincipalMemberCode = value;
+    }
+
+    /**
+     * Code that identifies the principal member within an issuer group
+     */
+    public GetIINDetailsResponse withIssuerPrincipalMemberCode(String value) {
+        this.issuerPrincipalMemberCode = value;
+        return this;
+    }
+
+    /**
+     * Name that identifies the principal member within an issuer group
+     */
+    public String getIssuerPrincipalMemberName() {
+        return issuerPrincipalMemberName;
+    }
+
+    /**
+     * Name that identifies the principal member within an issuer group
+     */
+    public void setIssuerPrincipalMemberName(String value) {
+        this.issuerPrincipalMemberName = value;
+    }
+
+    /**
+     * Name that identifies the principal member within an issuer group
+     */
+    public GetIINDetailsResponse withIssuerPrincipalMemberName(String value) {
+        this.issuerPrincipalMemberName = value;
         return this;
     }
 

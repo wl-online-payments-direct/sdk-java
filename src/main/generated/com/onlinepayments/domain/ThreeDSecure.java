@@ -154,21 +154,21 @@ public class ThreeDSecure {
     }
 
     /**
-     * Determines whether the call is coming from an application or from a browser * AppBased - Call is coming from an application. * Browser - Call is coming from a browser
+     * Determines whether the call is coming from an application or from a browser * AppBased - Call is coming from an application. * Browser - Call is coming from a browser * ThreeDSRequestorInitiated - The authentication is initiated by the 3DS Requestor (merchant) without direct cardholder interaction, such as for recurring or merchant-initiated transactions.
      */
     public String getDeviceChannel() {
         return deviceChannel;
     }
 
     /**
-     * Determines whether the call is coming from an application or from a browser * AppBased - Call is coming from an application. * Browser - Call is coming from a browser
+     * Determines whether the call is coming from an application or from a browser * AppBased - Call is coming from an application. * Browser - Call is coming from a browser * ThreeDSRequestorInitiated - The authentication is initiated by the 3DS Requestor (merchant) without direct cardholder interaction, such as for recurring or merchant-initiated transactions.
      */
     public void setDeviceChannel(String value) {
         this.deviceChannel = value;
     }
 
     /**
-     * Determines whether the call is coming from an application or from a browser * AppBased - Call is coming from an application. * Browser - Call is coming from a browser
+     * Determines whether the call is coming from an application or from a browser * AppBased - Call is coming from an application. * Browser - Call is coming from a browser * ThreeDSRequestorInitiated - The authentication is initiated by the 3DS Requestor (merchant) without direct cardholder interaction, such as for recurring or merchant-initiated transactions.
      */
     public ThreeDSecure withDeviceChannel(String value) {
         this.deviceChannel = value;

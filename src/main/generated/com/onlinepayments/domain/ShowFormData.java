@@ -17,6 +17,8 @@ public class ShowFormData {
 
     private PaymentProduct5407 paymentProduct5407;
 
+    private PaymentProduct5412 paymentProduct5412;
+
     private PaymentProduct840 paymentProduct840;
 
     private PendingAuthentication pendingAuthentication;
@@ -128,6 +130,28 @@ public class ShowFormData {
      */
     public ShowFormData withPaymentProduct5407(PaymentProduct5407 value) {
         this.paymentProduct5407 = value;
+        return this;
+    }
+
+    /**
+     * Contains the third party data for payment product 5412 (Chèque-Vacances Connect)
+     */
+    public PaymentProduct5412 getPaymentProduct5412() {
+        return paymentProduct5412;
+    }
+
+    /**
+     * Contains the third party data for payment product 5412 (Chèque-Vacances Connect)
+     */
+    public void setPaymentProduct5412(PaymentProduct5412 value) {
+        this.paymentProduct5412 = value;
+    }
+
+    /**
+     * Contains the third party data for payment product 5412 (Chèque-Vacances Connect)
+     */
+    public ShowFormData withPaymentProduct5412(PaymentProduct5412 value) {
+        this.paymentProduct5412 = value;
         return this;
     }
 

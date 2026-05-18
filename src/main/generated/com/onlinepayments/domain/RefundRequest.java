@@ -92,23 +92,14 @@ public class RefundRequest {
         return this;
     }
 
-    /**
-     * List of lineItemIds and quantities for capture/refund/cancellation.
-     */
     public List<LineItemDetail> getLineItemDetails() {
         return lineItemDetails;
     }
 
-    /**
-     * List of lineItemIds and quantities for capture/refund/cancellation.
-     */
     public void setLineItemDetails(List<LineItemDetail> value) {
         this.lineItemDetails = value;
     }
 
-    /**
-     * List of lineItemIds and quantities for capture/refund/cancellation.
-     */
     public RefundRequest withLineItemDetails(List<LineItemDetail> value) {
         this.lineItemDetails = value;
         return this;

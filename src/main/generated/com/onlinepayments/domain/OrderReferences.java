@@ -14,6 +14,8 @@ public class OrderReferences {
 
     private String operationGroupReference;
 
+    private String structuredCreditorReference;
+
     /**
      * Descriptive text that is used towards to customer, either during an online checkout at a third party and/or on the statement of the customer. For card transactions this is usually referred to as a Soft Descriptor. The maximum allowed length varies per card acquirer:
      * <ul>
@@ -201,6 +203,28 @@ public class OrderReferences {
      */
     public OrderReferences withOperationGroupReference(String value) {
         this.operationGroupReference = value;
+        return this;
+    }
+
+    /**
+     * Creditor Reference to use where applicable for invoicing related to the transaction, in accordance with ISO 11649. Might require merchant specific setup to enable and is subject to agreement with the acquirer.
+     */
+    public String getStructuredCreditorReference() {
+        return structuredCreditorReference;
+    }
+
+    /**
+     * Creditor Reference to use where applicable for invoicing related to the transaction, in accordance with ISO 11649. Might require merchant specific setup to enable and is subject to agreement with the acquirer.
+     */
+    public void setStructuredCreditorReference(String value) {
+        this.structuredCreditorReference = value;
+    }
+
+    /**
+     * Creditor Reference to use where applicable for invoicing related to the transaction, in accordance with ISO 11649. Might require merchant specific setup to enable and is subject to agreement with the acquirer.
+     */
+    public OrderReferences withStructuredCreditorReference(String value) {
+        this.structuredCreditorReference = value;
         return this;
     }
 }

@@ -4,6 +4,8 @@
 
 package com.onlinepayments.domain;
 
+import java.math.BigDecimal;
+
 public class OrderLineDetails {
 
     private Long discountAmount;
@@ -21,6 +23,8 @@ public class OrderLineDetails {
     private Long quantity;
 
     private Long taxAmount;
+
+    private BigDecimal taxPercentage;
 
     private String unit;
 
@@ -230,6 +234,28 @@ public class OrderLineDetails {
      */
     public OrderLineDetails withTaxAmount(Long value) {
         this.taxAmount = value;
+        return this;
+    }
+
+    /**
+     * tax percentage, in hundredths of a percent. For example, for a tax percentage of 21%, this field should be set to 2100. Omit if not applicable or not known.
+     */
+    public BigDecimal getTaxPercentage() {
+        return taxPercentage;
+    }
+
+    /**
+     * tax percentage, in hundredths of a percent. For example, for a tax percentage of 21%, this field should be set to 2100. Omit if not applicable or not known.
+     */
+    public void setTaxPercentage(BigDecimal value) {
+        this.taxPercentage = value;
+    }
+
+    /**
+     * tax percentage, in hundredths of a percent. For example, for a tax percentage of 21%, this field should be set to 2100. Omit if not applicable or not known.
+     */
+    public OrderLineDetails withTaxPercentage(BigDecimal value) {
+        this.taxPercentage = value;
         return this;
     }
 

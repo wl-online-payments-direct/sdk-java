@@ -8,6 +8,10 @@ public class AirlinePassenger {
 
     private String airlineLoyaltyStatus;
 
+    private String countryCode;
+
+    private String dateOfBirth;
+
     private String firstName;
 
     private String passengerType;
@@ -37,6 +41,53 @@ public class AirlinePassenger {
      */
     public AirlinePassenger withAirlineLoyaltyStatus(String value) {
         this.airlineLoyaltyStatus = value;
+        return this;
+    }
+
+    /**
+     * Passenger's residence country defined in ISO 3166-1 alpha-2.
+     */
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    /**
+     * Passenger's residence country defined in ISO 3166-1 alpha-2.
+     */
+    public void setCountryCode(String value) {
+        this.countryCode = value;
+    }
+
+    /**
+     * Passenger's residence country defined in ISO 3166-1 alpha-2.
+     */
+    public AirlinePassenger withCountryCode(String value) {
+        this.countryCode = value;
+        return this;
+    }
+
+    /**
+     * The date of birth of the passenger.
+     * Format YYYYMMDD
+     */
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    /**
+     * The date of birth of the passenger.
+     * Format YYYYMMDD
+     */
+    public void setDateOfBirth(String value) {
+        this.dateOfBirth = value;
+    }
+
+    /**
+     * The date of birth of the passenger.
+     * Format YYYYMMDD
+     */
+    public AirlinePassenger withDateOfBirth(String value) {
+        this.dateOfBirth = value;
         return this;
     }
 

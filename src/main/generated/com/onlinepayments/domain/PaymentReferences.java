@@ -12,6 +12,8 @@ public class PaymentReferences {
 
     private String operationGroupReference;
 
+    private String structuredCreditorReference;
+
     /**
      * It allows you to store additional parameters for the transaction in the format you prefer (e.g.-&gt; key-value query string, JSON, etc.) These parameters are then echoed back to you in API GET calls and Webhook notifications. This field must not contain any personal data.
      */
@@ -78,6 +80,28 @@ public class PaymentReferences {
      */
     public PaymentReferences withOperationGroupReference(String value) {
         this.operationGroupReference = value;
+        return this;
+    }
+
+    /**
+     * Creditor Reference to use where applicable for invoicing related to the transaction, in accordance with ISO 11649. Might require merchant specific setup to enable and is subject to agreement with the acquirer.
+     */
+    public String getStructuredCreditorReference() {
+        return structuredCreditorReference;
+    }
+
+    /**
+     * Creditor Reference to use where applicable for invoicing related to the transaction, in accordance with ISO 11649. Might require merchant specific setup to enable and is subject to agreement with the acquirer.
+     */
+    public void setStructuredCreditorReference(String value) {
+        this.structuredCreditorReference = value;
+    }
+
+    /**
+     * Creditor Reference to use where applicable for invoicing related to the transaction, in accordance with ISO 11649. Might require merchant specific setup to enable and is subject to agreement with the acquirer.
+     */
+    public PaymentReferences withStructuredCreditorReference(String value) {
+        this.structuredCreditorReference = value;
         return this;
     }
 }
