@@ -16,6 +16,8 @@ public class ImportCofSeriesRequest {
 
     private String tokenId;
 
+    private String transactionLinkIdentifier;
+
     /**
      * Object containing card details, which should be used if a tokenID is not provided.
      */
@@ -123,6 +125,28 @@ public class ImportCofSeriesRequest {
      */
     public ImportCofSeriesRequest withTokenId(String value) {
         this.tokenId = value;
+        return this;
+    }
+
+    /**
+     * The Transaction Link Identifier (TLID) of the original Consumer-Initiated Transaction (CIT).
+     */
+    public String getTransactionLinkIdentifier() {
+        return transactionLinkIdentifier;
+    }
+
+    /**
+     * The Transaction Link Identifier (TLID) of the original Consumer-Initiated Transaction (CIT).
+     */
+    public void setTransactionLinkIdentifier(String value) {
+        this.transactionLinkIdentifier = value;
+    }
+
+    /**
+     * The Transaction Link Identifier (TLID) of the original Consumer-Initiated Transaction (CIT).
+     */
+    public ImportCofSeriesRequest withTransactionLinkIdentifier(String value) {
+        this.transactionLinkIdentifier = value;
         return this;
     }
 }

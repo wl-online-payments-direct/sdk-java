@@ -15,6 +15,8 @@ import com.onlinepayments.domain.ErrorResponse;
 import com.onlinepayments.domain.GetPaymentProductsResponse;
 import com.onlinepayments.domain.PaymentProduct;
 import com.onlinepayments.domain.PaymentProductNetworksResponse;
+import com.onlinepayments.domain.PaymentProductSessionRequest;
+import com.onlinepayments.domain.PaymentProductSessionResponse;
 import com.onlinepayments.domain.ProductDirectory;
 
 /**
@@ -126,6 +128,34 @@ public class ProductsClient extends ApiResource implements ProductsClientInterfa
                     getClientHeaders(),
                     query,
                     ProductDirectory.class,
+                    context);
+        } catch (ResponseException e) {
+            final Class<?> errorType = ErrorResponse.class;
+            final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+            throw EXCEPTION_FACTORY.createException(e.getStatusCode(), e.getBody(), errorObject, context);
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public PaymentProductSessionResponse createPaymentProductSession(Integer paymentProductId, PaymentProductSessionRequest body) {
+        return createPaymentProductSession(paymentProductId, body, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public PaymentProductSessionResponse createPaymentProductSession(Integer paymentProductId, PaymentProductSessionRequest body, CallContext context) {
+        Map<String, String> pathContext = new TreeMap<>();
+        pathContext.put("paymentProductId", paymentProductId.toString());
+        String uri = instantiateUri("/v2/{merchantId}/products/{paymentProductId}/sessions", pathContext);
+        try {
+
+            return communicator.post(
+                    uri,
+                    getClientHeaders(),
+                    null,
+                    body,
+                    PaymentProductSessionResponse.class,
                     context);
         } catch (ResponseException e) {
             final Class<?> errorType = ErrorResponse.class;

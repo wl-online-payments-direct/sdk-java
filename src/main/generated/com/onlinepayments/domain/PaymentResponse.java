@@ -10,6 +10,8 @@ public class PaymentResponse {
 
     private String id;
 
+    private OperationOutput operationOutput;
+
     private PaymentOutput paymentOutput;
 
     private SessionDetails sessionDetails;
@@ -59,6 +61,28 @@ public class PaymentResponse {
      */
     public PaymentResponse withId(String value) {
         this.id = value;
+        return this;
+    }
+
+    /**
+     * Object containing operation details
+     */
+    public OperationOutput getOperationOutput() {
+        return operationOutput;
+    }
+
+    /**
+     * Object containing operation details
+     */
+    public void setOperationOutput(OperationOutput value) {
+        this.operationOutput = value;
+    }
+
+    /**
+     * Object containing operation details
+     */
+    public PaymentResponse withOperationOutput(OperationOutput value) {
+        this.operationOutput = value;
         return this;
     }
 

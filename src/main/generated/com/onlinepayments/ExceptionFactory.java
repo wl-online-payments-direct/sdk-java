@@ -11,6 +11,7 @@ import com.onlinepayments.domain.APIError;
 import com.onlinepayments.domain.ErrorResponse;
 import com.onlinepayments.domain.PaymentErrorResponse;
 import com.onlinepayments.domain.PayoutErrorResponse;
+import com.onlinepayments.domain.ProblemDetailsResponse;
 import com.onlinepayments.domain.RefundErrorResponse;
 
 /**
@@ -39,6 +40,10 @@ public class ExceptionFactory {
                 return new DeclinedRefundException(statusCode, responseBody, refundErrorResponse);
             }
             return createException(statusCode, responseBody, refundErrorResponse.getErrorId(), refundErrorResponse.getErrors(), context);
+        }
+        if (errorObject instanceof ProblemDetailsResponse) {
+            ProblemDetailsResponse problemDetailsResponse = (ProblemDetailsResponse) errorObject;
+            return new ProblemDetailsException(statusCode, responseBody, problemDetailsResponse);
         }
         if (errorObject instanceof ErrorResponse) {
             ErrorResponse errorResponse = (ErrorResponse) errorObject;
