@@ -11,21 +11,21 @@ public class GetHostedCheckoutResponse {
     private String status;
 
     /**
-     * This object will return the details of the payment after the payment is cancelled by the customer, rejected or authorized
+     * This object will return the details of the payment after the payment is cancelled by the customer or by expiration, rejected or authorized
      */
     public CreatedPaymentOutput getCreatedPaymentOutput() {
         return createdPaymentOutput;
     }
 
     /**
-     * This object will return the details of the payment after the payment is cancelled by the customer, rejected or authorized
+     * This object will return the details of the payment after the payment is cancelled by the customer or by expiration, rejected or authorized
      */
     public void setCreatedPaymentOutput(CreatedPaymentOutput value) {
         this.createdPaymentOutput = value;
     }
 
     /**
-     * This object will return the details of the payment after the payment is cancelled by the customer, rejected or authorized
+     * This object will return the details of the payment after the payment is cancelled by the customer or by expiration, rejected or authorized
      */
     public GetHostedCheckoutResponse withCreatedPaymentOutput(CreatedPaymentOutput value) {
         this.createdPaymentOutput = value;
@@ -37,7 +37,7 @@ public class GetHostedCheckoutResponse {
      * <ul>
      *   <li>IN_PROGRESS - The checkout is still in progress and has not finished yet</li>
      *   <li>PAYMENT_CREATED - A payment has been created</li>
-     *   <li>CANCELLED_BY_CONSUMER - The HostedCheckout session have been cancelled by the customer</li>
+     *   <li>CANCELLED_BY_CONSUMER - The HostedCheckout session have been cancelled by the customer or by expiration</li>
      * </ul>
      */
     public String getStatus() {
@@ -49,7 +49,7 @@ public class GetHostedCheckoutResponse {
      * <ul>
      *   <li>IN_PROGRESS - The checkout is still in progress and has not finished yet</li>
      *   <li>PAYMENT_CREATED - A payment has been created</li>
-     *   <li>CANCELLED_BY_CONSUMER - The HostedCheckout session have been cancelled by the customer</li>
+     *   <li>CANCELLED_BY_CONSUMER - The HostedCheckout session have been cancelled by the customer or by expiration</li>
      * </ul>
      */
     public void setStatus(String value) {
@@ -61,7 +61,7 @@ public class GetHostedCheckoutResponse {
      * <ul>
      *   <li>IN_PROGRESS - The checkout is still in progress and has not finished yet</li>
      *   <li>PAYMENT_CREATED - A payment has been created</li>
-     *   <li>CANCELLED_BY_CONSUMER - The HostedCheckout session have been cancelled by the customer</li>
+     *   <li>CANCELLED_BY_CONSUMER - The HostedCheckout session have been cancelled by the customer or by expiration</li>
      * </ul>
      */
     public GetHostedCheckoutResponse withStatus(String value) {

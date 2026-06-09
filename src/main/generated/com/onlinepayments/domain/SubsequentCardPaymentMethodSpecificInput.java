@@ -8,6 +8,8 @@ public class SubsequentCardPaymentMethodSpecificInput {
 
     private String authorizationMode;
 
+    private AutoCapture autoCapture;
+
     private MarketPlace marketPlace;
 
     private Integer paymentNumber;
@@ -60,6 +62,28 @@ public class SubsequentCardPaymentMethodSpecificInput {
      */
     public SubsequentCardPaymentMethodSpecificInput withAuthorizationMode(String value) {
         this.authorizationMode = value;
+        return this;
+    }
+
+    /**
+     * Object containing the auto capture configuration for the payment.
+     */
+    public AutoCapture getAutoCapture() {
+        return autoCapture;
+    }
+
+    /**
+     * Object containing the auto capture configuration for the payment.
+     */
+    public void setAutoCapture(AutoCapture value) {
+        this.autoCapture = value;
+    }
+
+    /**
+     * Object containing the auto capture configuration for the payment.
+     */
+    public SubsequentCardPaymentMethodSpecificInput withAutoCapture(AutoCapture value) {
+        this.autoCapture = value;
         return this;
     }
 
