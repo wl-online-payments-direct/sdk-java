@@ -18,6 +18,8 @@ public class CreateHostedTokenizationResponse {
 
     private String partialRedirectUrl;
 
+    private String sri;
+
     /**
      * Tokens referencing expired cards are returned in this array.
      * These tokens can be used in the hosted tokenization session but you must ensure that the expiry date fields are displayed in the form in order to be updated.
@@ -149,6 +151,28 @@ public class CreateHostedTokenizationResponse {
     @Deprecated
     public CreateHostedTokenizationResponse withPartialRedirectUrl(String value) {
         this.partialRedirectUrl = value;
+        return this;
+    }
+
+    /**
+     * This is the cryptographic hash used for Subresource Integrity validation.
+     */
+    public String getSri() {
+        return sri;
+    }
+
+    /**
+     * This is the cryptographic hash used for Subresource Integrity validation.
+     */
+    public void setSri(String value) {
+        this.sri = value;
+    }
+
+    /**
+     * This is the cryptographic hash used for Subresource Integrity validation.
+     */
+    public CreateHostedTokenizationResponse withSri(String value) {
+        this.sri = value;
         return this;
     }
 }

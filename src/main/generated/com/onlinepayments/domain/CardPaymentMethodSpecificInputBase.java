@@ -36,6 +36,8 @@ public class CardPaymentMethodSpecificInputBase {
 
     private CardRecurrenceDetails recurring;
 
+    private SubMerchant subMerchant;
+
     private ThreeDSecureBase threeDSecure;
 
     private String token;
@@ -414,6 +416,28 @@ public class CardPaymentMethodSpecificInputBase {
      */
     public CardPaymentMethodSpecificInputBase withRecurring(CardRecurrenceDetails value) {
         this.recurring = value;
+        return this;
+    }
+
+    /**
+     * When a company decides to operate as a payment facilitator, it obtains a payment facilitator account from an acquirer and aggregates payment transactions for its merchant portfolio through that account. For this reason, payment facilitators’ merchant customers are known as submerchants.
+     */
+    public SubMerchant getSubMerchant() {
+        return subMerchant;
+    }
+
+    /**
+     * When a company decides to operate as a payment facilitator, it obtains a payment facilitator account from an acquirer and aggregates payment transactions for its merchant portfolio through that account. For this reason, payment facilitators’ merchant customers are known as submerchants.
+     */
+    public void setSubMerchant(SubMerchant value) {
+        this.subMerchant = value;
+    }
+
+    /**
+     * When a company decides to operate as a payment facilitator, it obtains a payment facilitator account from an acquirer and aggregates payment transactions for its merchant portfolio through that account. For this reason, payment facilitators’ merchant customers are known as submerchants.
+     */
+    public CardPaymentMethodSpecificInputBase withSubMerchant(SubMerchant value) {
+        this.subMerchant = value;
         return this;
     }
 

@@ -53,6 +53,8 @@ public class RedirectPaymentMethodSpecificInput {
 
     private RedirectPaymentProduct840SpecificInput paymentProduct840SpecificInput;
 
+    private RedirectPaymentProduct900SpecificInput paymentProduct900SpecificInput;
+
     private Integer paymentProductId;
 
     private RedirectionData redirectionData;
@@ -566,6 +568,28 @@ public class RedirectPaymentMethodSpecificInput {
      */
     public RedirectPaymentMethodSpecificInput withPaymentProduct840SpecificInput(RedirectPaymentProduct840SpecificInput value) {
         this.paymentProduct840SpecificInput = value;
+        return this;
+    }
+
+    /**
+     * Object containing specific input required for Wero payments (Payment product ID 900)
+     */
+    public RedirectPaymentProduct900SpecificInput getPaymentProduct900SpecificInput() {
+        return paymentProduct900SpecificInput;
+    }
+
+    /**
+     * Object containing specific input required for Wero payments (Payment product ID 900)
+     */
+    public void setPaymentProduct900SpecificInput(RedirectPaymentProduct900SpecificInput value) {
+        this.paymentProduct900SpecificInput = value;
+    }
+
+    /**
+     * Object containing specific input required for Wero payments (Payment product ID 900)
+     */
+    public RedirectPaymentMethodSpecificInput withPaymentProduct900SpecificInput(RedirectPaymentProduct900SpecificInput value) {
+        this.paymentProduct900SpecificInput = value;
         return this;
     }
 

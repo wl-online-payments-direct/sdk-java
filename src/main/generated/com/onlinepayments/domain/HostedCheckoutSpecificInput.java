@@ -8,6 +8,8 @@ public class HostedCheckoutSpecificInput {
 
     private Integer allowedNumberOfPaymentAttempts;
 
+    private Boolean autoRefundSplitPayments;
+
     private CardPaymentMethodSpecificInputForHostedCheckout cardPaymentMethodSpecificInput;
 
     private Boolean isNewUnscheduledCardOnFileSeries;
@@ -49,6 +51,37 @@ public class HostedCheckoutSpecificInput {
      */
     public HostedCheckoutSpecificInput withAllowedNumberOfPaymentAttempts(Integer value) {
         this.allowedNumberOfPaymentAttempts = value;
+        return this;
+    }
+
+    /**
+     * <ul>
+     *   <li>true - If the customer cancels the order or if the order validity period expires, any payments in a final status related to that order will automatically be subject to a refund attempt to the customer.</li>
+     *   <li>false - Default - If the customer cancels the order or if the order's validity period expires, payments in a final status related to this order won't automatically be subject to a refund attempt to the customer.</li>
+     * </ul>
+     */
+    public Boolean getAutoRefundSplitPayments() {
+        return autoRefundSplitPayments;
+    }
+
+    /**
+     * <ul>
+     *   <li>true - If the customer cancels the order or if the order validity period expires, any payments in a final status related to that order will automatically be subject to a refund attempt to the customer.</li>
+     *   <li>false - Default - If the customer cancels the order or if the order's validity period expires, payments in a final status related to this order won't automatically be subject to a refund attempt to the customer.</li>
+     * </ul>
+     */
+    public void setAutoRefundSplitPayments(Boolean value) {
+        this.autoRefundSplitPayments = value;
+    }
+
+    /**
+     * <ul>
+     *   <li>true - If the customer cancels the order or if the order validity period expires, any payments in a final status related to that order will automatically be subject to a refund attempt to the customer.</li>
+     *   <li>false - Default - If the customer cancels the order or if the order's validity period expires, payments in a final status related to this order won't automatically be subject to a refund attempt to the customer.</li>
+     * </ul>
+     */
+    public HostedCheckoutSpecificInput withAutoRefundSplitPayments(Boolean value) {
+        this.autoRefundSplitPayments = value;
         return this;
     }
 

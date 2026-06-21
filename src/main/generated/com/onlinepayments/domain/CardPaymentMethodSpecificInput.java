@@ -52,6 +52,8 @@ public class CardPaymentMethodSpecificInput {
 
     private Boolean skipAuthentication;
 
+    private SubMerchant subMerchant;
+
     private ThreeDSecure threeDSecure;
 
     private String token;
@@ -681,6 +683,28 @@ public class CardPaymentMethodSpecificInput {
     @Deprecated
     public CardPaymentMethodSpecificInput withSkipAuthentication(Boolean value) {
         this.skipAuthentication = value;
+        return this;
+    }
+
+    /**
+     * When a company decides to operate as a payment facilitator, it obtains a payment facilitator account from an acquirer and aggregates payment transactions for its merchant portfolio through that account. For this reason, payment facilitators’ merchant customers are known as submerchants.
+     */
+    public SubMerchant getSubMerchant() {
+        return subMerchant;
+    }
+
+    /**
+     * When a company decides to operate as a payment facilitator, it obtains a payment facilitator account from an acquirer and aggregates payment transactions for its merchant portfolio through that account. For this reason, payment facilitators’ merchant customers are known as submerchants.
+     */
+    public void setSubMerchant(SubMerchant value) {
+        this.subMerchant = value;
+    }
+
+    /**
+     * When a company decides to operate as a payment facilitator, it obtains a payment facilitator account from an acquirer and aggregates payment transactions for its merchant portfolio through that account. For this reason, payment facilitators’ merchant customers are known as submerchants.
+     */
+    public CardPaymentMethodSpecificInput withSubMerchant(SubMerchant value) {
+        this.subMerchant = value;
         return this;
     }
 
