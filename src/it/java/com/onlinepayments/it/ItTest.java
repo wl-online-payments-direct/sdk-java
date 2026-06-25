@@ -2,6 +2,7 @@ package com.onlinepayments.it;
 
 import static org.junit.jupiter.api.Assumptions.assumeFalse;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -10,6 +11,7 @@ import com.onlinepayments.ClientInterface;
 import com.onlinepayments.CommunicatorConfiguration;
 import com.onlinepayments.Factory;
 import com.onlinepayments.ProxyConfiguration;
+import com.onlinepayments.it.util.SdkTestHelper;
 
 abstract class ItTest {
 
@@ -24,6 +26,7 @@ abstract class ItTest {
         if (API_KEY_ID == null || SECRET_API_KEY == null) {
             throw new IllegalStateException("System properties 'onlinePayments.api.apiKeyId' and 'onlinePayments.api.secretApiKey' must be set.");
         }
+
         MERCHANT_ID = System.getProperty("onlinePayments.api.merchantId");
         if (MERCHANT_ID == null) {
             throw new IllegalStateException("System properties 'onlinePayments.api.merchantId' must be set.");
@@ -37,6 +40,7 @@ abstract class ItTest {
         if (host != null) {
             String scheme = System.getProperty("onlinePayments.api.endpoint.scheme", "https");
             int port = Integer.parseInt(System.getProperty("onlinePayments.api.endpoint.port", "-1"));
+
             URI apiEndpoint = new URI(scheme, null, host, port, null, null, null);
             configuration = configuration.withApiEndpoint(apiEndpoint);
         }
@@ -51,6 +55,11 @@ abstract class ItTest {
 
     protected CommunicatorConfiguration getCommunicatorConfiguration() throws URISyntaxException {
         URL propertiesUrl = getClass().getResource(PROPERTIES_URL);
+
+        if (propertiesUrl == null) {
+            throw new IllegalStateException("Configuration resource '" + PROPERTIES_URL + "' could not be found.");
+        }
+
         return getCommunicatorConfiguration(propertiesUrl);
     }
 
@@ -64,34 +73,60 @@ abstract class ItTest {
                 .withProxyConfiguration(new ProxyConfiguration(new URI(proxyURI), proxyUsername, proxyPassword));
     }
 
-    @SuppressWarnings("resource")
     protected ClientInterface getClient() throws URISyntaxException {
-        URL propertiesUrl = getClass().getResource(PROPERTIES_URL);
-        CommunicatorConfiguration configuration = getCommunicatorConfiguration(propertiesUrl);
-        return Factory
-                .createClient(configuration)
-                .withClientMetaInfo("{\"test\":\"test\"}");
+        CommunicatorConfiguration configuration = getCommunicatorConfiguration();
+        ClientInterface client = Factory.createClient(configuration);
+        try {
+            return client.withClientMetaInfo("{\"test\":\"test\"}");
+        } catch (Exception e) {
+            try {
+                client.close();
+            } catch (IOException closeException) {
+                e.addSuppressed(closeException);
+            }
+
+            throw new IllegalStateException("Failed to create client", e);
+        }
     }
 
-    @SuppressWarnings("resource")
     protected ClientInterface getClientWithProxy() throws URISyntaxException {
         CommunicatorConfiguration configuration = getCommunicatorConfigurationWithProxy();
-        return Factory
-                .createClient(configuration)
-                .withClientMetaInfo("{\"test\":\"test\"}");
+        ClientInterface client = Factory.createClient(configuration);
+        try {
+            return client.withClientMetaInfo("{\"test\":\"test\"}");
+        } catch (Exception e) {
+            try {
+                client.close();
+            } catch (IOException closeException) {
+                e.addSuppressed(closeException);
+            }
+
+            throw new IllegalStateException("Failed to create client with proxy", e);
+        }
     }
 
-    @SuppressWarnings("resource")
     protected ClientInterface getClientWithoutConnectionReuse() throws URISyntaxException {
-        URL propertiesUrl = getClass().getResource(PROPERTIES_URL);
-        CommunicatorConfiguration configuration = getCommunicatorConfiguration(propertiesUrl);
+        CommunicatorConfiguration configuration = getCommunicatorConfiguration();
         configuration.setConnectionReuse(false);
-        return Factory
-                .createClient(configuration)
-                .withClientMetaInfo("{\"test\":\"test\"}");
+        ClientInterface client = Factory.createClient(configuration);
+        try {
+            return client.withClientMetaInfo("{\"test\":\"test\"}");
+        } catch (Exception e) {
+            try {
+                client.close();
+            } catch (IOException closeException) {
+                e.addSuppressed(closeException);
+            }
+
+            throw new IllegalStateException("Failed to create client without connection reuse", e);
+        }
     }
 
     protected static String getMerchantId() {
         return MERCHANT_ID;
+    }
+
+    protected SdkTestHelper getSdkTestHelper(ClientInterface client) {
+        return new SdkTestHelper(client.merchant(getMerchantId()));
     }
 }

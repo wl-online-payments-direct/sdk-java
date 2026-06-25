@@ -2,6 +2,7 @@ package com.onlinepayments.communication;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -19,6 +20,7 @@ import java.util.zip.GZIPInputStream;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import com.onlinepayments.CallContext;
@@ -47,10 +49,9 @@ class DefaultGzipRequestTest {
         server.shutdown();
     }
 
-    private CommunicatorConfiguration configMockServer() throws URISyntaxException {
-        CommunicatorConfiguration configuration = new CommunicatorConfiguration();
-
-        configuration.withApiEndpoint(new URI(
+    private CommunicatorConfiguration createMockServerConfiguration() throws URISyntaxException {
+        return new CommunicatorConfiguration()
+            .withApiEndpoint(new URI(
                 "http",
                 null,
                 server.getHostName(),
@@ -58,9 +59,7 @@ class DefaultGzipRequestTest {
                 null,
                 null,
                 null
-        ));
-
-        configuration
+            ))
             .withAuthorizationType(AuthorizationType.V1HMAC)
             .withApiKeyId("api-key-id")
             .withSecretApiKey("api-key-secret")
@@ -68,90 +67,156 @@ class DefaultGzipRequestTest {
             .withConnectionRequestTimeout(CommunicatorConfiguration.DEFAULT_CONNECTION_REQUEST_TIMEOUT)
             .withConnectTimeout(5000)
             .withSocketTimeout(5000)
-                .withMaxConnections(CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS);
-
-        return configuration;
+            .withMaxConnections(CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS);
     }
 
-    @Test
-    void sendsGzipCompressedRequestBody() throws Exception {
-        server.enqueue(new MockResponse()
-                .setResponseCode(200)
-                .setBody("{\"merchantBatchReference\":\"dummy-ref\",\"totalCount\":2}"));
+    @Nested
+    class WhenPostingWithGzipEnabled {
 
-        CommunicatorConfiguration configuration = configMockServer();
+        @Test
+        void shouldSendGzipCompressedRequestBody() throws Exception {
+            server.enqueue(new MockResponse()
+                    .setResponseCode(200)
+                    .setBody("{\"merchantBatchReference\":\"dummy-ref\",\"totalCount\":2}"));
 
-        try (Communicator communicator = Factory.createCommunicator(configuration)) {
-            String path = "/gzip";
+            CommunicatorConfiguration configuration = createMockServerConfiguration();
 
-            Map<String, Object> header = new HashMap<>();
-            header.put("itemCount", 2);
-            header.put("operationType", "CreatePayment");
-            header.put("merchantBatchReference", UUID.randomUUID().toString());
+            try (Communicator communicator = Factory.createCommunicator(configuration)) {
+                Map<String, Object> header = new HashMap<>();
+                header.put("itemCount", 2);
+                header.put("operationType", "CreatePayment");
+                header.put("merchantBatchReference", UUID.randomUUID().toString());
 
-            Map<String, Object> payment1AmountOfMoney = new HashMap<>();
-            payment1AmountOfMoney.put("amount", 10000);
-            payment1AmountOfMoney.put("currencyCode", "EUR");
+                Map<String, Object> firstPaymentAmountOfMoney = new HashMap<>();
+                firstPaymentAmountOfMoney.put("amount", 10000);
+                firstPaymentAmountOfMoney.put("currencyCode", "EUR");
 
-            Map<String, Object> payment1Order = new HashMap<>();
-            payment1Order.put("amountOfMoney", payment1AmountOfMoney);
+                Map<String, Object> firstPaymentOrder = new HashMap<>();
+                firstPaymentOrder.put("amountOfMoney", firstPaymentAmountOfMoney);
 
-            Map<String, Object> payment1 = new HashMap<>();
-            payment1.put("order", payment1Order);
+                Map<String, Object> firstPayment = new HashMap<>();
+                firstPayment.put("order", firstPaymentOrder);
 
-            Map<String, Object> payment2AmountOfMoney = new HashMap<>();
-            payment2AmountOfMoney.put("amount", 20000);
-            payment2AmountOfMoney.put("currencyCode", "EUR");
+                Map<String, Object> secondPaymentAmountOfMoney = new HashMap<>();
+                secondPaymentAmountOfMoney.put("amount", 20000);
+                secondPaymentAmountOfMoney.put("currencyCode", "EUR");
 
-            Map<String, Object> payment2Order = new HashMap<>();
-            payment2Order.put("amountOfMoney", payment2AmountOfMoney);
+                Map<String, Object> secondPaymentOrder = new HashMap<>();
+                secondPaymentOrder.put("amountOfMoney", secondPaymentAmountOfMoney);
 
-            Map<String, Object> payment2 = new HashMap<>();
-            payment2.put("order", payment2Order);
+                Map<String, Object> secondPayment = new HashMap<>();
+                secondPayment.put("order", secondPaymentOrder);
 
-            List<Map<String, Object>> createPayments = new ArrayList<>();
-            createPayments.add(payment1);
-            createPayments.add(payment2);
+                List<Map<String, Object>> createPayments = new ArrayList<>();
+                createPayments.add(firstPayment);
+                createPayments.add(secondPayment);
 
-            Map<String, Object> requestBody = new HashMap<>();
-            requestBody.put("header", header);
-            requestBody.put("createPayments", createPayments);
+                Map<String, Object> requestBody = new HashMap<>();
+                requestBody.put("header", header);
+                requestBody.put("createPayments", createPayments);
 
-            CallContext context = new CallContext();
-            context.setGzip(true);
+                CallContext context = new CallContext();
+                context.setGzip(true);
 
-            communicator.post(
-                    path,
-                    null,
-                    null,
-                    requestBody,
-                    Map.class,
-                    context
+                communicator.post(
+                        "/gzip",
+                        null,
+                        null,
+                        requestBody,
+                        Map.class,
+                        context
+                );
+            }
+
+            RecordedRequest recordedRequest = server.takeRequest();
+
+            assertEquals("/gzip", recordedRequest.getPath());
+            assertEquals("POST", recordedRequest.getMethod());
+            assertEquals("gzip", recordedRequest.getHeader("Content-Encoding"));
+
+            byte[] gzippedBytes = recordedRequest.getBody().readByteArray();
+            String decompressedBody = decompress(gzippedBytes);
+
+            assertNotNull(decompressedBody);
+
+            @SuppressWarnings("unchecked")
+                Map<String, Object> parsed = DefaultMarshaller.INSTANCE.unmarshal(
+                    new ByteArrayInputStream(decompressedBody.getBytes(StandardCharsets.UTF_8)),
+                    Map.class
             );
+
+            @SuppressWarnings("unchecked")
+            Map<String, Object> headerNode = (Map<String, Object>) parsed.get("header");
+
+            assertEquals("CreatePayment", headerNode.get("operationType"));
+            assertEquals(2, ((Number) headerNode.get("itemCount")).intValue());
         }
+    }
 
-        RecordedRequest recordedRequest = server.takeRequest();
+    @Nested
+    class WhenPostingWithGzipDisabled {
 
-        assertEquals("/gzip", recordedRequest.getPath());
-        assertEquals("POST", recordedRequest.getMethod());
-        assertEquals("gzip", recordedRequest.getHeader("Content-Encoding"));
+        @Test
+        void shouldNotSendGzipHeaderWhenGzipIsDisabled() throws Exception {
+            server.enqueue(new MockResponse()
+                    .setResponseCode(200)
+                    .setBody("{\"merchantBatchReference\":\"dummy-ref\",\"totalCount\":2}"));
 
-        byte[] gzippedBytes = recordedRequest.getBody().readByteArray();
-        String decompressedBody = decompress(gzippedBytes);
+            CommunicatorConfiguration configuration = createMockServerConfiguration();
 
-        assertNotNull(decompressedBody);
+            try (Communicator communicator = Factory.createCommunicator(configuration)) {
+                Map<String, Object> header = new HashMap<>();
+                header.put("itemCount", 2);
+                header.put("operationType", "CreatePayment");
+                header.put("merchantBatchReference", UUID.randomUUID().toString());
 
-        @SuppressWarnings("unchecked")
-        Map<String, Object> parsed = DefaultMarshaller.INSTANCE.unmarshal(
-            new ByteArrayInputStream(decompressedBody.getBytes(StandardCharsets.UTF_8)),
-                Map.class
-        );
+                Map<String, Object> firstPaymentAmountOfMoney = new HashMap<>();
+                firstPaymentAmountOfMoney.put("amount", 10000);
+                firstPaymentAmountOfMoney.put("currencyCode", "EUR");
 
-        @SuppressWarnings("unchecked")
-        Map<String, Object> headerNode = (Map<String, Object>) parsed.get("header");
+                Map<String, Object> firstPaymentOrder = new HashMap<>();
+                firstPaymentOrder.put("amountOfMoney", firstPaymentAmountOfMoney);
 
-        assertEquals("CreatePayment", headerNode.get("operationType"));
-        assertEquals(2, ((Number) headerNode.get("itemCount")).intValue());
+                Map<String, Object> firstPayment = new HashMap<>();
+                firstPayment.put("order", firstPaymentOrder);
+
+                Map<String, Object> secondPaymentAmountOfMoney = new HashMap<>();
+                secondPaymentAmountOfMoney.put("amount", 20000);
+                secondPaymentAmountOfMoney.put("currencyCode", "EUR");
+
+                Map<String, Object> secondPaymentOrder = new HashMap<>();
+                secondPaymentOrder.put("amountOfMoney", secondPaymentAmountOfMoney);
+
+                Map<String, Object> secondPayment = new HashMap<>();
+                secondPayment.put("order", secondPaymentOrder);
+
+                List<Map<String, Object>> createPayments = new ArrayList<>();
+                createPayments.add(firstPayment);
+                createPayments.add(secondPayment);
+
+                Map<String, Object> requestBody = new HashMap<>();
+                requestBody.put("header", header);
+                requestBody.put("createPayments", createPayments);
+
+                CallContext context = new CallContext();
+                context.setGzip(false);
+
+                communicator.post(
+                        "/gzip",
+                        null,
+                        null,
+                        requestBody,
+                        Map.class,
+                        context
+                );
+            }
+
+            RecordedRequest recordedRequest = server.takeRequest();
+
+            assertEquals("/gzip", recordedRequest.getPath());
+            assertEquals("POST", recordedRequest.getMethod());
+            assertNull(recordedRequest.getHeader("Content-Encoding"));
+        }
     }
 
     private static String decompress(byte[] gzippedBytes) throws IOException {

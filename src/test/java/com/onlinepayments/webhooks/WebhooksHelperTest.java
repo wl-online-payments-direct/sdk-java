@@ -42,21 +42,28 @@ class WebhooksHelperTest {
 
     @BeforeEach
     @AfterEach
-    void clearPublicKeyCache() {
+    void clearSecretKeyStore() {
         InMemorySecretKeyStore.INSTANCE.clear();
     }
 
     @Nested
-    class Unmarshal {
+    class WhenUnmarshallingEvent {
 
         @Test
-        void testApiVersionMismatch() throws IOException {
+        void shouldThrowApiVersionMismatchExceptionWhenApiVersionDoesNotMatch() throws IOException {
             Marshaller marshaller = mock(Marshaller.class);
 
-            when(marshaller.unmarshal(anyString(), any())).thenAnswer(i -> {
-                String responseJson = i.getArgument(0, String.class);
-                Class<?> type = i.getArgument(1, Class.class);
+            when(marshaller.unmarshal(anyString(), any())).thenAnswer(invocation -> {
+                String responseJson = invocation.getArgument(0, String.class);
+                Class<?> type = invocation.getArgument(1, Class.class);
                 WebhooksEvent event = (WebhooksEvent) DefaultMarshaller.INSTANCE.unmarshal(responseJson, type);
+                event.setApiVersion("v0");
+                return event;
+            });
+
+            when(marshaller.unmarshal(any(InputStream.class), any())).thenAnswer(invocation -> {
+                InputStream responseStream = invocation.getArgument(0, InputStream.class);
+                WebhooksEvent event = DefaultMarshaller.INSTANCE.unmarshal(responseStream, WebhooksEvent.class);
                 event.setApiVersion("v0");
                 return event;
             });
@@ -66,136 +73,59 @@ class WebhooksHelperTest {
             InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
 
             String body = new String(readResource("helper-valid-body"), CHARSET);
-            List<RequestHeader> requestHeaders = Arrays.asList(
-                new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                new RequestHeader(KEY_ID_HEADER, KEY_ID)
-            );
+            List<RequestHeader> requestHeaders = createValidRequestHeaders();
 
-            ApiVersionMismatchException exception = assertThrows(ApiVersionMismatchException.class, () -> helper.unmarshal(body, requestHeaders));
+            ApiVersionMismatchException exception =
+                    assertThrows(ApiVersionMismatchException.class, () -> helper.unmarshal(body, requestHeaders));
+
             assertEquals("v0", exception.getEventApiVersion());
             assertEquals("v1", exception.getSdkApiVersion());
-        }
-
-        @Test
-        void testNoSecretKeyAvailable() throws IOException {
-            WebhooksHelper helper = createHelper();
-
-            String body = new String(readResource("helper-valid-body"), CHARSET);
-            List<RequestHeader> requestHeaders = Arrays.asList(
-                new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                new RequestHeader(KEY_ID_HEADER, KEY_ID)
-            );
-
-            SecretKeyNotAvailableException exception = assertThrows(SecretKeyNotAvailableException.class, () -> helper.unmarshal(body, requestHeaders));
-            assertEquals(KEY_ID, exception.getKeyId());
-        }
-
-        @Test
-        void testMissingHeaders() throws IOException {
-            WebhooksHelper helper = createHelper();
-
-            InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
-
-            String body = new String(readResource("helper-valid-body"), CHARSET);
-            List<RequestHeader> requestHeaders = Collections.emptyList();
-
-            assertThrows(SignatureValidationException.class, () -> helper.unmarshal(body, requestHeaders));
-        }
-
-        @Test
-        void testDuplicateHeaders() throws IOException {
-            WebhooksHelper helper = createHelper();
-
-            InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
-
-            String body = new String(readResource("helper-valid-body"), CHARSET);
-            List<RequestHeader> requestHeaders = Arrays.asList(
-                new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                new RequestHeader(KEY_ID_HEADER, KEY_ID),
-                new RequestHeader(SIGNATURE_HEADER, SIGNATURE + "1")
-            );
-
-            assertThrows(SignatureValidationException.class, () -> helper.unmarshal(body, requestHeaders));
-        }
-
-        @Nested
-        class FromBytes {
-
-            @Test
-            void testSuccess() throws IOException {
-                WebhooksHelper helper = createHelper();
-
-                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
-
-                ByteArrayInputStream bodyStream = new ByteArrayInputStream(readResource("helper-valid-body"));
-                List<RequestHeader> requestHeaders = Arrays.asList(
-                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                    new RequestHeader(KEY_ID_HEADER, KEY_ID)
-                );
-
-                WebhooksEvent event = helper.unmarshal(bodyStream, requestHeaders);
-
-                assertEquals("v1", event.getApiVersion());
-                assertEquals("8ee793f6-4553-4749-85dc-f2ef095c5ab0", event.getId());
-                assertEquals("2017-02-02T11:24:14.040+0100", event.getCreated());
-                assertEquals("20000", event.getMerchantId());
-                assertEquals("payment.paid", event.getType());
-
-                // TODO: custom assertions
-            }
-
-            @Test
-            void testInvalidBody() throws IOException {
-                WebhooksHelper helper = createHelper();
-
-                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
-
-                ByteArrayInputStream bodyStream = new ByteArrayInputStream(readResource("helper-invalid-body"));
-                List<RequestHeader> requestHeaders = Arrays.asList(
-                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                    new RequestHeader(KEY_ID_HEADER, KEY_ID)
-                );
-
-                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(bodyStream, requestHeaders));
-            }
-
-            @Test
-            void testInvalidSecretKey() throws IOException {
-                WebhooksHelper helper = createHelper();
-
-                String invalidSecretKey = "1" + SECRET_KEY;
-                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, invalidSecretKey);
-
-                ByteArrayInputStream bodyStream = new ByteArrayInputStream(readResource("helper-valid-body"));
-                List<RequestHeader> requestHeaders = Arrays.asList(
-                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                    new RequestHeader(KEY_ID_HEADER, KEY_ID)
-                );
-
-                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(bodyStream, requestHeaders));
-            }
-
-            @Test
-            void testInvalidSignature() throws IOException {
-                WebhooksHelper helper = createHelper();
-
-                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
-
-                ByteArrayInputStream bodyStream = new ByteArrayInputStream(readResource("helper-valid-body"));
-                List<RequestHeader> requestHeaders = Arrays.asList(
-                    new RequestHeader(SIGNATURE_HEADER, "1" + SIGNATURE),
-                    new RequestHeader(KEY_ID_HEADER, KEY_ID)
-                );
-
-                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(bodyStream, requestHeaders));
-            }
         }
 
         @Nested
         class FromString {
 
             @Test
-            void testSuccess() throws IOException {
+            void shouldReturnValidEventWhenRequestIsValid() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                String body = new String(readResource("helper-valid-body"), CHARSET);
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                WebhooksEvent event = helper.unmarshal(body, requestHeaders);
+
+                assertValidEvent(event);
+            }
+
+            @Test
+            void shouldThrowSecretKeyNotAvailableExceptionWhenSecretKeyIsMissing() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                String body = new String(readResource("helper-valid-body"), CHARSET);
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                SecretKeyNotAvailableException exception =
+                        assertThrows(SecretKeyNotAvailableException.class, () -> helper.unmarshal(body, requestHeaders));
+
+                assertEquals(KEY_ID, exception.getKeyId());
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenHeadersAreMissing() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                String body = new String(readResource("helper-valid-body"), CHARSET);
+                List<RequestHeader> requestHeaders = Collections.emptyList();
+
+                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(body, requestHeaders));
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenHeadersAreDuplicated() throws IOException {
                 WebhooksHelper helper = createHelper();
 
                 InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
@@ -203,53 +133,39 @@ class WebhooksHelperTest {
                 String body = new String(readResource("helper-valid-body"), CHARSET);
                 List<RequestHeader> requestHeaders = Arrays.asList(
                     new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                    new RequestHeader(KEY_ID_HEADER, KEY_ID)
+                    new RequestHeader(KEY_ID_HEADER, KEY_ID),
+                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE + "1")
                 );
 
-                WebhooksEvent event = helper.unmarshal(body, requestHeaders);
-
-                assertEquals("v1", event.getApiVersion());
-                assertEquals("8ee793f6-4553-4749-85dc-f2ef095c5ab0", event.getId());
-                assertEquals("2017-02-02T11:24:14.040+0100", event.getCreated());
-                assertEquals("20000", event.getMerchantId());
-                assertEquals("payment.paid", event.getType());
-
-                // TODO: custom assertions
+                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(body, requestHeaders));
             }
 
             @Test
-            void testInvalidBody() throws IOException {
+            void shouldThrowSignatureValidationExceptionWhenBodyIsInvalid() throws IOException {
                 WebhooksHelper helper = createHelper();
 
                 InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
 
                 String body = new String(readResource("helper-invalid-body"), CHARSET);
-                List<RequestHeader> requestHeaders = Arrays.asList(
-                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                    new RequestHeader(KEY_ID_HEADER, KEY_ID)
-                );
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
 
                 assertThrows(SignatureValidationException.class, () -> helper.unmarshal(body, requestHeaders));
             }
 
             @Test
-            void testInvalidSecretKey() throws IOException {
+            void shouldThrowSignatureValidationExceptionWhenSecretKeyIsInvalid() throws IOException {
                 WebhooksHelper helper = createHelper();
 
-                String invalidSecretKey = "1" + SECRET_KEY;
-                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, invalidSecretKey);
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, "1" + SECRET_KEY);
 
                 String body = new String(readResource("helper-valid-body"), CHARSET);
-                List<RequestHeader> requestHeaders = Arrays.asList(
-                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                    new RequestHeader(KEY_ID_HEADER, KEY_ID)
-                );
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
 
                 assertThrows(SignatureValidationException.class, () -> helper.unmarshal(body, requestHeaders));
             }
 
             @Test
-            void testInvalidSignature() throws IOException {
+            void shouldThrowSignatureValidationExceptionWhenSignatureIsInvalid() throws IOException {
                 WebhooksHelper helper = createHelper();
 
                 InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
@@ -263,6 +179,217 @@ class WebhooksHelperTest {
                 assertThrows(SignatureValidationException.class, () -> helper.unmarshal(body, requestHeaders));
             }
         }
+
+        @Nested
+        class FromByteArray {
+
+            @Test
+            void shouldReturnValidEventWhenRequestIsValid() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                byte[] body = readResource("helper-valid-body");
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                WebhooksEvent event = helper.unmarshal(body, requestHeaders);
+
+                assertValidEvent(event);
+            }
+
+            @Test
+            void shouldThrowSecretKeyNotAvailableExceptionWhenSecretKeyIsMissing() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                byte[] body = readResource("helper-valid-body");
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                SecretKeyNotAvailableException exception =
+                        assertThrows(SecretKeyNotAvailableException.class, () -> helper.unmarshal(body, requestHeaders));
+
+                assertEquals(KEY_ID, exception.getKeyId());
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenHeadersAreMissing() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                byte[] body = readResource("helper-valid-body");
+                List<RequestHeader> requestHeaders = Collections.emptyList();
+
+                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(body, requestHeaders));
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenHeadersAreDuplicated() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                byte[] body = readResource("helper-valid-body");
+                List<RequestHeader> requestHeaders = Arrays.asList(
+                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
+                    new RequestHeader(KEY_ID_HEADER, KEY_ID),
+                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE + "1")
+                );
+
+                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(body, requestHeaders));
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenBodyIsInvalid() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                byte[] body = readResource("helper-invalid-body");
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(body, requestHeaders));
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenSecretKeyIsInvalid() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, "1" + SECRET_KEY);
+
+                byte[] body = readResource("helper-valid-body");
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(body, requestHeaders));
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenSignatureIsInvalid() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                byte[] body = readResource("helper-valid-body");
+                List<RequestHeader> requestHeaders = Arrays.asList(
+                    new RequestHeader(SIGNATURE_HEADER, "1" + SIGNATURE),
+                    new RequestHeader(KEY_ID_HEADER, KEY_ID)
+                );
+
+                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(body, requestHeaders));
+            }
+        }
+
+        @Nested
+        class FromInputStream {
+
+            @Test
+            void shouldReturnValidEventWhenRequestIsValid() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                ByteArrayInputStream bodyStream = new ByteArrayInputStream(readResource("helper-valid-body"));
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                WebhooksEvent event = helper.unmarshal(bodyStream, requestHeaders);
+
+                assertValidEvent(event);
+            }
+
+            @Test
+            void shouldThrowSecretKeyNotAvailableExceptionWhenSecretKeyIsMissing() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                ByteArrayInputStream bodyStream = new ByteArrayInputStream(readResource("helper-valid-body"));
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                SecretKeyNotAvailableException exception =
+                        assertThrows(SecretKeyNotAvailableException.class, () -> helper.unmarshal(bodyStream, requestHeaders));
+
+                assertEquals(KEY_ID, exception.getKeyId());
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenHeadersAreMissing() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                ByteArrayInputStream bodyStream = new ByteArrayInputStream(readResource("helper-valid-body"));
+                List<RequestHeader> requestHeaders = Collections.emptyList();
+
+                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(bodyStream, requestHeaders));
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenHeadersAreDuplicated() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                ByteArrayInputStream bodyStream = new ByteArrayInputStream(readResource("helper-valid-body"));
+                List<RequestHeader> requestHeaders = Arrays.asList(
+                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
+                    new RequestHeader(KEY_ID_HEADER, KEY_ID),
+                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE + "1")
+                );
+
+                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(bodyStream, requestHeaders));
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenBodyIsInvalid() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                ByteArrayInputStream bodyStream = new ByteArrayInputStream(readResource("helper-invalid-body"));
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(bodyStream, requestHeaders));
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenSecretKeyIsInvalid() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, "1" + SECRET_KEY);
+
+                ByteArrayInputStream bodyStream = new ByteArrayInputStream(readResource("helper-valid-body"));
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(bodyStream, requestHeaders));
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenSignatureIsInvalid() throws IOException {
+                WebhooksHelper helper = createHelper();
+
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                ByteArrayInputStream bodyStream = new ByteArrayInputStream(readResource("helper-valid-body"));
+                List<RequestHeader> requestHeaders = Arrays.asList(
+                    new RequestHeader(SIGNATURE_HEADER, "1" + SIGNATURE),
+                    new RequestHeader(KEY_ID_HEADER, KEY_ID)
+                );
+
+                assertThrows(SignatureValidationException.class, () -> helper.unmarshal(bodyStream, requestHeaders));
+            }
+        }
+    }
+
+    private void assertValidEvent(WebhooksEvent event) {
+        assertEquals("v1", event.getApiVersion());
+        assertEquals("8ee793f6-4553-4749-85dc-f2ef095c5ab0", event.getId());
+        assertEquals("2017-02-02T11:24:14.040+0100", event.getCreated());
+        assertEquals("20000", event.getMerchantId());
+        assertEquals("payment.paid", event.getType());
+    }
+
+    private List<RequestHeader> createValidRequestHeaders() {
+        return Arrays.asList(
+            new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
+            new RequestHeader(KEY_ID_HEADER, KEY_ID)
+        );
     }
 
     private byte[] readResource(String resource) throws IOException {

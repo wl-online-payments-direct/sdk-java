@@ -13,18 +13,24 @@ import java.util.regex.Pattern;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
+@Execution(ExecutionMode.SAME_THREAD)
 class SysOutCommunicatorLoggerTest {
 
-    private static final Pattern MESSAGE_PATTERN = Pattern.compile("\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2} (.*)", Pattern.DOTALL);
+    private static final Pattern MESSAGE_PATTERN = Pattern.compile(
+            "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2} (.*)",
+            Pattern.DOTALL
+    );
 
     private PrintStream originalSysOut;
-
     private ByteArrayOutputStream baos;
 
     @BeforeEach
-    void setup() {
+    void setUp() {
         originalSysOut = System.out;
 
         baos = new ByteArrayOutputStream();
@@ -32,31 +38,74 @@ class SysOutCommunicatorLoggerTest {
     }
 
     @AfterEach
-    void cleanup() {
+    void tearDown() {
         baos = null;
-
         System.setOut(originalSysOut);
     }
 
-    @Test
-    void testLog() throws UnsupportedEncodingException {
-        SysOutCommunicatorLogger communicatorLogger = SysOutCommunicatorLogger.INSTANCE;
-        communicatorLogger.log("Hello world");
+    @Nested
+    class WhenLoggingMessageOnly {
 
-        String content = baos.toString("UTF-8");
+        @Test
+        void shouldWriteMessageToSystemOut() throws UnsupportedEncodingException {
+            SysOutCommunicatorLogger communicatorLogger = SysOutCommunicatorLogger.INSTANCE;
+            communicatorLogger.log("Hello world");
 
-        assertMessage(content, "Hello world");
+            String content = baos.toString("UTF-8");
+
+            assertMessage(content, "Hello world");
+        }
     }
 
-    @Test
-    void testLogWithException() throws UnsupportedEncodingException {
-        SysOutCommunicatorLogger communicatorLogger = SysOutCommunicatorLogger.INSTANCE;
-        Exception exception = new Exception();
-        communicatorLogger.log("Hello world", exception);
+    @Nested
+    class WhenLoggingMessageWithException {
 
-        String content = baos.toString("UTF-8");
+        @Test
+        void shouldWriteMessageAndStackTraceToSystemOut() throws UnsupportedEncodingException {
+            SysOutCommunicatorLogger communicatorLogger = SysOutCommunicatorLogger.INSTANCE;
+            Exception exception = new Exception();
+            communicatorLogger.log("Hello world", exception);
 
-        assertMessage(content, "Hello world", exception);
+            String content = baos.toString("UTF-8");
+
+            assertMessage(content, "Hello world", exception);
+        }
+    }
+
+    @Nested
+    class WhenLoggingMessageWithExceptionWithCause {
+
+        @Test
+        void shouldWriteMessageAndStackTraceIncludingCauseToSystemOut() throws UnsupportedEncodingException {
+            SysOutCommunicatorLogger communicatorLogger = SysOutCommunicatorLogger.INSTANCE;
+
+            Exception cause = new Exception("Root cause");
+            Exception exception = new Exception("Top level");
+            exception.initCause(cause);
+
+            communicatorLogger.log("Hello world", exception);
+
+            String content = baos.toString("UTF-8");
+
+            assertMessage(content, "Hello world", exception);
+            assertTrue(content.contains("Caused by"));
+            assertTrue(content.contains("Root cause"));
+        }
+    }
+
+    @Nested
+    class WhenLoggingEmptyMessage {
+
+        @Test
+        void shouldWriteEmptyMessageToSystemOut() throws UnsupportedEncodingException {
+            SysOutCommunicatorLogger communicatorLogger = SysOutCommunicatorLogger.INSTANCE;
+
+            communicatorLogger.log("");
+
+            String content = baos.toString("UTF-8");
+
+            assertMessage(content, "");
+        }
     }
 
     private String toString(Exception exception) {

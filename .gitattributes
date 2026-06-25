@@ -2,3 +2,7 @@
 .gitignore export-ignore
 
 * text eol=lf
+
+*.request binary
+*.response binary
+*.json text

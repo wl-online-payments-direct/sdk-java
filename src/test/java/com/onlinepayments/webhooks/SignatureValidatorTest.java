@@ -37,100 +37,90 @@ class SignatureValidatorTest {
 
     @BeforeEach
     @AfterEach
-    void clearPublicKeyCache() {
+    void clearSecretKeyStore() {
         InMemorySecretKeyStore.INSTANCE.clear();
     }
 
     @Nested
-    class Validate {
-
-        @Test
-        void testNoSecretKeyAvailable() throws IOException {
-            String body = new String(readResource("valid-body"), CHARSET);
-            List<RequestHeader> requestHeaders = Arrays.asList(
-                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                    new RequestHeader(KEY_ID_HEADER, KEY_ID)
-            );
-
-            SecretKeyNotAvailableException exception = assertThrows(SecretKeyNotAvailableException.class, () -> signatureValidator.validate(body, requestHeaders));
-            assertEquals(KEY_ID, exception.getKeyId());
-        }
-
-        @Test
-        void testMissingHeaders() throws IOException {
-            InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
-
-            String body = new String(readResource("valid-body"), CHARSET);
-            List<RequestHeader> requestHeaders = Collections.emptyList();
-
-            assertThrows(SignatureValidationException.class, () -> signatureValidator.validate(body, requestHeaders));
-        }
-
-        @Test
-        void testDuplicateHeaders() throws IOException {
-            InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
-
-            String body = new String(readResource("valid-body"), CHARSET);
-            List<RequestHeader> requestHeaders = Arrays.asList(
-                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                    new RequestHeader(KEY_ID_HEADER, KEY_ID),
-                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE + "1")
-            );
-
-            assertThrows(SignatureValidationException.class, () -> signatureValidator.validate(body, requestHeaders));
-        }
-
+    class WhenValidatingSignature {
         @Nested
-        class FromBytes {
+        class FromByteArray {
 
             @Test
-            void testSuccess() throws IOException {
+            void shouldNotThrowWhenRequestIsValid() throws IOException {
                 InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
 
-                byte[] body = readResource("valid-body");
-                List<RequestHeader> requestHeaders = Arrays.asList(
-                        new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                        new RequestHeader(KEY_ID_HEADER, KEY_ID)
-                );
+                byte[] body = readValidBodyAsBytes();
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
 
                 assertDoesNotThrow(() -> signatureValidator.validate(body, requestHeaders));
             }
 
             @Test
-            void testInvalidBody() throws IOException {
+            void shouldThrowSecretKeyNotAvailableExceptionWhenSecretKeyIsMissing() throws IOException {
+                byte[] body = readValidBodyAsBytes();
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                SecretKeyNotAvailableException exception = assertThrows(
+                        SecretKeyNotAvailableException.class,
+                        () -> signatureValidator.validate(body, requestHeaders)
+                );
+
+                assertEquals(KEY_ID, exception.getKeyId());
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenHeadersAreMissing() throws IOException {
                 InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
 
-                byte[] body = readResource("invalid-body");
+                byte[] body = readValidBodyAsBytes();
+                List<RequestHeader> requestHeaders = Collections.emptyList();
+
+                assertThrows(SignatureValidationException.class, () -> signatureValidator.validate(body, requestHeaders));
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenHeadersAreDuplicated() throws IOException {
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                byte[] body = readValidBodyAsBytes();
                 List<RequestHeader> requestHeaders = Arrays.asList(
-                        new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                        new RequestHeader(KEY_ID_HEADER, KEY_ID)
+                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
+                    new RequestHeader(KEY_ID_HEADER, KEY_ID),
+                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE + "1")
                 );
 
                 assertThrows(SignatureValidationException.class, () -> signatureValidator.validate(body, requestHeaders));
             }
 
             @Test
-            void testInvalidSecretKey() throws IOException {
-                String invalidSecretKey = "1" + SECRET_KEY;
-                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, invalidSecretKey);
+            void shouldThrowSignatureValidationExceptionWhenBodyIsInvalid() throws IOException {
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
 
-                byte[] body = readResource("valid-body");
-                List<RequestHeader> requestHeaders = Arrays.asList(
-                        new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                        new RequestHeader(KEY_ID_HEADER, KEY_ID)
-                );
+                byte[] body = readInvalidBodyAsBytes();
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
 
                 assertThrows(SignatureValidationException.class, () -> signatureValidator.validate(body, requestHeaders));
             }
 
             @Test
-            void testInvalidSignature() throws IOException {
+            void shouldThrowSignatureValidationExceptionWhenSecretKeyIsInvalid() throws IOException {
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, "1" + SECRET_KEY);
+
+                byte[] body = readValidBodyAsBytes();
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                assertThrows(SignatureValidationException.class, () -> signatureValidator.validate(body, requestHeaders));
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenSignatureIsInvalid() throws IOException {
                 InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
 
-                byte[] body = readResource("valid-body");
+                byte[] body = readValidBodyAsBytes();
                 List<RequestHeader> requestHeaders = Arrays.asList(
-                        new RequestHeader(SIGNATURE_HEADER, "1" + SIGNATURE),
-                        new RequestHeader(KEY_ID_HEADER, KEY_ID)
+                    new RequestHeader(SIGNATURE_HEADER, "1" + SIGNATURE),
+                    new RequestHeader(KEY_ID_HEADER, KEY_ID)
                 );
 
                 assertThrows(SignatureValidationException.class, () -> signatureValidator.validate(body, requestHeaders));
@@ -141,58 +131,108 @@ class SignatureValidatorTest {
         class FromString {
 
             @Test
-            void testSuccess() throws IOException {
+            void shouldNotThrowWhenRequestIsValid() throws IOException {
                 InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
 
-                String body = new String(readResource("valid-body"), CHARSET);
-                List<RequestHeader> requestHeaders = Arrays.asList(
-                        new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                        new RequestHeader(KEY_ID_HEADER, KEY_ID)
-                );
+                String body = readValidBodyAsString();
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
 
                 assertDoesNotThrow(() -> signatureValidator.validate(body, requestHeaders));
             }
 
             @Test
-            void testInvalidBody() throws IOException {
+            void shouldThrowSecretKeyNotAvailableExceptionWhenSecretKeyIsMissing() throws IOException {
+                String body = readValidBodyAsString();
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                SecretKeyNotAvailableException exception = assertThrows(
+                        SecretKeyNotAvailableException.class,
+                        () -> signatureValidator.validate(body, requestHeaders)
+                );
+
+                assertEquals(KEY_ID, exception.getKeyId());
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenHeadersAreMissing() throws IOException {
                 InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
 
-                String body = new String(readResource("invalid-body"), CHARSET);
+                String body = readValidBodyAsString();
+                List<RequestHeader> requestHeaders = Collections.emptyList();
+
+                assertThrows(SignatureValidationException.class, () -> signatureValidator.validate(body, requestHeaders));
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenHeadersAreDuplicated() throws IOException {
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
+
+                String body = readValidBodyAsString();
                 List<RequestHeader> requestHeaders = Arrays.asList(
-                        new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                        new RequestHeader(KEY_ID_HEADER, KEY_ID)
+                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
+                    new RequestHeader(KEY_ID_HEADER, KEY_ID),
+                    new RequestHeader(SIGNATURE_HEADER, SIGNATURE + "1")
                 );
 
                 assertThrows(SignatureValidationException.class, () -> signatureValidator.validate(body, requestHeaders));
             }
 
             @Test
-            void testInvalidSecretKey() throws IOException {
-                String invalidSecretKey = "1" + SECRET_KEY;
-                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, invalidSecretKey);
+            void shouldThrowSignatureValidationExceptionWhenBodyIsInvalid() throws IOException {
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
 
-                String body = new String(readResource("valid-body"), CHARSET);
-                List<RequestHeader> requestHeaders = Arrays.asList(
-                        new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
-                        new RequestHeader(KEY_ID_HEADER, KEY_ID)
-                );
+                String body = readInvalidBodyAsString();
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
 
                 assertThrows(SignatureValidationException.class, () -> signatureValidator.validate(body, requestHeaders));
             }
 
             @Test
-            void testInvalidSignature() throws IOException {
+            void shouldThrowSignatureValidationExceptionWhenSecretKeyIsInvalid() throws IOException {
+                InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, "1" + SECRET_KEY);
+
+                String body = readValidBodyAsString();
+                List<RequestHeader> requestHeaders = createValidRequestHeaders();
+
+                assertThrows(SignatureValidationException.class, () -> signatureValidator.validate(body, requestHeaders));
+            }
+
+            @Test
+            void shouldThrowSignatureValidationExceptionWhenSignatureIsInvalid() throws IOException {
                 InMemorySecretKeyStore.INSTANCE.storeSecretKey(KEY_ID, SECRET_KEY);
 
-                String body = new String(readResource("valid-body"), CHARSET);
+                String body = readValidBodyAsString();
                 List<RequestHeader> requestHeaders = Arrays.asList(
-                        new RequestHeader(SIGNATURE_HEADER, "1" + SIGNATURE),
-                        new RequestHeader(KEY_ID_HEADER, KEY_ID)
+                    new RequestHeader(SIGNATURE_HEADER, "1" + SIGNATURE),
+                    new RequestHeader(KEY_ID_HEADER, KEY_ID)
                 );
 
                 assertThrows(SignatureValidationException.class, () -> signatureValidator.validate(body, requestHeaders));
             }
         }
+    }
+
+    private List<RequestHeader> createValidRequestHeaders() {
+        return Arrays.asList(
+            new RequestHeader(SIGNATURE_HEADER, SIGNATURE),
+            new RequestHeader(KEY_ID_HEADER, KEY_ID)
+        );
+    }
+
+    private String readValidBodyAsString() throws IOException {
+        return new String(readResource("valid-body"), CHARSET);
+    }
+
+    private String readInvalidBodyAsString() throws IOException {
+        return new String(readResource("invalid-body"), CHARSET);
+    }
+
+    private byte[] readValidBodyAsBytes() throws IOException {
+        return readResource("valid-body");
+    }
+
+    private byte[] readInvalidBodyAsBytes() throws IOException {
+        return readResource("invalid-body");
     }
 
     private byte[] readResource(String resource) throws IOException {
