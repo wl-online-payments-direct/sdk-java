@@ -10,6 +10,8 @@ public class CreateHostedFieldsSessionRequest {
 
     private String locale;
 
+    private String origin;
+
     private List<String> tokens;
 
     /**
@@ -31,6 +33,28 @@ public class CreateHostedFieldsSessionRequest {
      */
     public CreateHostedFieldsSessionRequest withLocale(String value) {
         this.locale = value;
+        return this;
+    }
+
+    /**
+     * merchant site's origin.
+     */
+    public String getOrigin() {
+        return origin;
+    }
+
+    /**
+     * merchant site's origin.
+     */
+    public void setOrigin(String value) {
+        this.origin = value;
+    }
+
+    /**
+     * merchant site's origin.
+     */
+    public CreateHostedFieldsSessionRequest withOrigin(String value) {
+        this.origin = value;
         return this;
     }
 

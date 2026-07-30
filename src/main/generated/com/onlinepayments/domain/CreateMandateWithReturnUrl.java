@@ -211,7 +211,7 @@ public class CreateMandateWithReturnUrl {
      *   <li>AIS</li>
      * </ul>
      * <p>
-     * Refer to the support page to determine the applicable signature types.
+     * Not all signature types are applicable to all merchants. Please visit the support page to determine the applicable signature types.
      */
     public String getSignatureType() {
         return signatureType;
@@ -226,7 +226,7 @@ public class CreateMandateWithReturnUrl {
      *   <li>AIS</li>
      * </ul>
      * <p>
-     * Refer to the support page to determine the applicable signature types.
+     * Not all signature types are applicable to all merchants. Please visit the support page to determine the applicable signature types.
      */
     public void setSignatureType(String value) {
         this.signatureType = value;
@@ -241,7 +241,7 @@ public class CreateMandateWithReturnUrl {
      *   <li>AIS</li>
      * </ul>
      * <p>
-     * Refer to the support page to determine the applicable signature types.
+     * Not all signature types are applicable to all merchants. Please visit the support page to determine the applicable signature types.
      */
     public CreateMandateWithReturnUrl withSignatureType(String value) {
         this.signatureType = value;

@@ -8,6 +8,8 @@ import java.util.List;
 
 public class CreateHostedFieldsSessionResponse {
 
+    private String hostedFieldsSessionId;
+
     private List<String> invalidTokens;
 
     private String sdkSri;
@@ -15,6 +17,28 @@ public class CreateHostedFieldsSessionResponse {
     private String sdkUrl;
 
     private SessionData sessionData;
+
+    /**
+     * Id of the created session
+     */
+    public String getHostedFieldsSessionId() {
+        return hostedFieldsSessionId;
+    }
+
+    /**
+     * Id of the created session
+     */
+    public void setHostedFieldsSessionId(String value) {
+        this.hostedFieldsSessionId = value;
+    }
+
+    /**
+     * Id of the created session
+     */
+    public CreateHostedFieldsSessionResponse withHostedFieldsSessionId(String value) {
+        this.hostedFieldsSessionId = value;
+        return this;
+    }
 
     /**
      * This is a list of tokens that failed validation.

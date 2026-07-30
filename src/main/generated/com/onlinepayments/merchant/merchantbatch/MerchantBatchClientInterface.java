@@ -12,6 +12,7 @@ import com.onlinepayments.PlatformException;
 import com.onlinepayments.ReferenceException;
 import com.onlinepayments.ValidationException;
 import com.onlinepayments.domain.GetBatchStatusResponse;
+import com.onlinepayments.domain.PaymentsReportResponse;
 import com.onlinepayments.domain.SubmitBatchRequestBody;
 import com.onlinepayments.domain.SubmitBatchResponse;
 
@@ -119,4 +120,40 @@ public interface MerchantBatchClientInterface {
      * @throws ApiException if the payment platform returned any other error
      */
     GetBatchStatusResponse getBatchStatus(String merchantBatchReference, CallContext context);
+
+    /**
+     * Resource /v2/{merchantId}/merchant-batches/{merchantBatchReference}/reports/payments - Get payments report
+     *
+     * @param merchantBatchReference String
+     * @param query GetPaymentsReportParams
+     * @return PaymentsReportResponse
+     * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+     * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+     * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+     *            or there was a conflict (HTTP status code 404, 409 or 410)
+     * @throws PlatformException if something went wrong at the payment platform,
+     *            the payment platform was unable to process a message from a downstream partner/acquirer,
+     *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+     * @throws ApiException if the payment platform returned any other error
+     */
+    PaymentsReportResponse getPaymentsReport(String merchantBatchReference, GetPaymentsReportParams query);
+
+    /**
+     * Resource /v2/{merchantId}/merchant-batches/{merchantBatchReference}/reports/payments - Get payments report
+     *
+     * @param merchantBatchReference String
+     * @param query GetPaymentsReportParams
+     * @param context CallContext
+     * @return PaymentsReportResponse
+     * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+     * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+     * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+     * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+     *            or there was a conflict (HTTP status code 404, 409 or 410)
+     * @throws PlatformException if something went wrong at the payment platform,
+     *            the payment platform was unable to process a message from a downstream partner/acquirer,
+     *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+     * @throws ApiException if the payment platform returned any other error
+     */
+    PaymentsReportResponse getPaymentsReport(String merchantBatchReference, GetPaymentsReportParams query, CallContext context);
 }

@@ -13,6 +13,7 @@ import com.onlinepayments.ExceptionFactory;
 import com.onlinepayments.communication.ResponseException;
 import com.onlinepayments.domain.ErrorResponse;
 import com.onlinepayments.domain.GetBatchStatusResponse;
+import com.onlinepayments.domain.PaymentsReportResponse;
 import com.onlinepayments.domain.SubmitBatchRequestBody;
 import com.onlinepayments.domain.SubmitBatchResponse;
 
@@ -102,6 +103,33 @@ public class MerchantBatchClient extends ApiResource implements MerchantBatchCli
                     getClientHeaders(),
                     null,
                     GetBatchStatusResponse.class,
+                    context);
+        } catch (ResponseException e) {
+            final Class<?> errorType = ErrorResponse.class;
+            final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+            throw EXCEPTION_FACTORY.createException(e.getStatusCode(), e.getBody(), errorObject, context);
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public PaymentsReportResponse getPaymentsReport(String merchantBatchReference, GetPaymentsReportParams query) {
+        return getPaymentsReport(merchantBatchReference, query, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public PaymentsReportResponse getPaymentsReport(String merchantBatchReference, GetPaymentsReportParams query, CallContext context) {
+        Map<String, String> pathContext = new TreeMap<>();
+        pathContext.put("merchantBatchReference", merchantBatchReference);
+        String uri = instantiateUri("/v2/{merchantId}/merchant-batches/{merchantBatchReference}/reports/payments", pathContext);
+        try {
+
+            return communicator.get(
+                    uri,
+                    getClientHeaders(),
+                    query,
+                    PaymentsReportResponse.class,
                     context);
         } catch (ResponseException e) {
             final Class<?> errorType = ErrorResponse.class;

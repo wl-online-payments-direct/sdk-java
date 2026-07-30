@@ -85,21 +85,21 @@ public class SessionData {
     }
 
     /**
-     * The JWT token used to authorize calls between iframes and server
+     * The CSRF token used to authorize iframe's calls
      */
     public String getSessionToken() {
         return sessionToken;
     }
 
     /**
-     * The JWT token used to authorize calls between iframes and server
+     * The CSRF token used to authorize iframe's calls
      */
     public void setSessionToken(String value) {
         this.sessionToken = value;
     }
 
     /**
-     * The JWT token used to authorize calls between iframes and server
+     * The CSRF token used to authorize iframe's calls
      */
     public SessionData withSessionToken(String value) {
         this.sessionToken = value;
