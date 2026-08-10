@@ -8,6 +8,8 @@ public class MobilePaymentMethodSpecificInput {
 
     private String authorizationMode;
 
+    private AutoCapture autoCapture;
+
     private DecryptedPaymentData decryptedPaymentData;
 
     private String encryptedPaymentData;
@@ -64,6 +66,28 @@ public class MobilePaymentMethodSpecificInput {
      */
     public MobilePaymentMethodSpecificInput withAuthorizationMode(String value) {
         this.authorizationMode = value;
+        return this;
+    }
+
+    /**
+     * Object containing the auto capture configuration for the payment.
+     */
+    public AutoCapture getAutoCapture() {
+        return autoCapture;
+    }
+
+    /**
+     * Object containing the auto capture configuration for the payment.
+     */
+    public void setAutoCapture(AutoCapture value) {
+        this.autoCapture = value;
+    }
+
+    /**
+     * Object containing the auto capture configuration for the payment.
+     */
+    public MobilePaymentMethodSpecificInput withAutoCapture(AutoCapture value) {
+        this.autoCapture = value;
         return this;
     }
 

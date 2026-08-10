@@ -25,7 +25,6 @@ import com.onlinepayments.CallContext;
 import com.onlinepayments.ClientInterface;
 import com.onlinepayments.CommunicatorConfiguration;
 import com.onlinepayments.DeclinedPaymentException;
-import com.onlinepayments.DeclinedPayoutException;
 import com.onlinepayments.DeclinedRefundException;
 import com.onlinepayments.DeclinedTransactionException;
 import com.onlinepayments.Factory;
@@ -35,7 +34,6 @@ import com.onlinepayments.domain.APIError;
 import com.onlinepayments.domain.CreatePaymentRequest;
 import com.onlinepayments.domain.CreatePaymentResponse;
 import com.onlinepayments.domain.CreatePayoutRequest;
-import com.onlinepayments.domain.PayoutResult;
 import com.onlinepayments.domain.RefundResponse;
 import com.onlinepayments.it.util.SdkTestHelper;
 import com.onlinepayments.it.util.common.CreatePaymentRequestBuilder;
@@ -149,6 +147,24 @@ public class ExceptionsTest extends ItTest {
                 assertEquals(400, error.getHttpStatusCode());
             }
         }
+
+        @Test
+        void shouldThrowValidationExceptionForInvalidPayout() {
+            CreatePayoutRequest request = new CreatePayoutRequestBuilder()
+                    .withCardNumber("4321456998744563")
+                    .build();
+
+            ValidationException exception = assertThrows(
+                    ValidationException.class,
+                    () -> payoutsClient.createPayout(request));
+
+            assertNotNull(exception);
+            assertTrue(exception.getStatusCode() >= 400);
+            assertNotNull(exception.getResponseBody());
+
+            APIError error = exception.getErrors().get(0);
+            assertEquals("INVALID_CARD", error.getId());
+        }
     }
 
     @Nested
@@ -210,31 +226,6 @@ public class ExceptionsTest extends ItTest {
             assertNotNull(paymentResponse.getPayment().getId());
             assertNotNull(paymentResponse.getPayment().getStatus());
             assertEquals("REJECTED", paymentResponse.getPayment().getStatus());
-        }
-    }
-
-    @Nested
-    class WhenTestingDeclinedPayoutException {
-
-        @Test
-        void shouldThrowDeclinedPayoutExceptionForInvalidPayout() {
-            CreatePayoutRequest request = new CreatePayoutRequestBuilder()
-                    .withCardNumber("4321456998744563")
-                    .build();
-
-            DeclinedPayoutException exception = assertThrows(
-                    DeclinedPayoutException.class,
-                    () -> payoutsClient.createPayout(request));
-
-            assertNotNull(exception);
-            assertTrue(exception.getStatusCode() >= 400);
-            assertNotNull(exception.getResponseBody());
-
-            PayoutResult payoutResult = exception.getPayoutResult();
-            assertNotNull(payoutResult);
-            assertNotNull(payoutResult.getId());
-            assertNotNull(payoutResult.getStatus());
-            assertEquals("REJECTED_CREDIT", payoutResult.getStatus());
         }
     }
 
