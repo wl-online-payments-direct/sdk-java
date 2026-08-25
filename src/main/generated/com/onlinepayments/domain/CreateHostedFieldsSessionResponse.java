@@ -8,6 +8,8 @@ import java.util.List;
 
 public class CreateHostedFieldsSessionResponse {
 
+    private List<CardToken> cardTokens;
+
     private String hostedFieldsSessionId;
 
     private List<String> invalidTokens;
@@ -17,6 +19,28 @@ public class CreateHostedFieldsSessionResponse {
     private String sdkUrl;
 
     private SessionData sessionData;
+
+    /**
+     * This is a list of validated, previously stored card tokens available for use in this checkout session.
+     */
+    public List<CardToken> getCardTokens() {
+        return cardTokens;
+    }
+
+    /**
+     * This is a list of validated, previously stored card tokens available for use in this checkout session.
+     */
+    public void setCardTokens(List<CardToken> value) {
+        this.cardTokens = value;
+    }
+
+    /**
+     * This is a list of validated, previously stored card tokens available for use in this checkout session.
+     */
+    public CreateHostedFieldsSessionResponse withCardTokens(List<CardToken> value) {
+        this.cardTokens = value;
+        return this;
+    }
 
     /**
      * Id of the created session

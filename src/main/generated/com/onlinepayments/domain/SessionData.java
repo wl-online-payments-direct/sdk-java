@@ -107,21 +107,21 @@ public class SessionData {
     }
 
     /**
-     * This is a list of validated, previously stored card tokens available for use in this checkout session.
+     * This is a list of card tokens
      */
     public List<String> getTokens() {
         return tokens;
     }
 
     /**
-     * This is a list of validated, previously stored card tokens available for use in this checkout session.
+     * This is a list of card tokens
      */
     public void setTokens(List<String> value) {
         this.tokens = value;
     }
 
     /**
-     * This is a list of validated, previously stored card tokens available for use in this checkout session.
+     * This is a list of card tokens
      */
     public SessionData withTokens(List<String> value) {
         this.tokens = value;

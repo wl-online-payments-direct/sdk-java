@@ -4,31 +4,29 @@
 
 package com.onlinepayments.domain;
 
-import java.time.LocalDate;
-
 public class RedirectPaymentProduct11SpecificInput {
 
-    private LocalDate firstInstallmentPaymentDate;
+    private Boolean skipEmailValidation;
 
     /**
-     * The first installment date must be given in the YYYYMMDD format.
+     * Indicates whether to skip the email validation for the payment. When set to true, the email validation will be skipped.
      */
-    public LocalDate getFirstInstallmentPaymentDate() {
-        return firstInstallmentPaymentDate;
+    public Boolean getSkipEmailValidation() {
+        return skipEmailValidation;
     }
 
     /**
-     * The first installment date must be given in the YYYYMMDD format.
+     * Indicates whether to skip the email validation for the payment. When set to true, the email validation will be skipped.
      */
-    public void setFirstInstallmentPaymentDate(LocalDate value) {
-        this.firstInstallmentPaymentDate = value;
+    public void setSkipEmailValidation(Boolean value) {
+        this.skipEmailValidation = value;
     }
 
     /**
-     * The first installment date must be given in the YYYYMMDD format.
+     * Indicates whether to skip the email validation for the payment. When set to true, the email validation will be skipped.
      */
-    public RedirectPaymentProduct11SpecificInput withFirstInstallmentPaymentDate(LocalDate value) {
-        this.firstInstallmentPaymentDate = value;
+    public RedirectPaymentProduct11SpecificInput withSkipEmailValidation(Boolean value) {
+        this.skipEmailValidation = value;
         return this;
     }
 }

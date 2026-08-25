@@ -25,6 +25,7 @@ import com.onlinepayments.CallContext;
 import com.onlinepayments.ClientInterface;
 import com.onlinepayments.CommunicatorConfiguration;
 import com.onlinepayments.DeclinedPaymentException;
+import com.onlinepayments.DeclinedPayoutException;
 import com.onlinepayments.DeclinedRefundException;
 import com.onlinepayments.DeclinedTransactionException;
 import com.onlinepayments.Factory;
@@ -149,13 +150,13 @@ public class ExceptionsTest extends ItTest {
         }
 
         @Test
-        void shouldThrowValidationExceptionForInvalidPayout() {
+        void shouldThrowDeclinedPayoutExceptionForInvalidPayout() {
             CreatePayoutRequest request = new CreatePayoutRequestBuilder()
                     .withCardNumber("4321456998744563")
                     .build();
 
-            ValidationException exception = assertThrows(
-                    ValidationException.class,
+            DeclinedPayoutException exception = assertThrows(
+                    DeclinedPayoutException.class,
                     () -> payoutsClient.createPayout(request));
 
             assertNotNull(exception);

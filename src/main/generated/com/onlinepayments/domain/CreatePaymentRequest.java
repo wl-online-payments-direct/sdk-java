@@ -120,21 +120,21 @@ public class CreatePaymentRequest {
     }
 
     /**
-     * A unique identifier that references a previously created hosted fields session. Use this field to create a payment with the payment method details securely captured in the referenced hosted fields session.
+     * A unique identifier that references a previously created hosted fields session. Use this field to reuse the payment method details securely captured in the referenced hosted fields session.
      */
     public String getHostedFieldsSessionId() {
         return hostedFieldsSessionId;
     }
 
     /**
-     * A unique identifier that references a previously created hosted fields session. Use this field to create a payment with the payment method details securely captured in the referenced hosted fields session.
+     * A unique identifier that references a previously created hosted fields session. Use this field to reuse the payment method details securely captured in the referenced hosted fields session.
      */
     public void setHostedFieldsSessionId(String value) {
         this.hostedFieldsSessionId = value;
     }
 
     /**
-     * A unique identifier that references a previously created hosted fields session. Use this field to create a payment with the payment method details securely captured in the referenced hosted fields session.
+     * A unique identifier that references a previously created hosted fields session. Use this field to reuse the payment method details securely captured in the referenced hosted fields session.
      */
     public CreatePaymentRequest withHostedFieldsSessionId(String value) {
         this.hostedFieldsSessionId = value;

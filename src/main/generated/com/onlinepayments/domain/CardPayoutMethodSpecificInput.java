@@ -8,6 +8,8 @@ public class CardPayoutMethodSpecificInput {
 
     private Card card;
 
+    private String hostedFieldsSessionId;
+
     private Integer paymentProductId;
 
     private String payoutReason;
@@ -33,6 +35,28 @@ public class CardPayoutMethodSpecificInput {
      */
     public CardPayoutMethodSpecificInput withCard(Card value) {
         this.card = value;
+        return this;
+    }
+
+    /**
+     * A unique identifier that references a previously created hosted fields session. Use this field to reuse the payment method details securely captured in the referenced hosted fields session.
+     */
+    public String getHostedFieldsSessionId() {
+        return hostedFieldsSessionId;
+    }
+
+    /**
+     * A unique identifier that references a previously created hosted fields session. Use this field to reuse the payment method details securely captured in the referenced hosted fields session.
+     */
+    public void setHostedFieldsSessionId(String value) {
+        this.hostedFieldsSessionId = value;
+    }
+
+    /**
+     * A unique identifier that references a previously created hosted fields session. Use this field to reuse the payment method details securely captured in the referenced hosted fields session.
+     */
+    public CardPayoutMethodSpecificInput withHostedFieldsSessionId(String value) {
+        this.hostedFieldsSessionId = value;
         return this;
     }
 

@@ -6,6 +6,8 @@ package com.onlinepayments.domain;
 
 public class ShowFormData {
 
+    private PaymentProduct11 paymentProduct11;
+
     private PaymentProduct3012 paymentProduct3012;
 
     private PaymentProduct350 paymentProduct350;
@@ -22,6 +24,28 @@ public class ShowFormData {
     private PaymentProduct840 paymentProduct840;
 
     private PendingAuthentication pendingAuthentication;
+
+    /**
+     * Contains the third party data for payment product 11 (Offline Bank transfer)
+     */
+    public PaymentProduct11 getPaymentProduct11() {
+        return paymentProduct11;
+    }
+
+    /**
+     * Contains the third party data for payment product 11 (Offline Bank transfer)
+     */
+    public void setPaymentProduct11(PaymentProduct11 value) {
+        this.paymentProduct11 = value;
+    }
+
+    /**
+     * Contains the third party data for payment product 11 (Offline Bank transfer)
+     */
+    public ShowFormData withPaymentProduct11(PaymentProduct11 value) {
+        this.paymentProduct11 = value;
+        return this;
+    }
 
     /**
      * Contains the third party data for payment product 3012 (Bancontact)

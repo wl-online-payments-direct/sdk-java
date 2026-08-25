@@ -73,6 +73,16 @@ public final class SdkTestHelper {
                 .withItemCount(itemCount));
     }
 
+    public String submitAndProcessBatchAndGetReference(
+            ArrayList<CreatePaymentRequest> requests,
+            String operationType,
+            int itemCount) {
+        String merchantBatchReference = submitBatchAndGetReference(requests, operationType, itemCount);
+        merchantClient.merchantBatch().processBatch(merchantBatchReference);
+
+        return merchantBatchReference;
+    }
+
     public String createPaymentLinkAndGetId() {
         return createPaymentLinkAndGetId(new CreatePaymentLinkRequestBuilder());
     }
