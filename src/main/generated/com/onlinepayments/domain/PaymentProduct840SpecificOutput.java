@@ -21,21 +21,21 @@ public class PaymentProduct840SpecificOutput {
     private AddressPersonal shippingAddress;
 
     /**
-     * Object containing billing address details.
+     * Deprecated - Use billingPersonalAddress instead
      */
     public Address getBillingAddress() {
         return billingAddress;
     }
 
     /**
-     * Object containing billing address details.
+     * Deprecated - Use billingPersonalAddress instead
      */
     public void setBillingAddress(Address value) {
         this.billingAddress = value;
     }
 
     /**
-     * Object containing billing address details.
+     * Deprecated - Use billingPersonalAddress instead
      */
     public PaymentProduct840SpecificOutput withBillingAddress(Address value) {
         this.billingAddress = value;
@@ -87,21 +87,21 @@ public class PaymentProduct840SpecificOutput {
     }
 
     /**
-     * Object containing billing address details.
+     * Deprecated - Use shippingAddress instead
      */
     public Address getCustomerAddress() {
         return customerAddress;
     }
 
     /**
-     * Object containing billing address details.
+     * Deprecated - Use shippingAddress instead
      */
     public void setCustomerAddress(Address value) {
         this.customerAddress = value;
     }
 
     /**
-     * Object containing billing address details.
+     * Deprecated - Use shippingAddress instead
      */
     public PaymentProduct840SpecificOutput withCustomerAddress(Address value) {
         this.customerAddress = value;

@@ -125,21 +125,21 @@ public class CardPaymentMethodSpecificInputBase {
     }
 
     /**
-     * Object containing the auto capture configuration for the payment.
+     * Container for all auto capture-related settings.
      */
     public AutoCapture getAutoCapture() {
         return autoCapture;
     }
 
     /**
-     * Object containing the auto capture configuration for the payment.
+     * Container for all auto capture-related settings.
      */
     public void setAutoCapture(AutoCapture value) {
         this.autoCapture = value;
     }
 
     /**
-     * Object containing the auto capture configuration for the payment.
+     * Container for all auto capture-related settings.
      */
     public CardPaymentMethodSpecificInputBase withAutoCapture(AutoCapture value) {
         this.autoCapture = value;

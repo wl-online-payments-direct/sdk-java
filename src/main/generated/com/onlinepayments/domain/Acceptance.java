@@ -12,6 +12,8 @@ public class Acceptance {
 
     private ZonedDateTime authorizationDate;
 
+    private String authorizationMessageReference;
+
     /**
      * Worldline application identifier used to transmit the authorization request. This data is transmitted as provided in the authorization request and in the response. It is named ITP (Terminal Application Identification at the Point of Acceptance) in the CB2A protocol.
      */
@@ -53,6 +55,28 @@ public class Acceptance {
      */
     public Acceptance withAuthorizationDate(ZonedDateTime value) {
         this.authorizationDate = value;
+        return this;
+    }
+
+    /**
+     * Identifier shared with the acquirer during the authorization process. For example, this reference data could be sent by the acquirer in the authorization response, then sent (unchanged) in a subsequent authorization reversal message, to the extent that the acquirer is able to match a reversal message to the associated response message.
+     */
+    public String getAuthorizationMessageReference() {
+        return authorizationMessageReference;
+    }
+
+    /**
+     * Identifier shared with the acquirer during the authorization process. For example, this reference data could be sent by the acquirer in the authorization response, then sent (unchanged) in a subsequent authorization reversal message, to the extent that the acquirer is able to match a reversal message to the associated response message.
+     */
+    public void setAuthorizationMessageReference(String value) {
+        this.authorizationMessageReference = value;
+    }
+
+    /**
+     * Identifier shared with the acquirer during the authorization process. For example, this reference data could be sent by the acquirer in the authorization response, then sent (unchanged) in a subsequent authorization reversal message, to the extent that the acquirer is able to match a reversal message to the associated response message.
+     */
+    public Acceptance withAuthorizationMessageReference(String value) {
+        this.authorizationMessageReference = value;
         return this;
     }
 }

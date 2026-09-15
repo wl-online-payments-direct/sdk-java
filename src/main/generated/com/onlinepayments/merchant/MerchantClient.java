@@ -18,6 +18,7 @@ import com.onlinepayments.merchant.merchantbatch.MerchantBatchClient;
 import com.onlinepayments.merchant.paymentlinks.PaymentLinksClient;
 import com.onlinepayments.merchant.payments.PaymentsClient;
 import com.onlinepayments.merchant.payouts.PayoutsClient;
+import com.onlinepayments.merchant.preauthorization.PreAuthorizationClient;
 import com.onlinepayments.merchant.privacypolicy.PrivacyPolicyClient;
 import com.onlinepayments.merchant.productgroups.ProductGroupsClient;
 import com.onlinepayments.merchant.products.ProductsClient;
@@ -84,6 +85,12 @@ public class MerchantClient extends ApiResource implements MerchantClientInterfa
     @Override
     public SubsequentClient subsequent() {
         return new SubsequentClient(this, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public PreAuthorizationClient preAuthorization() {
+        return new PreAuthorizationClient(this, null);
     }
 
     /** {@inheritDoc} */

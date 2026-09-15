@@ -32,14 +32,23 @@ public class GetIINDetailsRequest {
         return this;
     }
 
+    /**
+     * Optional payment context to refine the IIN lookup to filter out payment products not applicable to your payment.
+     */
     public PaymentContext getPaymentContext() {
         return paymentContext;
     }
 
+    /**
+     * Optional payment context to refine the IIN lookup to filter out payment products not applicable to your payment.
+     */
     public void setPaymentContext(PaymentContext value) {
         this.paymentContext = value;
     }
 
+    /**
+     * Optional payment context to refine the IIN lookup to filter out payment products not applicable to your payment.
+     */
     public GetIINDetailsRequest withPaymentContext(PaymentContext value) {
         this.paymentContext = value;
         return this;

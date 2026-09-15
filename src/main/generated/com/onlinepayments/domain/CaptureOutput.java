@@ -31,21 +31,21 @@ public class CaptureOutput {
     private SurchargeSpecificOutput surchargeSpecificOutput;
 
     /**
-     * Object containing amount and ISO currency code attributes
+     * Amount that has been acquired by the Acquirer
      */
     public AmountOfMoney getAcquiredAmount() {
         return acquiredAmount;
     }
 
     /**
-     * Object containing amount and ISO currency code attributes
+     * Amount that has been acquired by the Acquirer
      */
     public void setAcquiredAmount(AmountOfMoney value) {
         this.acquiredAmount = value;
     }
 
     /**
-     * Object containing amount and ISO currency code attributes
+     * Amount that has been acquired by the Acquirer
      */
     public CaptureOutput withAcquiredAmount(AmountOfMoney value) {
         this.acquiredAmount = value;

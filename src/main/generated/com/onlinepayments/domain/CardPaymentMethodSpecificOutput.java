@@ -444,21 +444,21 @@ public class CardPaymentMethodSpecificOutput {
     }
 
     /**
-     * Instructions for reattempting a declined authorization. Provided only in case of declined authorization, for those acquirers that may respond with explicit instructions regarding potential reattempt processing.
+     * Provided only in case of declined authorization, for those acquirers that may respond with explicit instructions regarding potential reattempt processing.
      */
     public ReattemptInstructions getReattemptInstructions() {
         return reattemptInstructions;
     }
 
     /**
-     * Instructions for reattempting a declined authorization. Provided only in case of declined authorization, for those acquirers that may respond with explicit instructions regarding potential reattempt processing.
+     * Provided only in case of declined authorization, for those acquirers that may respond with explicit instructions regarding potential reattempt processing.
      */
     public void setReattemptInstructions(ReattemptInstructions value) {
         this.reattemptInstructions = value;
     }
 
     /**
-     * Instructions for reattempting a declined authorization. Provided only in case of declined authorization, for those acquirers that may respond with explicit instructions regarding potential reattempt processing.
+     * Provided only in case of declined authorization, for those acquirers that may respond with explicit instructions regarding potential reattempt processing.
      */
     public CardPaymentMethodSpecificOutput withReattemptInstructions(ReattemptInstructions value) {
         this.reattemptInstructions = value;

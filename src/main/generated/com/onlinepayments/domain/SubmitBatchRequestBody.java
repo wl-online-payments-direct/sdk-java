@@ -135,21 +135,21 @@ public class SubmitBatchRequestBody {
     }
 
     /**
-     * Details about the batch, including the type of operation, the merchant batch reference, and the number of items in the batch.
+     * Type of operation, including the merchant batch reference and the total count of items in the batch
      */
     public BatchMetadata getHeader() {
         return header;
     }
 
     /**
-     * Details about the batch, including the type of operation, the merchant batch reference, and the number of items in the batch.
+     * Type of operation, including the merchant batch reference and the total count of items in the batch
      */
     public void setHeader(BatchMetadata value) {
         this.header = value;
     }
 
     /**
-     * Details about the batch, including the type of operation, the merchant batch reference, and the number of items in the batch.
+     * Type of operation, including the merchant batch reference and the total count of items in the batch
      */
     public SubmitBatchRequestBody withHeader(BatchMetadata value) {
         this.header = value;

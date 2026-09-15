@@ -82,14 +82,23 @@ public class DccProposal {
         return this;
     }
 
+    /**
+     * Rate details given by the Dynamic Currency Conversion(DCC) provider
+     */
     public RateDetails getRate() {
         return rate;
     }
 
+    /**
+     * Rate details given by the Dynamic Currency Conversion(DCC) provider
+     */
     public void setRate(RateDetails value) {
         this.rate = value;
     }
 
+    /**
+     * Rate details given by the Dynamic Currency Conversion(DCC) provider
+     */
     public DccProposal withRate(RateDetails value) {
         this.rate = value;
         return this;

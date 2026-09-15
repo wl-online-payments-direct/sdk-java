@@ -30,35 +30,44 @@ public class PaymentProductGroup {
     }
 
     /**
-     * Object containing display hints like the order of the product when shown in a list, the name of the product and the logo
+     * Deprecated: field is replaced by displayHintsList
      */
     public PaymentProductDisplayHints getDisplayHints() {
         return displayHints;
     }
 
     /**
-     * Object containing display hints like the order of the product when shown in a list, the name of the product and the logo
+     * Deprecated: field is replaced by displayHintsList
      */
     public void setDisplayHints(PaymentProductDisplayHints value) {
         this.displayHints = value;
     }
 
     /**
-     * Object containing display hints like the order of the product when shown in a list, the name of the product and the logo
+     * Deprecated: field is replaced by displayHintsList
      */
     public PaymentProductGroup withDisplayHints(PaymentProductDisplayHints value) {
         this.displayHints = value;
         return this;
     }
 
+    /**
+     * List of display hints
+     */
     public List<PaymentProductDisplayHints> getDisplayHintsList() {
         return displayHintsList;
     }
 
+    /**
+     * List of display hints
+     */
     public void setDisplayHintsList(List<PaymentProductDisplayHints> value) {
         this.displayHintsList = value;
     }
 
+    /**
+     * List of display hints
+     */
     public PaymentProductGroup withDisplayHintsList(List<PaymentProductDisplayHints> value) {
         this.displayHintsList = value;
         return this;

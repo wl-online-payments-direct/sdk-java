@@ -16,6 +16,8 @@ public class SubMerchant {
 
     private String merchantId;
 
+    private String website;
+
     /**
      * Object containing billing address details.
      */
@@ -123,6 +125,28 @@ public class SubMerchant {
      */
     public SubMerchant withMerchantId(String value) {
         this.merchantId = value;
+        return this;
+    }
+
+    /**
+     * Website address of the submerchant.
+     */
+    public String getWebsite() {
+        return website;
+    }
+
+    /**
+     * Website address of the submerchant.
+     */
+    public void setWebsite(String value) {
+        this.website = value;
+    }
+
+    /**
+     * Website address of the submerchant.
+     */
+    public SubMerchant withWebsite(String value) {
+        this.website = value;
         return this;
     }
 }

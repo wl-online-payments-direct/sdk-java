@@ -58,14 +58,23 @@ public class CreateHostedFieldsSessionRequest {
         return this;
     }
 
+    /**
+     * These are your stored tokens that you can reuse during the session.
+     */
     public List<String> getTokens() {
         return tokens;
     }
 
+    /**
+     * These are your stored tokens that you can reuse during the session.
+     */
     public void setTokens(List<String> value) {
         this.tokens = value;
     }
 
+    /**
+     * These are your stored tokens that you can reuse during the session.
+     */
     public CreateHostedFieldsSessionRequest withTokens(List<String> value) {
         this.tokens = value;
         return this;

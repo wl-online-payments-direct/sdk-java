@@ -15,21 +15,21 @@ public class MobilePaymentProduct302SpecificInput {
     private Boolean tokenize;
 
     /**
-     * Object containing information specific to Apple Pay recurring request.
+     * Object containing information specific to Apple Pay recurring request. Only used for HostedCheckout.
      */
     public ApplePayRecurringPaymentRequest getApplePayRecurringPaymentRequest() {
         return applePayRecurringPaymentRequest;
     }
 
     /**
-     * Object containing information specific to Apple Pay recurring request.
+     * Object containing information specific to Apple Pay recurring request. Only used for HostedCheckout.
      */
     public void setApplePayRecurringPaymentRequest(ApplePayRecurringPaymentRequest value) {
         this.applePayRecurringPaymentRequest = value;
     }
 
     /**
-     * Object containing information specific to Apple Pay recurring request.
+     * Object containing information specific to Apple Pay recurring request. Only used for HostedCheckout.
      */
     public MobilePaymentProduct302SpecificInput withApplePayRecurringPaymentRequest(ApplePayRecurringPaymentRequest value) {
         this.applePayRecurringPaymentRequest = value;
@@ -98,7 +98,7 @@ public class MobilePaymentProduct302SpecificInput {
     /**
      * Indicates if this transaction should be tokenized
      * <ul>
-     *   <li>true - Tokenize the transaction. Note that a payment on the payment platform that results in a status REDIRECTED cannot be tokenized in this way.</li>
+     *   <li>true - Tokenize the transaction.</li>
      *   <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.</li>
      * </ul>
      */
@@ -109,7 +109,7 @@ public class MobilePaymentProduct302SpecificInput {
     /**
      * Indicates if this transaction should be tokenized
      * <ul>
-     *   <li>true - Tokenize the transaction. Note that a payment on the payment platform that results in a status REDIRECTED cannot be tokenized in this way.</li>
+     *   <li>true - Tokenize the transaction.</li>
      *   <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.</li>
      * </ul>
      */
@@ -120,7 +120,7 @@ public class MobilePaymentProduct302SpecificInput {
     /**
      * Indicates if this transaction should be tokenized
      * <ul>
-     *   <li>true - Tokenize the transaction. Note that a payment on the payment platform that results in a status REDIRECTED cannot be tokenized in this way.</li>
+     *   <li>true - Tokenize the transaction.</li>
      *   <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.</li>
      * </ul>
      */

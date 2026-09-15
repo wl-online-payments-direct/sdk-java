@@ -11,21 +11,21 @@ public class CardInfo {
     private Integer paymentProductId;
 
     /**
-     * The complete credit/debit card number (also known as the PAN) is always obfuscated in any of our responses.
+     * Provide the complete credit/debit card number (also known as the PAN) for the most accurate results.
      */
     public String getCardNumber() {
         return cardNumber;
     }
 
     /**
-     * The complete credit/debit card number (also known as the PAN) is always obfuscated in any of our responses.
+     * Provide the complete credit/debit card number (also known as the PAN) for the most accurate results.
      */
     public void setCardNumber(String value) {
         this.cardNumber = value;
     }
 
     /**
-     * The complete credit/debit card number (also known as the PAN) is always obfuscated in any of our responses.
+     * Provide the complete credit/debit card number (also known as the PAN) for the most accurate results.
      */
     public CardInfo withCardNumber(String value) {
         this.cardNumber = value;

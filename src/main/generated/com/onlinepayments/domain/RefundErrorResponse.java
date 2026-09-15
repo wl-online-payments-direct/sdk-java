@@ -41,21 +41,21 @@ public class RefundErrorResponse {
     }
 
     /**
-     * This object has the numeric representation of the current refund status, timestamp of last status change and performable action on the current refund resource. In case of a rejected refund, detailed error information is listed.
+     * Deprecated: This field is not used by any payment product
      */
     public RefundResponse getRefundResult() {
         return refundResult;
     }
 
     /**
-     * This object has the numeric representation of the current refund status, timestamp of last status change and performable action on the current refund resource. In case of a rejected refund, detailed error information is listed.
+     * Deprecated: This field is not used by any payment product
      */
     public void setRefundResult(RefundResponse value) {
         this.refundResult = value;
     }
 
     /**
-     * This object has the numeric representation of the current refund status, timestamp of last status change and performable action on the current refund resource. In case of a rejected refund, detailed error information is listed.
+     * Deprecated: This field is not used by any payment product
      */
     public RefundErrorResponse withRefundResult(RefundResponse value) {
         this.refundResult = value;

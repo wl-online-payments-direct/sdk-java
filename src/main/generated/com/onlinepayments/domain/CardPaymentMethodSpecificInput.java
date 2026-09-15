@@ -42,6 +42,8 @@ public class CardPaymentMethodSpecificInput {
 
     private PaymentProduct3209SpecificInput paymentProduct3209SpecificInput;
 
+    private PaymentProduct5002SpecificInput paymentProduct5002SpecificInput;
+
     private Integer paymentProductId;
 
     private CardRecurrenceDetails recurring;
@@ -141,21 +143,21 @@ public class CardPaymentMethodSpecificInput {
     }
 
     /**
-     * Object containing the auto capture configuration for the payment.
+     * Container for all auto capture-related settings.
      */
     public AutoCapture getAutoCapture() {
         return autoCapture;
     }
 
     /**
-     * Object containing the auto capture configuration for the payment.
+     * Container for all auto capture-related settings.
      */
     public void setAutoCapture(AutoCapture value) {
         this.autoCapture = value;
     }
 
     /**
-     * Object containing the auto capture configuration for the payment.
+     * Container for all auto capture-related settings.
      */
     public CardPaymentMethodSpecificInput withAutoCapture(AutoCapture value) {
         this.autoCapture = value;
@@ -540,6 +542,28 @@ public class CardPaymentMethodSpecificInput {
      */
     public CardPaymentMethodSpecificInput withPaymentProduct3209SpecificInput(PaymentProduct3209SpecificInput value) {
         this.paymentProduct3209SpecificInput = value;
+        return this;
+    }
+
+    /**
+     * Object containing specific input required for Click to Pay payments.
+     */
+    public PaymentProduct5002SpecificInput getPaymentProduct5002SpecificInput() {
+        return paymentProduct5002SpecificInput;
+    }
+
+    /**
+     * Object containing specific input required for Click to Pay payments.
+     */
+    public void setPaymentProduct5002SpecificInput(PaymentProduct5002SpecificInput value) {
+        this.paymentProduct5002SpecificInput = value;
+    }
+
+    /**
+     * Object containing specific input required for Click to Pay payments.
+     */
+    public CardPaymentMethodSpecificInput withPaymentProduct5002SpecificInput(PaymentProduct5002SpecificInput value) {
+        this.paymentProduct5002SpecificInput = value;
         return this;
     }
 

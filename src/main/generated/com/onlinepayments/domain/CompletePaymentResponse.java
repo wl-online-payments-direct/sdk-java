@@ -13,21 +13,21 @@ public class CompletePaymentResponse {
     private PaymentResponse payment;
 
     /**
-     * This object contains the details of the created payment.
+     * Deprecated: This field is not used by any payment product
      */
     public PaymentCreationOutput getCreationOutput() {
         return creationOutput;
     }
 
     /**
-     * This object contains the details of the created payment.
+     * Deprecated: This field is not used by any payment product
      */
     public void setCreationOutput(PaymentCreationOutput value) {
         this.creationOutput = value;
     }
 
     /**
-     * This object contains the details of the created payment.
+     * Deprecated: This field is not used by any payment product
      */
     public CompletePaymentResponse withCreationOutput(PaymentCreationOutput value) {
         this.creationOutput = value;
@@ -35,21 +35,21 @@ public class CompletePaymentResponse {
     }
 
     /**
-     * This object contains the action, including the needed data, that you should perform next. This could involve showing instructions, displaying the transaction results, or redirecting to a third party to complete the payment.
+     * Deprecated: This field is not used by any payment product
      */
     public MerchantAction getMerchantAction() {
         return merchantAction;
     }
 
     /**
-     * This object contains the action, including the needed data, that you should perform next. This could involve showing instructions, displaying the transaction results, or redirecting to a third party to complete the payment.
+     * Deprecated: This field is not used by any payment product
      */
     public void setMerchantAction(MerchantAction value) {
         this.merchantAction = value;
     }
 
     /**
-     * This object contains the action, including the needed data, that you should perform next. This could involve showing instructions, displaying the transaction results, or redirecting to a third party to complete the payment.
+     * Deprecated: This field is not used by any payment product
      */
     public CompletePaymentResponse withMerchantAction(MerchantAction value) {
         this.merchantAction = value;

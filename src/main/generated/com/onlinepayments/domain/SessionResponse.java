@@ -106,14 +106,23 @@ public class SessionResponse {
         return this;
     }
 
+    /**
+     * Tokens that are submitted in the request are validated. In case any of the tokens can't be used anymore they are returned in this array. You should most likely remove those tokens from your system.
+     */
     public List<String> getInvalidTokens() {
         return invalidTokens;
     }
 
+    /**
+     * Tokens that are submitted in the request are validated. In case any of the tokens can't be used anymore they are returned in this array. You should most likely remove those tokens from your system.
+     */
     public void setInvalidTokens(List<String> value) {
         this.invalidTokens = value;
     }
 
+    /**
+     * Tokens that are submitted in the request are validated. In case any of the tokens can't be used anymore they are returned in this array. You should most likely remove those tokens from your system.
+     */
     public SessionResponse withInvalidTokens(List<String> value) {
         this.invalidTokens = value;
         return this;

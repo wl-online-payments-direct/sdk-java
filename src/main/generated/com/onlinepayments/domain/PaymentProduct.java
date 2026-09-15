@@ -30,6 +30,8 @@ public class PaymentProduct {
 
     private PaymentProduct320SpecificData paymentProduct320SpecificData;
 
+    private PaymentProduct5002SpecificData paymentProduct5002SpecificData;
+
     private String paymentProductGroup;
 
     private Boolean usesRedirectionTo3rdParty;
@@ -147,35 +149,44 @@ public class PaymentProduct {
     }
 
     /**
-     * Object containing display hints like the order of the product when shown in a list, the name of the product and the logo
+     * Deprecated: field is replaced by displayHintsList
      */
     public PaymentProductDisplayHints getDisplayHints() {
         return displayHints;
     }
 
     /**
-     * Object containing display hints like the order of the product when shown in a list, the name of the product and the logo
+     * Deprecated: field is replaced by displayHintsList
      */
     public void setDisplayHints(PaymentProductDisplayHints value) {
         this.displayHints = value;
     }
 
     /**
-     * Object containing display hints like the order of the product when shown in a list, the name of the product and the logo
+     * Deprecated: field is replaced by displayHintsList
      */
     public PaymentProduct withDisplayHints(PaymentProductDisplayHints value) {
         this.displayHints = value;
         return this;
     }
 
+    /**
+     * List of display hints
+     */
     public List<PaymentProductDisplayHints> getDisplayHintsList() {
         return displayHintsList;
     }
 
+    /**
+     * List of display hints
+     */
     public void setDisplayHintsList(List<PaymentProductDisplayHints> value) {
         this.displayHintsList = value;
     }
 
+    /**
+     * List of display hints
+     */
     public PaymentProduct withDisplayHintsList(List<PaymentProductDisplayHints> value) {
         this.displayHintsList = value;
         return this;
@@ -247,29 +258,69 @@ public class PaymentProduct {
         return this;
     }
 
+    /**
+     * Apple Pay (payment product 302) specific details.
+     */
     public PaymentProduct302SpecificData getPaymentProduct302SpecificData() {
         return paymentProduct302SpecificData;
     }
 
+    /**
+     * Apple Pay (payment product 302) specific details.
+     */
     public void setPaymentProduct302SpecificData(PaymentProduct302SpecificData value) {
         this.paymentProduct302SpecificData = value;
     }
 
+    /**
+     * Apple Pay (payment product 302) specific details.
+     */
     public PaymentProduct withPaymentProduct302SpecificData(PaymentProduct302SpecificData value) {
         this.paymentProduct302SpecificData = value;
         return this;
     }
 
+    /**
+     * Google Pay (payment product 320) specific details.
+     */
     public PaymentProduct320SpecificData getPaymentProduct320SpecificData() {
         return paymentProduct320SpecificData;
     }
 
+    /**
+     * Google Pay (payment product 320) specific details.
+     */
     public void setPaymentProduct320SpecificData(PaymentProduct320SpecificData value) {
         this.paymentProduct320SpecificData = value;
     }
 
+    /**
+     * Google Pay (payment product 320) specific details.
+     */
     public PaymentProduct withPaymentProduct320SpecificData(PaymentProduct320SpecificData value) {
         this.paymentProduct320SpecificData = value;
+        return this;
+    }
+
+    /**
+     * Click to Pay (payment product 5002) specific details.
+     */
+    public PaymentProduct5002SpecificData getPaymentProduct5002SpecificData() {
+        return paymentProduct5002SpecificData;
+    }
+
+    /**
+     * Click to Pay (payment product 5002) specific details.
+     */
+    public void setPaymentProduct5002SpecificData(PaymentProduct5002SpecificData value) {
+        this.paymentProduct5002SpecificData = value;
+    }
+
+    /**
+     * Click to Pay (payment product 5002) specific details.
+     */
+    public PaymentProduct withPaymentProduct5002SpecificData(PaymentProduct5002SpecificData value) {
+        this.paymentProduct5002SpecificData = value;
         return this;
     }
 

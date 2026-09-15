@@ -15,6 +15,7 @@ import com.onlinepayments.merchant.merchantbatch.MerchantBatchClientInterface;
 import com.onlinepayments.merchant.paymentlinks.PaymentLinksClientInterface;
 import com.onlinepayments.merchant.payments.PaymentsClientInterface;
 import com.onlinepayments.merchant.payouts.PayoutsClientInterface;
+import com.onlinepayments.merchant.preauthorization.PreAuthorizationClientInterface;
 import com.onlinepayments.merchant.privacypolicy.PrivacyPolicyClientInterface;
 import com.onlinepayments.merchant.productgroups.ProductGroupsClientInterface;
 import com.onlinepayments.merchant.products.ProductsClientInterface;
@@ -86,6 +87,13 @@ public interface MerchantClientInterface {
      * @return SubsequentClientInterface
      */
     SubsequentClientInterface subsequent();
+
+    /**
+     * Resource /v2/{merchantId}/payments/{paymentId}/increment-authorization
+     *
+     * @return PreAuthorizationClientInterface
+     */
+    PreAuthorizationClientInterface preAuthorization();
 
     /**
      * Resource /v2/{merchantId}/productgroups

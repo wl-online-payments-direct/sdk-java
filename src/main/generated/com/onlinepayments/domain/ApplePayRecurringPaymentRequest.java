@@ -83,21 +83,21 @@ public class ApplePayRecurringPaymentRequest {
     }
 
     /**
-     * Object containing specific data regarding Apple Pay recurring payment.
+     * Object containing specific data regarding Apple Pay recurring regular payment
      */
     public ApplePayLineItem getRegularBilling() {
         return regularBilling;
     }
 
     /**
-     * Object containing specific data regarding Apple Pay recurring payment.
+     * Object containing specific data regarding Apple Pay recurring regular payment
      */
     public void setRegularBilling(ApplePayLineItem value) {
         this.regularBilling = value;
     }
 
     /**
-     * Object containing specific data regarding Apple Pay recurring payment.
+     * Object containing specific data regarding Apple Pay recurring regular payment
      */
     public ApplePayRecurringPaymentRequest withRegularBilling(ApplePayLineItem value) {
         this.regularBilling = value;
@@ -105,21 +105,21 @@ public class ApplePayRecurringPaymentRequest {
     }
 
     /**
-     * Object containing specific data regarding Apple Pay recurring payment.
+     * Object containing specific data regarding Apple Pay recurring trial payment
      */
     public ApplePayLineItem getTrialBilling() {
         return trialBilling;
     }
 
     /**
-     * Object containing specific data regarding Apple Pay recurring payment.
+     * Object containing specific data regarding Apple Pay recurring trial payment
      */
     public void setTrialBilling(ApplePayLineItem value) {
         this.trialBilling = value;
     }
 
     /**
-     * Object containing specific data regarding Apple Pay recurring payment.
+     * Object containing specific data regarding Apple Pay recurring trial payment
      */
     public ApplePayRecurringPaymentRequest withTrialBilling(ApplePayLineItem value) {
         this.trialBilling = value;

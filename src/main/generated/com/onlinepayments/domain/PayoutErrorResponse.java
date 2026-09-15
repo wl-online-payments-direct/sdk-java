@@ -27,14 +27,23 @@ public class PayoutErrorResponse {
         return this;
     }
 
+    /**
+     * This field contains the set of errors encountered during the process.
+     */
     public List<APIError> getErrors() {
         return errors;
     }
 
+    /**
+     * This field contains the set of errors encountered during the process.
+     */
     public void setErrors(List<APIError> value) {
         this.errors = value;
     }
 
+    /**
+     * This field contains the set of errors encountered during the process.
+     */
     public PayoutErrorResponse withErrors(List<APIError> value) {
         this.errors = value;
         return this;
