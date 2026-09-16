@@ -46,6 +46,8 @@ public class CardPaymentMethodSpecificOutput {
 
     private String schemeReferenceData;
 
+    private String schemeTransactionId;
+
     private ThreeDSecureResults threeDSecureResults;
 
     private String token;
@@ -484,6 +486,28 @@ public class CardPaymentMethodSpecificOutput {
      */
     public CardPaymentMethodSpecificOutput withSchemeReferenceData(String value) {
         this.schemeReferenceData = value;
+        return this;
+    }
+
+    /**
+     * This is populated in case of a Mastercard payment, with the Mastercard TLID (Transaction Life Cycle ID) field.
+     */
+    public String getSchemeTransactionId() {
+        return schemeTransactionId;
+    }
+
+    /**
+     * This is populated in case of a Mastercard payment, with the Mastercard TLID (Transaction Life Cycle ID) field.
+     */
+    public void setSchemeTransactionId(String value) {
+        this.schemeTransactionId = value;
+    }
+
+    /**
+     * This is populated in case of a Mastercard payment, with the Mastercard TLID (Transaction Life Cycle ID) field.
+     */
+    public CardPaymentMethodSpecificOutput withSchemeTransactionId(String value) {
+        this.schemeTransactionId = value;
         return this;
     }
 
