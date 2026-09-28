@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Implementation-Title: onlinepayments-sdk-java
-Implementation-Version: 9.1.0
+Implementation-Version: 9.2.0
 Built-By: Online Payments
 Specification-Vendor: Online Payments Direct
 Specification-Title: onlinepayments-sdk-java
 Build-Jdk-Spec: 1.8
 Created-By: Maven Javadoc Plugin 3.11.3
-Specification-Version: 9.1.0
+Specification-Version: 9.2.0
 Implementation-Vendor: Online Payments Direct
 
