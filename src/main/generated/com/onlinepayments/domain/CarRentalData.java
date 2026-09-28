@@ -4,8 +4,6 @@
 
 package com.onlinepayments.domain;
 
-import com.google.gson.annotations.SerializedName;
-
 public class CarRentalData {
 
     private String agreementNumber;
@@ -24,7 +22,7 @@ public class CarRentalData {
 
     private String driverTaxNumber;
 
-    private CarRentalPickupReturnData pickup;
+    private CarRentalPickupReturnData pickupDetails;
 
     private Long rentalRateAmount;
 
@@ -32,8 +30,7 @@ public class CarRentalData {
 
     private String renterName;
 
-    @SerializedName("return")
-    private CarRentalPickupReturnData returnValue;
+    private CarRentalPickupReturnData returnDetails;
 
     private Boolean taxExemptIndicator;
 
@@ -220,22 +217,22 @@ public class CarRentalData {
     /**
      * Object containing specific data regarding the pickup or return of a rental car
      */
-    public CarRentalPickupReturnData getPickup() {
-        return pickup;
+    public CarRentalPickupReturnData getPickupDetails() {
+        return pickupDetails;
     }
 
     /**
      * Object containing specific data regarding the pickup or return of a rental car
      */
-    public void setPickup(CarRentalPickupReturnData value) {
-        this.pickup = value;
+    public void setPickupDetails(CarRentalPickupReturnData value) {
+        this.pickupDetails = value;
     }
 
     /**
      * Object containing specific data regarding the pickup or return of a rental car
      */
-    public CarRentalData withPickup(CarRentalPickupReturnData value) {
-        this.pickup = value;
+    public CarRentalData withPickupDetails(CarRentalPickupReturnData value) {
+        this.pickupDetails = value;
         return this;
     }
 
@@ -308,22 +305,22 @@ public class CarRentalData {
     /**
      * Object containing specific data regarding the pickup or return of a rental car
      */
-    public CarRentalPickupReturnData getReturnValue() {
-        return returnValue;
+    public CarRentalPickupReturnData getReturnDetails() {
+        return returnDetails;
     }
 
     /**
      * Object containing specific data regarding the pickup or return of a rental car
      */
-    public void setReturnValue(CarRentalPickupReturnData value) {
-        this.returnValue = value;
+    public void setReturnDetails(CarRentalPickupReturnData value) {
+        this.returnDetails = value;
     }
 
     /**
      * Object containing specific data regarding the pickup or return of a rental car
      */
-    public CarRentalData withReturnValue(CarRentalPickupReturnData value) {
-        this.returnValue = value;
+    public CarRentalData withReturnDetails(CarRentalPickupReturnData value) {
+        this.returnDetails = value;
         return this;
     }
 

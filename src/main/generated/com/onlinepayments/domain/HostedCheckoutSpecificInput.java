@@ -217,27 +217,45 @@ public class HostedCheckoutSpecificInput {
     }
 
     /**
-     * The URL that the customer is redirect to after the payment flow has finished. You can add any number of key value pairs in the query string that, for instance help you to identify the customer when they return to your site. Please note that we will also append some additional key value pairs that will also help you with this identification process.
+     * The URL that the customer is redirected to after the payment flow has finished. You can add any number of key value pairs in the query string that, for instance help you to identify the customer when they return to your site. Please note that we will also append some additional key value pairs that will also help you with this identification process.
+     * <p>
      * Note: The provided URL should be absolute and contain the protocol to use, e.g. http:// or https://. For use on mobile devices a custom protocol can be used in the form of protocol://. This protocol must be registered on the device first.
+     * <p>
      * URLs without a protocol will be rejected.
+     * The RETURNMAC parameter is a random string that allows to authenticate calls to the returnUrl.
+     * Here is an example with
+     * <code>json &quot;hostedCheckoutSpecificInput&quot;: { &quot;returnUrl&quot;:&quot;https://www.google.com&quot; } </code>
+     * result is that user is redirected to https://www.google.com/?RETURNMAC=37159fa4-773e-4ea7-a067-83b681107c62&amp;hostedCheckoutId=4501638561
      */
     public String getReturnUrl() {
         return returnUrl;
     }
 
     /**
-     * The URL that the customer is redirect to after the payment flow has finished. You can add any number of key value pairs in the query string that, for instance help you to identify the customer when they return to your site. Please note that we will also append some additional key value pairs that will also help you with this identification process.
+     * The URL that the customer is redirected to after the payment flow has finished. You can add any number of key value pairs in the query string that, for instance help you to identify the customer when they return to your site. Please note that we will also append some additional key value pairs that will also help you with this identification process.
+     * <p>
      * Note: The provided URL should be absolute and contain the protocol to use, e.g. http:// or https://. For use on mobile devices a custom protocol can be used in the form of protocol://. This protocol must be registered on the device first.
+     * <p>
      * URLs without a protocol will be rejected.
+     * The RETURNMAC parameter is a random string that allows to authenticate calls to the returnUrl.
+     * Here is an example with
+     * <code>json &quot;hostedCheckoutSpecificInput&quot;: { &quot;returnUrl&quot;:&quot;https://www.google.com&quot; } </code>
+     * result is that user is redirected to https://www.google.com/?RETURNMAC=37159fa4-773e-4ea7-a067-83b681107c62&amp;hostedCheckoutId=4501638561
      */
     public void setReturnUrl(String value) {
         this.returnUrl = value;
     }
 
     /**
-     * The URL that the customer is redirect to after the payment flow has finished. You can add any number of key value pairs in the query string that, for instance help you to identify the customer when they return to your site. Please note that we will also append some additional key value pairs that will also help you with this identification process.
+     * The URL that the customer is redirected to after the payment flow has finished. You can add any number of key value pairs in the query string that, for instance help you to identify the customer when they return to your site. Please note that we will also append some additional key value pairs that will also help you with this identification process.
+     * <p>
      * Note: The provided URL should be absolute and contain the protocol to use, e.g. http:// or https://. For use on mobile devices a custom protocol can be used in the form of protocol://. This protocol must be registered on the device first.
+     * <p>
      * URLs without a protocol will be rejected.
+     * The RETURNMAC parameter is a random string that allows to authenticate calls to the returnUrl.
+     * Here is an example with
+     * <code>json &quot;hostedCheckoutSpecificInput&quot;: { &quot;returnUrl&quot;:&quot;https://www.google.com&quot; } </code>
+     * result is that user is redirected to https://www.google.com/?RETURNMAC=37159fa4-773e-4ea7-a067-83b681107c62&amp;hostedCheckoutId=4501638561
      */
     public HostedCheckoutSpecificInput withReturnUrl(String value) {
         this.returnUrl = value;
