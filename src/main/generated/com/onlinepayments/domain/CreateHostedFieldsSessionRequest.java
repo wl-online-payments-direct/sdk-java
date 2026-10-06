@@ -12,6 +12,8 @@ public class CreateHostedFieldsSessionRequest {
 
     private String origin;
 
+    private PaymentProductFiltersHostedFields paymentProductFilters;
+
     private List<String> tokens;
 
     /**
@@ -55,6 +57,28 @@ public class CreateHostedFieldsSessionRequest {
      */
     public CreateHostedFieldsSessionRequest withOrigin(String value) {
         this.origin = value;
+        return this;
+    }
+
+    /**
+     * Optional object that limits which payment products are allowed in the session.
+     */
+    public PaymentProductFiltersHostedFields getPaymentProductFilters() {
+        return paymentProductFilters;
+    }
+
+    /**
+     * Optional object that limits which payment products are allowed in the session.
+     */
+    public void setPaymentProductFilters(PaymentProductFiltersHostedFields value) {
+        this.paymentProductFilters = value;
+    }
+
+    /**
+     * Optional object that limits which payment products are allowed in the session.
+     */
+    public CreateHostedFieldsSessionRequest withPaymentProductFilters(PaymentProductFiltersHostedFields value) {
+        this.paymentProductFilters = value;
         return this;
     }
 

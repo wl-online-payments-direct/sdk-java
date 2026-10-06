@@ -10,6 +10,8 @@ public class ImportCofSeriesRequest {
 
     private String currencyCode;
 
+    private NetworkTokenData networkTokenData;
+
     private Integer paymentProductId;
 
     private String schemeReferenceData;
@@ -59,6 +61,28 @@ public class ImportCofSeriesRequest {
      */
     public ImportCofSeriesRequest withCurrencyCode(String value) {
         this.currencyCode = value;
+        return this;
+    }
+
+    /**
+     * Object containing Network Token details
+     */
+    public NetworkTokenData getNetworkTokenData() {
+        return networkTokenData;
+    }
+
+    /**
+     * Object containing Network Token details
+     */
+    public void setNetworkTokenData(NetworkTokenData value) {
+        this.networkTokenData = value;
+    }
+
+    /**
+     * Object containing Network Token details
+     */
+    public ImportCofSeriesRequest withNetworkTokenData(NetworkTokenData value) {
+        this.networkTokenData = value;
         return this;
     }
 

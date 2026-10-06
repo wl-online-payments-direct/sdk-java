@@ -24,6 +24,8 @@ public class PaymentOutput {
 
     private MobilePaymentMethodSpecificOutput mobilePaymentMethodSpecificOutput;
 
+    private ZonedDateTime paymentCreationDate;
+
     private String paymentMethod;
 
     private RedirectPaymentMethodSpecificOutput redirectPaymentMethodSpecificOutput;
@@ -218,6 +220,28 @@ public class PaymentOutput {
      */
     public PaymentOutput withMobilePaymentMethodSpecificOutput(MobilePaymentMethodSpecificOutput value) {
         this.mobilePaymentMethodSpecificOutput = value;
+        return this;
+    }
+
+    /**
+     * Date and time when the current payment was first created
+     */
+    public ZonedDateTime getPaymentCreationDate() {
+        return paymentCreationDate;
+    }
+
+    /**
+     * Date and time when the current payment was first created
+     */
+    public void setPaymentCreationDate(ZonedDateTime value) {
+        this.paymentCreationDate = value;
+    }
+
+    /**
+     * Date and time when the current payment was first created
+     */
+    public PaymentOutput withPaymentCreationDate(ZonedDateTime value) {
+        this.paymentCreationDate = value;
         return this;
     }
 

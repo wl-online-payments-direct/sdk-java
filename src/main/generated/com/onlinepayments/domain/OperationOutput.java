@@ -4,6 +4,8 @@
 
 package com.onlinepayments.domain;
 
+import java.time.ZonedDateTime;
+
 public class OperationOutput {
 
     private AmountOfMoney amountOfMoney;
@@ -19,6 +21,8 @@ public class OperationOutput {
     private String status;
 
     private PaymentStatusOutput statusOutput;
+
+    private ZonedDateTime transactionDate;
 
     /**
      * Object containing amount and ISO currency code attributes
@@ -171,6 +175,28 @@ public class OperationOutput {
      */
     public OperationOutput withStatusOutput(PaymentStatusOutput value) {
         this.statusOutput = value;
+        return this;
+    }
+
+    /**
+     * It is the server-side processing date and time of the transaction.
+     */
+    public ZonedDateTime getTransactionDate() {
+        return transactionDate;
+    }
+
+    /**
+     * It is the server-side processing date and time of the transaction.
+     */
+    public void setTransactionDate(ZonedDateTime value) {
+        this.transactionDate = value;
+    }
+
+    /**
+     * It is the server-side processing date and time of the transaction.
+     */
+    public OperationOutput withTransactionDate(ZonedDateTime value) {
+        this.transactionDate = value;
         return this;
     }
 }

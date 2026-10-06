@@ -61,6 +61,13 @@ public interface MerchantClientInterface {
     PaymentsClientInterface payments();
 
     /**
+     * Resource /v2/{merchantId}/paymentlinks/{paymentLinkId}/share
+     *
+     * @return PaymentLinksClientInterface
+     */
+    PaymentLinksClientInterface paymentLinks();
+
+    /**
      * Resource /v2/{merchantId}/payments/{paymentId}/captures
      *
      * @return CapturesClientInterface
@@ -171,13 +178,6 @@ public interface MerchantClientInterface {
      * @return PrivacyPolicyClientInterface
      */
     PrivacyPolicyClientInterface privacyPolicy();
-
-    /**
-     * Resource /v2/{merchantId}/paymentlinks
-     *
-     * @return PaymentLinksClientInterface
-     */
-    PaymentLinksClientInterface paymentLinks();
 
     /**
      * Resource /v2/{merchantId}/merchant-batches

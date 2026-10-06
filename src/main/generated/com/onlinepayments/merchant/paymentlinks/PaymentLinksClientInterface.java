@@ -12,12 +12,49 @@ import com.onlinepayments.PlatformException;
 import com.onlinepayments.ReferenceException;
 import com.onlinepayments.ValidationException;
 import com.onlinepayments.domain.CreatePaymentLinkRequest;
+import com.onlinepayments.domain.GetPaymentLinksByMerchantGroupRequest;
+import com.onlinepayments.domain.PaymentLinkOverviewResponse;
 import com.onlinepayments.domain.PaymentLinkResponse;
+import com.onlinepayments.domain.SharePaymentLinkRequest;
 
 /**
  * PaymentLinks client. Thread-safe.
  */
 public interface PaymentLinksClientInterface {
+
+    /**
+     * Resource /v2/{merchantId}/paymentlinks/{paymentLinkId}/share - Share the specified payment link to a customer.
+     *
+     * @param paymentLinkId String
+     * @param body SharePaymentLinkRequest
+     * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+     * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+     * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+     *            or there was a conflict (HTTP status code 404, 409 or 410)
+     * @throws PlatformException if something went wrong at the payment platform,
+     *            the payment platform was unable to process a message from a downstream partner/acquirer,
+     *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+     * @throws ApiException if the payment platform returned any other error
+     */
+    void share(String paymentLinkId, SharePaymentLinkRequest body);
+
+    /**
+     * Resource /v2/{merchantId}/paymentlinks/{paymentLinkId}/share - Share the specified payment link to a customer.
+     *
+     * @param paymentLinkId String
+     * @param body SharePaymentLinkRequest
+     * @param context CallContext
+     * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+     * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+     * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+     * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+     *            or there was a conflict (HTTP status code 404, 409 or 410)
+     * @throws PlatformException if something went wrong at the payment platform,
+     *            the payment platform was unable to process a message from a downstream partner/acquirer,
+     *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+     * @throws ApiException if the payment platform returned any other error
+     */
+    void share(String paymentLinkId, SharePaymentLinkRequest body, CallContext context);
 
     /**
      * Resource /v2/{merchantId}/paymentlinks - Create payment link
@@ -52,6 +89,42 @@ public interface PaymentLinksClientInterface {
      * @throws ApiException if the payment platform returned any other error
      */
     PaymentLinkResponse createPaymentLink(CreatePaymentLinkRequest body, CallContext context);
+
+    /**
+     * Resource /v2/merchant-groups/{merchantGroupId}/paymentlinks/search - Retrieve payment links for a merchant group
+     *
+     * @param merchantGroupId String
+     * @param body GetPaymentLinksByMerchantGroupRequest
+     * @return PaymentLinkOverviewResponse
+     * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+     * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+     * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+     *            or there was a conflict (HTTP status code 404, 409 or 410)
+     * @throws PlatformException if something went wrong at the payment platform,
+     *            the payment platform was unable to process a message from a downstream partner/acquirer,
+     *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+     * @throws ApiException if the payment platform returned any other error
+     */
+    PaymentLinkOverviewResponse getPaymentLinksByMerchantGroupId(String merchantGroupId, GetPaymentLinksByMerchantGroupRequest body);
+
+    /**
+     * Resource /v2/merchant-groups/{merchantGroupId}/paymentlinks/search - Retrieve payment links for a merchant group
+     *
+     * @param merchantGroupId String
+     * @param body GetPaymentLinksByMerchantGroupRequest
+     * @param context CallContext
+     * @return PaymentLinkOverviewResponse
+     * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+     * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+     * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+     * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+     *            or there was a conflict (HTTP status code 404, 409 or 410)
+     * @throws PlatformException if something went wrong at the payment platform,
+     *            the payment platform was unable to process a message from a downstream partner/acquirer,
+     *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+     * @throws ApiException if the payment platform returned any other error
+     */
+    PaymentLinkOverviewResponse getPaymentLinksByMerchantGroupId(String merchantGroupId, GetPaymentLinksByMerchantGroupRequest body, CallContext context);
 
     /**
      * Resource /v2/{merchantId}/paymentlinks/{paymentLinkId} - Get payment link by ID

@@ -13,7 +13,10 @@ import com.onlinepayments.ExceptionFactory;
 import com.onlinepayments.communication.ResponseException;
 import com.onlinepayments.domain.CreatePaymentLinkRequest;
 import com.onlinepayments.domain.ErrorResponse;
+import com.onlinepayments.domain.GetPaymentLinksByMerchantGroupRequest;
+import com.onlinepayments.domain.PaymentLinkOverviewResponse;
 import com.onlinepayments.domain.PaymentLinkResponse;
+import com.onlinepayments.domain.SharePaymentLinkRequest;
 
 /**
  * PaymentLinks client. Thread-safe.
@@ -24,6 +27,34 @@ public class PaymentLinksClient extends ApiResource implements PaymentLinksClien
 
     public PaymentLinksClient(ApiResource parent, Map<String, String> pathContext) {
         super(parent, pathContext);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void share(String paymentLinkId, SharePaymentLinkRequest body) {
+        share(paymentLinkId, body, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void share(String paymentLinkId, SharePaymentLinkRequest body, CallContext context) {
+        Map<String, String> pathContext = new TreeMap<>();
+        pathContext.put("paymentLinkId", paymentLinkId);
+        String uri = instantiateUri("/v2/{merchantId}/paymentlinks/{paymentLinkId}/share", pathContext);
+        try {
+
+            communicator.post(
+                    uri,
+                    getClientHeaders(),
+                    null,
+                    body,
+                    void.class,
+                    context);
+        } catch (ResponseException e) {
+            final Class<?> errorType = ErrorResponse.class;
+            final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+            throw EXCEPTION_FACTORY.createException(e.getStatusCode(), e.getBody(), errorObject, context);
+        }
     }
 
     /** {@inheritDoc} */
@@ -44,6 +75,34 @@ public class PaymentLinksClient extends ApiResource implements PaymentLinksClien
                     null,
                     body,
                     PaymentLinkResponse.class,
+                    context);
+        } catch (ResponseException e) {
+            final Class<?> errorType = ErrorResponse.class;
+            final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+            throw EXCEPTION_FACTORY.createException(e.getStatusCode(), e.getBody(), errorObject, context);
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public PaymentLinkOverviewResponse getPaymentLinksByMerchantGroupId(String merchantGroupId, GetPaymentLinksByMerchantGroupRequest body) {
+        return getPaymentLinksByMerchantGroupId(merchantGroupId, body, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public PaymentLinkOverviewResponse getPaymentLinksByMerchantGroupId(String merchantGroupId, GetPaymentLinksByMerchantGroupRequest body, CallContext context) {
+        Map<String, String> pathContext = new TreeMap<>();
+        pathContext.put("merchantGroupId", merchantGroupId);
+        String uri = instantiateUri("/v2/merchant-groups/{merchantGroupId}/paymentlinks/search", pathContext);
+        try {
+
+            return communicator.post(
+                    uri,
+                    getClientHeaders(),
+                    null,
+                    body,
+                    PaymentLinkOverviewResponse.class,
                     context);
         } catch (ResponseException e) {
             final Class<?> errorType = ErrorResponse.class;

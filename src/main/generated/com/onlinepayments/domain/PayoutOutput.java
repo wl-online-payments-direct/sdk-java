@@ -10,6 +10,8 @@ public class PayoutOutput {
 
     private AmountOfMoney amountOfMoney;
 
+    private ZonedDateTime paymentCreationDate;
+
     private PayoutCardPaymentMethodSpecificOutput payoutCardPaymentMethodSpecificOutput;
 
     private String payoutReason;
@@ -37,6 +39,28 @@ public class PayoutOutput {
      */
     public PayoutOutput withAmountOfMoney(AmountOfMoney value) {
         this.amountOfMoney = value;
+        return this;
+    }
+
+    /**
+     * Date and time when the current payment was first created
+     */
+    public ZonedDateTime getPaymentCreationDate() {
+        return paymentCreationDate;
+    }
+
+    /**
+     * Date and time when the current payment was first created
+     */
+    public void setPaymentCreationDate(ZonedDateTime value) {
+        this.paymentCreationDate = value;
+    }
+
+    /**
+     * Date and time when the current payment was first created
+     */
+    public PayoutOutput withPaymentCreationDate(ZonedDateTime value) {
+        this.paymentCreationDate = value;
         return this;
     }
 

@@ -4,6 +4,8 @@
 
 package com.onlinepayments.domain;
 
+import java.time.ZonedDateTime;
+
 public class RefundOutput {
 
     private AmountOfMoney amountOfMoney;
@@ -20,11 +22,15 @@ public class RefundOutput {
 
     private OperationPaymentReferences operationReferences;
 
+    private ZonedDateTime paymentCreationDate;
+
     private String paymentMethod;
 
     private RefundRedirectMethodSpecificOutput redirectRefundMethodSpecificOutput;
 
     private PaymentReferences references;
+
+    private ZonedDateTime transactionDate;
 
     /**
      * Object containing amount and ISO currency code attributes
@@ -145,6 +151,28 @@ public class RefundOutput {
     }
 
     /**
+     * Date and time when the current payment was first created
+     */
+    public ZonedDateTime getPaymentCreationDate() {
+        return paymentCreationDate;
+    }
+
+    /**
+     * Date and time when the current payment was first created
+     */
+    public void setPaymentCreationDate(ZonedDateTime value) {
+        this.paymentCreationDate = value;
+    }
+
+    /**
+     * Date and time when the current payment was first created
+     */
+    public RefundOutput withPaymentCreationDate(ZonedDateTime value) {
+        this.paymentCreationDate = value;
+        return this;
+    }
+
+    /**
      * Payment method identifier used by the our payment engine.
      */
     public String getPaymentMethod() {
@@ -198,6 +226,28 @@ public class RefundOutput {
      */
     public RefundOutput withReferences(PaymentReferences value) {
         this.references = value;
+        return this;
+    }
+
+    /**
+     * It is the server-side processing date and time of the transaction.
+     */
+    public ZonedDateTime getTransactionDate() {
+        return transactionDate;
+    }
+
+    /**
+     * It is the server-side processing date and time of the transaction.
+     */
+    public void setTransactionDate(ZonedDateTime value) {
+        this.transactionDate = value;
+    }
+
+    /**
+     * It is the server-side processing date and time of the transaction.
+     */
+    public RefundOutput withTransactionDate(ZonedDateTime value) {
+        this.transactionDate = value;
         return this;
     }
 }

@@ -4,6 +4,8 @@
 
 package com.onlinepayments.domain;
 
+import java.time.ZonedDateTime;
+
 public class CaptureOutput {
 
     private AmountOfMoney acquiredAmount;
@@ -20,6 +22,8 @@ public class CaptureOutput {
 
     private OperationPaymentReferences operationReferences;
 
+    private ZonedDateTime paymentCreationDate;
+
     private String paymentMethod;
 
     private RedirectPaymentMethodSpecificOutput redirectPaymentMethodSpecificOutput;
@@ -29,6 +33,8 @@ public class CaptureOutput {
     private SepaDirectDebitPaymentMethodSpecificOutput sepaDirectDebitPaymentMethodSpecificOutput;
 
     private SurchargeSpecificOutput surchargeSpecificOutput;
+
+    private ZonedDateTime transactionDate;
 
     /**
      * Amount that has been acquired by the Acquirer
@@ -194,6 +200,28 @@ public class CaptureOutput {
     }
 
     /**
+     * Date and time when the current payment was first created
+     */
+    public ZonedDateTime getPaymentCreationDate() {
+        return paymentCreationDate;
+    }
+
+    /**
+     * Date and time when the current payment was first created
+     */
+    public void setPaymentCreationDate(ZonedDateTime value) {
+        this.paymentCreationDate = value;
+    }
+
+    /**
+     * Date and time when the current payment was first created
+     */
+    public CaptureOutput withPaymentCreationDate(ZonedDateTime value) {
+        this.paymentCreationDate = value;
+        return this;
+    }
+
+    /**
      * Payment method identifier used by the our payment engine.
      */
     public String getPaymentMethod() {
@@ -300,6 +328,28 @@ public class CaptureOutput {
      */
     public CaptureOutput withSurchargeSpecificOutput(SurchargeSpecificOutput value) {
         this.surchargeSpecificOutput = value;
+        return this;
+    }
+
+    /**
+     * It is the server-side processing date and time of the transaction.
+     */
+    public ZonedDateTime getTransactionDate() {
+        return transactionDate;
+    }
+
+    /**
+     * It is the server-side processing date and time of the transaction.
+     */
+    public void setTransactionDate(ZonedDateTime value) {
+        this.transactionDate = value;
+    }
+
+    /**
+     * It is the server-side processing date and time of the transaction.
+     */
+    public CaptureOutput withTransactionDate(ZonedDateTime value) {
+        this.transactionDate = value;
         return this;
     }
 }

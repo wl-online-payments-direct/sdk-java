@@ -65,6 +65,12 @@ public class MerchantClient extends ApiResource implements MerchantClientInterfa
 
     /** {@inheritDoc} */
     @Override
+    public PaymentLinksClient paymentLinks() {
+        return new PaymentLinksClient(this, null);
+    }
+
+    /** {@inheritDoc} */
+    @Override
     public CapturesClient captures() {
         return new CapturesClient(this, null);
     }
@@ -157,12 +163,6 @@ public class MerchantClient extends ApiResource implements MerchantClientInterfa
     @Override
     public PrivacyPolicyClient privacyPolicy() {
         return new PrivacyPolicyClient(this, null);
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public PaymentLinksClient paymentLinks() {
-        return new PaymentLinksClient(this, null);
     }
 
     /** {@inheritDoc} */
