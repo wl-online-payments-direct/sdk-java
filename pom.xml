@@ -5,7 +5,7 @@
 
     <groupId>com.worldline-solutions</groupId>
     <artifactId>onlinepayments-sdk-java</artifactId>
-    <version>10.1.1</version>
+    <version>10.1.2</version>
     <packaging>jar</packaging>
 
     <name>onlinepayments-sdk-java</name>
