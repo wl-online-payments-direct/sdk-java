@@ -88,6 +88,6 @@ public class ExceptionFactory {
                 && context.getIdempotenceKey() != null
                 && errors != null
                 && errors.size() == 1
-                && "1409".equals(errors.get(0).getErrorCode());
+                && "30001002".equals(errors.get(0).getErrorCode());
     }
 }

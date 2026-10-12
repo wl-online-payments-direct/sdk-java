@@ -240,7 +240,7 @@ class ExceptionFactoryTest {
         @Test
         void shouldReturnIdempotenceExceptionFor409WhenIdempotenceConditionsAreMet() {
             APIError apiError = new APIError();
-            apiError.setErrorCode("1409");
+            apiError.setErrorCode("30001002");
 
             List<APIError> errors = Collections.singletonList(apiError);
 

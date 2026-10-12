@@ -32,6 +32,7 @@ public class DefaultMarshaller implements Marshaller {
     private static final Gson GSON = new GsonBuilder()
             .registerTypeAdapter(LocalDate.class, new LocalDateAdapter().nullSafe())
             .registerTypeAdapter(ZonedDateTime.class, new ZonedDateTimeAdapter().nullSafe())
+            .registerTypeAdapterFactory(new CaseInsensitiveFieldNamesTypeAdapterFactory())
             .create();
 
     private static final Charset CHARSET = StandardCharsets.UTF_8;

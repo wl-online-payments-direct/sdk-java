@@ -29,6 +29,7 @@ import com.onlinepayments.DeclinedPayoutException;
 import com.onlinepayments.DeclinedRefundException;
 import com.onlinepayments.DeclinedTransactionException;
 import com.onlinepayments.Factory;
+import com.onlinepayments.IdempotenceException;
 import com.onlinepayments.ReferenceException;
 import com.onlinepayments.ValidationException;
 import com.onlinepayments.domain.APIError;
@@ -303,20 +304,20 @@ public class ExceptionsTest extends ItTest {
 
             if (firstException == null) {
                 assertNotNull(secondException);
-                assertInstanceOf(ReferenceException.class, secondException);
-                assertNotNull(((ReferenceException) secondException).getErrors());
-                assertNotNull(((ReferenceException) secondException).getErrors().get(0));
-                assertEquals(409, ((ReferenceException) secondException).getErrors().get(0).getHttpStatusCode());
-                assertEquals("DUPLICATE_REQUEST_IN_PROGRESS", ((ReferenceException) secondException).getErrors().get(0).getId());
+                assertInstanceOf(IdempotenceException.class, secondException);
+                assertNotNull(((IdempotenceException) secondException).getErrors());
+                assertNotNull(((IdempotenceException) secondException).getErrors().get(0));
+                assertEquals(409, ((IdempotenceException) secondException).getErrors().get(0).getHttpStatusCode());
+                assertEquals("DUPLICATE_REQUEST_IN_PROGRESS", ((IdempotenceException) secondException).getErrors().get(0).getId());
             }
 
             if (secondException == null) {
                 assertNotNull(firstException);
-                assertInstanceOf(ReferenceException.class, firstException);
-                assertNotNull(((ReferenceException) firstException).getErrors());
-                assertNotNull(((ReferenceException) firstException).getErrors().get(0));
-                assertEquals(409, ((ReferenceException) firstException).getErrors().get(0).getHttpStatusCode());
-                assertEquals("DUPLICATE_REQUEST_IN_PROGRESS", ((ReferenceException) firstException).getErrors().get(0).getId());
+                assertInstanceOf(IdempotenceException.class, firstException);
+                assertNotNull(((IdempotenceException) firstException).getErrors());
+                assertNotNull(((IdempotenceException) firstException).getErrors().get(0));
+                assertEquals(409, ((IdempotenceException) firstException).getErrors().get(0).getHttpStatusCode());
+                assertEquals("DUPLICATE_REQUEST_IN_PROGRESS", ((IdempotenceException) firstException).getErrors().get(0).getId());
             }
         }
     }
