@@ -30,6 +30,30 @@ public final class SdkTestHelper {
             new CreatePaymentRequestBuilder().withAmount(amount).withCurrency(currency));
     }
 
+    public String createPreAuthorizedPaymentAndGetId(long amount, String currency) {
+        return createPaymentAndGetId(new CreatePaymentRequestBuilder()
+            .withAuthorizationMode("PRE_AUTHORIZATION")
+            .withAmount(amount)
+            .withCurrency(currency));
+    }
+
+    public String createMastercardPaymentAndGetId(long amount, String currency) {
+        return createPaymentAndGetId(new CreatePaymentRequestBuilder()
+            .withCardNumber("5137009801943438")
+            .withPaymentProductId(3)
+            .withAmount(amount)
+            .withCurrency(currency));
+    }
+
+    public String createPreAuthorizedMastercardPaymentAndGetId(long amount, String currency) {
+        return createPaymentAndGetId(new CreatePaymentRequestBuilder()
+            .withAuthorizationMode("PRE_AUTHORIZATION")
+            .withCardNumber("5137009801943438")
+            .withPaymentProductId(3)
+            .withAmount(amount)
+            .withCurrency(currency));
+    }
+
     public String createPayPalPaymentAndGetId() {
 
         return merchantClient

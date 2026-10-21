@@ -316,20 +316,16 @@ public class PaymentsTest extends ItTest {
         class AfterCapture {
 
             @Test
-            void shouldFailWithStatusUnsuccessful() {
+            void shouldThrowValidationException() {
                 String paymentId = sdkTestHelper.createPaymentAndGetId();
 
                 paymentsClient
                         .capturePayment(paymentId, new CapturePaymentRequestBuilder().build());
 
-                CancelPaymentResponse cancelResponse = paymentsClient
-                        .cancelPayment(paymentId, new CancelPaymentRequestBuilder().build());
-
-                assertNotNull(cancelResponse);
-                assertNotNull(cancelResponse.getPayment());
-                assertNotNull(cancelResponse.getPayment().getStatusOutput());
-                assertNotNull(cancelResponse.getPayment().getStatusOutput().getStatusCategory());
-                assertEquals("UNSUCCESSFUL", cancelResponse.getPayment().getStatusOutput().getStatusCategory());
+                assertThrows(
+                        ValidationException.class,
+                        () -> paymentsClient
+                            .cancelPayment(paymentId, new CancelPaymentRequestBuilder().build()));
             }
 
             @Test
@@ -361,7 +357,7 @@ public class PaymentsTest extends ItTest {
         class AfterRefund {
 
             @Test
-            void shouldFailWithStatusUnsuccessful() {
+            void shouldThrowValidationException() {
                 String paymentId = sdkTestHelper.createPaymentAndGetId();
 
                 paymentsClient
@@ -371,14 +367,10 @@ public class PaymentsTest extends ItTest {
                 paymentsClient
                         .refundPayment(paymentId, refundRequest);
 
-                CancelPaymentResponse cancelResponse = paymentsClient
-                        .cancelPayment(paymentId, new CancelPaymentRequestBuilder().build());
-
-                assertNotNull(cancelResponse);
-                assertNotNull(cancelResponse.getPayment());
-                assertNotNull(cancelResponse.getPayment().getStatusOutput());
-                assertNotNull(cancelResponse.getPayment().getStatusOutput().getStatusCategory());
-                assertEquals("UNSUCCESSFUL", cancelResponse.getPayment().getStatusOutput().getStatusCategory());
+                assertThrows(
+                        ValidationException.class,
+                        () -> paymentsClient
+                            .cancelPayment(paymentId, new CancelPaymentRequestBuilder().build()));
             }
         }
 

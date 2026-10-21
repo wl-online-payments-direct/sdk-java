@@ -273,7 +273,9 @@ public class SubsequentCardPaymentMethodSpecificInput {
      * Indicates the channel via which the payment is created. Allowed values:
      * <ul>
      *   <li>ECOMMERCE - The transaction is a regular E-Commerce transaction.</li>
-     *   <li>MOTO - The transaction is a Mail Order/Telephone Order.</li>
+     *   <li>MOTO - (Deprecated) The transaction is a Mail Order/Telephone Order. Use MAIL or TELEPHONE instead.</li>
+     *   <li>MAIL - The transaction is a Mail Order.</li>
+     *   <li>TELEPHONE - The transaction is a Telephone Order.</li>
      * </ul>
      * <p>
      * Defaults to ECOMMERCE.
@@ -286,7 +288,9 @@ public class SubsequentCardPaymentMethodSpecificInput {
      * Indicates the channel via which the payment is created. Allowed values:
      * <ul>
      *   <li>ECOMMERCE - The transaction is a regular E-Commerce transaction.</li>
-     *   <li>MOTO - The transaction is a Mail Order/Telephone Order.</li>
+     *   <li>MOTO - (Deprecated) The transaction is a Mail Order/Telephone Order. Use MAIL or TELEPHONE instead.</li>
+     *   <li>MAIL - The transaction is a Mail Order.</li>
+     *   <li>TELEPHONE - The transaction is a Telephone Order.</li>
      * </ul>
      * <p>
      * Defaults to ECOMMERCE.
@@ -299,7 +303,9 @@ public class SubsequentCardPaymentMethodSpecificInput {
      * Indicates the channel via which the payment is created. Allowed values:
      * <ul>
      *   <li>ECOMMERCE - The transaction is a regular E-Commerce transaction.</li>
-     *   <li>MOTO - The transaction is a Mail Order/Telephone Order.</li>
+     *   <li>MOTO - (Deprecated) The transaction is a Mail Order/Telephone Order. Use MAIL or TELEPHONE instead.</li>
+     *   <li>MAIL - The transaction is a Mail Order.</li>
+     *   <li>TELEPHONE - The transaction is a Telephone Order.</li>
      * </ul>
      * <p>
      * Defaults to ECOMMERCE.

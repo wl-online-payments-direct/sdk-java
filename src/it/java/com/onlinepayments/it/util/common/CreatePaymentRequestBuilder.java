@@ -42,6 +42,7 @@ public class CreatePaymentRequestBuilder {
     private String token;
     private boolean autoCapture;
     private String authorizationMode = "FINAL_AUTHORIZATION";
+    private int paymentProductId = 1;
 
     private PaymentMethodType paymentMethodType = PaymentMethodType.CARD;
 
@@ -114,6 +115,11 @@ public class CreatePaymentRequestBuilder {
         return this;
     }
 
+    public CreatePaymentRequestBuilder withPaymentProductId(int paymentProductId) {
+        this.paymentProductId = paymentProductId;
+        return this;
+    }
+
     public CreatePaymentRequest build() {
         CreatePaymentRequest request = new CreatePaymentRequest();
 
@@ -140,13 +146,13 @@ public class CreatePaymentRequestBuilder {
                         .withAuthorizationMode(authorizationMode)
                         .withTransactionChannel("ECOMMERCE")
                         .withReturnUrl("https://example.com/return")
-                        .withPaymentProductId(1)
+                        .withPaymentProductId(paymentProductId)
                 : cardPaymentMethodSpecificInput
                         .withCard(buildCard())
                         .withAuthorizationMode(authorizationMode)
                         .withTransactionChannel("ECOMMERCE")
                         .withReturnUrl("https://example.com/return")
-                        .withPaymentProductId(1);
+                        .withPaymentProductId(paymentProductId);
     }
 
     private RedirectPaymentMethodSpecificInput buildRedirectPaymentInput() {
