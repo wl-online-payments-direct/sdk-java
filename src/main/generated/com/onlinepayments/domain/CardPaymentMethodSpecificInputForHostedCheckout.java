@@ -18,8 +18,8 @@ public class CardPaymentMethodSpecificInputForHostedCheckout {
 
     /**
      * <ul>
-     *   <li>true - Hosted Checkout will show Click to Pay, with cards grouped as one payment method</li>
-     *   <li>false - Default - Hosted Checkout will show cards as separate payment methods without Click to Pay</li>
+     *   <li>true - Default - Hosted Checkout will show Click to Pay, with cards grouped as one payment method</li>
+     *   <li>false - Hosted Checkout will show cards as separate payment methods without Click to Pay</li>
      * </ul>
      */
     public Boolean getClickToPay() {
@@ -28,8 +28,8 @@ public class CardPaymentMethodSpecificInputForHostedCheckout {
 
     /**
      * <ul>
-     *   <li>true - Hosted Checkout will show Click to Pay, with cards grouped as one payment method</li>
-     *   <li>false - Default - Hosted Checkout will show cards as separate payment methods without Click to Pay</li>
+     *   <li>true - Default - Hosted Checkout will show Click to Pay, with cards grouped as one payment method</li>
+     *   <li>false - Hosted Checkout will show cards as separate payment methods without Click to Pay</li>
      * </ul>
      */
     public void setClickToPay(Boolean value) {
@@ -38,8 +38,8 @@ public class CardPaymentMethodSpecificInputForHostedCheckout {
 
     /**
      * <ul>
-     *   <li>true - Hosted Checkout will show Click to Pay, with cards grouped as one payment method</li>
-     *   <li>false - Default - Hosted Checkout will show cards as separate payment methods without Click to Pay</li>
+     *   <li>true - Default - Hosted Checkout will show Click to Pay, with cards grouped as one payment method</li>
+     *   <li>false - Hosted Checkout will show cards as separate payment methods without Click to Pay</li>
      * </ul>
      */
     public CardPaymentMethodSpecificInputForHostedCheckout withClickToPay(Boolean value) {

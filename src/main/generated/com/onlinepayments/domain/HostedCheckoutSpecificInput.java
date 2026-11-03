@@ -224,7 +224,12 @@ public class HostedCheckoutSpecificInput {
      * URLs without a protocol will be rejected.
      * The RETURNMAC parameter is a random string that allows to authenticate calls to the returnUrl.
      * Here is an example with
-     * <code>json &quot;hostedCheckoutSpecificInput&quot;: { &quot;returnUrl&quot;:&quot;https://www.google.com&quot; } </code>
+     * ```json
+     * &quot;hostedCheckoutSpecificInput&quot;: {
+     * &quot;returnUrl&quot;:&quot;https://www.google.com&quot;
+     * }
+     * <p>
+     * ```
      * result is that user is redirected to https://www.google.com/?RETURNMAC=37159fa4-773e-4ea7-a067-83b681107c62&amp;hostedCheckoutId=4501638561
      */
     public String getReturnUrl() {
@@ -239,7 +244,12 @@ public class HostedCheckoutSpecificInput {
      * URLs without a protocol will be rejected.
      * The RETURNMAC parameter is a random string that allows to authenticate calls to the returnUrl.
      * Here is an example with
-     * <code>json &quot;hostedCheckoutSpecificInput&quot;: { &quot;returnUrl&quot;:&quot;https://www.google.com&quot; } </code>
+     * ```json
+     * &quot;hostedCheckoutSpecificInput&quot;: {
+     * &quot;returnUrl&quot;:&quot;https://www.google.com&quot;
+     * }
+     * <p>
+     * ```
      * result is that user is redirected to https://www.google.com/?RETURNMAC=37159fa4-773e-4ea7-a067-83b681107c62&amp;hostedCheckoutId=4501638561
      */
     public void setReturnUrl(String value) {
@@ -254,7 +264,12 @@ public class HostedCheckoutSpecificInput {
      * URLs without a protocol will be rejected.
      * The RETURNMAC parameter is a random string that allows to authenticate calls to the returnUrl.
      * Here is an example with
-     * <code>json &quot;hostedCheckoutSpecificInput&quot;: { &quot;returnUrl&quot;:&quot;https://www.google.com&quot; } </code>
+     * ```json
+     * &quot;hostedCheckoutSpecificInput&quot;: {
+     * &quot;returnUrl&quot;:&quot;https://www.google.com&quot;
+     * }
+     * <p>
+     * ```
      * result is that user is redirected to https://www.google.com/?RETURNMAC=37159fa4-773e-4ea7-a067-83b681107c62&amp;hostedCheckoutId=4501638561
      */
     public HostedCheckoutSpecificInput withReturnUrl(String value) {

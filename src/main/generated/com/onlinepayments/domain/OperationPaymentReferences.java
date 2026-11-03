@@ -126,9 +126,12 @@ public class OperationPaymentReferences {
      *   <li>Payvision (EU &amp; HK) - 25 characters</li>
      *   <li>SEB Euroline - 22 characters</li>
      *   <li>Sub1 Argentina - 15 characters</li>
-     *   <li>Wells Fargo - 25 characters
+     *   <li>Wells Fargo - 25 characters</li>
+     * </ul>
+     * <p>
      * Note that we advise you to use 22 characters as the max length as beyond this our experience is that issuers will start to truncate. We currently also only allow per API call overrides for AIB and Barclays
-     * For alternative payment products the maximum allowed length varies per payment product:</li>
+     * For alternative payment products the maximum allowed length varies per payment product:
+     * <ul>
      *   <li>402 e-Przelewy - 30 characters</li>
      *   <li>404 INICIS - 80 characters</li>
      *   <li>802 Nordea ePayment Finland - 234 characters</li>
@@ -141,9 +144,10 @@ public class OperationPaymentReferences {
      *   <li>863 WeChat Pay - 32 characters</li>
      *   <li>880 BOKU - 20 characters</li>
      *   <li>8580 Qiwi - 255 characters</li>
-     *   <li>1504 Konbini - 80 characters
-     * All other payment products do not support a descriptor.</li>
+     *   <li>1504 Konbini - 80 characters</li>
      * </ul>
+     * <p>
+     * All other payment products do not support a descriptor.
      */
     public String getSoftDescriptor() {
         return softDescriptor;
@@ -166,9 +170,12 @@ public class OperationPaymentReferences {
      *   <li>Payvision (EU &amp; HK) - 25 characters</li>
      *   <li>SEB Euroline - 22 characters</li>
      *   <li>Sub1 Argentina - 15 characters</li>
-     *   <li>Wells Fargo - 25 characters
+     *   <li>Wells Fargo - 25 characters</li>
+     * </ul>
+     * <p>
      * Note that we advise you to use 22 characters as the max length as beyond this our experience is that issuers will start to truncate. We currently also only allow per API call overrides for AIB and Barclays
-     * For alternative payment products the maximum allowed length varies per payment product:</li>
+     * For alternative payment products the maximum allowed length varies per payment product:
+     * <ul>
      *   <li>402 e-Przelewy - 30 characters</li>
      *   <li>404 INICIS - 80 characters</li>
      *   <li>802 Nordea ePayment Finland - 234 characters</li>
@@ -181,9 +188,10 @@ public class OperationPaymentReferences {
      *   <li>863 WeChat Pay - 32 characters</li>
      *   <li>880 BOKU - 20 characters</li>
      *   <li>8580 Qiwi - 255 characters</li>
-     *   <li>1504 Konbini - 80 characters
-     * All other payment products do not support a descriptor.</li>
+     *   <li>1504 Konbini - 80 characters</li>
      * </ul>
+     * <p>
+     * All other payment products do not support a descriptor.
      */
     public void setSoftDescriptor(String value) {
         this.softDescriptor = value;
@@ -206,9 +214,12 @@ public class OperationPaymentReferences {
      *   <li>Payvision (EU &amp; HK) - 25 characters</li>
      *   <li>SEB Euroline - 22 characters</li>
      *   <li>Sub1 Argentina - 15 characters</li>
-     *   <li>Wells Fargo - 25 characters
+     *   <li>Wells Fargo - 25 characters</li>
+     * </ul>
+     * <p>
      * Note that we advise you to use 22 characters as the max length as beyond this our experience is that issuers will start to truncate. We currently also only allow per API call overrides for AIB and Barclays
-     * For alternative payment products the maximum allowed length varies per payment product:</li>
+     * For alternative payment products the maximum allowed length varies per payment product:
+     * <ul>
      *   <li>402 e-Przelewy - 30 characters</li>
      *   <li>404 INICIS - 80 characters</li>
      *   <li>802 Nordea ePayment Finland - 234 characters</li>
@@ -221,9 +232,10 @@ public class OperationPaymentReferences {
      *   <li>863 WeChat Pay - 32 characters</li>
      *   <li>880 BOKU - 20 characters</li>
      *   <li>8580 Qiwi - 255 characters</li>
-     *   <li>1504 Konbini - 80 characters
-     * All other payment products do not support a descriptor.</li>
+     *   <li>1504 Konbini - 80 characters</li>
      * </ul>
+     * <p>
+     * All other payment products do not support a descriptor.
      */
     public OperationPaymentReferences withSoftDescriptor(String value) {
         this.softDescriptor = value;

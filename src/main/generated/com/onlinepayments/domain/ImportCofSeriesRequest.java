@@ -16,6 +16,8 @@ public class ImportCofSeriesRequest {
 
     private String schemeReferenceData;
 
+    private SubMerchant subMerchant;
+
     private String tokenId;
 
     private String transactionLinkIdentifier;
@@ -127,6 +129,28 @@ public class ImportCofSeriesRequest {
      */
     public ImportCofSeriesRequest withSchemeReferenceData(String value) {
         this.schemeReferenceData = value;
+        return this;
+    }
+
+    /**
+     * When a company decides to operate as a payment facilitator, it obtains a payment facilitator account from an acquirer and aggregates payment transactions for its merchant portfolio through that account. For this reason, payment facilitators’ merchant customers are known as submerchants.
+     */
+    public SubMerchant getSubMerchant() {
+        return subMerchant;
+    }
+
+    /**
+     * When a company decides to operate as a payment facilitator, it obtains a payment facilitator account from an acquirer and aggregates payment transactions for its merchant portfolio through that account. For this reason, payment facilitators’ merchant customers are known as submerchants.
+     */
+    public void setSubMerchant(SubMerchant value) {
+        this.subMerchant = value;
+    }
+
+    /**
+     * When a company decides to operate as a payment facilitator, it obtains a payment facilitator account from an acquirer and aggregates payment transactions for its merchant portfolio through that account. For this reason, payment facilitators’ merchant customers are known as submerchants.
+     */
+    public ImportCofSeriesRequest withSubMerchant(SubMerchant value) {
+        this.subMerchant = value;
         return this;
     }
 

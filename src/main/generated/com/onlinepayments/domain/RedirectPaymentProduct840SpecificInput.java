@@ -18,9 +18,10 @@ public class RedirectPaymentProduct840SpecificInput {
      * To be enabled when Javascript SDK integration is implemented on S2S flow
      * <ul>
      *   <li>false = When this flag is disabled the field RedirectionURL is returned by CreatePayment call and should be used in merchant implementation to redirect buyer to PayPal.</li>
-     *   <li>true = When this flag is enabled the field orderID is returned by CreatePayment call and should be utilized in case merchant has integrated JS SDK button on their S2S implementation
-     * Default value is false.</li>
+     *   <li>true = When this flag is enabled the field orderID is returned by CreatePayment call and should be utilized in case merchant has integrated JS SDK button on their S2S implementation</li>
      * </ul>
+     * <p>
+     * Default value is false.
      */
     public Boolean getJavaScriptSdkFlow() {
         return JavaScriptSdkFlow;
@@ -30,9 +31,10 @@ public class RedirectPaymentProduct840SpecificInput {
      * To be enabled when Javascript SDK integration is implemented on S2S flow
      * <ul>
      *   <li>false = When this flag is disabled the field RedirectionURL is returned by CreatePayment call and should be used in merchant implementation to redirect buyer to PayPal.</li>
-     *   <li>true = When this flag is enabled the field orderID is returned by CreatePayment call and should be utilized in case merchant has integrated JS SDK button on their S2S implementation
-     * Default value is false.</li>
+     *   <li>true = When this flag is enabled the field orderID is returned by CreatePayment call and should be utilized in case merchant has integrated JS SDK button on their S2S implementation</li>
      * </ul>
+     * <p>
+     * Default value is false.
      */
     public void setJavaScriptSdkFlow(Boolean value) {
         this.JavaScriptSdkFlow = value;
@@ -42,9 +44,10 @@ public class RedirectPaymentProduct840SpecificInput {
      * To be enabled when Javascript SDK integration is implemented on S2S flow
      * <ul>
      *   <li>false = When this flag is disabled the field RedirectionURL is returned by CreatePayment call and should be used in merchant implementation to redirect buyer to PayPal.</li>
-     *   <li>true = When this flag is enabled the field orderID is returned by CreatePayment call and should be utilized in case merchant has integrated JS SDK button on their S2S implementation
-     * Default value is false.</li>
+     *   <li>true = When this flag is enabled the field orderID is returned by CreatePayment call and should be utilized in case merchant has integrated JS SDK button on their S2S implementation</li>
      * </ul>
+     * <p>
+     * Default value is false.
      */
     public RedirectPaymentProduct840SpecificInput withJavaScriptSdkFlow(Boolean value) {
         this.JavaScriptSdkFlow = value;
