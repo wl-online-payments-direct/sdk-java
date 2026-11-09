@@ -16,6 +16,8 @@ public class CardPaymentMethodSpecificInputBase {
 
     private String initialSchemeTransactionId;
 
+    private CardInstallmentDetails installment;
+
     private MarketPlace marketPlace;
 
     private MultiplePaymentInformation multiplePaymentInformation;
@@ -49,6 +51,8 @@ public class CardPaymentMethodSpecificInputBase {
     private String unscheduledCardOnFileRequestor;
 
     private String unscheduledCardOnFileSequenceIndicator;
+
+    private CreditCardValidationRules validationRules;
 
     /**
      * <ul>
@@ -187,6 +191,28 @@ public class CardPaymentMethodSpecificInputBase {
      */
     public CardPaymentMethodSpecificInputBase withInitialSchemeTransactionId(String value) {
         this.initialSchemeTransactionId = value;
+        return this;
+    }
+
+    /**
+     * Object containing data related to installment
+     */
+    public CardInstallmentDetails getInstallment() {
+        return installment;
+    }
+
+    /**
+     * Object containing data related to installment
+     */
+    public void setInstallment(CardInstallmentDetails value) {
+        this.installment = value;
+    }
+
+    /**
+     * Object containing data related to installment
+     */
+    public CardPaymentMethodSpecificInputBase withInstallment(CardInstallmentDetails value) {
+        this.installment = value;
         return this;
     }
 
@@ -627,6 +653,28 @@ public class CardPaymentMethodSpecificInputBase {
      */
     public CardPaymentMethodSpecificInputBase withUnscheduledCardOnFileSequenceIndicator(String value) {
         this.unscheduledCardOnFileSequenceIndicator = value;
+        return this;
+    }
+
+    /**
+     * Validation rules for hosted checkout.
+     */
+    public CreditCardValidationRules getValidationRules() {
+        return validationRules;
+    }
+
+    /**
+     * Validation rules for hosted checkout.
+     */
+    public void setValidationRules(CreditCardValidationRules value) {
+        this.validationRules = value;
+    }
+
+    /**
+     * Validation rules for hosted checkout.
+     */
+    public CardPaymentMethodSpecificInputBase withValidationRules(CreditCardValidationRules value) {
+        this.validationRules = value;
         return this;
     }
 }

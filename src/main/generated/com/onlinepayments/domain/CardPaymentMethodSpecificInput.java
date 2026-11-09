@@ -24,6 +24,8 @@ public class CardPaymentMethodSpecificInput {
 
     private String initialSchemeTransactionId;
 
+    private CardInstallmentDetails installment;
+
     private Boolean isRecurring;
 
     private MarketPlace marketPlace;
@@ -67,6 +69,8 @@ public class CardPaymentMethodSpecificInput {
     private String unscheduledCardOnFileRequestor;
 
     private String unscheduledCardOnFileSequenceIndicator;
+
+    private CreditCardValidationRules validationRules;
 
     /**
      * <ul>
@@ -323,6 +327,28 @@ public class CardPaymentMethodSpecificInput {
      */
     public CardPaymentMethodSpecificInput withInitialSchemeTransactionId(String value) {
         this.initialSchemeTransactionId = value;
+        return this;
+    }
+
+    /**
+     * Object containing data related to installment
+     */
+    public CardInstallmentDetails getInstallment() {
+        return installment;
+    }
+
+    /**
+     * Object containing data related to installment
+     */
+    public void setInstallment(CardInstallmentDetails value) {
+        this.installment = value;
+    }
+
+    /**
+     * Object containing data related to installment
+     */
+    public CardPaymentMethodSpecificInput withInstallment(CardInstallmentDetails value) {
+        this.installment = value;
         return this;
     }
 
@@ -930,6 +956,28 @@ public class CardPaymentMethodSpecificInput {
      */
     public CardPaymentMethodSpecificInput withUnscheduledCardOnFileSequenceIndicator(String value) {
         this.unscheduledCardOnFileSequenceIndicator = value;
+        return this;
+    }
+
+    /**
+     * Object containing specific validation rules for creditCard.
+     */
+    public CreditCardValidationRules getValidationRules() {
+        return validationRules;
+    }
+
+    /**
+     * Object containing specific validation rules for creditCard.
+     */
+    public void setValidationRules(CreditCardValidationRules value) {
+        this.validationRules = value;
+    }
+
+    /**
+     * Object containing specific validation rules for creditCard.
+     */
+    public CardPaymentMethodSpecificInput withValidationRules(CreditCardValidationRules value) {
+        this.validationRules = value;
         return this;
     }
 }

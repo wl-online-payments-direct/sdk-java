@@ -12,6 +12,8 @@ public class CreateHostedTokenizationRequest {
 
     private String locale;
 
+    private String origin;
+
     private PaymentProductFiltersHostedTokenization paymentProductFilters;
 
     private String tokens;
@@ -75,6 +77,28 @@ public class CreateHostedTokenizationRequest {
      */
     public CreateHostedTokenizationRequest withLocale(String value) {
         this.locale = value;
+        return this;
+    }
+
+    /**
+     * The origin of the merchant site. This is used to prevent the HTP iframe from being embedded by other origins.
+     */
+    public String getOrigin() {
+        return origin;
+    }
+
+    /**
+     * The origin of the merchant site. This is used to prevent the HTP iframe from being embedded by other origins.
+     */
+    public void setOrigin(String value) {
+        this.origin = value;
+    }
+
+    /**
+     * The origin of the merchant site. This is used to prevent the HTP iframe from being embedded by other origins.
+     */
+    public CreateHostedTokenizationRequest withOrigin(String value) {
+        this.origin = value;
         return this;
     }
 
