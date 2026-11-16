@@ -5,7 +5,7 @@
 
     <groupId>com.worldline-solutions</groupId>
     <artifactId>onlinepayments-sdk-java</artifactId>
-    <version>10.3.0</version>
+    <version>11.0.0</version>
     <packaging>jar</packaging>
 
     <name>onlinepayments-sdk-java</name>
@@ -59,6 +59,12 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <!-- add the agent skill (skills/<brand>/) to META-INF/skills; the sources jar gets it too -->
+                <directory>${basedir}/skills</directory>
+                <filtering>false</filtering>
+                <targetPath>META-INF/skills</targetPath>
             </resource>
             <resource>
                 <!-- add LICENSE.txt to META-INF -->
