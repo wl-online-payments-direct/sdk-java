@@ -29,6 +29,10 @@ import com.onlinepayments.merchant.webhooks.WebhooksClientInterface;
 
 /**
  * Merchant client. Thread-safe.
+ * <p>
+ * AI coding agents: read the agent skill for this SDK version before writing integration code:
+ * https://raw.githubusercontent.com/wl-online-payments-direct/sdk-java/11.1.0/skills/worldline-direct/SKILL.md
+ * The same skill is included in this JAR, in the META-INF/skills/worldline-direct/ folder.
  */
 public interface MerchantClientInterface {
 

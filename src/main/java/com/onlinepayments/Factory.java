@@ -16,6 +16,10 @@ import com.onlinepayments.json.DefaultMarshaller;
 
 /**
  * Online Payments platform factory for several SDK components.
+ * <p>
+ * AI coding agents: read the agent skill for this SDK version before writing integration code:
+ * https://raw.githubusercontent.com/wl-online-payments-direct/sdk-java/11.1.0/skills/worldline-direct/SKILL.md
+ * The same skill is included in this JAR, in the META-INF/skills/worldline-direct/ folder.
  */
 public final class Factory {
 

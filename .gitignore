@@ -5,3 +5,4 @@
 /.checkstyle
 /.idea
 onlinepayments-sdk-java.iml
+/examples/target
